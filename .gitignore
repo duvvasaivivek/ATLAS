@@ -1,0 +1,197 @@
+# ==============================================================================
+# ATLAS - Master .gitignore
+# Tailored for Python, AI/ML (Deep Learning & QSAR/Bioinformatics), WSL, & Cross-Platform
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. Python Virtual Environments (Local & WSL)
+# ------------------------------------------------------------------------------
+.venv-wsl/
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+.conda/
+.direnv/
+bin/
+lib/
+lib64/
+include/
+pyvenv.cfg
+
+# ------------------------------------------------------------------------------
+# 2. Byte-Compiled / Optimized Python Files & Caches
+# ------------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# ------------------------------------------------------------------------------
+# 3. Packaging, Distributions, and Builds
+# ------------------------------------------------------------------------------
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ------------------------------------------------------------------------------
+# 4. Testing, Coverage, and Linting
+# ------------------------------------------------------------------------------
+.tox/
+.nox/
+.coverage
+.coverage.*
+coverage.xml
+nosetests.xml
+htmlcov/
+.hypothesis/
+.pytest_cache/
+cover/
+.mypy_cache/
+.pyre/
+.pytype/
+.ruff_cache/
+
+# ------------------------------------------------------------------------------
+# 5. Jupyter Notebooks & Interactive Sessions
+# ------------------------------------------------------------------------------
+.ipynb_checkpoints/
+*-checkpoint.ipynb
+.jupyter/
+*/.ipynb_checkpoints/*
+
+# ------------------------------------------------------------------------------
+# 6. Machine Learning, Deep Learning, & Model Checkpoints
+# ------------------------------------------------------------------------------
+# Large binary weights & serialized models (track via Git LFS / cloud bucket if needed)
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.hdf5
+*.bin
+*.onnx
+*.safetensors
+*.pkl
+*.pickle
+*.joblib
+*.model
+
+# Training logs, checkpoints & experiment tracking dashboards
+wandb/
+lightning_logs/
+tensorboard/
+runs/
+mlruns/
+checkpoints/
+
+# ------------------------------------------------------------------------------
+# 7. Datasets & Large Data Artifacts
+# ------------------------------------------------------------------------------
+# Large compressed archives and tabular data files
+*.tar.gz
+*.tgz
+*.zip
+*.7z
+*.rar
+*.parquet
+*.feather
+*.arrow
+
+# Ignore dataset directory contents while keeping directories with .gitkeep
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# ------------------------------------------------------------------------------
+# 8. Environment Variables, API Keys & Sensitive Credentials
+# ------------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+!.env.template
+secrets.json
+credentials.json
+*.pem
+*.key
+id_rsa
+id_rsa*
+
+# ------------------------------------------------------------------------------
+# 9. IDE, Code Editors & Tooling
+# ------------------------------------------------------------------------------
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.history/
+
+# JetBrains / PyCharm
+.idea/
+*.iml
+
+# Vim / Emacs
+*~
+*.swp
+*.swo
+.#*
+\#*\#
+
+# Local scratch and AI assistant directories
+scratch/
+.gemini/
+.agents/
+
+# ------------------------------------------------------------------------------
+# 10. Operating System Specific Artifacts
+# ------------------------------------------------------------------------------
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Linux / WSL
+.fuse_hidden*
+.directory
+.Trash-*
+
+# ------------------------------------------------------------------------------
+# 11. Logs, Databases & Temporary Files
+# ------------------------------------------------------------------------------
+*.log
+*.sqlite
+*.sqlite3
+*.db
+tmp/
+temp/
