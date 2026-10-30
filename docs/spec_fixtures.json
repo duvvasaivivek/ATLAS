@@ -1,0 +1,107 @@
+{
+  "specification_version": "1.0",
+  "evidence_kind": "analytical_reference_not_hardware_measurement",
+  "allocation": [
+    {
+      "id": "A01",
+      "policy": "paper_simple",
+      "r": 0.1,
+      "t_cpu_s": 1.0,
+      "t_gpu_s": 1.4,
+      "step": 0.05,
+      "expected_proposed_ratio": 0.15,
+      "expected_predicted_cpu_s": 1.5,
+      "expected_predicted_gpu_s": 1.3222222222222222,
+      "expected_final_ratio": 0.1,
+      "expected_reason": "hold_predicted_oscillation"
+    },
+    {
+      "id": "A02",
+      "policy": "paper_proportional",
+      "r": 0.3,
+      "t_cpu_s": 6.0,
+      "t_gpu_s": 3.0,
+      "expected_requested_ratio": 0.17647058823529413,
+      "expected_exact_fraction": "3/17"
+    },
+    {
+      "id": "A03",
+      "policy": "paper_adaptive",
+      "r": 0.15,
+      "t_cpu_s": 0.6,
+      "t_gpu_s": 0.8,
+      "previous_error_sign": 1,
+      "step_before": 0.15,
+      "precision": 0.01,
+      "expected_step_after": 0.075,
+      "expected_requested_ratio": 0.225
+    },
+    {
+      "id": "A04",
+      "policy": "paper_binary_literal",
+      "oracle": "t_cpu=r/0.8; t_gpu=(1-r)/0.2",
+      "initial_ratio": 0.5,
+      "expected_sequence": [0.5, 0.75, 0.875, 0.4375, 0.71875, 0.859375, 0.4296875]
+    },
+    {
+      "id": "A05",
+      "policy": "bracketed_bisection",
+      "oracle": "t_cpu=r/0.8; t_gpu=(1-r)/0.2",
+      "domain": "continuous_analytic_fixture_with_known_endpoint_signs",
+      "initial_bracket": [0.0, 1.0],
+      "midpoint_updates": 7,
+      "expected_final_bracket": [0.796875, 0.8046875],
+      "expected_width": 0.0078125
+    }
+  ],
+  "frequency": [
+    {
+      "id": "F01",
+      "policy": "paper_additive",
+      "core_observation": 0.4,
+      "core_target": 0.6,
+      "memory_observation": 0.9,
+      "memory_target": 0.5,
+      "alpha_core": 0.15,
+      "alpha_memory": 0.02,
+      "gamma": 0.3,
+      "beta": 0.2,
+      "expected_core_loss": 0.03,
+      "expected_memory_loss": 0.392,
+      "expected_total_loss": 0.2834,
+      "expected_weight_increment": 0.77328
+    }
+  ],
+  "measurement": [
+    {
+      "id": "E01",
+      "time_s": [0, 1, 3],
+      "power_w": [10, 20, 10],
+      "expected_energy_j": 45
+    },
+    {
+      "id": "E02",
+      "counter_previous_uj": 95,
+      "counter_current_uj": 4,
+      "counter_range_uj": 100,
+      "assumption": "less_than_one_full_range_accumulation_and_no_reset",
+      "expected_delta_uj": 9
+    },
+    {
+      "id": "E03",
+      "baseline_energy_j": 100,
+      "policy_energy_j": 80,
+      "baseline_runtime_s": 10,
+      "policy_runtime_s": 10.5,
+      "expected_saving_percent": 20,
+      "expected_slowdown_percent": 5,
+      "expected_energy_delay_product_js": 840
+    },
+    {
+      "id": "E04",
+      "t_cpu_s": 2,
+      "t_gpu_s": 4,
+      "expected_imbalance": 0.5
+    }
+  ]
+}
