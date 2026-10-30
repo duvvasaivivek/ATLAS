@@ -2,7 +2,7 @@
 
 Date: 2026-10-31
 
-Status: Phase 0 specification complete; Phase 1 capability discovery has not started. See the [Phase 0 review](docs/phase0_review.md) for evidence and remaining gates.
+Status: Phases 0 and 1 complete. See the [Phase 0 review](docs/phase0_review.md) and [Phase 1 review](docs/phase1_review.md) for evidence and remaining gates. Phase 2 has not started.
 
 Primary source: [GreenGPU research paper](GreenGPU.pdf), Kai Ma et al., *Energy conservation for GPU-CPU architectures with dynamic workload division and frequency scaling*, 2016, journal pages 21-33.
 
@@ -141,6 +141,8 @@ Prefer existing supported telemetry bindings over a handwritten native interface
 **Exit gate:** Every numerical target and algorithm has a source or is explicitly marked as an ATLAS design choice. No universal 21.04% saving, five-iteration convergence, or 3% slowdown claim remains in the active specification.
 
 ## 5. Phase 1 - Discover capabilities and select the execution path
+
+**Status:** Complete with real CPU/CUDA correctness evidence and partial telemetry. See [environment decision and limitations](docs/phase1_review.md), [capabilities](results/phase1/2026-10-31-final/capabilities.json), and [environment manifest](results/phase1/2026-10-31-final/environment.json). CPU powercap/governor interfaces are not exposed in WSL; GPU actuation and measurement accuracy remain unverified.
 
 **Depends on:** Phase 0.
 

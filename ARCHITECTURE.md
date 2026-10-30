@@ -4,13 +4,13 @@ Specification version: 1.0
 
 Updated: 2026-10-31
 
-Status: Scientific specification prepared in Phase 0; implementation and hardware capabilities remain unverified.
+Status: Phase 0 specification and Phase 1 discovery/build foundation complete. Workload controllers and validated energy measurement remain planned.
 
 ## Document authority and project state
 
 The [implementation plan](IMPLEMENTATION_PLAN.md) defines phase order and acceptance gates. The [controller specification](docs/algorithm_spec.md) defines policy behavior, and the [measurement specification](docs/measurement_spec.md) defines evidence and metrics. The [paper mapping](docs/paper_mapping.md) distinguishes published claims, mathematical deductions, and ATLAS decisions.
 
-The earlier implementation was deliberately removed. The virtual environment, source paper, and Git history remain. This architecture describes the intended replacement; module names below are planned responsibilities, not existing working code.
+The earlier implementation was deliberately removed. The virtual environment, source paper, and Git history remain. The replacement now includes a tested capability collector and native CPU/CUDA correctness fixture. Other module names below remain planned responsibilities. See the [Phase 1 review](docs/phase1_review.md) and [run instructions](README.md).
 
 The previous architecture is retained in Git history at revision `ce1e09a942dad5b9b9900b30ce873736d9c46d28`. Its unsupported assumptions and their resolutions are recorded in the [Phase 0 review](docs/phase0_review.md).
 
@@ -62,7 +62,7 @@ Planned files and their staged creation are listed in the implementation plan. D
 
 **Simulation** tests mathematical scenarios and failure cases with disclosed assumptions. It is not historical-hardware calibration unless separately supported by calibration data and validation.
 
-No specific current CPU/GPU model, frequency range, power range, operating system path, or sensor availability is assumed. Phase 1 resolves the environment and capability questions; Phase 8 verifies live actuation.
+Phase 1 verified Ubuntu 24.04 on WSL 2, an i5-12450H, an RTX 4050 Laptop GPU, and working CPU/CUDA compilation and execution. GPU monitoring queries return readings; CPU powercap and governor interfaces are not exposed in this environment. No frequency or power range is assumed enforceable from a query alone. Phase 2 validates measurement; Phase 8 verifies live actuation.
 
 ## Important design constraints
 
@@ -79,4 +79,4 @@ No specific current CPU/GPU model, frequency range, power range, operating syste
 
 Keep the retained virtual environment and paper. Record specification/configuration changes with their reasons. Preserve source and workload license information. No remote push is performed without explicit user instruction. Seeds support repeatability of fixtures and generated inputs, but do not eliminate hardware timing variability.
 
-The next work is [Phase 1 capability discovery](docs/phase0_review.md), not a benchmark claim or automatic hardware tuning.
+The next work is Phase 2 measurement infrastructure, following the [Phase 1 handoff](docs/phase1_review.md). Phase 1's fixture is not a performance or energy benchmark.

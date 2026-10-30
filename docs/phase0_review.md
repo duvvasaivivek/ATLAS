@@ -78,4 +78,4 @@ These checks ran successfully on 2026-10-31. They were one-time specification ch
 
 There is no unresolved Phase 0 approval question. Do not report unsupported hardware features as available, install speculative dependencies, recreate the virtual environment, or restore the deleted implementation merely to begin Phase 1.
 
-**Status:** Phase 0 complete. The specification gate is satisfied and the repository is ready for Phase 1 capability discovery. Phase 1 has not started.
+**Status:** Phase 0 complete. This document records the specification gate before implementation. Phase 1 was subsequently completed; see the [Phase 1 review](phase1_review.md) for the hardware evidence and current handoff.
