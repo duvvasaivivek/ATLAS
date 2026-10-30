@@ -29,6 +29,16 @@ def main(argv=None) -> int:
     static_parser.add_argument("--workers", type=int, default=4)
     static_replay = sub.add_parser("static-replay", help="Verify and replay a Phase 3 validation archive")
     static_replay.add_argument("run", type=Path)
+    kmeans_parser = sub.add_parser("kmeans-check", help="Validate kmeans, migration, and a held-out static split sweep")
+    kmeans_parser.add_argument("--output",type=Path,required=True)
+    kmeans_parser.add_argument("--binary",type=Path,required=True)
+    kmeans_parser.add_argument("--workers",type=int,default=4)
+    kmeans_parser.add_argument("--blocks",type=int,default=3)
+    kmeans_replay = sub.add_parser("kmeans-replay",help="Verify and regenerate a Phase 4 archive")
+    kmeans_replay.add_argument("run",type=Path)
+    kmeans_plot = sub.add_parser("kmeans-plot",help="Plot verified timing curves outside the raw archive")
+    kmeans_plot.add_argument("run",type=Path)
+    kmeans_plot.add_argument("--output",type=Path,required=True)
     args = parser.parse_args(argv)
     if not Path("pyproject.toml").is_file() or not Path("src/greengpu").is_dir():
         parser.error("Run this command from the ATLAS repository root")
@@ -40,8 +50,28 @@ def main(argv=None) -> int:
         from .static_execution import replay_static
         print(json.dumps(replay_static(args.run), indent=2, allow_nan=False))
         return 0
+    if args.command == "kmeans-replay":
+        from .kmeans import replay
+        print(json.dumps(replay(args.run),indent=2,allow_nan=False))
+        return 0
+    if args.command == "kmeans-plot":
+        from .kmeans_plot import render
+        try:
+            print(render(args.run,args.output))
+        except (ValueError,OSError,ImportError) as error:
+            parser.exit(1,f"Plot failed: {error}\n")
+        return 0
     if args.output.exists():
         parser.error("Output already exists; use a new directory to preserve earlier evidence")
+    if args.command == "kmeans-check":
+        from .kmeans import run
+        try:
+            result=run(args.output,args.binary,args.workers,args.blocks)
+        except (ValueError,RuntimeError,OSError) as error:
+            parser.exit(1,f"Kmeans validation failed: {error}\n")
+        print(json.dumps(dict(output=str(args.output),status=result["implementation_status"],full_phase_gate=result["full_phase_gate"],
+                              trials=len(result["results"]),concurrency=result["concurrency"]["status"]),indent=2))
+        return 0 if result["implementation_status"]=="passed" else 1
     if args.command == "static-check":
         from .static_execution import run_static_checks
         try:

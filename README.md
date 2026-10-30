@@ -129,3 +129,50 @@ positive. The harness uses one warm-up and reuses work buffers across iterations
 No CUDA event-duration or energy claim is enabled by these checks. See the
 [Phase 3 review and execution contract](docs/phase3_review.md) for evidence and
 limitations, including the distinction between host submission and kernel activity.
+
+## Run Phase 4 kmeans
+
+From the repository root in WSL, with `.venv-wsl` activated:
+
+```bash
+export PYTHONPATH="$PWD/src"
+cmake -S . -B build/phase4 -G Ninja \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_CUDA_COMPILER=/usr/local/cuda-13.1/bin/nvcc
+cmake --build build/phase4 --parallel 2
+python -m unittest discover -s tests -v
+OMP_NUM_THREADS=4 ctest --test-dir build/phase4 --output-on-failure
+
+python -m greengpu kmeans-check \
+  --binary build/phase4/atlas_kmeans \
+  --output results/phase4/local-check --workers 4 --blocks 3
+python -m greengpu kmeans-replay results/phase4/local-check
+```
+
+This runs independent correctness fixtures, fixed and convergence modes, changing
+ownership boundaries, a randomized static split sweep, refinement, held-out
+evaluation, and a separate Nsight concurrency trace. `nsys` must be on PATH.
+Each invocation needs a fresh output directory. The native program exports full
+final memberships and centroids; records retain transfer costs and iteration
+aggregates. A small migration example is:
+
+```bash
+# Input, CPU counts per iteration, maximum iterations, CPU workers, mode
+build/phase4/atlas_kmeans tests/data/kmeans_ties.kmdat 3,1,0,3,0 5 4 fixed
+```
+
+The binary input format and Python `write_dataset` helper are described in the
+[kmeans specification](docs/kmeans_spec.md). Optional scientific plots require
+Matplotlib; this extra is separate from the benchmark runtime:
+
+```bash
+python -m pip install -e '.[plots]'
+python -m greengpu kmeans-plot results/phase4/local-check \
+  --output results/phase4/local-figures
+```
+
+Plots show the sum of full iteration intervals, including migration, transfers,
+and merging. Intervening validation/logging time is reported separately.
+`implementation_status: passed` does **not** mean the full research gate passed:
+energy curves/minima remain blocked by Phase 2 qualification. See the
+[Phase 4 review and retained evidence](docs/phase4_review.md).

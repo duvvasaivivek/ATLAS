@@ -10,6 +10,9 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = ["nvidia-ml-py==13.615.71"]
 
+[project.optional-dependencies]
+plots = ["matplotlib==3.11.2"]
+
 [project.scripts]
 atlas = "greengpu.cli:main"
 

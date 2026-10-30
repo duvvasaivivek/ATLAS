@@ -15,7 +15,8 @@ def union_length(intervals):
     return total
 
 
-def analyze_profile(path, expected_iterations):
+def analyze_profile(path, expected_iterations, kernel_name="atlas_static_transform_reduce",
+                    iteration_name="atlas_iteration", cpu_name="atlas_cpu_compute"):
     """Correlate actual CUPTI kernel activity with measured CPU NVTX regions.
 
     All timestamps here belong to the profiler's correlated timeline, not the
@@ -35,10 +36,10 @@ def analyze_profile(path, expected_iterations):
                 FROM CUPTI_ACTIVITY_KIND_KERNEL k JOIN StringIds s ON k.shortName=s.id
                 JOIN CUPTI_ACTIVITY_KIND_RUNTIME r ON k.correlationId=r.correlationId
                     AND k.globalPid=(r.globalTid & -16777216)
-                WHERE s.value='atlas_static_transform_reduce' AND k.end>k.start
+                WHERE s.value=? AND k.end>k.start
                 ORDER BY k.start
-            """)]
-        iterations = [r for r in ranges if r["name"]=="atlas_iteration"]
+            """,(kernel_name,))]
+        iterations = [r for r in ranges if r["name"]==iteration_name]
         if len(iterations) != expected_iterations:
             raise ValueError("Measured NVTX iteration count does not match native configuration")
         evidence = []
@@ -46,7 +47,7 @@ def analyze_profile(path, expected_iterations):
         origin = min(r["start"] for r in iterations)
         for index, iteration in enumerate(iterations,1):
             lo, hi = iteration["start"], iteration["end"]
-            cpu = [r for r in ranges if r["name"]=="atlas_cpu_compute" and lo<=r["start"]<r["end"]<=hi
+            cpu = [r for r in ranges if r["name"]==cpu_name and lo<=r["start"]<r["end"]<=hi
                    and r["globalTid"]>>24 == iteration["globalTid"]>>24]
             gpu = [k for k in kernels if k["globalTid"]==iteration["globalTid"]
                    and lo<=k["launch_start"]<=k["launch_end"]<=hi and lo<=k["start"]<k["end"]<=hi

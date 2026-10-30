@@ -2,7 +2,7 @@
 
 Date: 2026-10-31
 
-Status: Phases 0, 1, and 3 complete; Phase 2 infrastructure implemented and tested, with physical GPU energy and device-event timing qualification still blocked. Phase 3 proves correct static CPU/GPU execution and profiler-observed overlap without lifting those measurement restrictions. See the [Phase 0 review](docs/phase0_review.md), [Phase 1 review](docs/phase1_review.md), [Phase 2 review](docs/phase2_review.md), and [Phase 3 review](docs/phase3_review.md).
+Status: Phases 0, 1, and 3 complete. Phase 4 kmeans implementation, correctness, migration, concurrency, and exploratory static timing study are complete. Phase 2 physical GPU energy and device-event timing qualification remain blocked, so Phase 4's full runtime-and-energy exit gate is not complete. See the [Phase 0 review](docs/phase0_review.md), [Phase 1 review](docs/phase1_review.md), [Phase 2 review](docs/phase2_review.md), [Phase 3 review](docs/phase3_review.md), and [Phase 4 review](docs/phase4_review.md).
 
 Primary source: [GreenGPU research paper](GreenGPU.pdf), Kai Ma et al., *Energy conservation for GPU-CPU architectures with dynamic workload division and frequency scaling*, 2016, journal pages 21-33.
 
@@ -205,6 +205,8 @@ Prefer existing supported telemetry bindings over a handwritten native interface
 **Exit gate:** All splits compute the same logical result within predefined tolerances; observed overlap is demonstrated; no endpoint divides by zero; every input item is processed exactly once.
 
 ## 8. Phase 4 - Implement kmeans as the first real workload
+
+**Status:** Software/correctness/timing implementation complete. The FP64 OpenMP/CUDA workload passes independent references, fixed and convergence modes, endpoint/interior splits, and boundary migrations. The final run retains 102 trials, coarse/refined static timing curves, held-out evaluation, and kernel/CPU overlap in three profile iterations. Tests and CUDA memory/race checks pass. The platform automatic clock policy is unchanged, not locked or verified constant; this is an exploratory timing baseline. Energy curves/minima remain unavailable, so the full exit gate below is blocked pending Phase 2 measurement qualification. See the [variant contract](docs/kmeans_spec.md), [review](docs/phase4_review.md), and [final results](results/phase4/2026-10-31-final-v2/summary.json).
 
 **Depends on:** Phase 3.
 

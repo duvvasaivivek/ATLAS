@@ -24,3 +24,13 @@ target_include_directories(atlas_static PRIVATE ${CMAKE_CUDA_TOOLKIT_INCLUDE_DIR
 target_link_libraries(atlas_static PRIVATE OpenMP::OpenMP_CXX Threads::Threads ${CMAKE_DL_LIBS})
 add_test(NAME static_split_partial_block COMMAND atlas_static 4099 2049 64 3 4 1729)
 set_tests_properties(static_split_partial_block PROPERTIES TIMEOUT 60)
+
+add_executable(atlas_kmeans native/kmeans/main.cu native/kmeans/cpu.cpp)
+set_target_properties(atlas_kmeans PROPERTIES CXX_STANDARD 17 CXX_STANDARD_REQUIRED YES
+  CUDA_STANDARD 17 CUDA_STANDARD_REQUIRED YES)
+target_include_directories(atlas_kmeans PRIVATE ${CMAKE_CUDA_TOOLKIT_INCLUDE_DIRECTORIES})
+target_link_libraries(atlas_kmeans PRIVATE OpenMP::OpenMP_CXX Threads::Threads ${CMAKE_DL_LIBS})
+target_compile_options(atlas_kmeans PRIVATE $<$<COMPILE_LANGUAGE:CXX>:-ffp-contract=off> $<$<COMPILE_LANGUAGE:CUDA>:--fmad=false>)
+add_test(NAME kmeans_migration COMMAND atlas_kmeans ${CMAKE_SOURCE_DIR}/tests/data/kmeans_ties.kmdat 3,1,0,3,0 5 4 fixed)
+add_test(NAME kmeans_convergence COMMAND atlas_kmeans ${CMAKE_SOURCE_DIR}/tests/data/kmeans_ties.kmdat 1 20 4 converge)
+set_tests_properties(kmeans_migration kmeans_convergence PROPERTIES TIMEOUT 60)
