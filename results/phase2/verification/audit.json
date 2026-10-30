@@ -1,0 +1,233 @@
+{
+  "replay_matches": true,
+  "all_evidence_checksums_match": true,
+  "source_files_verified": 15,
+  "binary_matches": true,
+  "paper_sha256": "064f486a8000a60b1b93483461d793222c5f53227f080c3dfd476d680d2ca341",
+  "correct_trials": 8,
+  "rejected_disputed_energy_trials": 4,
+  "overhead_percent": {
+    "max": -0.134844009511903,
+    "mean": -0.9111895388130758,
+    "min": -2.3174260816701486,
+    "n": 4,
+    "stdev": 0.9643353369580713
+  },
+  "duration_s": {
+    "max": 7.730532778,
+    "mean": 7.57340082525,
+    "min": 7.418688931,
+    "n": 4,
+    "stdev": 0.12831321220318515
+  },
+  "fixed_config": {
+    "config_hash": "cb488e7f4441e9c4cf9d9c41e8e5973672eb2d7bb45697e8327d8bb461b598ea",
+    "gap_rule": "max(5 requested periods, 3 maximum pilot gaps)",
+    "order": [
+      {
+        "block": 0,
+        "monitored": true
+      },
+      {
+        "block": 0,
+        "monitored": false
+      },
+      {
+        "block": 1,
+        "monitored": false
+      },
+      {
+        "block": 1,
+        "monitored": true
+      },
+      {
+        "block": 2,
+        "monitored": false
+      },
+      {
+        "block": 2,
+        "monitored": true
+      },
+      {
+        "block": 3,
+        "monitored": true
+      },
+      {
+        "block": 3,
+        "monitored": false
+      }
+    ],
+    "sensor_cadence": "unknown; observed change intervals retained; power averaged over 1 second on Ada",
+    "settings": {
+      "actuation": "none",
+      "allocation": "GPU only",
+      "averaging_window_ns": 1000000000,
+      "buffer_s": 1.1,
+      "controller": "none",
+      "counter_power_crosscheck": {
+        "min_duration_s": 5.0,
+        "purpose": "exploratory consistency screen, not an accuracy guarantee",
+        "relative_allowance": 0.1,
+        "rule": "abs(counter-power) <= 10% of larger energy + averaging_seconds * observed power span"
+      },
+      "cpu_policy": "unchanged",
+      "elements": 65539,
+      "generator": "index_xor_seed_v1",
+      "gpu_clock_policy": "unchanged platform automatic policy",
+      "input_sha256": "6b8f5d533ebe3a5b22f8ca01540ed36a2c3b28a53397afcfc6d73db9e28e86dc",
+      "max_gap_ns": 500000000,
+      "period_s": 0.1,
+      "policy": "B0-default",
+      "precision": "uint32_modulo_2^32",
+      "repetitions": 244297,
+      "rounds": 256,
+      "seed": 1729,
+      "timeout_s": 120,
+      "workload": "measurement_xorshift_v1"
+    },
+    "stage": "exploratory_validation_after_tuning_pilot",
+    "target_s": 10.0
+  },
+  "trials": [
+    {
+      "trial_id": "trial-000",
+      "duration_s": 7.591731678,
+      "gpu_event_s": 8.00703,
+      "boundary_overhead_s": 0.005276421,
+      "boundary_uncertainty_ns": 1302387,
+      "counter_energy": {
+        "domain": "gpu_board",
+        "end_ns": 9591606513937,
+        "joules": 869.359999999986,
+        "method": "counter_delta",
+        "qualification": "same NVML session; no externally guaranteed reset exclusion",
+        "start_ns": 9584014782259,
+        "status": "ok"
+      },
+      "sampled_power_energy": {
+        "domain": "gpu_board",
+        "end_ns": 9591606513937,
+        "joules": 373.0036225499144,
+        "method": "trapezoid",
+        "qualification": "sensor-reported estimate; averaging and acquisition uncertainty retained",
+        "segments": 77,
+        "start_ns": 9584014782259,
+        "status": "ok"
+      },
+      "counter_power_crosscheck": {
+        "allowance_j": 130.3619999999986,
+        "difference_j": 496.35637745007165,
+        "note": "Both methods may share sensor error; agreement is not external calibration",
+        "status": "inconsistent"
+      },
+      "max_poll_gap_s": 0.146400382,
+      "query_cpu_s": 0.13472983,
+      "query_wall_s": 1.33400173
+    },
+    {
+      "trial_id": "trial-003",
+      "duration_s": 7.730532778,
+      "gpu_event_s": 8.14718,
+      "boundary_overhead_s": 0.010139647,
+      "boundary_uncertainty_ns": 3318739,
+      "counter_energy": {
+        "domain": "gpu_board",
+        "end_ns": 9623476186164,
+        "joules": 831.3249999999534,
+        "method": "counter_delta",
+        "qualification": "same NVML session; no externally guaranteed reset exclusion",
+        "start_ns": 9615745653386,
+        "status": "ok"
+      },
+      "sampled_power_energy": {
+        "domain": "gpu_board",
+        "end_ns": 9623476186164,
+        "joules": 372.4411890326282,
+        "method": "trapezoid",
+        "qualification": "sensor-reported estimate; averaging and acquisition uncertainty retained",
+        "segments": 79,
+        "start_ns": 9615745653386,
+        "status": "ok"
+      },
+      "counter_power_crosscheck": {
+        "allowance_j": 124.32349999999535,
+        "difference_j": 458.88381096732525,
+        "note": "Both methods may share sensor error; agreement is not external calibration",
+        "status": "inconsistent"
+      },
+      "max_poll_gap_s": 0.137226565,
+      "query_cpu_s": 0.205515054,
+      "query_wall_s": 1.168043698
+    },
+    {
+      "trial_id": "trial-005",
+      "duration_s": 7.418688931,
+      "gpu_event_s": 7.8956800000000005,
+      "boundary_overhead_s": 0.014958904,
+      "boundary_uncertainty_ns": 844593,
+      "counter_energy": {
+        "domain": "gpu_board",
+        "end_ns": 9644443594436,
+        "joules": 839.0559999999823,
+        "method": "counter_delta",
+        "qualification": "same NVML session; no externally guaranteed reset exclusion",
+        "start_ns": 9637024905505,
+        "status": "ok"
+      },
+      "sampled_power_energy": {
+        "domain": "gpu_board",
+        "end_ns": 9644443594436,
+        "joules": 364.352919566093,
+        "method": "trapezoid",
+        "qualification": "sensor-reported estimate; averaging and acquisition uncertainty retained",
+        "segments": 73,
+        "start_ns": 9637024905505,
+        "status": "ok"
+      },
+      "counter_power_crosscheck": {
+        "allowance_j": 126.77259999999823,
+        "difference_j": 474.7030804338893,
+        "note": "Both methods may share sensor error; agreement is not external calibration",
+        "status": "inconsistent"
+      },
+      "max_poll_gap_s": 0.252506987,
+      "query_cpu_s": 0.236117242,
+      "query_wall_s": 1.765317746
+    },
+    {
+      "trial_id": "trial-006",
+      "duration_s": 7.552649914,
+      "gpu_event_s": 7.95221,
+      "boundary_overhead_s": 0.015964931,
+      "boundary_uncertainty_ns": 1649034,
+      "counter_energy": {
+        "domain": "gpu_board",
+        "end_ns": 9655219212340,
+        "joules": 840.1509999999544,
+        "method": "counter_delta",
+        "qualification": "same NVML session; no externally guaranteed reset exclusion",
+        "start_ns": 9647666562426,
+        "status": "ok"
+      },
+      "sampled_power_energy": {
+        "domain": "gpu_board",
+        "end_ns": 9655219212340,
+        "joules": 358.486712864176,
+        "method": "trapezoid",
+        "qualification": "sensor-reported estimate; averaging and acquisition uncertainty retained",
+        "segments": 76,
+        "start_ns": 9647666562426,
+        "status": "ok"
+      },
+      "counter_power_crosscheck": {
+        "allowance_j": 128.52809999999545,
+        "difference_j": 481.66428713577835,
+        "note": "Both methods may share sensor error; agreement is not external calibration",
+        "status": "inconsistent"
+      },
+      "max_poll_gap_s": 0.144208389,
+      "query_cpu_s": 0.322770975,
+      "query_wall_s": 1.40970205
+    }
+  ]
+}

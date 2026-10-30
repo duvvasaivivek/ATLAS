@@ -1,0 +1,53 @@
+{
+  "config_hash": "5640af4eb8bb1e036860f30230b6462fd67e0f183f004be99be84616cbd1ce84",
+  "gap_rule": "max(5 requested periods, 3 maximum pilot gaps)",
+  "order": [
+    {
+      "block": 0,
+      "monitored": true
+    },
+    {
+      "block": 0,
+      "monitored": false
+    },
+    {
+      "block": 1,
+      "monitored": false
+    },
+    {
+      "block": 1,
+      "monitored": true
+    },
+    {
+      "block": 2,
+      "monitored": false
+    },
+    {
+      "block": 2,
+      "monitored": true
+    }
+  ],
+  "sensor_cadence": "unknown; observed change intervals retained; power averaged over 1 second on Ada",
+  "settings": {
+    "actuation": "none",
+    "allocation": "GPU only",
+    "buffer_s": 1.1,
+    "controller": "none",
+    "cpu_policy": "unchanged",
+    "elements": 65539,
+    "generator": "index_xor_seed_v1",
+    "gpu_clock_policy": "unchanged platform automatic policy",
+    "input_sha256": "6b8f5d533ebe3a5b22f8ca01540ed36a2c3b28a53397afcfc6d73db9e28e86dc",
+    "max_gap_ns": 500000000,
+    "period_s": 0.1,
+    "policy": "B0-default",
+    "precision": "uint32_modulo_2^32",
+    "repetitions": 31371,
+    "rounds": 256,
+    "seed": 1729,
+    "timeout_s": 120,
+    "workload": "measurement_xorshift_v1"
+  },
+  "stage": "exploratory_validation_after_tuning_pilot",
+  "target_s": 3.0
+}

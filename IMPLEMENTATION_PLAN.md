@@ -2,7 +2,7 @@
 
 Date: 2026-10-31
 
-Status: Phases 0 and 1 complete. See the [Phase 0 review](docs/phase0_review.md) and [Phase 1 review](docs/phase1_review.md) for evidence and remaining gates. Phase 2 has not started.
+Status: Phases 0 and 1 complete; Phase 2 infrastructure implemented and tested. GPU energy and device-event timing qualification remain blocked by observed inconsistencies. See the [Phase 0 review](docs/phase0_review.md), [Phase 1 review](docs/phase1_review.md), and [Phase 2 review](docs/phase2_review.md) for evidence and remaining gates.
 
 Primary source: [GreenGPU research paper](GreenGPU.pdf), Kai Ma et al., *Energy conservation for GPU-CPU architectures with dynamic workload division and frequency scaling*, 2016, journal pages 21-33.
 
@@ -162,6 +162,8 @@ Prefer existing supported telemetry bindings over a handwritten native interface
 **Exit gate:** A real CPU result and GPU result agree; the selected environment is reproducible; sensor availability and unresolved actuation capabilities are explicit. If no GPU execution is available, the hardware branch is blocked and only a labeled simulation deliverable proceeds.
 
 ## 6. Phase 2 - Build measurement and experiment infrastructure
+
+**Status:** Implementation complete with analytic tests, real fixed-work CUDA trials, paired monitoring-overhead measurements, and checksum-verified replay. On the current WSL setup, the cumulative counter disagrees with sampled power, and device-event spans exceed their enclosing host intervals. Consistency guards reject disputed energy and device timing. CPU package and wall energy are unavailable. Infrastructure is ready for Phase 3 correctness work using the common host clock, but physical energy/device-timing claims remain blocked pending qualification. See [review and evidence](docs/phase2_review.md) and [run contract](docs/run_schema.md).
 
 **Depends on:** Phase 1.
 

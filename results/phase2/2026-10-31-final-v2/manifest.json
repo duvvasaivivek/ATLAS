@@ -1,0 +1,118 @@
+{
+  "binary": "/mnt/c/Users/saivi/Downloads/ATLAS/build/phase2/atlas_measure",
+  "binary_sha256": "0cad440cf41589894e9749b58b735fcfeae31b552db5539972f31720b181e84d",
+  "capability_report": "environment/capabilities.json",
+  "capability_sha256": "76f9328216761f303193bd70558fc6d76008d18775f47c666017ee3ef03f0d0a",
+  "clock": {
+    "name": "CLOCK_MONOTONIC",
+    "resolution_s": 1e-09,
+    "unit": "ns"
+  },
+  "cpu": {
+    "aggregation": "package zones only; nested core/DRAM zones excluded",
+    "domain": "cpu_package",
+    "errors": [],
+    "reason": "No readable package energy zones exposed",
+    "status": "unavailable",
+    "zones": []
+  },
+  "exclusions": [
+    "incorrect output",
+    "protocol/worker failure",
+    "unbracketed power trace",
+    "gap beyond frozen limit",
+    "counter discontinuity"
+  ],
+  "gpu": {
+    "attribution": "whole GPU domain; other workloads may contribute",
+    "calibration": "not externally calibrated",
+    "counter": {
+      "api": "nvmlDeviceGetTotalEnergyConsumption",
+      "raw_unit": "mJ",
+      "reset_detection": "same live session plus monotonic trace; undetected reset cannot be excluded externally",
+      "resolution_j": 0.001,
+      "semantics": "cumulative since driver reload",
+      "unit": "J"
+    },
+    "domain": "gpu_board",
+    "identity": {
+      "binding": "13.615.71",
+      "driver": "591.44",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "uuid": "GPU-d61f5e2c-c351-778f-1199-ff836cc40632"
+    },
+    "power": {
+      "api": "nvmlDeviceGetPowerUsage",
+      "averaging_window_ns": 1000000000,
+      "compute_capability": [
+        8,
+        9
+      ],
+      "device_timestamp_available": false,
+      "semantics": "1 second average on Ampere except GA100 and newer; instantaneous on older/GA100",
+      "sensor_update_cadence_ns": null,
+      "unit": "W"
+    }
+  },
+  "hardware_settings_changed": false,
+  "mode": "hardware_calibration",
+  "pilot_settings": {
+    "actuation": "none",
+    "allocation": "GPU only",
+    "averaging_window_ns": 1000000000,
+    "buffer_s": 1.1,
+    "controller": "none",
+    "counter_power_crosscheck": {
+      "min_duration_s": 5.0,
+      "purpose": "exploratory consistency screen, not an accuracy guarantee",
+      "relative_allowance": 0.1,
+      "rule": "abs(counter-power) <= 10% of larger energy + averaging_seconds * observed power span"
+    },
+    "cpu_policy": "unchanged",
+    "elements": 65539,
+    "generator": "index_xor_seed_v1",
+    "gpu_clock_policy": "unchanged platform automatic policy",
+    "gpu_event_crosscheck": {
+      "absolute_allowance_s": 0.001,
+      "relative_allowance": 0.01
+    },
+    "input_sha256": "6b8f5d533ebe3a5b22f8ca01540ed36a2c3b28a53397afcfc6d73db9e28e86dc",
+    "max_gap_ns": 500000000,
+    "period_s": 0.1,
+    "policy": "B0-default",
+    "precision": "uint32_modulo_2^32",
+    "repetitions": 4096,
+    "rounds": 256,
+    "seed": 1729,
+    "timeout_s": 120,
+    "workload": "measurement_xorshift_v1"
+  },
+  "process_attribution": "not isolated from Windows/other GPU workloads; no savings claim permitted",
+  "run_id": "2026-10-31-final-v2",
+  "schema_version": "2.0",
+  "source_hashes": {
+    "CMakeLists.txt": "b4d98a19e76f722617503609292032d504ab1bc645bf55c8eab0277b4786e891",
+    "native/measurement/main.cu": "66f075fdeb3efb7beb546005c82d6226267dd66a1826b64a15daa35f658233bf",
+    "native/smoke/cpu.cpp": "d1edbb9c99ddbca2c3141ff6fa93059c41b7b8c339860f3285f3baf5bcca4cf0",
+    "native/smoke/main.cu": "d4d521d8c1fdb82b4591b89069be3f92469666644ea84faed0384f182e5eda77",
+    "pyproject.toml": "0210170ff48e7fd27fa4943c5fcda30a017a78b605a753d5a6b70654fdaeac39",
+    "src/greengpu/__init__.py": "ba8bfd8efc53d45c5d9f04de6553ed05f64b26b1c1975db9944f360c2d8daa0c",
+    "src/greengpu/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src/greengpu/capabilities.py": "b4e8fe50c81454564a13ca354fa54e231f38d4f5b10cb224843ef79365ab64c5",
+    "src/greengpu/cli.py": "674fab924cf4800cb10841af17d626ebbc235422fe8493e489eced6779abad4f",
+    "src/greengpu/energy.py": "a67df694b429a21192f24cb899fa420b4e555d3be1bd599f8bbaf02b05a7fe76",
+    "src/greengpu/experiment.py": "cb59ee3149a9ce08a941c8785b72a7bc2be9ce2d0edf3e80ee38b82276499db6",
+    "src/greengpu/runner.py": "3d9726c2c2015536c7f6eeb1ebbfd1d251e69e98b1cfcde20c6342b77db084ff",
+    "src/greengpu/telemetry.py": "3db89b977056cd1883b021479690d55b5abc75ec84fdbaef24d58bfb4dc4c6cd",
+    "tests/test_capabilities.py": "f67481129cfecd8235077a44c3c119a0d2b40035ae46c29c048d6964242d1917",
+    "tests/test_measurement.py": "b63b70f43b6eee2c2cfc84f64152911e1f4e9cd595e1e1ef1e0c92082cfbbe20"
+  },
+  "specification": "measurement_spec_v1.0",
+  "started_utc": "2026-10-30T22:09:41.325658+00:00",
+  "wall": {
+    "domain": "system_wall",
+    "joules": null,
+    "reason": "No external wall meter configured; component counters are not wall energy",
+    "status": "unavailable"
+  }
+}
