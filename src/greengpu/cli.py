@@ -23,6 +23,12 @@ def main(argv=None) -> int:
     measure.add_argument("--seed", type=int, default=1729)
     replay_parser = sub.add_parser("replay", help="Verify evidence checksums and regenerate a Phase 2 summary on stdout")
     replay_parser.add_argument("run", type=Path)
+    static_parser = sub.add_parser("static-check", help="Validate static CPU/GPU partitions and capture concurrency evidence")
+    static_parser.add_argument("--output", type=Path, required=True)
+    static_parser.add_argument("--binary", type=Path, required=True)
+    static_parser.add_argument("--workers", type=int, default=4)
+    static_replay = sub.add_parser("static-replay", help="Verify and replay a Phase 3 validation archive")
+    static_replay.add_argument("run", type=Path)
     args = parser.parse_args(argv)
     if not Path("pyproject.toml").is_file() or not Path("src/greengpu").is_dir():
         parser.error("Run this command from the ATLAS repository root")
@@ -30,8 +36,21 @@ def main(argv=None) -> int:
         from .runner import replay
         print(json.dumps(replay(args.run), indent=2, allow_nan=False))
         return 0
+    if args.command == "static-replay":
+        from .static_execution import replay_static
+        print(json.dumps(replay_static(args.run), indent=2, allow_nan=False))
+        return 0
     if args.output.exists():
         parser.error("Output already exists; use a new directory to preserve earlier evidence")
+    if args.command == "static-check":
+        from .static_execution import run_static_checks
+        try:
+            result = run_static_checks(args.output,args.binary,args.workers)
+        except (ValueError,RuntimeError,OSError) as error:
+            parser.exit(1,f"Static validation failed: {error}\n")
+        print(json.dumps(dict(output=str(args.output),status=result["status"],cases=len(result["cases"]),
+                              concurrency=result["concurrency"]["status"]),indent=2))
+        return 0 if result["status"]=="passed" else 1
     if args.command == "calibrate":
         from .runner import run_calibration
         try:

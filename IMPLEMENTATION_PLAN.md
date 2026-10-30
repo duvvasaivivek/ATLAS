@@ -2,7 +2,7 @@
 
 Date: 2026-10-31
 
-Status: Phases 0 and 1 complete; Phase 2 infrastructure implemented and tested. GPU energy and device-event timing qualification remain blocked by observed inconsistencies. See the [Phase 0 review](docs/phase0_review.md), [Phase 1 review](docs/phase1_review.md), and [Phase 2 review](docs/phase2_review.md) for evidence and remaining gates.
+Status: Phases 0, 1, and 3 complete; Phase 2 infrastructure implemented and tested, with physical GPU energy and device-event timing qualification still blocked. Phase 3 proves correct static CPU/GPU execution and profiler-observed overlap without lifting those measurement restrictions. See the [Phase 0 review](docs/phase0_review.md), [Phase 1 review](docs/phase1_review.md), [Phase 2 review](docs/phase2_review.md), and [Phase 3 review](docs/phase3_review.md).
 
 Primary source: [GreenGPU research paper](GreenGPU.pdf), Kai Ma et al., *Energy conservation for GPU-CPU architectures with dynamic workload division and frequency scaling*, 2016, journal pages 21-33.
 
@@ -184,6 +184,8 @@ Prefer existing supported telemetry bindings over a handwritten native interface
 **Exit gate:** Known power traces integrate correctly; counter wrap, missing sensors, and gaps are handled; repeated baseline runs expose measurement noise; monitoring overhead is measured. No energy-improvement claim proceeds without a valid energy domain.
 
 ## 7. Phase 3 - Prove correct concurrent execution with static splits
+
+**Status:** Complete. The native OpenMP/CUDA harness passes 40 same-input partition configurations and 120 measured iterations, including endpoints and one-item branches. Nsight kernel activity overlaps CPU compute regions in all three measured profile iterations. Unit tests, native CTests, CUDA memory/race checks, and checksum-verified replay pass. See the [implementation review](docs/phase3_review.md) and [final evidence](results/phase3/2026-10-31-final/summary.json). Phase 2 energy/device-timing restrictions remain in force.
 
 **Depends on:** Phase 2.
 

@@ -15,3 +15,12 @@ set_tests_properties(cpu_cuda_correctness PROPERTIES TIMEOUT 60)
 
 add_executable(atlas_measure native/measurement/main.cu)
 set_target_properties(atlas_measure PROPERTIES CUDA_STANDARD 17 CUDA_STANDARD_REQUIRED YES)
+
+find_package(Threads REQUIRED)
+add_executable(atlas_static native/static/main.cu native/static/cpu.cpp)
+set_target_properties(atlas_static PROPERTIES CXX_STANDARD 17 CXX_STANDARD_REQUIRED YES
+  CUDA_STANDARD 17 CUDA_STANDARD_REQUIRED YES)
+target_include_directories(atlas_static PRIVATE ${CMAKE_CUDA_TOOLKIT_INCLUDE_DIRECTORIES})
+target_link_libraries(atlas_static PRIVATE OpenMP::OpenMP_CXX Threads::Threads ${CMAKE_DL_LIBS})
+add_test(NAME static_split_partial_block COMMAND atlas_static 4099 2049 64 3 4 1729)
+set_tests_properties(static_split_partial_block PROPERTIES TIMEOUT 60)

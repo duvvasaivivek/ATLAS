@@ -1,0 +1,39 @@
+Start testing: Oct 30 22:26 UTC
+----------------------------------------------------------
+1/2 Testing: cpu_cuda_correctness
+1/2 Test: cpu_cuda_correctness
+Command: "/mnt/c/Users/saivi/Downloads/ATLAS/build/phase3/atlas_smoke"
+Directory: /mnt/c/Users/saivi/Downloads/ATLAS/build/phase3
+"cpu_cuda_correctness" start time: Oct 30 22:26 UTC
+Output:
+----------------------------------------------------------
+{"status":"passed","device_name":"NVIDIA GeForce RTX 4050 Laptop GPU","compute_capability":"8.9","cuda_driver_api_version":13010,"cuda_runtime_version":13010,"device_memory_bytes":6438780928,"openmp_workers":4,"sizes":[1,255,256,257,4099,1048579],"elements_verified_per_backend":1053447,"max_absolute_error":0,"comparison":"exact_against_integer_oracle","cpu_gpu_concurrency_tested":false,"energy_measured":false}
+<end of output>
+Test time =   0.48 sec
+----------------------------------------------------------
+Test Passed.
+"cpu_cuda_correctness" end time: Oct 30 22:26 UTC
+"cpu_cuda_correctness" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/2 Testing: static_split_partial_block
+2/2 Test: static_split_partial_block
+Command: "/mnt/c/Users/saivi/Downloads/ATLAS/build/phase3/atlas_static" "4099" "2049" "64" "3" "4" "1729"
+Directory: /mnt/c/Users/saivi/Downloads/ATLAS/build/phase3
+"static_split_partial_block" start time: Oct 30 22:26 UTC
+Output:
+----------------------------------------------------------
+{"kind":"configuration","schema_version":"3.0","clock":"CLOCK_MONOTONIC","elements":4099,"cpu_items":2049,"gpu_items":2050,"rounds":64,"iterations":3,"workers_requested":4,"seed":1729,"preparation_start_ns":10871051253202,"reference_sum":8806928398904,"oracle":"masked_uint64_xorshift","tolerance":0,"buffer_capacity_items":4099,"allocation_policy":"allocate_once_reuse"}
+{"kind":"iteration","iteration":0,"warmup":true,"status":"passed","reset_start_ns":10871266062334,"reset_end_ns":10871267624712,"release_ns":10871267634055,"cpu_start_ns":10871267709378,"cpu_end_ns":10871268102335,"gpu_dispatch_ns":10871267656471,"h2d_end_ns":10871269429064,"compute_end_ns":10871271205747,"gpu_end_ns":10871271322241,"barrier_end_ns":10871271324617,"merge_end_ns":10871271328291,"validation_end_ns":10871271331567,"cpu_sum":4400463348437,"gpu_sum":4406465050467,"combined_sum":8806928398904,"mismatches":0,"coverage_errors":0,"elements_verified":4099,"workers_used":4,"worker_spans":[{"worker":0,"start_ns":10871268030661,"end_ns":10871268082011,"items":512},{"worker":1,"start_ns":10871268030701,"end_ns":10871268088203,"items":512},{"worker":2,"start_ns":10871268030871,"end_ns":10871268101663,"items":512},{"worker":3,"start_ns":10871268030714,"end_ns":10871268082185,"items":513}]}
+{"kind":"iteration","iteration":1,"warmup":false,"status":"passed","reset_start_ns":10871271410955,"reset_end_ns":10871271506746,"release_ns":10871271506868,"cpu_start_ns":10871271565215,"cpu_end_ns":10871271630902,"gpu_dispatch_ns":10871271556217,"h2d_end_ns":10871271674570,"compute_end_ns":10871271720667,"gpu_end_ns":10871271820451,"barrier_end_ns":10871271822129,"merge_end_ns":10871271825167,"validation_end_ns":10871271827821,"cpu_sum":4400463348437,"gpu_sum":4406465050467,"combined_sum":8806928398904,"mismatches":0,"coverage_errors":0,"elements_verified":4099,"workers_used":4,"worker_spans":[{"worker":0,"start_ns":10871271568736,"end_ns":10871271630199,"items":512},{"worker":1,"start_ns":10871271568930,"end_ns":10871271625342,"items":512},{"worker":2,"start_ns":10871271570688,"end_ns":10871271627350,"items":512},{"worker":3,"start_ns":10871271568910,"end_ns":10871271629800,"items":513}]}
+{"kind":"iteration","iteration":2,"warmup":false,"status":"passed","reset_start_ns":10871271849180,"reset_end_ns":10871271928992,"release_ns":10871271929065,"cpu_start_ns":10871272015959,"cpu_end_ns":10871272088900,"gpu_dispatch_ns":10871271977919,"h2d_end_ns":10871272264255,"compute_end_ns":10871272324312,"gpu_end_ns":10871272478094,"barrier_end_ns":10871272479096,"merge_end_ns":10871272480670,"validation_end_ns":10871272482551,"cpu_sum":4400463348437,"gpu_sum":4406465050467,"combined_sum":8806928398904,"mismatches":0,"coverage_errors":0,"elements_verified":4099,"workers_used":4,"worker_spans":[{"worker":0,"start_ns":10871272018969,"end_ns":10871272088259,"items":512},{"worker":1,"start_ns":10871272018861,"end_ns":10871272077471,"items":512},{"worker":2,"start_ns":10871272018873,"end_ns":10871272075348,"items":512},{"worker":3,"start_ns":10871272018847,"end_ns":10871272079697,"items":513}]}
+{"kind":"iteration","iteration":3,"warmup":false,"status":"passed","reset_start_ns":10871272508198,"reset_end_ns":10871272676375,"release_ns":10871272676422,"cpu_start_ns":10871272717861,"cpu_end_ns":10871272879761,"gpu_dispatch_ns":10871272690026,"h2d_end_ns":10871273013666,"compute_end_ns":10871273252776,"gpu_end_ns":10871273567780,"barrier_end_ns":10871273568352,"merge_end_ns":10871273570097,"validation_end_ns":10871273571920,"cpu_sum":4400463348437,"gpu_sum":4406465050467,"combined_sum":8806928398904,"mismatches":0,"coverage_errors":0,"elements_verified":4099,"workers_used":4,"worker_spans":[{"worker":0,"start_ns":10871272720561,"end_ns":10871272789799,"items":512},{"worker":1,"start_ns":10871272720324,"end_ns":10871272819231,"items":512},{"worker":2,"start_ns":10871272720319,"end_ns":10871272779059,"items":512},{"worker":3,"start_ns":10871272720308,"end_ns":10871272783555,"items":513}]}
+<end of output>
+Test time =   0.25 sec
+----------------------------------------------------------
+Test Passed.
+"static_split_partial_block" end time: Oct 30 22:26 UTC
+"static_split_partial_block" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 30 22:26 UTC

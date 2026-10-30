@@ -230,7 +230,7 @@ def collect(output: Path, cuda_compiler: str | None, smoke_binary: Path | None) 
     hashes = {}
     for directory in (Path("src"), Path("native"), Path("tests")):
         for path in sorted(directory.rglob("*")):
-            if path.is_file() and path.suffix in (".py", ".cpp", ".cu"):
+            if path.is_file() and path.suffix in (".py", ".cpp", ".cu", ".hpp", ".h"):
                 hashes[path.as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()
     for name in ("CMakeLists.txt", "pyproject.toml"):
         path = Path(name)

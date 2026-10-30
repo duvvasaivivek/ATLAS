@@ -4,13 +4,13 @@ Specification version: 1.0
 
 Updated: 2026-10-31
 
-Status: Phases 0 and 1 complete; Phase 2 measurement infrastructure implemented. GPU energy and device-event timing qualification are blocked by observed inconsistencies. Workload controllers remain planned.
+Status: Phases 0, 1, and 3 complete; Phase 2 measurement infrastructure implemented. Static CPU/GPU execution and profiler-observed overlap are verified. GPU energy and device-event timing qualification remain blocked; application workloads and feedback controllers remain planned.
 
 ## Document authority and project state
 
 The [implementation plan](IMPLEMENTATION_PLAN.md) defines phase order and acceptance gates. The [controller specification](docs/algorithm_spec.md) defines policy behavior, and the [measurement specification](docs/measurement_spec.md) defines evidence and metrics. The [paper mapping](docs/paper_mapping.md) distinguishes published claims, mathematical deductions, and ATLAS decisions.
 
-The earlier implementation was deliberately removed. The virtual environment, source paper, and Git history remain. The replacement includes capability discovery, CPU/CUDA correctness fixtures, a fixed-work CUDA measurement fixture, NVML/RAPL adapters, strict energy accounting, append-only run records, and deterministic replay. Controllers and concurrent workload modules below remain planned responsibilities. See the [Phase 2 review](docs/phase2_review.md) and [run instructions](README.md).
+The earlier implementation was deliberately removed. The virtual environment, source paper, and Git history remain. The replacement includes capability discovery, CPU/CUDA correctness fixtures, measurement infrastructure, and a native static-partition harness with persistent CPU dispatch, CUDA submission, exact reduction/coverage checks, and profiler trace analysis. Application workloads and feedback controllers below remain planned responsibilities. See the [Phase 3 review](docs/phase3_review.md) and [run instructions](README.md).
 
 The previous architecture is retained in Git history at revision `ce1e09a942dad5b9b9900b30ce873736d9c46d28`. Its unsupported assumptions and their resolutions are recorded in the [Phase 0 review](docs/phase0_review.md).
 
@@ -79,4 +79,4 @@ Phase 1 verified Ubuntu 24.04 on WSL 2, an i5-12450H, an RTX 4050 Laptop GPU, an
 
 Keep the retained virtual environment and paper. Record specification/configuration changes with their reasons. Preserve source and workload license information. No remote push is performed without explicit user instruction. Seeds support repeatability of fixtures and generated inputs, but do not eliminate hardware timing variability.
 
-The next implementation is Phase 3 concurrent execution with static splits. Phase 2's host timing/recording infrastructure is available, while disputed energy and device-event timings must remain invalid until their inconsistencies are resolved. The Phase 2 fixture measures infrastructure behavior, not kmeans/HotSpot savings. See the [Phase 2 handoff](docs/phase2_review.md).
+The next implementation is Phase 4 kmeans with shared centroids, partitioned assignments, local sums/counts, and a validated iteration merge. Phase 3's native execution and host timing foundation is available. Disputed energy and device-event timings must remain invalid until their inconsistencies are resolved; profiler overlap evidence does not calibrate those quantities. See the [Phase 3 handoff](docs/phase3_review.md).

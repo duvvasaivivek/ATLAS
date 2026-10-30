@@ -2,9 +2,9 @@
 
 ATLAS implements and evaluates the GreenGPU research method in stages. The
 [implementation plan](IMPLEMENTATION_PLAN.md) and [Phase 0 specification](docs/phase0_review.md)
-define the scope. Phases 1 and 2 add environment discovery, CPU/CUDA correctness
-checks, telemetry, energy accounting, and replayable calibration trials. Allocation
-and energy controllers are later phases.
+define the scope. Phases 1–3 add environment discovery, CPU/CUDA correctness,
+measurement infrastructure, and concurrent static partitions with profiler evidence.
+Application workloads and adaptive controllers are later phases.
 
 ## Run Phase 1 in Ubuntu / WSL 2
 
@@ -94,3 +94,38 @@ a completed trial does not guarantee valid energy or device timing: counter/powe
 disagreement blocks primary energy reporting, device-event/host disagreement
 blocks device timing, and CPU/wall energy remains unavailable on the
 current setup. This fixture measures infrastructure behavior, not GreenGPU savings.
+
+## Run Phase 3 static CPU/GPU validation
+
+From the repository root inside the retained WSL environment:
+
+```bash
+export PYTHONPATH="$PWD/src"
+cmake -S . -B build/phase3 -G Ninja \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_CUDA_COMPILER=/usr/local/cuda-13.1/bin/nvcc
+cmake --build build/phase3 --parallel 2
+python -m unittest discover -s tests -v
+OMP_NUM_THREADS=4 ctest --test-dir build/phase3 --output-on-failure
+
+python -m greengpu static-check \
+  --binary build/phase3/atlas_static \
+  --output results/phase3/local-check --workers 4
+python -m greengpu static-replay results/phase3/local-check
+```
+
+`static-check` runs 40 partition configurations with three measured iterations each,
+then captures a separate CUDA/NVTX trace with the installed `nsys` CLI. It requires
+exact output/coverage/reduction checks and observed kernel/CPU-region overlap.
+Each new run needs a fresh output directory. For a single native experiment:
+
+```bash
+# Arguments: elements, CPU items, rounds, measured iterations, CPU workers, seed
+build/phase3/atlas_static 65539 32769 128 5 4 1729
+```
+
+The GPU receives `elements - CPU items`. Empty branches are supported; N must be
+positive. The harness uses one warm-up and reuses work buffers across iterations.
+No CUDA event-duration or energy claim is enabled by these checks. See the
+[Phase 3 review and execution contract](docs/phase3_review.md) for evidence and
+limitations, including the distinction between host submission and kernel activity.
