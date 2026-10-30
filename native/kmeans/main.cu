@@ -88,7 +88,9 @@ struct PinnedPoints {
 
 int main(int argc,char** argv) {
     try {
-        if(argc!=6)throw std::runtime_error("Usage: atlas_kmeans INPUT.kmdat CPU_COUNTS_COMMA MAX_ITERS WORKERS fixed|converge");
+        if(argc!=6&&argc!=7)throw std::runtime_error("Usage: atlas_kmeans INPUT.kmdat CPU_COUNTS_COMMA MAX_ITERS WORKERS fixed|converge [feedback]");
+        const bool feedback=argc==7;
+        if(feedback&&std::string(argv[6])!="feedback")throw std::runtime_error("Unknown feedback mode");
         const int64_t preparation_start=km::now();
         const unsigned max_iters=number(argv[3],1,100),workers=number(argv[4],1,8);
         const std::string mode=argv[5]; if(mode!="fixed"&&mode!="converge")throw std::runtime_error("Unknown execution mode");
@@ -100,6 +102,7 @@ int main(int argc,char** argv) {
         std::stringstream shares(argv[2]);std::string token;
         while(std::getline(shares,token,','))schedule.push_back(number(token,0,n));
         if(schedule.size()!=1&&schedule.size()!=max_iters)throw std::runtime_error("Schedule must have one count or MAX_ITERS counts");
+        if(feedback&&schedule.size()!=1)throw std::runtime_error("Feedback requires one initial CPU count");
         int gpu_count=0;check(cudaGetDeviceCount(&gpu_count));if(gpu_count!=1)throw std::runtime_error("Exactly one GPU required");
         cudaDeviceProp prop{};check(cudaGetDeviceProperties(&prop,0));if(prop.major<6)throw std::runtime_error("FP64 atomics require compute capability >=6.0");
         PinnedPoints points;check(cudaMallocHost(&points.data,size_t(n)*d*8));
@@ -116,16 +119,22 @@ int main(int argc,char** argv) {
         Worker worker([&]{cpu.assign(points.data,centers.data(),labels.data(),cpu_items);});
         km::Reference reference(n,k,d,initial);
         unsigned resident_begin=n,previous_cut=n,executed=0;
-        int64_t active_ns=0,first_release=0,last_end=0;
+        int64_t active_ns=0,first_release=0,last_end=0,control_begin=0,total_control_ns=0;
         bool converged=false;
         double final_quality=0;
         std::cout<<std::setprecision(17);
         std::cout<<"{\"kind\":\"configuration\",\"schema_version\":\"4.0\",\"clock\":\"CLOCK_MONOTONIC\",\"n\":"<<n<<",\"d\":"<<d<<",\"k\":"<<k
                  <<",\"max_iterations\":"<<max_iters<<",\"workers_requested\":"<<workers<<",\"mode\":\""<<mode<<"\",\"atol\":1e-8,\"rtol\":1e-10,\"shift_tolerance\":1e-6,\"preparation_start_ns\":"<<preparation_start
-                 <<",\"initial_centroids\":";array_json(initial);std::cout<<"}"<<std::endl;
+                 <<",\"feedback\":"<<(feedback?"true":"false")<<",\"initial_centroids\":";array_json(initial);std::cout<<"}"<<std::endl;
         for(int iteration=-1;iteration<int(max_iters);++iteration) {
             const bool warmup=iteration<0;
-            cpu_items=schedule.size()==1?schedule[0]:schedule[warmup?0:iteration];
+            int64_t control_ns=0;
+            if(feedback&&iteration>0) {
+                std::string request;
+                if(!std::getline(std::cin,request))throw std::runtime_error("Feedback input closed before next partition");
+                cpu_items=number(request,0,n);
+                control_ns=km::now()-control_begin;total_control_ns+=control_ns;
+            } else cpu_items=schedule.size()==1?schedule[0]:schedule[warmup?0:iteration];
             const unsigned gpu_items=n-cpu_items,resident_before=resident_begin,old_cut=previous_cut;
             std::fill(labels.begin(),labels.end(),0xffffffffU);
             const int64_t release=km::now(); if(!warmup&&!executed)first_release=release;
@@ -194,6 +203,9 @@ int main(int argc,char** argv) {
             if(static_cast<double>(quality)>objective&&!km::close(static_cast<double>(quality),objective))++numeric_errors;
             const bool passed=!label_errors&&!count_errors&&!numeric_errors;
             const int64_t validation_end=km::now();
+            // Include previous-record export, controller/IPC, and partition parsing
+            // in the next measured iteration's control interval, outside validation.
+            if(feedback&&!warmup)control_begin=validation_end;
             std::cout<<"{\"kind\":\"iteration\",\"index\":"<<iteration<<",\"warmup\":"<<(warmup?"true":"false")<<",\"status\":\""<<(passed?"passed":"failed")
                      <<"\",\"cpu_items\":"<<cpu_items<<",\"gpu_items\":"<<gpu_items<<",\"resident_before\":"<<resident_before<<",\"resident_after\":"<<resident_begin
                      <<",\"ownership_changed_points\":"<<(cpu_items>old_cut?cpu_items-old_cut:old_cut-cpu_items)<<",\"h2d_point_bytes\":"<<point_bytes
@@ -202,7 +214,7 @@ int main(int argc,char** argv) {
                      <<",\"gpu_dispatch_ns\":"<<(gpu_items?std::to_string(gpu_dispatch):"null")<<",\"h2d_end_ns\":"<<(gpu_items?std::to_string(h2d_end):"null")
                      <<",\"compute_end_ns\":"<<(gpu_items?std::to_string(compute_end):"null")<<",\"gpu_end_ns\":"<<(gpu_items?std::to_string(gpu_end):"null")
                      <<",\"barrier_end_ns\":"<<barrier_end<<",\"end_ns\":"<<end<<",\"validation_end_ns\":"<<validation_end
-                     <<",\"workers_used\":"<<(cpu_items?cpu.result.workers:0)<<",\"objective_before_update\":"<<objective<<",\"objective_after_update\":"<<static_cast<double>(quality)
+                     <<",\"control_ns\":"<<control_ns<<",\"workers_used\":"<<(cpu_items?cpu.result.workers:0)<<",\"objective_before_update\":"<<objective<<",\"objective_after_update\":"<<static_cast<double>(quality)
                      <<",\"max_centroid_shift\":"<<shift<<",\"changed_labels\":"<<changed<<",\"empty_clusters\":"<<empty<<",\"converged\":"<<(converged?"true":"false")
                      <<",\"label_errors\":"<<label_errors<<",\"count_errors\":"<<count_errors<<",\"numeric_errors\":"<<numeric_errors<<",\"label_hash\":\""<<label_hash(labels)<<"\",\"counts\":";
             array_json(counts);std::cout<<",\"sums\":";array_json(sums);std::cout<<",\"centroids\":";array_json(centers);
@@ -218,6 +230,7 @@ int main(int argc,char** argv) {
             }
         }
         std::cout<<"{\"kind\":\"summary\",\"status\":\"passed\",\"iterations\":"<<executed<<",\"active_ns\":"<<active_ns<<",\"loop_elapsed_ns\":"<<last_end-first_release
+                 <<",\"control_ns\":"<<total_control_ns<<",\"active_and_control_ns\":"<<active_ns+total_control_ns
                  <<",\"final_objective\":"<<final_quality<<",\"stop_reason\":\""<<(mode=="fixed"?"fixed_budget":converged?"converged":"max_iterations")<<"\",\"final_labels\":";
         array_json(labels);std::cout<<",\"final_centroids\":";array_json(centers);std::cout<<"}"<<std::endl;
         return 0;

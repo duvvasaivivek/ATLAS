@@ -1,0 +1,386 @@
+{
+  "argv": [
+    "/mnt/c/Users/saivi/Downloads/ATLAS/build/phase5/atlas_kmeans",
+    "/mnt/c/Users/saivi/Downloads/ATLAS/results/phase5/2026-10-31-validation/datasets/empty.kmdat",
+    "17",
+    "8",
+    "4",
+    "fixed",
+    "feedback"
+  ],
+  "configuration": {
+    "adaptive_step": 0.15,
+    "alpha": 0.25,
+    "budget": 200,
+    "damping": 0.5,
+    "deadband": 0.05,
+    "dwell": 3,
+    "legal_counts": null,
+    "max_move": 0.1,
+    "n": 17,
+    "phase_factor": 2.0,
+    "phase_patience": 2,
+    "policy": "paper_binary_literal",
+    "precision": 0.01,
+    "step": 0.05
+  },
+  "decisions": [
+    {
+      "controller_ns": 122107,
+      "decision": {
+        "config_hash": "ed794bae7226d6968a17799107b497d8d269f142f9c56e11511733f171ccfebd",
+        "cpu_items": 8,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 17,
+          "epoch": 0,
+          "iteration": 0,
+          "run_id": "phase5-038",
+          "t_cpu": 9.7141e-05,
+          "t_gpu": null,
+          "valid": true
+        },
+        "policy": "paper_binary_literal",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 0,
+          "epoch": null,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": -1,
+          "phase_hits": 0,
+          "previous_ratio": null,
+          "run_id": "phase5-038",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 0,
+          "epoch": null,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": -1,
+          "phase_hits": 0,
+          "previous_ratio": null,
+          "run_id": "phase5-038",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.47058823529411764,
+        "reason": "needs_interior_probe",
+        "requested_ratio": 0.5,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 154050,
+      "decision": {
+        "config_hash": "ed794bae7226d6968a17799107b497d8d269f142f9c56e11511733f171ccfebd",
+        "cpu_items": 12,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 8,
+          "epoch": 0,
+          "iteration": 1,
+          "run_id": "phase5-038",
+          "t_cpu": 8.7982e-05,
+          "t_gpu": 0.00437382,
+          "valid": true
+        },
+        "policy": "paper_binary_literal",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 1,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 1,
+          "phase_hits": 0,
+          "previous_ratio": 0.47058823529411764,
+          "run_id": "phase5-038",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 0,
+          "epoch": null,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": -1,
+          "phase_hits": 0,
+          "previous_ratio": null,
+          "run_id": "phase5-038",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.7058823529411765,
+        "reason": "literal_binary_adjust",
+        "requested_ratio": 0.7352941176470589,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 94506,
+      "decision": {
+        "config_hash": "ed794bae7226d6968a17799107b497d8d269f142f9c56e11511733f171ccfebd",
+        "cpu_items": 15,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 12,
+          "epoch": 0,
+          "iteration": 2,
+          "run_id": "phase5-038",
+          "t_cpu": 5.0615e-05,
+          "t_gpu": 0.000565583,
+          "valid": true
+        },
+        "policy": "paper_binary_literal",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 2,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 2,
+          "phase_hits": 0,
+          "previous_ratio": 0.7058823529411765,
+          "run_id": "phase5-038",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 1,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 1,
+          "phase_hits": 0,
+          "previous_ratio": 0.47058823529411764,
+          "run_id": "phase5-038",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.8823529411764706,
+        "reason": "literal_binary_adjust",
+        "requested_ratio": 0.8529411764705883,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 121619,
+      "decision": {
+        "config_hash": "ed794bae7226d6968a17799107b497d8d269f142f9c56e11511733f171ccfebd",
+        "cpu_items": 16,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 15,
+          "epoch": 0,
+          "iteration": 3,
+          "run_id": "phase5-038",
+          "t_cpu": 0.000403183,
+          "t_gpu": 0.004246083,
+          "valid": true
+        },
+        "policy": "paper_binary_literal",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 3,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 3,
+          "phase_hits": 0,
+          "previous_ratio": 0.8823529411764706,
+          "run_id": "phase5-038",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 2,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 2,
+          "phase_hits": 0,
+          "previous_ratio": 0.7058823529411765,
+          "run_id": "phase5-038",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.9411764705882353,
+        "reason": "literal_binary_adjust",
+        "requested_ratio": 0.9411764705882353,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 153759,
+      "decision": {
+        "config_hash": "ed794bae7226d6968a17799107b497d8d269f142f9c56e11511733f171ccfebd",
+        "cpu_items": 8,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 16,
+          "epoch": 0,
+          "iteration": 4,
+          "run_id": "phase5-038",
+          "t_cpu": 0.001659918,
+          "t_gpu": 0.001034416,
+          "valid": true
+        },
+        "policy": "paper_binary_literal",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 4,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 4,
+          "phase_hits": 0,
+          "previous_ratio": 0.9411764705882353,
+          "run_id": "phase5-038",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 3,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 3,
+          "phase_hits": 0,
+          "previous_ratio": 0.8823529411764706,
+          "run_id": "phase5-038",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.47058823529411764,
+        "reason": "literal_binary_adjust",
+        "requested_ratio": 0.47058823529411764,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 208365,
+      "decision": {
+        "config_hash": "ed794bae7226d6968a17799107b497d8d269f142f9c56e11511733f171ccfebd",
+        "cpu_items": 12,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 8,
+          "epoch": 0,
+          "iteration": 5,
+          "run_id": "phase5-038",
+          "t_cpu": 0.000259769,
+          "t_gpu": 0.001199274,
+          "valid": true
+        },
+        "policy": "paper_binary_literal",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 5,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 5,
+          "phase_hits": 0,
+          "previous_ratio": 0.47058823529411764,
+          "run_id": "phase5-038",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 4,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 4,
+          "phase_hits": 0,
+          "previous_ratio": 0.9411764705882353,
+          "run_id": "phase5-038",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.7058823529411765,
+        "reason": "literal_binary_adjust",
+        "requested_ratio": 0.7352941176470589,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 110073,
+      "decision": {
+        "config_hash": "ed794bae7226d6968a17799107b497d8d269f142f9c56e11511733f171ccfebd",
+        "cpu_items": 6,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 12,
+          "epoch": 0,
+          "iteration": 6,
+          "run_id": "phase5-038",
+          "t_cpu": 0.000807716,
+          "t_gpu": 0.000570678,
+          "valid": true
+        },
+        "policy": "paper_binary_literal",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 6,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 6,
+          "phase_hits": 0,
+          "previous_ratio": 0.7058823529411765,
+          "run_id": "phase5-038",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 5,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 5,
+          "phase_hits": 0,
+          "previous_ratio": 0.47058823529411764,
+          "run_id": "phase5-038",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.35294117647058826,
+        "reason": "literal_binary_adjust",
+        "requested_ratio": 0.35294117647058826,
+        "specification_version": "1.1"
+      }
+    }
+  ],
+  "elapsed_ns": 396301810,
+  "failure": null,
+  "returncode": 0,
+  "status": "ok",
+  "stderr": "",
+  "stdout": "{\"kind\":\"configuration\",\"schema_version\":\"4.0\",\"clock\":\"CLOCK_MONOTONIC\",\"n\":17,\"d\":2,\"k\":4,\"max_iterations\":8,\"workers_requested\":4,\"mode\":\"fixed\",\"atol\":1e-8,\"rtol\":1e-10,\"shift_tolerance\":1e-6,\"preparation_start_ns\":15379971322795,\"feedback\":true,\"initial_centroids\":[1,1,1,1,1,1,1,1]}\n{\"kind\":\"iteration\",\"index\":-1,\"warmup\":true,\"status\":\"passed\",\"cpu_items\":17,\"gpu_items\":0,\"resident_before\":17,\"resident_after\":17,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":0,\"d2h_label_bytes\":0,\"d2h_aggregate_bytes\":0,\"release_ns\":15380317592289,\"cpu_start_ns\":15380317625992,\"cpu_end_ns\":15380317834779,\"gpu_dispatch_ns\":null,\"h2d_end_ns\":null,\"compute_end_ns\":null,\"gpu_end_ns\":null,\"barrier_end_ns\":15380317866381,\"end_ns\":15380317866862,\"validation_end_ns\":15380317874252,\"control_ns\":0,\"workers_used\":4,\"objective_before_update\":0,\"objective_after_update\":0,\"max_centroid_shift\":0,\"changed_labels\":17,\"empty_clusters\":3,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"e7d16c6b24f5c8f5\",\"counts\":[17,0,0,0],\"sums\":[17,17,0,0,0,0,0,0],\"centroids\":[1,1,1,1,1,1,1,1],\"labels\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}\n{\"kind\":\"iteration\",\"index\":0,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":17,\"gpu_items\":0,\"resident_before\":17,\"resident_after\":17,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":0,\"d2h_label_bytes\":0,\"d2h_aggregate_bytes\":0,\"release_ns\":15380317925544,\"cpu_start_ns\":15380318019893,\"cpu_end_ns\":15380318022685,\"gpu_dispatch_ns\":null,\"h2d_end_ns\":null,\"compute_end_ns\":null,\"gpu_end_ns\":null,\"barrier_end_ns\":15380318046109,\"end_ns\":15380318046344,\"validation_end_ns\":15380318047463,\"control_ns\":0,\"workers_used\":4,\"objective_before_update\":0,\"objective_after_update\":0,\"max_centroid_shift\":0,\"changed_labels\":17,\"empty_clusters\":3,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"e7d16c6b24f5c8f5\",\"counts\":[17,0,0,0],\"sums\":[17,17,0,0,0,0,0,0],\"centroids\":[1,1,1,1,1,1,1,1],\"labels\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}\n{\"kind\":\"iteration\",\"index\":1,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":8,\"gpu_items\":9,\"resident_before\":17,\"resident_after\":8,\"ownership_changed_points\":9,\"h2d_point_bytes\":144,\"h2d_centroid_bytes\":64,\"d2h_label_bytes\":36,\"d2h_aggregate_bytes\":88,\"release_ns\":15380318282837,\"cpu_start_ns\":15380318366240,\"cpu_end_ns\":15380318370819,\"gpu_dispatch_ns\":15380318294139,\"h2d_end_ns\":15380320881730,\"compute_end_ns\":15380322349198,\"gpu_end_ns\":15380322656657,\"barrier_end_ns\":15380322656933,\"end_ns\":15380322657382,\"validation_end_ns\":15380322659270,\"control_ns\":235293,\"workers_used\":4,\"objective_before_update\":0,\"objective_after_update\":0,\"max_centroid_shift\":0,\"changed_labels\":0,\"empty_clusters\":3,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"e7d16c6b24f5c8f5\",\"counts\":[17,0,0,0],\"sums\":[17,17,0,0,0,0,0,0],\"centroids\":[1,1,1,1,1,1,1,1],\"labels\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}\n{\"kind\":\"iteration\",\"index\":2,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":12,\"gpu_items\":5,\"resident_before\":8,\"resident_after\":8,\"ownership_changed_points\":4,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":64,\"d2h_label_bytes\":20,\"d2h_aggregate_bytes\":88,\"release_ns\":15380323015629,\"cpu_start_ns\":15380323060861,\"cpu_end_ns\":15380323066244,\"gpu_dispatch_ns\":15380323031067,\"h2d_end_ns\":15380323195458,\"compute_end_ns\":15380323244387,\"gpu_end_ns\":15380323581212,\"barrier_end_ns\":15380323581359,\"end_ns\":15380323581703,\"validation_end_ns\":15380323583628,\"control_ns\":356113,\"workers_used\":4,\"objective_before_update\":0,\"objective_after_update\":0,\"max_centroid_shift\":0,\"changed_labels\":0,\"empty_clusters\":3,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"e7d16c6b24f5c8f5\",\"counts\":[17,0,0,0],\"sums\":[17,17,0,0,0,0,0,0],\"centroids\":[1,1,1,1,1,1,1,1],\"labels\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}\n{\"kind\":\"iteration\",\"index\":3,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":15,\"gpu_items\":2,\"resident_before\":8,\"resident_after\":8,\"ownership_changed_points\":3,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":64,\"d2h_label_bytes\":8,\"d2h_aggregate_bytes\":88,\"release_ns\":15380323829123,\"cpu_start_ns\":15380324227715,\"cpu_end_ns\":15380324232306,\"gpu_dispatch_ns\":15380323842785,\"h2d_end_ns\":15380324112433,\"compute_end_ns\":15380324163685,\"gpu_end_ns\":15380328075206,\"barrier_end_ns\":15380328075582,\"end_ns\":15380328076156,\"validation_end_ns\":15380328078607,\"control_ns\":245340,\"workers_used\":4,\"objective_before_update\":0,\"objective_after_update\":0,\"max_centroid_shift\":0,\"changed_labels\":0,\"empty_clusters\":3,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"e7d16c6b24f5c8f5\",\"counts\":[17,0,0,0],\"sums\":[17,17,0,0,0,0,0,0],\"centroids\":[1,1,1,1,1,1,1,1],\"labels\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}\n{\"kind\":\"iteration\",\"index\":4,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":16,\"gpu_items\":1,\"resident_before\":8,\"resident_after\":8,\"ownership_changed_points\":1,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":64,\"d2h_label_bytes\":4,\"d2h_aggregate_bytes\":88,\"release_ns\":15380328364667,\"cpu_start_ns\":15380328397110,\"cpu_end_ns\":15380330024585,\"gpu_dispatch_ns\":15380328385913,\"h2d_end_ns\":15380328535922,\"compute_end_ns\":15380329108715,\"gpu_end_ns\":15380329399083,\"barrier_end_ns\":15380330071171,\"end_ns\":15380330072302,\"validation_end_ns\":15380330075446,\"control_ns\":285752,\"workers_used\":4,\"objective_before_update\":0,\"objective_after_update\":0,\"max_centroid_shift\":0,\"changed_labels\":0,\"empty_clusters\":3,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"e7d16c6b24f5c8f5\",\"counts\":[17,0,0,0],\"sums\":[17,17,0,0,0,0,0,0],\"centroids\":[1,1,1,1,1,1,1,1],\"labels\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}\n{\"kind\":\"iteration\",\"index\":5,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":8,\"gpu_items\":9,\"resident_before\":8,\"resident_after\":8,\"ownership_changed_points\":8,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":64,\"d2h_label_bytes\":36,\"d2h_aggregate_bytes\":88,\"release_ns\":15380330445905,\"cpu_start_ns\":15380330483911,\"cpu_end_ns\":15380330705674,\"gpu_dispatch_ns\":15380330464606,\"h2d_end_ns\":15380330818238,\"compute_end_ns\":15380330959222,\"gpu_end_ns\":15380331645179,\"barrier_end_ns\":15380331648313,\"end_ns\":15380331649018,\"validation_end_ns\":15380331664524,\"control_ns\":370285,\"workers_used\":4,\"objective_before_update\":0,\"objective_after_update\":0,\"max_centroid_shift\":0,\"changed_labels\":0,\"empty_clusters\":3,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"e7d16c6b24f5c8f5\",\"counts\":[17,0,0,0],\"sums\":[17,17,0,0,0,0,0,0],\"centroids\":[1,1,1,1,1,1,1,1],\"labels\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}\n{\"kind\":\"iteration\",\"index\":6,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":12,\"gpu_items\":5,\"resident_before\":8,\"resident_after\":8,\"ownership_changed_points\":4,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":64,\"d2h_label_bytes\":20,\"d2h_aggregate_bytes\":88,\"release_ns\":15380332630942,\"cpu_start_ns\":15380332676502,\"cpu_end_ns\":15380333438658,\"gpu_dispatch_ns\":15380332660357,\"h2d_end_ns\":15380332834641,\"compute_end_ns\":15380332946090,\"gpu_end_ns\":15380333201620,\"barrier_end_ns\":15380333480363,\"end_ns\":15380333480972,\"validation_end_ns\":15380333483909,\"control_ns\":965968,\"workers_used\":4,\"objective_before_update\":0,\"objective_after_update\":0,\"max_centroid_shift\":0,\"changed_labels\":0,\"empty_clusters\":3,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"e7d16c6b24f5c8f5\",\"counts\":[17,0,0,0],\"sums\":[17,17,0,0,0,0,0,0],\"centroids\":[1,1,1,1,1,1,1,1],\"labels\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}\n{\"kind\":\"iteration\",\"index\":7,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":6,\"gpu_items\":11,\"resident_before\":8,\"resident_after\":6,\"ownership_changed_points\":6,\"h2d_point_bytes\":32,\"h2d_centroid_bytes\":64,\"d2h_label_bytes\":44,\"d2h_aggregate_bytes\":88,\"release_ns\":15380333771118,\"cpu_start_ns\":15380333802773,\"cpu_end_ns\":15380334115010,\"gpu_dispatch_ns\":15380333791784,\"h2d_end_ns\":15380333951098,\"compute_end_ns\":15380334005816,\"gpu_end_ns\":15380334265799,\"barrier_end_ns\":15380334266032,\"end_ns\":15380334266457,\"validation_end_ns\":15380334268751,\"control_ns\":287011,\"workers_used\":4,\"objective_before_update\":0,\"objective_after_update\":0,\"max_centroid_shift\":0,\"changed_labels\":0,\"empty_clusters\":3,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"e7d16c6b24f5c8f5\",\"counts\":[17,0,0,0],\"sums\":[17,17,0,0,0,0,0,0],\"centroids\":[1,1,1,1,1,1,1,1],\"labels\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}\n{\"kind\":\"summary\",\"status\":\"passed\",\"iterations\":8,\"active_ns\":13564569,\"loop_elapsed_ns\":16340913,\"control_ns\":2745762,\"active_and_control_ns\":16310331,\"final_objective\":0,\"stop_reason\":\"fixed_budget\",\"final_labels\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"final_centroids\":[1,1,1,1,1,1,1,1]}\n",
+  "timed_out": false
+}

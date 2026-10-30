@@ -1,0 +1,1321 @@
+{
+  "argv": [
+    "/mnt/c/Users/saivi/Downloads/ATLAS/build/phase5/atlas_kmeans",
+    "/mnt/c/Users/saivi/Downloads/ATLAS/results/phase5/2026-10-31-validation/datasets/heldout.kmdat",
+    "16385",
+    "24",
+    "4",
+    "fixed",
+    "feedback"
+  ],
+  "configuration": {
+    "adaptive_step": 0.15,
+    "alpha": 0.25,
+    "budget": 200,
+    "damping": 0.5,
+    "deadband": 0.05,
+    "dwell": 3,
+    "legal_counts": null,
+    "max_move": 0.1,
+    "n": 32771,
+    "phase_factor": 2.0,
+    "phase_patience": 2,
+    "policy": "robust_proportional_v1",
+    "precision": 0.01,
+    "step": 0.05
+  },
+  "decisions": [
+    {
+      "controller_ns": 138399,
+      "decision": {
+        "config_hash": "257b4900054f0d32a85fe595bb8ca1ec415d059c7e12ac19c4d3c10417b03cc0",
+        "cpu_items": 17262,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 16385,
+          "epoch": 0,
+          "iteration": 0,
+          "run_id": "phase5-160",
+          "t_cpu": 0.000872458,
+          "t_gpu": 0.001081537,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 1,
+          "epoch": 0,
+          "filter": [
+            0.0017449692473603907,
+            0.00216300799627731
+          ],
+          "frozen": null,
+          "last_iteration": 0,
+          "phase_hits": 0,
+          "previous_ratio": 0.49998474260779346,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 0,
+          "epoch": null,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": -1,
+          "phase_hits": 0,
+          "previous_ratio": null,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5267462085380367,
+        "reason": "robust_adjust",
+        "requested_ratio": 0.5267350263179131,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 132452,
+      "decision": {
+        "config_hash": "257b4900054f0d32a85fe595bb8ca1ec415d059c7e12ac19c4d3c10417b03cc0",
+        "cpu_items": 17262,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 17262,
+          "epoch": 0,
+          "iteration": 1,
+          "run_id": "phase5-160",
+          "t_cpu": 0.00080207,
+          "t_gpu": 0.000666664,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 2,
+          "epoch": 0,
+          "filter": [
+            0.0016893988734475321,
+            0.0019744264457217486
+          ],
+          "frozen": null,
+          "last_iteration": 1,
+          "phase_hits": 0,
+          "previous_ratio": 0.5267462085380367,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 1,
+          "epoch": 0,
+          "filter": [
+            0.0017449692473603907,
+            0.00216300799627731
+          ],
+          "frozen": null,
+          "last_iteration": 0,
+          "phase_hits": 0,
+          "previous_ratio": 0.49998474260779346,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5267462085380367,
+        "reason": "hold_dwell",
+        "requested_ratio": 0.5267462085380367,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 259713,
+      "decision": {
+        "config_hash": "257b4900054f0d32a85fe595bb8ca1ec415d059c7e12ac19c4d3c10417b03cc0",
+        "cpu_items": 17262,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 17262,
+          "epoch": 0,
+          "iteration": 2,
+          "run_id": "phase5-160",
+          "t_cpu": 0.000597198,
+          "t_gpu": 0.000637651,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 3,
+          "epoch": 0,
+          "filter": [
+            0.001550486411168374,
+            0.0018176639396656103
+          ],
+          "frozen": null,
+          "last_iteration": 2,
+          "phase_hits": 0,
+          "previous_ratio": 0.5267462085380367,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 2,
+          "epoch": 0,
+          "filter": [
+            0.0016893988734475321,
+            0.0019744264457217486
+          ],
+          "frozen": null,
+          "last_iteration": 1,
+          "phase_hits": 0,
+          "previous_ratio": 0.5267462085380367,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5267462085380367,
+        "reason": "hold_dwell",
+        "requested_ratio": 0.5267462085380367,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 180228,
+      "decision": {
+        "config_hash": "257b4900054f0d32a85fe595bb8ca1ec415d059c7e12ac19c4d3c10417b03cc0",
+        "cpu_items": 17573,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 17262,
+          "epoch": 0,
+          "iteration": 3,
+          "run_id": "phase5-160",
+          "t_cpu": 0.000600325,
+          "t_gpu": 0.000711657,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 4,
+          "epoch": 0,
+          "filter": [
+            0.0014477861757583917,
+            0.001739186305819554
+          ],
+          "frozen": null,
+          "last_iteration": 3,
+          "phase_hits": 0,
+          "previous_ratio": 0.5267462085380367,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 3,
+          "epoch": 0,
+          "filter": [
+            0.001550486411168374,
+            0.0018176639396656103
+          ],
+          "frozen": null,
+          "last_iteration": 2,
+          "phase_hits": 0,
+          "previous_ratio": 0.5267462085380367,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5362363064904947,
+        "reason": "robust_adjust",
+        "requested_ratio": 0.5362317994527372,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 135258,
+      "decision": {
+        "config_hash": "257b4900054f0d32a85fe595bb8ca1ec415d059c7e12ac19c4d3c10417b03cc0",
+        "cpu_items": 17573,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 17573,
+          "epoch": 0,
+          "iteration": 4,
+          "run_id": "phase5-160",
+          "t_cpu": 0.000657436,
+          "t_gpu": 0.000685003,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 5,
+          "epoch": 0,
+          "filter": [
+            0.0013923444283247973,
+            0.001673652680295709
+          ],
+          "frozen": null,
+          "last_iteration": 4,
+          "phase_hits": 0,
+          "previous_ratio": 0.5362363064904947,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 4,
+          "epoch": 0,
+          "filter": [
+            0.0014477861757583917,
+            0.001739186305819554
+          ],
+          "frozen": null,
+          "last_iteration": 3,
+          "phase_hits": 0,
+          "previous_ratio": 0.5267462085380367,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5362363064904947,
+        "reason": "hold_deadband",
+        "requested_ratio": 0.5362363064904947,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 163259,
+      "decision": {
+        "config_hash": "257b4900054f0d32a85fe595bb8ca1ec415d059c7e12ac19c4d3c10417b03cc0",
+        "cpu_items": 17573,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 17573,
+          "epoch": 0,
+          "iteration": 5,
+          "run_id": "phase5-160",
+          "t_cpu": 0.000697745,
+          "t_gpu": 0.00059519,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 6,
+          "epoch": 0,
+          "filter": [
+            0.0013695556722223721,
+            0.001576087179158484
+          ],
+          "frozen": null,
+          "last_iteration": 5,
+          "phase_hits": 0,
+          "previous_ratio": 0.5362363064904947,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 5,
+          "epoch": 0,
+          "filter": [
+            0.0013923444283247973,
+            0.001673652680295709
+          ],
+          "frozen": null,
+          "last_iteration": 4,
+          "phase_hits": 0,
+          "previous_ratio": 0.5362363064904947,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5362363064904947,
+        "reason": "hold_dwell",
+        "requested_ratio": 0.5362363064904947,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 131535,
+      "decision": {
+        "config_hash": "257b4900054f0d32a85fe595bb8ca1ec415d059c7e12ac19c4d3c10417b03cc0",
+        "cpu_items": 17573,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 17573,
+          "epoch": 0,
+          "iteration": 6,
+          "run_id": "phase5-160",
+          "t_cpu": 0.000548437,
+          "t_gpu": 0.00054217,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 7,
+          "epoch": 0,
+          "filter": [
+            0.0012828548684187565,
+            0.0014743316870073683
+          ],
+          "frozen": null,
+          "last_iteration": 6,
+          "phase_hits": 0,
+          "previous_ratio": 0.5362363064904947,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 6,
+          "epoch": 0,
+          "filter": [
+            0.0013695556722223721,
+            0.001576087179158484
+          ],
+          "frozen": null,
+          "last_iteration": 5,
+          "phase_hits": 0,
+          "previous_ratio": 0.5362363064904947,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5362363064904947,
+        "reason": "hold_deadband",
+        "requested_ratio": 0.5362363064904947,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 141179,
+      "decision": {
+        "config_hash": "257b4900054f0d32a85fe595bb8ca1ec415d059c7e12ac19c4d3c10417b03cc0",
+        "cpu_items": 17761,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 17573,
+          "epoch": 0,
+          "iteration": 7,
+          "run_id": "phase5-160",
+          "t_cpu": 0.000573666,
+          "t_gpu": 0.000711107,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 8,
+          "epoch": 0,
+          "filter": [
+            0.0012295913374803452,
+            0.0014890835378736339
+          ],
+          "frozen": null,
+          "last_iteration": 7,
+          "phase_hits": 0,
+          "previous_ratio": 0.5362363064904947,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 7,
+          "epoch": 0,
+          "filter": [
+            0.0012828548684187565,
+            0.0014743316870073683
+          ],
+          "frozen": null,
+          "last_iteration": 6,
+          "phase_hits": 0,
+          "previous_ratio": 0.5362363064904947,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5419730859601477,
+        "reason": "robust_adjust",
+        "requested_ratio": 0.5419801643619224,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 122338,
+      "decision": {
+        "config_hash": "257b4900054f0d32a85fe595bb8ca1ec415d059c7e12ac19c4d3c10417b03cc0",
+        "cpu_items": 17761,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 17761,
+          "epoch": 0,
+          "iteration": 8,
+          "run_id": "phase5-160",
+          "t_cpu": 0.000542102,
+          "t_gpu": 0.000736291,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 9,
+          "epoch": 0,
+          "filter": [
+            0.0011722529682586177,
+            0.0015186946047876372
+          ],
+          "frozen": null,
+          "last_iteration": 8,
+          "phase_hits": 0,
+          "previous_ratio": 0.5419730859601477,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 8,
+          "epoch": 0,
+          "filter": [
+            0.0012295913374803452,
+            0.0014890835378736339
+          ],
+          "frozen": null,
+          "last_iteration": 7,
+          "phase_hits": 0,
+          "previous_ratio": 0.5362363064904947,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5419730859601477,
+        "reason": "hold_dwell",
+        "requested_ratio": 0.5419730859601477,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 134755,
+      "decision": {
+        "config_hash": "257b4900054f0d32a85fe595bb8ca1ec415d059c7e12ac19c4d3c10417b03cc0",
+        "cpu_items": 17761,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 17761,
+          "epoch": 0,
+          "iteration": 9,
+          "run_id": "phase5-160",
+          "t_cpu": 0.001011178,
+          "t_gpu": 0.000535077,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 10,
+          "epoch": 0,
+          "filter": [
+            0.001345623404449692,
+            0.0014310763894168437
+          ],
+          "frozen": null,
+          "last_iteration": 9,
+          "phase_hits": 0,
+          "previous_ratio": 0.5419730859601477,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 9,
+          "epoch": 0,
+          "filter": [
+            0.0011722529682586177,
+            0.0015186946047876372
+          ],
+          "frozen": null,
+          "last_iteration": 8,
+          "phase_hits": 0,
+          "previous_ratio": 0.5419730859601477,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5419730859601477,
+        "reason": "hold_dwell",
+        "requested_ratio": 0.5419730859601477,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 141724,
+      "decision": {
+        "config_hash": "257b4900054f0d32a85fe595bb8ca1ec415d059c7e12ac19c4d3c10417b03cc0",
+        "cpu_items": 18017,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 17761,
+          "epoch": 0,
+          "iteration": 10,
+          "run_id": "phase5-160",
+          "t_cpu": 0.000584103,
+          "t_gpu": 0.000985997,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 11,
+          "epoch": 0,
+          "filter": [
+            0.0012786511355257718,
+            0.001611483635950041
+          ],
+          "frozen": null,
+          "last_iteration": 10,
+          "phase_hits": 0,
+          "previous_ratio": 0.5419730859601477,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 10,
+          "epoch": 0,
+          "filter": [
+            0.001345623404449692,
+            0.0014310763894168437
+          ],
+          "frozen": null,
+          "last_iteration": 9,
+          "phase_hits": 0,
+          "previous_ratio": 0.5419730859601477,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.549784870769888,
+        "reason": "robust_adjust",
+        "requested_ratio": 0.5497769391675769,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 137337,
+      "decision": {
+        "config_hash": "257b4900054f0d32a85fe595bb8ca1ec415d059c7e12ac19c4d3c10417b03cc0",
+        "cpu_items": 18017,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 18017,
+          "epoch": 0,
+          "iteration": 11,
+          "run_id": "phase5-160",
+          "t_cpu": 0.000916822,
+          "t_gpu": 0.000706088,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 12,
+          "epoch": 0,
+          "filter": [
+            0.001375888692461335,
+            0.0016006963966114394
+          ],
+          "frozen": null,
+          "last_iteration": 11,
+          "phase_hits": 0,
+          "previous_ratio": 0.549784870769888,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 11,
+          "epoch": 0,
+          "filter": [
+            0.0012786511355257718,
+            0.001611483635950041
+          ],
+          "frozen": null,
+          "last_iteration": 10,
+          "phase_hits": 0,
+          "previous_ratio": 0.5419730859601477,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.549784870769888,
+        "reason": "hold_dwell",
+        "requested_ratio": 0.549784870769888,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 160130,
+      "decision": {
+        "config_hash": "257b4900054f0d32a85fe595bb8ca1ec415d059c7e12ac19c4d3c10417b03cc0",
+        "cpu_items": 18017,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 18017,
+          "epoch": 0,
+          "iteration": 12,
+          "run_id": "phase5-160",
+          "t_cpu": 0.00075772,
+          "t_gpu": 0.000701226,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 13,
+          "epoch": 0,
+          "filter": [
+            0.0013764694710027697,
+            0.0015899061466859076
+          ],
+          "frozen": null,
+          "last_iteration": 12,
+          "phase_hits": 0,
+          "previous_ratio": 0.549784870769888,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 12,
+          "epoch": 0,
+          "filter": [
+            0.001375888692461335,
+            0.0016006963966114394
+          ],
+          "frozen": null,
+          "last_iteration": 11,
+          "phase_hits": 0,
+          "previous_ratio": 0.549784870769888,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.549784870769888,
+        "reason": "hold_dwell",
+        "requested_ratio": 0.549784870769888,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 123493,
+      "decision": {
+        "config_hash": "257b4900054f0d32a85fe595bb8ca1ec415d059c7e12ac19c4d3c10417b03cc0",
+        "cpu_items": 17790,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 18017,
+          "epoch": 0,
+          "iteration": 13,
+          "run_id": "phase5-160",
+          "t_cpu": 0.000689446,
+          "t_gpu": 0.000651649,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 14,
+          "epoch": 0,
+          "filter": [
+            0.0013458592751730409,
+            0.0015542838424090356
+          ],
+          "frozen": null,
+          "last_iteration": 13,
+          "phase_hits": 0,
+          "previous_ratio": 0.549784870769888,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 13,
+          "epoch": 0,
+          "filter": [
+            0.0013764694710027697,
+            0.0015899061466859076
+          ],
+          "frozen": null,
+          "last_iteration": 12,
+          "phase_hits": 0,
+          "previous_ratio": 0.549784870769888,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5428580147081261,
+        "reason": "robust_adjust",
+        "requested_ratio": 0.5428591838164631,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 154013,
+      "decision": {
+        "config_hash": "257b4900054f0d32a85fe595bb8ca1ec415d059c7e12ac19c4d3c10417b03cc0",
+        "cpu_items": 17790,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 17790,
+          "epoch": 0,
+          "iteration": 14,
+          "run_id": "phase5-160",
+          "t_cpu": 0.000573885,
+          "t_gpu": 0.000697426,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 15,
+          "epoch": 0,
+          "filter": [
+            0.0012736831766580268,
+            0.0015471184529635752
+          ],
+          "frozen": null,
+          "last_iteration": 14,
+          "phase_hits": 0,
+          "previous_ratio": 0.5428580147081261,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 14,
+          "epoch": 0,
+          "filter": [
+            0.0013458592751730409,
+            0.0015542838424090356
+          ],
+          "frozen": null,
+          "last_iteration": 13,
+          "phase_hits": 0,
+          "previous_ratio": 0.549784870769888,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5428580147081261,
+        "reason": "hold_dwell",
+        "requested_ratio": 0.5428580147081261,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 130451,
+      "decision": {
+        "config_hash": "257b4900054f0d32a85fe595bb8ca1ec415d059c7e12ac19c4d3c10417b03cc0",
+        "cpu_items": 17790,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 17790,
+          "epoch": 0,
+          "iteration": 15,
+          "run_id": "phase5-160",
+          "t_cpu": 0.00076003,
+          "t_gpu": 0.000790656,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 16,
+          "epoch": 0,
+          "filter": [
+            0.001305275636147258,
+            0.0015927296643672313
+          ],
+          "frozen": null,
+          "last_iteration": 15,
+          "phase_hits": 0,
+          "previous_ratio": 0.5428580147081261,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 15,
+          "epoch": 0,
+          "filter": [
+            0.0012736831766580268,
+            0.0015471184529635752
+          ],
+          "frozen": null,
+          "last_iteration": 14,
+          "phase_hits": 0,
+          "previous_ratio": 0.5428580147081261,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5428580147081261,
+        "reason": "hold_deadband",
+        "requested_ratio": 0.5428580147081261,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 105788,
+      "decision": {
+        "config_hash": "257b4900054f0d32a85fe595bb8ca1ec415d059c7e12ac19c4d3c10417b03cc0",
+        "cpu_items": 17784,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 17790,
+          "epoch": 0,
+          "iteration": 16,
+          "run_id": "phase5-160",
+          "t_cpu": 0.00073486,
+          "t_gpu": 0.000672172,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 17,
+          "epoch": 0,
+          "filter": [
+            0.0013173785520120735,
+            0.0015621420118426086
+          ],
+          "frozen": null,
+          "last_iteration": 16,
+          "phase_hits": 0,
+          "previous_ratio": 0.5428580147081261,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 16,
+          "epoch": 0,
+          "filter": [
+            0.001305275636147258,
+            0.0015927296643672313
+          ],
+          "frozen": null,
+          "last_iteration": 15,
+          "phase_hits": 0,
+          "previous_ratio": 0.5428580147081261,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5426749260016478,
+        "reason": "robust_adjust",
+        "requested_ratio": 0.5426793730315078,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 93382,
+      "decision": {
+        "config_hash": "257b4900054f0d32a85fe595bb8ca1ec415d059c7e12ac19c4d3c10417b03cc0",
+        "cpu_items": 17784,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 17784,
+          "epoch": 0,
+          "iteration": 17,
+          "run_id": "phase5-160",
+          "t_cpu": 0.00067655,
+          "t_gpu": 0.000567556,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 18,
+          "epoch": 0,
+          "filter": [
+            0.0012997076101685244,
+            0.0014818650275314528
+          ],
+          "frozen": null,
+          "last_iteration": 17,
+          "phase_hits": 0,
+          "previous_ratio": 0.5426749260016478,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 17,
+          "epoch": 0,
+          "filter": [
+            0.0013173785520120735,
+            0.0015621420118426086
+          ],
+          "frozen": null,
+          "last_iteration": 16,
+          "phase_hits": 0,
+          "previous_ratio": 0.5428580147081261,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5426749260016478,
+        "reason": "hold_dwell",
+        "requested_ratio": 0.5426749260016478,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 310107,
+      "decision": {
+        "config_hash": "257b4900054f0d32a85fe595bb8ca1ec415d059c7e12ac19c4d3c10417b03cc0",
+        "cpu_items": 17784,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 17784,
+          "epoch": 0,
+          "iteration": 18,
+          "run_id": "phase5-160",
+          "t_cpu": 0.000596394,
+          "t_gpu": 0.000698612,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 19,
+          "epoch": 0,
+          "filter": [
+            0.001249528061624369,
+            0.0014932999825655845
+          ],
+          "frozen": null,
+          "last_iteration": 18,
+          "phase_hits": 0,
+          "previous_ratio": 0.5426749260016478,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 18,
+          "epoch": 0,
+          "filter": [
+            0.0012997076101685244,
+            0.0014818650275314528
+          ],
+          "frozen": null,
+          "last_iteration": 17,
+          "phase_hits": 0,
+          "previous_ratio": 0.5426749260016478,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5426749260016478,
+        "reason": "hold_dwell",
+        "requested_ratio": 0.5426749260016478,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 144780,
+      "decision": {
+        "config_hash": "257b4900054f0d32a85fe595bb8ca1ec415d059c7e12ac19c4d3c10417b03cc0",
+        "cpu_items": 18400,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 17784,
+          "epoch": 0,
+          "iteration": 19,
+          "run_id": "phase5-160",
+          "t_cpu": 0.000710447,
+          "t_gpu": 0.001148968,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 20,
+          "epoch": 0,
+          "filter": [
+            0.0012644354445116865,
+            0.0017480665050398888
+          ],
+          "frozen": null,
+          "last_iteration": 19,
+          "phase_hits": 0,
+          "previous_ratio": 0.5426749260016478,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 19,
+          "epoch": 0,
+          "filter": [
+            0.001249528061624369,
+            0.0014932999825655845
+          ],
+          "frozen": null,
+          "last_iteration": 18,
+          "phase_hits": 0,
+          "previous_ratio": 0.5426749260016478,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5614720332000854,
+        "reason": "robust_adjust",
+        "requested_ratio": 0.5614727947472642,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 139848,
+      "decision": {
+        "config_hash": "257b4900054f0d32a85fe595bb8ca1ec415d059c7e12ac19c4d3c10417b03cc0",
+        "cpu_items": 18400,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 18400,
+          "epoch": 0,
+          "iteration": 20,
+          "run_id": "phase5-160",
+          "t_cpu": 0.000647667,
+          "t_gpu": 0.000660544,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 21,
+          "epoch": 0,
+          "filter": [
+            0.0012367055950277866,
+            0.0016876187922862836
+          ],
+          "frozen": null,
+          "last_iteration": 20,
+          "phase_hits": 0,
+          "previous_ratio": 0.5614720332000854,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 20,
+          "epoch": 0,
+          "filter": [
+            0.0012644354445116865,
+            0.0017480665050398888
+          ],
+          "frozen": null,
+          "last_iteration": 19,
+          "phase_hits": 0,
+          "previous_ratio": 0.5426749260016478,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5614720332000854,
+        "reason": "hold_deadband",
+        "requested_ratio": 0.5614720332000854,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 143020,
+      "decision": {
+        "config_hash": "257b4900054f0d32a85fe595bb8ca1ec415d059c7e12ac19c4d3c10417b03cc0",
+        "cpu_items": 18400,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 18400,
+          "epoch": 0,
+          "iteration": 21,
+          "run_id": "phase5-160",
+          "t_cpu": 0.00061312,
+          "t_gpu": 0.000580069,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 22,
+          "epoch": 0,
+          "filter": [
+            0.0012005258745317094,
+            0.0015964050899526573
+          ],
+          "frozen": null,
+          "last_iteration": 21,
+          "phase_hits": 0,
+          "previous_ratio": 0.5614720332000854,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 21,
+          "epoch": 0,
+          "filter": [
+            0.0012367055950277866,
+            0.0016876187922862836
+          ],
+          "frozen": null,
+          "last_iteration": 20,
+          "phase_hits": 0,
+          "previous_ratio": 0.5614720332000854,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5614720332000854,
+        "reason": "hold_dwell",
+        "requested_ratio": 0.5614720332000854,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 148338,
+      "decision": {
+        "config_hash": "257b4900054f0d32a85fe595bb8ca1ec415d059c7e12ac19c4d3c10417b03cc0",
+        "cpu_items": 19564,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 18400,
+          "epoch": 0,
+          "iteration": 22,
+          "run_id": "phase5-160",
+          "t_cpu": 0.000815443,
+          "t_gpu": 0.001714027,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 23,
+          "epoch": 0,
+          "filter": [
+            0.0012634770492819343,
+            0.0021744518728712145
+          ],
+          "frozen": null,
+          "last_iteration": 22,
+          "phase_hits": 1,
+          "previous_ratio": 0.5614720332000854,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 22,
+          "epoch": 0,
+          "filter": [
+            0.0012005258745317094,
+            0.0015964050899526573
+          ],
+          "frozen": null,
+          "last_iteration": 21,
+          "phase_hits": 0,
+          "previous_ratio": 0.5614720332000854,
+          "run_id": "phase5-160",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5969912422568735,
+        "reason": "robust_adjust",
+        "requested_ratio": 0.5969804652359052,
+        "specification_version": "1.1"
+      }
+    }
+  ],
+  "elapsed_ns": 539289271,
+  "failure": null,
+  "returncode": 0,
+  "status": "ok",
+  "stderr": "",
+  "stdout": "{\"kind\":\"configuration\",\"schema_version\":\"4.0\",\"clock\":\"CLOCK_MONOTONIC\",\"n\":32771,\"d\":8,\"k\":8,\"max_iterations\":24,\"workers_requested\":4,\"mode\":\"fixed\",\"atol\":1e-8,\"rtol\":1e-10,\"shift_tolerance\":1e-6,\"preparation_start_ns\":15442771876709,\"feedback\":true,\"initial_centroids\":[73.952922174956612,74.263876735964871,72.336278323573339,72.736368611045435,72.300754358960816,72.798879717688195,75.677216919175905,73.476155431076947,12.176640558781415,10.652007770591913,10.884993467579122,12.935519541321034,14.178524954008799,13.17740318049716,12.352542098123724,13.073087245071628,59.650564793243042,61.144438651445007,58.77605916880804,61.799871225311712,59.805767626593401,59.986408263448261,61.336951666789638,61.094981728230898,72.212696336680523,74.108549193383638,71.470078166384056,70.971199751480924,72.246279303213413,71.759798099631112,73.197846893305524,73.345691931171203,12.035705452283409,13.075838923814469,13.935324376159516,14.786273830327186,11.254080776522528,15.358004952041064,11.87406031546897,14.770043571988854,84.048229530757496,86.212471440937207,85.742356144765154,84.285197656237912,85.594766085218978,86.606995726876619,85.496156686329911,86.187719134359497,48.127063838305062,46.917016935370853,48.289208544056848,50.428848773046759,47.712430546360828,49.339195190544245,48.501919314430118,51.96624637855129,83.168892950213049,83.503516487029714,84.366390874129266,82.928233733182452,86.381458251652361,86.682322569739739,84.964789699801344,86.590563564207542]}\n{\"kind\":\"iteration\",\"index\":-1,\"warmup\":true,\"status\":\"passed\",\"cpu_items\":16385,\"gpu_items\":16386,\"resident_before\":32771,\"resident_after\":16385,\"ownership_changed_points\":16386,\"h2d_point_bytes\":1048704,\"h2d_centroid_bytes\":512,\"d2h_label_bytes\":65544,\"d2h_aggregate_bytes\":552,\"release_ns\":15443128967359,\"cpu_start_ns\":15443129003390,\"cpu_end_ns\":15443129853704,\"gpu_dispatch_ns\":15443128990404,\"h2d_end_ns\":15443134469954,\"compute_end_ns\":15443135954850,\"gpu_end_ns\":15443136264957,\"barrier_end_ns\":15443136265524,\"end_ns\":15443136292960,\"validation_end_ns\":15443140212602,\"control_ns\":0,\"workers_used\":4,\"objective_before_update\":13980506.604886666,\"objective_after_update\":5671329.2972663119,\"max_centroid_shift\":25.498918057903559,\"changed_labels\":32771,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"7d817ebc9877a307\",\"counts\":[2091,6949,4096,2005,5342,2426,8192,1670],\"sums\":[151441.26736198057,151252.65506096103,152125.02428536836,153401.66962100426,153125.95920782207,154155.59972011214,155672.51978986905,155035.33096532099,34300.923025714103,35632.387726482972,37629.209468496883,40074.987281225796,43434.870461361119,43998.254293160091,46919.445296259801,48347.777057652362,245935.76870268199,246917.0275442866,248261.08669318797,249443.82595279595,250746.44253928051,251912.28126269201,253226.77960846643,254407.12566651159,143579.30214173754,144883.47360998497,145221.95171925653,145204.944746108,146739.27670885337,146899.01073351037,146633.77969299478,148426.59491469583,113220.9314625095,115341.58710260742,117372.94329773891,118515.37330541058,118869.03212132424,121869.54591761719,122767.67463916607,125026.15184036455,204262.19191953688,206040.00739666331,205841.62287295324,206475.27413533218,206301.61019327387,207386.47367245064,208435.32869362005,208731.51902452379,343986.14035975479,346364.72319627512,349014.13437410886,351466.11713599559,353818.97131433088,356425.16754103318,358919.18658490205,361215.35936542513,139810.82033907692,139247.44107683559,140688.84295639727,141147.86539019487,142727.95587389593,142874.02789853179,142984.90564787635,143953.8161048044],\"centroids\":[72.425283291238912,72.335081329967011,72.752283254599888,73.362826217601267,73.230970448504095,73.723385805888157,74.448837776121024,74.144108543912481,4.9360948374894376,5.1277000613732868,5.4150538881129489,5.7670150066521506,6.2505210046569459,6.3315950918348092,6.7519708297970649,6.9575157659594709,60.042912280928221,60.282477427804345,60.610616868454095,60.899371570506823,61.217393198066532,61.502021792649415,61.822944240348249,62.111114664675682,71.610624509594786,72.261084094755589,72.429901106861109,72.421418825989022,73.186671675238586,73.26633951796029,73.134054709723088,74.02822689012261,21.19448361334884,21.591461456871475,21.971722818745583,22.185580925760124,22.251784373141941,22.813467974095317,22.981593904748422,23.40437136659763,84.197111261144627,84.929928852705402,84.848154523063997,85.109346304753572,85.037761827400601,85.484943805626813,85.917283055902743,86.039373052153252,41.99049564938413,42.280849999545303,42.604264449964461,42.903578751952587,43.190792396768906,43.508931584598777,43.813377268664802,44.093671797537247,83.719054095255643,83.381701243614131,84.244816141555248,84.51967987436818,85.465841840656253,85.553310118881313,85.619703980764285,86.199889883116413]}\n{\"kind\":\"iteration\",\"index\":0,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":16385,\"gpu_items\":16386,\"resident_before\":32771,\"resident_after\":16385,\"ownership_changed_points\":16386,\"h2d_point_bytes\":1048704,\"h2d_centroid_bytes\":512,\"d2h_label_bytes\":65544,\"d2h_aggregate_bytes\":552,\"release_ns\":15443140616694,\"cpu_start_ns\":15443140661855,\"cpu_end_ns\":15443141489152,\"gpu_dispatch_ns\":15443140644616,\"h2d_end_ns\":15443141099893,\"compute_end_ns\":15443141282171,\"gpu_end_ns\":15443141698231,\"barrier_end_ns\":15443141698525,\"end_ns\":15443141720872,\"validation_end_ns\":15443146157801,\"control_ns\":0,\"workers_used\":4,\"objective_before_update\":13980506.604886662,\"objective_after_update\":5671329.2972663119,\"max_centroid_shift\":25.498918057903545,\"changed_labels\":32771,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"7d817ebc9877a307\",\"counts\":[2091,6949,4096,2005,5342,2426,8192,1670],\"sums\":[151441.26736198069,151252.65506096097,152125.02428536833,153401.6696210042,153125.9592078221,154155.59972011205,155672.51978986902,155035.33096532102,34300.923025714088,35632.387726482964,37629.209468496862,40074.987281225789,43434.870461361097,43998.254293160084,46919.445296259801,48347.777057652405,245935.76870268199,246917.02754428668,248261.086693188,249443.82595279586,250746.44253928066,251912.28126269201,253226.77960846649,254407.12566651165,143579.30214173757,144883.473609985,145221.95171925653,145204.94474610794,146739.27670885331,146899.01073351043,146633.77969299472,148426.59491469583,113220.9314625095,115341.58710260745,117372.94329773891,118515.37330541054,118869.03212132424,121869.54591761716,122767.67463916604,125026.15184036444,204262.19191953685,206040.00739666325,205841.62287295324,206475.27413533209,206301.61019327384,207386.47367245046,208435.32869361999,208731.51902452376,343986.14035975467,346364.72319627507,349014.13437410886,351466.11713599577,353818.97131433076,356425.16754103289,358919.186584902,361215.35936542507,139810.82033907698,139247.44107683565,140688.84295639722,141147.86539019493,142727.95587389593,142874.02789853181,142984.90564787638,143953.81610480434],\"centroids\":[72.425283291238969,72.335081329966982,72.752283254599874,73.362826217601238,73.23097044850411,73.723385805888114,74.44883777612101,74.144108543912495,4.9360948374894358,5.1277000613732859,5.4150538881129462,5.7670150066521497,6.2505210046569433,6.3315950918348083,6.7519708297970649,6.9575157659594771,60.042912280928221,60.282477427804366,60.610616868454102,60.899371570506801,61.217393198066567,61.502021792649415,61.822944240348264,62.111114664675696,71.6106245095948,72.261084094755617,72.429901106861109,72.421418825988994,73.186671675238557,73.266339517960319,73.13405470972306,74.02822689012261,21.19448361334884,21.591461456871478,21.971722818745583,22.185580925760117,22.251784373141941,22.81346797409531,22.981593904748415,23.404371366597612,84.197111261144627,84.929928852705373,84.848154523063997,85.109346304753544,85.037761827400587,85.484943805626742,85.917283055902715,86.039373052153238,41.990495649384115,42.280849999545296,42.604264449964461,42.903578751952608,43.190792396768892,43.508931584598741,43.813377268664794,44.09367179753724,83.719054095255672,83.38170124361416,84.244816141555219,84.519679874368222,85.465841840656253,85.553310118881328,85.619703980764299,86.19988988311637]}\n{\"kind\":\"iteration\",\"index\":1,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":17262,\"gpu_items\":15509,\"resident_before\":16385,\"resident_after\":16385,\"ownership_changed_points\":877,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":512,\"d2h_label_bytes\":62036,\"d2h_aggregate_bytes\":552,\"release_ns\":15443146816139,\"cpu_start_ns\":15443146861400,\"cpu_end_ns\":15443147618209,\"gpu_dispatch_ns\":15443146842636,\"h2d_end_ns\":15443147036208,\"compute_end_ns\":15443147225220,\"gpu_end_ns\":15443147482803,\"barrier_end_ns\":15443147658541,\"end_ns\":15443147680695,\"validation_end_ns\":15443150901176,\"control_ns\":652779,\"workers_used\":4,\"objective_before_update\":5392713.8395114038,\"objective_after_update\":5074601.0056881402,\"max_centroid_shift\":7.6227302514813982,\"changed_labels\":1561,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"22e9b0385614ff13\",\"counts\":[2044,8174,4096,2052,4117,2245,8192,1851],\"sums\":[147978.00993074785,147852.19494370386,148608.35737299264,150010.79231321026,149699.2217682359,150633.70181342406,152286.00649662159,151593.0515857971,48968.218250199978,51299.91054713312,53958.501426364521,56371.216101279439,58761.815258403047,61075.10954275851,63659.694243769372,66072.026633117857,245935.76870268205,246917.02754428666,248261.08669318794,249443.8259527958,250746.4425392804,251912.28126269201,253226.77960846637,254407.12566651142,147042.55957297041,148283.93372724223,148738.61863163236,148595.82205390197,150166.0141484394,150420.90864019832,150020.2929862423,151868.87429421986,98553.636238023653,99674.064281957253,101043.65133987137,102219.14448535687,103542.08732428245,104792.69066801874,106027.42569165658,107301.90226489911,189050.56046640669,190962.66857085479,190384.99188403954,190964.3498241083,190851.95873652984,191887.89678887185,192916.94987107761,193185.72037275237,343986.14035975421,346364.72319627495,349014.13437410892,351466.11713599588,353818.97131433123,356425.1675410326,358919.18658490176,361215.35936542542,155022.45179220702,154324.77990264416,156145.47394531092,156658.78970141872,158177.60733063985,158372.60478211043,158503.2844704189,159499.61475657573],\"centroids\":[72.396286658878594,72.334733338406977,72.704675818489548,73.390798587676258,73.238366814205435,73.695548832399254,74.503917072711147,74.164898036104262,5.9907289271103474,6.2759861202756451,6.6012357996531099,6.8964051995692977,7.1888690064109424,7.4718754028331915,7.7880712311927294,8.0831938626275814,60.042912280928235,60.282477427804359,60.610616868454088,60.899371570506787,61.217393198066503,61.502021792649415,61.822944240348235,62.11111466467564,71.65816743322145,72.263125598071255,72.48470693549335,72.415117959991207,73.180318785789183,73.304536374365654,73.109304574192151,74.010172658001878,23.938216234642617,24.210362954082402,24.543029229990619,24.828551004458799,25.149887618237173,25.453653307752912,25.75356465670551,26.063129041753488,84.209603771227918,85.061322303276071,84.804005293558816,85.062071191139552,85.012008345893022,85.473450685466304,85.931826223197149,86.05154582305228,41.990495649384059,42.280849999545282,42.604264449964468,42.903578751952622,43.190792396768948,43.508931584598706,43.813377268664766,44.093671797537283,83.75064926645436,83.373733064637577,84.357360316213359,84.634678390825883,85.455217358530447,85.560564441982947,85.63116394944295,86.169429906307798]}\n{\"kind\":\"iteration\",\"index\":2,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":17262,\"gpu_items\":15509,\"resident_before\":16385,\"resident_after\":16385,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":512,\"d2h_label_bytes\":62036,\"d2h_aggregate_bytes\":552,\"release_ns\":15443151481839,\"cpu_start_ns\":15443151514104,\"cpu_end_ns\":15443152079037,\"gpu_dispatch_ns\":15443151498717,\"h2d_end_ns\":15443151647827,\"compute_end_ns\":15443151812932,\"gpu_end_ns\":15443152119490,\"barrier_end_ns\":15443152119762,\"end_ns\":15443152135772,\"validation_end_ns\":15443155349950,\"control_ns\":577606,\"workers_used\":4,\"objective_before_update\":5064218.6615945287,\"objective_after_update\":5064020.6766455146,\"max_centroid_shift\":0.14867581766900881,\"changed_labels\":297,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"02699caec1678df0\",\"counts\":[2017,8194,4096,2079,4097,2169,8192,1927],\"sums\":[145955.91266447422,145895.44642432779,146568.65560338204,148038.01387154838,147718.43710760918,148594.30683468893,150370.03862500456,149632.66687675775,49227.238048412619,51565.954123221571,54237.742554215496,56653.604499243622,59047.698904225661,61370.830948277653,63958.896634650329,66380.601265274032,245935.76870268211,246917.02754428668,248261.08669318794,249443.82595279586,250746.4425392804,251912.28126269192,253226.7796084664,254407.12566651142,149064.65683924407,150240.68224661823,150778.32040124299,150568.60049556385,152146.79880906621,152460.30361893345,151936.26085785928,153829.25900325924,98294.616439811012,99408.020705868781,100764.41021202036,101936.75608739269,103256.20367845977,104496.96926249958,105728.22330077566,106993.32763274288,182626.29452689376,184677.96874562363,183815.44066963109,184364.65807284712,184380.34464361088,185356.15530899219,186372.92808893626,186664.87779793609,343986.14035975432,346364.7231962753,349014.13437410892,351466.11713599588,353818.97131433111,356425.16754103242,358919.18658490211,361215.35936542542,161446.71773172001,160609.47972787527,162715.02515971946,163258.4814526799,164649.22142355875,164904.34626199008,165047.30625256026,166020.45733139204],\"centroids\":[72.362871920909384,72.332893616424286,72.666661181647015,73.395148176275839,73.236706548145349,73.670950339459068,74.551332982153966,74.185754524917087,6.0077176041509173,6.2931357240934309,6.619202166733646,6.9140352085969763,7.2062117286094294,7.489727965374378,7.8055768409385315,8.1011229271752541,60.042912280928249,60.282477427804366,60.610616868454088,60.899371570506801,61.217393198066503,61.502021792649394,61.822944240348242,62.11111466467564,71.700171639848037,72.265840426463797,72.524444637442514,72.423569261935469,73.182683409844259,73.333479374186368,73.081414554044869,73.991947572515272,23.991851706080304,24.263612571605755,24.594681525999601,24.880828920525431,25.202881054054131,25.50572840187932,25.806254161770969,26.115042136378538,84.19838382982654,85.14429172227922,84.746630092038302,84.999842357237029,85.007074524486342,85.456964181185896,85.925739091256915,86.06034015580272,41.990495649384073,42.280849999545325,42.604264449964468,42.903578751952622,43.190792396768934,43.508931584598685,43.813377268664809,44.093671797537283,83.781379206912305,83.346901778866254,84.439556388022552,84.721578335588944,85.443290826963548,85.575685657493551,85.649873509372213,86.154881853343042]}\n{\"kind\":\"iteration\",\"index\":3,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":17262,\"gpu_items\":15509,\"resident_before\":16385,\"resident_after\":16385,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":512,\"d2h_label_bytes\":62036,\"d2h_aggregate_bytes\":552,\"release_ns\":15443156688919,\"cpu_start_ns\":15443156741645,\"cpu_end_ns\":15443157289244,\"gpu_dispatch_ns\":15443156730633,\"h2d_end_ns\":15443157051575,\"compute_end_ns\":15443157185645,\"gpu_end_ns\":15443157400576,\"barrier_end_ns\":15443157401071,\"end_ns\":15443157427310,\"validation_end_ns\":15443161601847,\"control_ns\":1327913,\"workers_used\":4,\"objective_before_update\":5063937.6503518522,\"objective_after_update\":5063860.4166834503,\"max_centroid_shift\":0.11239811139884569,\"changed_labels\":254,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"39c23a95257adf30\",\"counts\":[2001,8194,4096,2095,4097,2133,8192,1963],\"sums\":[144708.65005974309,144725.68517423538,145321.61535692093,146840.28133864491,146549.17828567798,147363.24643513723,149278.64151496394,148470.2513727452,49227.238048412626,51565.954123221571,54237.742554215496,56653.604499243607,59047.698904225661,61370.830948277668,63958.8966346503,66380.601265274061,245935.76870268217,246917.02754428668,248261.08669318794,249443.82595279586,250746.4425392804,251912.28126269198,253226.77960846637,254407.12566651145,150311.91944397514,151410.44349671056,152025.3606477041,151766.33302846737,153316.05763099753,153691.36401848507,153027.65796789981,154991.67450727176,98294.616439811012,99408.020705868825,100764.41021202039,101936.75608739274,103256.20367845977,104496.9692624996,105728.22330077563,106993.3276327429,179538.37607608049,181734.53900459729,180639.47848007164,181185.63937205123,181352.04402726586,182271.76350062405,183249.5900393895,183598.03010565811,343986.14035975432,346364.72319627536,349014.13437410898,351466.11713599635,353818.97131433123,356425.16754103266,358919.186584902,361215.35936542542,164534.63618253332,163552.90946890169,165890.98734927885,166437.50015347576,167677.52203990376,167988.73807035823,168170.6443021071,169087.30502367002],\"centroids\":[72.318165946898091,72.326679247493942,72.624495430745085,73.383448944850031,73.237970157760103,73.644800817160032,74.602019747608168,74.198026673036082,6.0077176041509182,6.2931357240934309,6.619202166733646,6.9140352085969745,7.2062117286094294,7.4897279653743798,7.805576840938528,8.1011229271752576,60.042912280928263,60.282477427804366,60.610616868454088,60.899371570506801,61.217393198066503,61.502021792649408,61.822944240348235,62.111114664675647,71.747932908818683,72.272288065255637,72.565804605109363,72.442163736738607,73.181889084008361,73.361032944384277,73.044228146968877,73.981706208721604,23.991851706080304,24.263612571605766,24.594681525999608,24.880828920525445,25.202881054054131,25.505728401879324,25.806254161770962,26.115042136378545,84.171765624041484,85.201377873697751,84.687988035664162,84.944040962049328,85.022055333926801,85.453241209856557,85.911669029249651,86.075025834813928,41.990495649384073,42.280849999545332,42.604264449964475,42.903578751952679,43.190792396768948,43.508931584598713,43.813377268664794,44.093671797537283,83.817950169400575,83.317834675956036,84.508908481548062,84.787315411857236,85.419012755936706,85.577553780111174,85.670221244068827,86.137190536765161]}\n{\"kind\":\"iteration\",\"index\":4,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":17573,\"gpu_items\":15198,\"resident_before\":16385,\"resident_after\":16385,\"ownership_changed_points\":311,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":512,\"d2h_label_bytes\":60792,\"d2h_aggregate_bytes\":552,\"release_ns\":15443162313829,\"cpu_start_ns\":15443162353394,\"cpu_end_ns\":15443162971265,\"gpu_dispatch_ns\":15443162334905,\"h2d_end_ns\":15443162520300,\"compute_end_ns\":15443162712460,\"gpu_end_ns\":15443162998832,\"barrier_end_ns\":15443162999007,\"end_ns\":15443163016652,\"validation_end_ns\":15443166850314,\"control_ns\":706281,\"workers_used\":4,\"objective_before_update\":5063791.8694326999,\"objective_after_update\":5063730.0939108096,\"max_centroid_shift\":0.09347352021861749,\"changed_labels\":226,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"50f9e0f366a1e161\",\"counts\":[1994,8194,4096,2102,4097,2128,8192,1968],\"sums\":[144105.80826228036,144213.29980623085,144750.17852037089,146266.16814658267,146021.59641312022,146769.93074888329,148863.3830660432,147955.7795456954,49227.238048412568,51565.954123221571,54237.742554215518,56653.604499243673,59047.698904225683,61370.830948277682,63958.896634650257,66380.601265274032,245935.76870268228,246917.02754428663,248261.08669318806,249443.82595279583,250746.44253928057,251912.28126269198,253226.77960846649,254407.12566651136,150914.76124143775,151922.82886471518,152596.79748425406,152340.44622052973,153843.63950355523,154284.67970473916,153442.91641682066,155506.14633432165,98294.616439811012,99408.020705868868,100764.41021202045,101936.75608739269,103256.20367845974,104496.96926249962,105728.2233007756,106993.32763274298,179046.44946283149,181366.54198519891,180111.83790369797,180678.47889353512,180964.79278323919,181849.23525140062,182786.61983899475,183171.08677948493,343986.14035975444,346364.72319627542,349014.1343741091,351466.11713599612,353818.97131433128,356425.16754103336,358919.18658490211,361215.35936542519,165026.56279578229,163920.90648830001,166418.62792565278,166944.66063199186,168064.77328393067,168411.26631958145,168633.61450250176,169514.24834984331],\"centroids\":[72.269713270953034,72.323620765411661,72.592867863776775,73.353143503802741,73.230489675586867,73.605782722609476,74.655658508547248,74.200491246587461,6.0077176041509111,6.2931357240934309,6.6192021667336487,6.9140352085969825,7.206211728609432,7.4897279653743816,7.8055768409385227,8.1011229271752541,60.042912280928292,60.282477427804352,60.610616868454116,60.899371570506794,61.217393198066546,61.502021792649408,61.822944240348264,62.111114664675625,71.795795072044598,72.275370535069072,72.596002609064726,72.474046727178745,73.189171980758914,73.398991296260306,72.998533024177291,73.980088646204393,23.991851706080304,24.263612571605776,24.594681525999622,24.880828920525431,25.202881054054124,25.505728401879331,25.806254161770955,26.115042136378563,84.138369108473441,85.228638150939332,84.639021571286648,84.9053002319244,85.039846232725182,85.455467693327364,85.895967969452428,86.076638524194053,41.990495649384087,42.280849999545339,42.604264449964489,42.903578751952651,43.190792396768956,43.508931584598798,43.813377268664809,44.093671797537255,83.854960770214575,83.293143540802845,84.562310937831697,84.829603979670665,85.398766912566401,85.574830446941789,85.687812247206182,86.135288795652087]}\n{\"kind\":\"iteration\",\"index\":5,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":17573,\"gpu_items\":15198,\"resident_before\":16385,\"resident_after\":16385,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":512,\"d2h_label_bytes\":60792,\"d2h_aggregate_bytes\":552,\"release_ns\":15443167491811,\"cpu_start_ns\":15443167530470,\"cpu_end_ns\":15443168189556,\"gpu_dispatch_ns\":15443167512944,\"h2d_end_ns\":15443167664139,\"compute_end_ns\":15443167849978,\"gpu_end_ns\":15443168087001,\"barrier_end_ns\":15443168244378,\"end_ns\":15443168260383,\"validation_end_ns\":15443171449531,\"control_ns\":634493,\"workers_used\":4,\"objective_before_update\":5063681.2993368106,\"objective_after_update\":5063634.6890435172,\"max_centroid_shift\":0.095770641191377834,\"changed_labels\":194,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"4fbf7b8072cfd381\",\"counts\":[2004,8194,4096,2092,4097,2118,8192,1978],\"sums\":[144730.59026566456,144923.54156751279,145446.68558656689,146905.23124150012,146741.04337487585,147413.80990093751,149700.77954774728,148678.42693655335,49227.238048412575,51565.954123221578,54237.742554215511,56653.604499243665,59047.698904225676,61370.830948277697,63958.896634650286,66380.601265273988,245935.76870268217,246917.02754428668,248261.08669318815,249443.82595279577,250746.44253928051,251912.28126269195,253226.77960846649,254407.12566651145,150289.97923805355,151212.58710343321,151900.29041805811,151701.38312561231,153124.19254179962,153640.80055268493,152605.5199351167,154783.49894346361,98294.616439811012,99408.020705868854,100764.41021202039,101936.75608739266,103256.20367845974,104496.96926249961,105728.2233007756,106993.3276327429,178160.7411115045,180546.20376097423,179197.96730668825,179782.63175172705,180132.03331432457,180993.31597975956,181904.11514501943,182324.49773703306,343986.14035975432,346364.7231962753,349014.13437410916,351466.11713599623,353818.97131433128,356425.16754103301,358919.18658490235,361215.35936542507,165912.27114710928,164741.24471252473,167332.49852266238,167840.50777379997,168897.53275284526,169267.18559122254,169516.11919647711,170360.83739229513],\"centroids\":[72.220853425980323,72.317136510734926,72.578186420442563,73.306003613523018,73.22407354035721,73.559785379709339,74.700987798277083,74.19083180466734,6.0077176041509119,6.2931357240934318,6.6192021667336478,6.9140352085969816,7.2062117286094312,7.4897279653743833,7.8055768409385262,8.1011229271752487,60.042912280928263,60.282477427804366,60.610616868454137,60.89937157050678,61.217393198066532,61.502021792649401,61.822944240348264,62.111114664675647,71.840334243811455,72.281351387874381,72.610081461786862,72.515001494078547,73.195120717877444,73.442065273749961,72.947189261528052,73.988288213892744,23.991851706080304,24.263612571605773,24.594681525999608,24.880828920525424,25.202881054054124,25.505728401879328,25.806254161770955,26.115042136378545,84.117441506848209,85.243722266748932,84.607161145745167,84.883206681646385,85.048174369369477,85.454823408762778,85.884851343257523,86.083332264888128,41.990495649384073,42.280849999545325,42.604264449964496,42.903578751952665,43.190792396768956,43.508931584598756,43.813377268664837,44.09367179753724,83.878802399954139,83.286776902186418,84.596814217726177,84.853643970576329,85.388034758769095,85.57491688130564,85.700768046752842,86.127824768602181]}\n{\"kind\":\"iteration\",\"index\":6,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":17573,\"gpu_items\":15198,\"resident_before\":16385,\"resident_after\":16385,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":512,\"d2h_label_bytes\":60792,\"d2h_aggregate_bytes\":552,\"release_ns\":15443172115692,\"cpu_start_ns\":15443172157330,\"cpu_end_ns\":15443172664129,\"gpu_dispatch_ns\":15443172140710,\"h2d_end_ns\":15443172293529,\"compute_end_ns\":15443172440538,\"gpu_end_ns\":15443172657862,\"barrier_end_ns\":15443172693016,\"end_ns\":15443172718022,\"validation_end_ns\":15443176615461,\"control_ns\":661475,\"workers_used\":4,\"objective_before_update\":5063593.3879856849,\"objective_after_update\":5063546.7533761701,\"max_centroid_shift\":0.099008548825016585,\"changed_labels\":175,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"0fbca835a7345fd3\",\"counts\":[2026,8194,4096,2070,4097,2107,8192,1989],\"sums\":[146243.13360493688,146481.99973259083,147010.99179888499,148387.33870128595,148350.45881655891,148948.39301652717,151416.77521404484,150256.20500361524,49227.238048412575,51565.954123221585,54237.742554215511,56653.604499243651,59047.69890422569,61370.830948277682,63958.896634650264,66380.601265274003,245935.76870268225,246917.02754428663,248261.08669318806,249443.82595279574,250746.4425392806,251912.28126269198,253226.77960846637,254407.12566651148,148777.43589878117,149654.12893835513,150335.98420573992,150219.27566582651,151514.77710011648,152106.21743709518,150889.52426881914,153205.7208764017,98294.616439811012,99408.02070586881,100764.41021202046,101936.75608739266,103256.20367845974,104496.96926249962,105728.2233007756,106993.32763274289,177193.51691479483,179632.03525863867,178219.70876561705,178808.19852883584,179210.29440389661,180044.44542158456,180933.61263855785,181373.32311091898,343986.14035975444,346364.72319627507,349014.13437410904,351466.11713599577,353818.97131433117,356425.16754103301,358919.18658490217,361215.35936542484,166879.49534381879,165655.41321486022,168310.7570637337,168814.94099669129,169819.27166327322,170216.05614939745,170486.62170293863,171312.01201840898],\"centroids\":[72.183185392367662,72.301085751525591,72.562187462430899,73.241529467564632,73.223326168094232,73.518456572816973,74.736809088867147,74.163970880362896,6.0077176041509119,6.2931357240934327,6.6192021667336478,6.9140352085969798,7.2062117286094329,7.4897279653743816,7.8055768409385236,8.1011229271752505,60.042912280928284,60.282477427804352,60.610616868454116,60.899371570506773,61.217393198066553,61.502021792649408,61.822944240348235,62.111114664675654,71.873157439024723,72.296680646548367,72.626079326444412,72.569698389288178,73.195544492809887,73.48126446236482,72.893489984936778,74.012425544155406,23.991851706080304,24.263612571605762,24.594681525999626,24.880828920525424,25.202881054054124,25.505728401879331,25.806254161770955,26.115042136378541,84.097540063974762,85.254881470640086,84.584579385674914,84.863881598877953,85.054719698099959,85.450614818027788,85.872621090914976,86.081311395784994,41.990495649384087,42.280849999545296,42.604264449964482,42.903578751952608,43.190792396768941,43.508931584598756,43.813377268664816,44.093671797537212,83.901204295534839,83.285778388567238,84.620792892777132,84.874279033027292,85.379221550162498,85.578710985116871,85.714741932095848,86.129719466268966]}\n{\"kind\":\"iteration\",\"index\":7,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":17573,\"gpu_items\":15198,\"resident_before\":16385,\"resident_after\":16385,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":512,\"d2h_label_bytes\":60792,\"d2h_aggregate_bytes\":552,\"release_ns\":15443177233225,\"cpu_start_ns\":15443177271157,\"cpu_end_ns\":15443177806891,\"gpu_dispatch_ns\":15443177258457,\"h2d_end_ns\":15443177530221,\"compute_end_ns\":15443177682190,\"gpu_end_ns\":15443177944332,\"barrier_end_ns\":15443177944535,\"end_ns\":15443177960436,\"validation_end_ns\":15443181207313,\"control_ns\":612447,\"workers_used\":4,\"objective_before_update\":5063505.9500566516,\"objective_after_update\":5063476.8947102502,\"max_centroid_shift\":0.081886097596864577,\"changed_labels\":128,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"b318666cdd49b882\",\"counts\":[2037,8194,4096,2059,4097,2102,8192,1994],\"sums\":[146972.11487855413,147246.36723552505,147795.12496209619,149088.40762841844,149164.22978301186,149676.0415437824,152291.26102882519,151025.99590814559,49227.238048412546,51565.954123221578,54237.742554215525,56653.604499243636,59047.698904225683,61370.830948277682,63958.896634650286,66380.601265273988,245935.76870268228,246917.02754428668,248261.08669318812,249443.82595279586,250746.44253928057,251912.28126269195,253226.77960846649,254407.12566651154,148048.45462516395,148889.76143542089,149551.85104252875,149518.20673869402,150701.00613366353,151378.56890983999,150015.03845403876,152435.92997187149,98294.616439811041,99408.020705868854,100764.41021202043,101936.75608739271,103256.20367845974,104496.96926249962,105728.2233007756,106993.32763274296,176746.93456984527,179216.86023623764,177778.10744758009,178371.22767961794,178794.03493618371,179622.15073509736,180487.45175488386,180937.80358386447,343986.14035975432,346364.72319627495,349014.13437410927,351466.11713599617,353818.97131433105,356425.16754103312,358919.186584902,361215.35936542513,167326.07768876839,166070.58823726131,168752.35838177061,169251.91184590905,170235.53113098606,170638.35083588475,170932.78258661265,171747.53154546372],\"centroids\":[72.151259145092851,72.285894568249901,72.55528962302219,73.19018538459423,73.227407846348484,73.478665460865187,74.762523823674613,74.141382380042018,6.0077176041509084,6.2931357240934318,6.6192021667336496,6.9140352085969781,7.206211728609432,7.4897279653743816,7.8055768409385262,8.1011229271752487,60.042912280928292,60.282477427804366,60.61061686845413,60.899371570506801,61.217393198066546,61.502021792649401,61.822944240348264,62.111114664675668,71.903086267685268,72.311685981263182,72.633244799673989,72.616904681250134,73.191358005664654,73.520431719203486,72.858202260339368,74.033963075216846,23.991851706080311,24.263612571605773,24.594681525999619,24.880828920525438,25.202881054054124,25.505728401879331,25.806254161770955,26.115042136378559,84.085125865768447,85.260161863100691,84.575693362312123,84.857862835213098,85.059008057175888,85.452973708419293,85.864629759697365,86.078878964730961,41.990495649384073,42.280849999545282,42.604264449964511,42.903578751952658,43.190792396768927,43.50893158459877,43.813377268664794,44.093671797537247,83.914783193966088,83.285149567332653,84.630069399082558,84.880597716102841,85.373887227174549,85.575903127324352,85.723561979244053,86.132162259510395]}\n{\"kind\":\"iteration\",\"index\":8,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":17761,\"gpu_items\":15010,\"resident_before\":16385,\"resident_after\":16385,\"ownership_changed_points\":188,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":512,\"d2h_label_bytes\":60040,\"d2h_aggregate_bytes\":552,\"release_ns\":15443181792904,\"cpu_start_ns\":15443181828242,\"cpu_end_ns\":15443182335006,\"gpu_dispatch_ns\":15443181812012,\"h2d_end_ns\":15443182062948,\"compute_end_ns\":15443182247474,\"gpu_end_ns\":15443182529195,\"barrier_end_ns\":15443182529349,\"end_ns\":15443182544936,\"validation_end_ns\":15443185754995,\"control_ns\":580414,\"workers_used\":4,\"objective_before_update\":5063454.1611747462,\"objective_after_update\":5063433.9891209779,\"max_centroid_shift\":0.069421971167458574,\"changed_labels\":109,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"1f1a382e53128991\",\"counts\":[2048,8194,4096,2048,4097,2102,8192,1994],\"sums\":[147717.03106429224,148002.71102566342,148581.06143135551,149795.77507579979,149961.56366720962,150427.77816902928,153143.99458368658,151794.51458353511,49227.238048412575,51565.954123221542,54237.742554215489,56653.604499243665,59047.698904225712,61370.83094827766,63958.896634650286,66380.601265274032,245935.76870268228,246917.0275442866,248261.08669318794,249443.8259527958,250746.44253928054,251912.28126269189,253226.77960846626,254407.1256665113,147303.53843942593,148133.41764528252,148765.91457326943,148810.83929131256,149903.67224946589,150626.83228459317,149162.30489917725,151667.41129648179,98294.616439811027,99408.020705868839,100764.41021202045,101936.75608739276,103256.20367845977,104496.96926249962,105728.22330077554,106993.32763274289,176732.04224336398,179218.76328555431,177762.21639278153,178370.87558674393,178794.96402491815,179623.82315214747,180478.92027329584,180935.26306653954,343986.14035975491,346364.7231962753,349014.13437410921,351466.11713599617,353818.97131433128,356425.16754103277,358919.18658490165,361215.35936542484,167340.97001524974,166068.68518794447,168768.24943656911,169252.26393878314,170234.60204225167,170636.67841883475,170941.31406820088,171750.07206278836],\"centroids\":[72.127456574361446,72.266948742999716,72.549346402029059,73.142468298730364,73.223419759379695,73.451063559096326,74.777341105315713,74.118415323991755,6.0077176041509119,6.2931357240934274,6.6192021667336451,6.9140352085969816,7.2062117286094356,7.4897279653743789,7.8055768409385262,8.1011229271752541,60.042912280928292,60.282477427804345,60.610616868454088,60.899371570506787,61.217393198066539,61.502021792649387,61.822944240348207,62.111114664675611,71.925555878625943,72.330770334610605,72.639606725229214,72.66154262271121,73.195152465559516,73.548257951461508,72.833156689051393,74.056353172110249,23.991851706080308,24.263612571605769,24.594681525999622,24.880828920525449,25.202881054054131,25.505728401879331,25.806254161770941,26.115042136378541,84.078041029193145,85.261067214821267,84.568133393330882,84.857695331467141,85.059450059428244,85.453769339746657,85.860571014888606,86.077670345642034,41.990495649384144,42.280849999545325,42.604264449964504,42.903578751952658,43.190792396768956,43.508931584598727,43.813377268664752,44.093671797537212,83.922251762913604,83.284195179510775,84.638038834788915,84.88077429226837,85.373421284980779,85.575064402625259,85.727840555767742,86.133436340415429]}\n{\"kind\":\"iteration\",\"index\":9,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":17761,\"gpu_items\":15010,\"resident_before\":16385,\"resident_after\":16385,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":512,\"d2h_label_bytes\":60040,\"d2h_aggregate_bytes\":552,\"release_ns\":15443186287220,\"cpu_start_ns\":15443186319766,\"cpu_end_ns\":15443187298398,\"gpu_dispatch_ns\":15443186302971,\"h2d_end_ns\":15443186421659,\"compute_end_ns\":15443186585731,\"gpu_end_ns\":15443186822297,\"barrier_end_ns\":15443187364266,\"end_ns\":15443187388320,\"validation_end_ns\":15443190661361,\"control_ns\":529268,\"workers_used\":4,\"objective_before_update\":5063423.4996212795,\"objective_after_update\":5063416.0068725329,\"max_centroid_shift\":0.042010791975401432,\"changed_labels\":72,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"fe1c3e32b3707b80\",\"counts\":[2057,8194,4096,2039,4097,2103,8192,1993],\"sums\":[148342.0073505067,148628.18922712578,149228.49860791396,150395.85332479724,150601.94414996897,151055.23031359346,153825.59731123329,152428.81747840907,49227.238048412582,51565.954123221556,54237.742554215525,56653.604499243658,59047.698904225676,61370.830948277668,63958.896634650278,66380.601265274032,245935.76870268222,246917.02754428657,248261.08669318797,249443.82595279577,250746.44253928048,251912.2812626918,253226.77960846617,254407.12566651136,146678.56215321145,147507.93944382019,148118.47739671092,148210.76104231502,149263.29176670656,149999.38014002889,148480.70217163049,151033.10840160784,98294.616439811041,99408.02070586881,100764.41021202042,101936.7560873928,103256.2036784598,104496.96926249961,105728.22330077554,106993.32763274288,176805.48286452302,179303.60910897731,177833.14006921975,178456.00362682127,178877.46179651545,179712.65068770066,180558.07244247096,181017.26286644809,343986.14035975485,346364.72319627483,349014.13437410892,351466.11713599623,353818.97131433117,356425.16754103277,358919.18658490194,361215.35936542484,167267.52939409076,165983.83936452155,168697.32576013077,169167.1358987058,170152.10427065438,170547.85088328156,170862.16189902561,171668.07226287981],\"centroids\":[72.115706052749971,72.254831904290612,72.546669230876986,73.114172739327771,73.214362736980547,73.434725480599639,74.781525187765325,74.102487835881902,6.0077176041509128,6.2931357240934291,6.6192021667336496,6.9140352085969807,7.2062117286094312,7.4897279653743798,7.8055768409385253,8.1011229271752541,60.042912280928277,60.282477427804338,60.610616868454095,60.89937157050678,61.217393198066524,61.502021792649366,61.822944240348185,62.111114664675625,71.936518956945292,72.343275842972133,72.64270593266842,72.687965199762147,73.204164672244517,73.565169269263805,72.820354179318528,74.072147327909676,23.991851706080311,24.263612571605762,24.594681525999615,24.88082892052546,25.202881054054139,25.505728401879328,25.806254161770941,26.115042136378538,84.072982817176893,85.260869761758116,84.561645301578579,84.857823883414781,85.058231952693987,85.455373603281345,85.857381094850666,86.075731272680969,41.990495649384137,42.280849999545268,42.604264449964468,42.903578751952665,43.190792396768941,43.508931584598727,43.813377268664787,44.093671797537212,83.927510985494607,83.283411622941074,84.64492010041684,84.880650225140897,85.374864159886798,85.573432455234098,85.731139939300363,86.135510417902566]}\n{\"kind\":\"iteration\",\"index\":10,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":17761,\"gpu_items\":15010,\"resident_before\":16385,\"resident_after\":16385,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":512,\"d2h_label_bytes\":60040,\"d2h_aggregate_bytes\":552,\"release_ns\":15443191288867,\"cpu_start_ns\":15443191333386,\"cpu_end_ns\":15443191872970,\"gpu_dispatch_ns\":15443191311071,\"h2d_end_ns\":15443191659187,\"compute_end_ns\":15443192035235,\"gpu_end_ns\":15443192274864,\"barrier_end_ns\":15443192275166,\"end_ns\":15443192294666,\"validation_end_ns\":15443196473484,\"control_ns\":622111,\"workers_used\":4,\"objective_before_update\":5063408.2525332933,\"objective_after_update\":5063402.727675111,\"max_centroid_shift\":0.036536594570399171,\"changed_labels\":56,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"aa35f17da83a8301\",\"counts\":[2066,8194,4096,2030,4097,2102,8192,1994],\"sums\":[148962.68126337894,149265.61588875236,149876.13709670515,151005.93674498951,151234.77500619352,151690.80335594289,154502.18398821127,153067.42424151226,49227.23804841259,51565.954123221563,54237.742554215496,56653.604499243644,59047.698904225705,61370.83094827766,63958.896634650286,66380.601265274032,245935.76870268222,246917.02754428657,248261.08669318791,249443.82595279574,250746.44253928051,251912.2812626918,253226.7796084662,254407.1256665113,146057.88824033923,146870.51278219372,147470.8389079198,147600.67762212281,148630.46091048198,149363.80709767962,147804.11549465248,150394.50163850473,98294.616439811027,99408.020705868839,100764.41021202042,101936.75608739274,103256.2036784598,104496.96926249965,105728.22330077554,106993.32763274285,176709.8148116885,179220.22443565275,177742.65420083888,178369.16817945856,178792.7238477525,179628.96672739065,180470.68174976131,180928.64319731249,343986.14035975485,346364.72319627507,349014.13437410886,351466.11713599612,353818.97131433123,356425.16754103277,358919.18658490223,361215.35936542496,167363.19744692533,166067.22403784614,168787.81162851176,169253.97134606849,170236.84221941727,170631.53484359151,170949.55259173547,171756.69193201541],\"centroids\":[72.101975442100169,72.248604011980817,72.544112825123491,73.090966478697723,73.201730399900057,73.422460482063357,74.783244912009323,74.088782304700999,6.0077176041509137,6.29313572409343,6.619202166733646,6.914035208596979,7.2062117286094347,7.4897279653743789,7.8055768409385262,8.1011229271752541,60.042912280928277,60.282477427804338,60.61061686845408,60.899371570506773,61.217393198066532,61.502021792649366,61.822944240348193,62.111114664675611,71.949698640561195,72.350006296647152,72.64573345217724,72.709693409912717,73.216975817971417,73.578230097379119,72.80990911066624,74.085961398278201,23.991851706080308,24.263612571605769,24.594681525999615,24.880828920525445,25.202881054054139,25.505728401879338,25.806254161770941,26.115042136378531,84.067466608795669,85.261762338559819,84.558826927135527,84.856883053976475,85.058384323383677,85.456216330823338,85.856651641180449,86.074521026314216,41.990495649384137,42.280849999545296,42.604264449964461,42.903578751952651,43.190792396768948,43.508931584598727,43.813377268664823,44.093671797537226,83.93339892022334,83.283462406141496,84.64784936234291,84.881630564728425,85.374544743940461,85.572484876425023,85.731972212505255,86.136756234711839]}\n{\"kind\":\"iteration\",\"index\":11,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":18017,\"gpu_items\":14754,\"resident_before\":16385,\"resident_after\":16385,\"ownership_changed_points\":256,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":512,\"d2h_label_bytes\":59016,\"d2h_aggregate_bytes\":552,\"release_ns\":15443197153854,\"cpu_start_ns\":15443197195627,\"cpu_end_ns\":15443198070676,\"gpu_dispatch_ns\":15443197175945,\"h2d_end_ns\":15443197355027,\"compute_end_ns\":15443197562349,\"gpu_end_ns\":15443197859942,\"barrier_end_ns\":15443198111305,\"end_ns\":15443198134180,\"validation_end_ns\":15443201498930,\"control_ns\":674675,\"workers_used\":4,\"objective_before_update\":5063399.1891428195,\"objective_after_update\":5063396.8242293717,\"max_centroid_shift\":0.023831795982587573,\"changed_labels\":37,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"4618cf7b2c5f1dc3\",\"counts\":[2068,8194,4096,2028,4097,2101,8192,1995],\"sums\":[149090.89423980354,149406.74172754234,150019.04670621202,151121.50445877493,151366.49792065285,151812.55827835083,154655.3423185983,153199.41722331638,49227.238048412597,51565.954123221556,54237.742554215525,56653.604499243644,59047.698904225617,61370.830948277668,63958.896634650257,66380.601265274061,245935.76870268222,246917.02754428671,248261.086693188,249443.82595279592,250746.44253928051,251912.28126269189,253226.77960846649,254407.1256665113,145929.67526391457,146729.3869434036,147327.92929841287,147485.10990833738,148498.73799602265,149242.05217527159,147650.95716426551,150262.50865670055,98294.616439810983,99408.020705868868,100764.41021202045,101936.75608739274,103256.20367845977,104496.9692624996,105728.22330077566,106993.32763274288,176620.28925085976,179135.63661194401,177654.41207700508,178281.96980166039,178704.29214310506,179541.11841388169,180381.18282715988,180839.51461308124,343986.1403597545,346364.72319627495,349014.13437410886,351466.11713599617,353818.97131433105,356425.16754103306,358919.1865849024,361215.35936542531,167452.72300775402,166151.81186155492,168876.05375234559,169341.16972386662,170325.27392406468,170719.38315710059,171039.05151433672,171845.82051624684],\"centroids\":[72.094242862574248,72.246973756064961,72.543059335692462,73.076162697666788,73.194631489677391,73.410327987597114,74.784981778819287,74.080956104118172,6.0077176041509146,6.2931357240934291,6.6192021667336496,6.914035208596979,7.206211728609424,7.4897279653743798,7.8055768409385227,8.1011229271752576,60.042912280928277,60.282477427804373,60.610616868454102,60.899371570506815,61.217393198066532,61.502021792649387,61.822944240348264,62.111114664675611,71.957433562088056,72.351768709765096,72.646907938073412,72.724413169791603,73.224229781076261,73.590755510488947,72.806191895594438,74.093939179832617,23.991851706080297,24.263612571605776,24.594681525999622,24.880828920525445,25.202881054054131,25.505728401879324,25.806254161770969,26.115042136378538,84.06486875338399,85.262083108969065,84.557073811044773,84.855768587177721,85.056778744933396,85.45507777909647,85.854918051956147,86.073067402704069,41.990495649384094,42.280849999545282,42.604264449964461,42.903578751952658,43.190792396768927,43.508931584598763,43.813377268664844,44.093671797537269,83.936202008899258,83.284116221330791,84.649651003681996,84.882791841537156,85.376077154919642,85.573625642656935,85.733860408188832,86.138255897868092]}\n{\"kind\":\"iteration\",\"index\":12,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":18017,\"gpu_items\":14754,\"resident_before\":16385,\"resident_after\":16385,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":512,\"d2h_label_bytes\":59016,\"d2h_aggregate_bytes\":552,\"release_ns\":15443202150434,\"cpu_start_ns\":15443202194133,\"cpu_end_ns\":15443202908154,\"gpu_dispatch_ns\":15443202176628,\"h2d_end_ns\":15443202373984,\"compute_end_ns\":15443202552226,\"gpu_end_ns\":15443202851660,\"barrier_end_ns\":15443202980551,\"end_ns\":15443202995792,\"validation_end_ns\":15443206193569,\"control_ns\":646400,\"workers_used\":4,\"objective_before_update\":5063395.7353595402,\"objective_after_update\":5063395.191672815,\"max_centroid_shift\":0.010994453429339458,\"changed_labels\":21,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"65038ab3c63379d0\",\"counts\":[2075,8194,4096,2021,4097,2099,8192,1997],\"sums\":[149586.70892824279,149911.06180331361,150524.49822382318,151616.82466514816,151877.06447006503,152320.41385235783,155174.48371673218,153709.0663820591,49227.238048412575,51565.954123221556,54237.742554215525,56653.604499243629,59047.698904225646,61370.830948277653,63958.896634650264,66380.601265274076,245935.76870268217,246917.02754428677,248261.086693188,249443.82595279597,250746.44253928037,251912.28126269189,253226.77960846637,254407.12566651127,145433.86057547538,146225.06686763233,146822.47778080174,146989.78970196412,147988.17144661047,148734.19660126459,147131.81576613162,149752.8594979578,98294.616439810983,99408.020705868868,100764.41021202045,101936.75608739271,103256.20367845974,104496.9692624996,105728.22330077566,106993.32763274293,176445.86876297247,178967.25824900181,177481.45938506821,178112.93658746252,178532.96625479497,179369.04912442493,180207.50494064193,180666.69684313203,343986.1403597545,346364.72319627495,349014.13437410898,351466.11713599623,353818.97131433117,356425.16754103336,358919.18658490235,361215.35936542519,167627.14349564139,166320.19022449703,169049.00644428231,169510.20293806453,170496.59981237474,170891.45244655735,171212.72940085473,172018.63828619599],\"centroids\":[72.089980206382066,72.246294844970421,72.541926854854538,73.06834923621598,73.193766009669901,73.407428362582081,74.782883718907073,74.076658497377878,6.0077176041509119,6.2931357240934291,6.6192021667336496,6.9140352085969772,7.2062117286094276,7.489727965374378,7.8055768409385236,8.1011229271752594,60.042912280928263,60.282477427804388,60.610616868454102,60.89937157050683,61.217393198066496,61.502021792649387,61.822944240348235,62.111114664675604,71.961336257038781,72.352828732128813,72.648430371500112,72.731217071728906,73.225220903815185,73.594357546395145,72.80149221481031,74.098396584838099,23.991851706080297,24.263612571605776,24.594681525999622,24.880828920525438,25.202881054054124,25.505728401879324,25.806254161770969,26.115042136378552,84.061871730811092,85.263105406861271,84.555245061966758,84.856091752006918,85.056201169506892,85.454525547605968,85.853980438609781,86.072747424074336,41.990495649384094,42.280849999545282,42.604264449964475,42.903578751952665,43.190792396768941,43.508931584598798,43.813377268664837,44.093671797537255,83.939480969274612,83.28502264621784,84.651480442805365,84.882425106692295,85.376364452866667,85.574087354310137,85.734967151154095,86.138526933498241]}\n{\"kind\":\"iteration\",\"index\":13,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":18017,\"gpu_items\":14754,\"resident_before\":16385,\"resident_after\":16385,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":512,\"d2h_label_bytes\":59016,\"d2h_aggregate_bytes\":552,\"release_ns\":15443206828747,\"cpu_start_ns\":15443206867604,\"cpu_end_ns\":15443207518193,\"gpu_dispatch_ns\":15443206844427,\"h2d_end_ns\":15443206932378,\"compute_end_ns\":15443207143245,\"gpu_end_ns\":15443207480396,\"barrier_end_ns\":15443207549654,\"end_ns\":15443207565020,\"validation_end_ns\":15443210930906,\"control_ns\":632068,\"workers_used\":4,\"objective_before_update\":5063394.940834811,\"objective_after_update\":5063394.7258067187,\"max_centroid_shift\":0.0071016155902002545,\"changed_labels\":9,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"b909ca188d0d5732\",\"counts\":[2079,8194,4096,2017,4097,2100,8192,1996],\"sums\":[149873.78092620708,150196.29345112189,150809.15904949175,151898.07561267773,152172.50237935991,152614.14039017967,155470.98491370707,154000.62008081755,49227.238048412604,51565.954123221542,54237.742554215518,56653.604499243636,59047.698904225632,61370.830948277682,63958.896634650227,66380.601265274046,245935.76870268217,246917.02754428671,248261.08669318797,249443.82595279589,250746.44253928051,251912.28126269189,253226.77960846649,254407.12566651136,145146.78857751109,145939.83521982405,146537.81695513311,146708.5387544345,147692.73353731565,148440.47006344277,146835.31456915682,149461.30579919944,98294.616439811012,99408.020705868897,100764.41021202045,101936.75608739276,103256.20367845977,104496.96926249962,105728.2233007756,106993.32763274288,176527.91089817134,179051.47752322437,177564.79497569578,178199.24302711309,178616.81501578056,179453.671650565,180291.5555771272,180753.90322961053,343986.14035975462,346364.72319627489,349014.13437410881,351466.11713599623,353818.97131433105,356425.16754103318,358919.18658490235,361215.35936542542,167545.10136044247,166235.97095027444,168965.67085365488,169423.89649841399,170412.75105138915,170806.82992041728,171128.67876436946,171931.43189971754],\"centroids\":[72.089360714866316,72.244489394479018,72.539278042083566,73.063047432745421,73.195046839518952,73.407474935151356,74.781618525111625,74.074372333245577,6.0077176041509155,6.2931357240934274,6.6192021667336487,6.9140352085969781,7.2062117286094258,7.4897279653743816,7.8055768409385191,8.1011229271752558,60.042912280928263,60.282477427804373,60.610616868454095,60.899371570506808,61.217393198066532,61.502021792649387,61.822944240348264,62.111114664675625,71.961719671547399,72.354900951821534,72.651371817121031,72.736013264469264,73.223963082456947,73.59468024959979,72.798866915794164,74.10079613247369,23.991851706080304,24.263612571605783,24.594681525999622,24.880828920525449,25.202881054054131,25.505728401879331,25.806254161770955,26.115042136378538,84.060909951510155,85.262608344392561,84.554664274140848,84.856782393863369,85.055626197990748,85.454129357411901,85.85312170339391,86.073287252195485,41.990495649384108,42.280849999545275,42.604264449964454,42.903578751952665,43.190792396768927,43.508931584598777,43.813377268664837,44.093671797537283,83.940431543307852,83.284554584305823,84.652139706239922,84.8817116725521,85.377129785265097,85.574564088385415,85.73581100419311,86.137991933726227]}\n{\"kind\":\"iteration\",\"index\":14,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":17790,\"gpu_items\":14981,\"resident_before\":16385,\"resident_after\":16385,\"ownership_changed_points\":227,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":512,\"d2h_label_bytes\":59924,\"d2h_aggregate_bytes\":552,\"release_ns\":15443211473187,\"cpu_start_ns\":15443211504296,\"cpu_end_ns\":15443212047072,\"gpu_dispatch_ns\":15443211488707,\"h2d_end_ns\":15443211702886,\"compute_end_ns\":15443211842613,\"gpu_end_ns\":15443212170613,\"barrier_end_ns\":15443212170808,\"end_ns\":15443212201157,\"validation_end_ns\":15443215560974,\"control_ns\":539869,\"workers_used\":4,\"objective_before_update\":5063394.7111281045,\"objective_after_update\":5063394.7058590278,\"max_centroid_shift\":0.001152829832690499,\"changed_labels\":1,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"a24f8f328a427c91\",\"counts\":[2080,8194,4096,2016,4097,2100,8192,1996],\"sums\":[149944.12657684315,150268.10776164036,150882.35112577066,151970.562656036,152245.80235842924,152688.15467305569,155545.00250089742,154074.03089476985,49227.238048412582,51565.954123221571,54237.742554215496,56653.604499243695,59047.698904225668,61370.830948277653,63958.896634650286,66380.601265274017,245935.76870268228,246917.02754428651,248261.08669318794,249443.82595279577,250746.44253928048,251912.28126269195,253226.77960846626,254407.12566651133,145076.44292687508,145868.02090930563,146464.6248788542,146636.05171107629,147619.43355824618,148366.45578056661,146761.29698196641,149387.89498524708,98294.616439811012,99408.02070586881,100764.41021202042,101936.75608739277,103256.20367845983,104496.96926249965,105728.22330077551,106993.32763274285,176527.91089817125,179051.47752322443,177564.79497569567,178199.24302711309,178616.81501578074,179453.67165056494,180291.55557712715,180753.90322961044,343986.14035975479,346364.72319627518,349014.1343741091,351466.11713599623,353818.97131433093,356425.16754103272,358919.186584902,361215.35936542484,167545.10136044252,166235.97095027444,168965.67085365497,169423.89649841399,170412.75105138915,170806.82992041716,171128.67876436946,171931.43189971749],\"centroids\":[72.088522392713045,72.244282577711715,72.539591887389733,73.062770507709615,73.195097287706361,73.407766669738308,74.781251202354525,74.074053314793204,6.0077176041509128,6.2931357240934309,6.619202166733646,6.9140352085969852,7.2062117286094303,7.489727965374378,7.8055768409385262,8.1011229271752523,60.042912280928292,60.282477427804324,60.610616868454088,60.89937157050678,61.217393198066524,61.502021792649401,61.822944240348207,62.111114664675618,71.962521293092806,72.355169101838115,72.651103610542762,72.736136761446573,73.223925376114181,73.594472113376298,72.798262391848425,74.10113838553923,23.991851706080304,24.263612571605762,24.594681525999615,24.880828920525452,25.202881054054146,25.505728401879338,25.806254161770934,26.115042136378531,84.060909951510112,85.262608344392589,84.554664274140791,84.856782393863369,85.055626197990833,85.454129357411873,85.853121703393882,86.073287252195442,41.99049564938413,42.28084999954531,42.604264449964489,42.903578751952665,43.190792396768913,43.50893158459872,43.813377268664794,44.093671797537212,83.940431543307881,83.284554584305823,84.652139706239964,84.8817116725521,85.377129785265097,85.574564088385358,85.73581100419311,86.137991933726198]}\n{\"kind\":\"iteration\",\"index\":15,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":17790,\"gpu_items\":14981,\"resident_before\":16385,\"resident_after\":16385,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":512,\"d2h_label_bytes\":59924,\"d2h_aggregate_bytes\":552,\"release_ns\":15443216187848,\"cpu_start_ns\":15443216218959,\"cpu_end_ns\":15443216947878,\"gpu_dispatch_ns\":15443216203630,\"h2d_end_ns\":15443216397021,\"compute_end_ns\":15443216564696,\"gpu_end_ns\":15443216978504,\"barrier_end_ns\":15443216978824,\"end_ns\":15443216997102,\"validation_end_ns\":15443220808521,\"control_ns\":622001,\"workers_used\":4,\"objective_before_update\":5063394.7052302696,\"objective_after_update\":5063394.7002569567,\"max_centroid_shift\":0.0011186759759954173,\"changed_labels\":1,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"098f3b5d9a3e1c12\",\"counts\":[2079,8194,4096,2017,4097,2100,8192,1996],\"sums\":[149871.57210450503,150195.75637114025,150809.33641861635,151896.65818964445,152173.58193084219,152615.88474290899,155471.51459414157,153999.84880884195,49227.238048412575,51565.954123221585,54237.742554215482,56653.604499243665,59047.69890422569,61370.830948277668,63958.896634650315,66380.601265274032,245935.76870268222,246917.02754428651,248261.08669318797,249443.8259527958,250746.44253928046,251912.28126269198,253226.77960846614,254407.12566651136,145148.99739921314,145940.37229980575,146537.63958600862,146709.95617746771,147691.65398583328,148438.72571071345,146834.78488872224,149462.07707117486,98294.616439811027,99408.020705868796,100764.41021202045,101936.75608739277,103256.20367845983,104496.96926249967,105728.22330077557,106993.32763274286,176527.91089817125,179051.47752322443,177564.7949756957,178199.24302711309,178616.81501578071,179453.671650565,180291.55557712709,180753.90322961035,343986.14035975479,346364.72319627501,349014.13437410892,351466.117135996,353818.97131433117,356425.16754103277,358919.18658490159,361215.35936542501,167545.10136044247,166235.97095027438,168965.67085365485,169423.89649841405,170412.75105138906,170806.82992041722,171128.6787643694,171931.43189971743],\"centroids\":[72.08829827056519,72.24423105874952,72.539363356717828,73.062365651584628,73.195566104301193,73.408313969653193,74.781873301655395,74.074001351054335,6.0077176041509119,6.2931357240934327,6.6192021667336443,6.9140352085969816,7.2062117286094329,7.4897279653743798,7.8055768409385298,8.1011229271752541,60.042912280928277,60.282477427804324,60.610616868454095,60.899371570506787,61.217393198066517,61.502021792649408,61.822944240348178,62.111114664675625,71.962814774027336,72.355167228460957,72.65128388002411,72.736716002710821,73.223427856139452,73.593815424250593,72.798604307745279,74.101178518182877,23.991851706080308,24.263612571605758,24.594681525999622,24.880828920525452,25.202881054054146,25.505728401879342,25.806254161770948,26.115042136378534,84.060909951510112,85.262608344392589,84.554664274140805,84.856782393863369,85.055626197990819,85.454129357411901,85.853121703393853,86.073287252195414,41.99049564938413,42.280849999545289,42.604264449964468,42.903578751952637,43.190792396768941,43.508931584598727,43.813377268664745,44.093671797537233,83.940431543307852,83.284554584305795,84.652139706239907,84.881711672552129,85.377129785265055,85.574564088385387,85.735811004193081,86.13799193372617]}\n{\"kind\":\"iteration\",\"index\":16,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":17790,\"gpu_items\":14981,\"resident_before\":16385,\"resident_after\":16385,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":512,\"d2h_label_bytes\":59924,\"d2h_aggregate_bytes\":552,\"release_ns\":15443221381818,\"cpu_start_ns\":15443221412250,\"cpu_end_ns\":15443222116678,\"gpu_dispatch_ns\":15443221400039,\"h2d_end_ns\":15443221592429,\"compute_end_ns\":15443221771153,\"gpu_end_ns\":15443222053990,\"barrier_end_ns\":15443222146269,\"end_ns\":15443222161593,\"validation_end_ns\":15443225364000,\"control_ns\":568940,\"workers_used\":4,\"objective_before_update\":5063394.6991531644,\"objective_after_update\":5063394.6876525301,\"max_centroid_shift\":0.0017003301567008757,\"changed_labels\":1,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"2c3d0387efd08201\",\"counts\":[2078,8194,4096,2018,4097,2100,8192,1996],\"sums\":[149800.1054610853,150121.83889520488,150735.02454551111,151822.42318081704,152099.88811916637,152543.92208369949,155397.86761168606,153926.44223714242,49227.23804841259,51565.954123221571,54237.742554215482,56653.604499243651,59047.69890422569,61370.83094827766,63958.896634650278,66380.601265274046,245935.76870268222,246917.02754428657,248261.08669318794,249443.82595279586,250746.44253928046,251912.28126269189,253226.77960846631,254407.1256665113,145220.46404263284,146014.28977574111,146611.9514591138,146784.19118629524,147765.34779750911,148510.68836992292,146908.43187117783,149535.48364287446,98294.616439811056,99408.02070586881,100764.41021202043,101936.75608739276,103256.20367845983,104496.96926249964,105728.22330077557,106993.32763274288,176527.91089817131,179051.47752322434,177564.79497569572,178199.24302711309,178616.81501578068,179453.671650565,180291.55557712718,180753.90322961047,343986.14035975502,346364.72319627518,349014.1343741091,351466.11713599577,353818.97131433128,356425.16754103277,358919.18658490176,361215.35936542519,167545.1013604425,166235.97095027438,168965.67085365491,169423.89649841402,170412.75105138909,170806.82992041725,171128.6787643694,171931.43189971749],\"centroids\":[72.088597430743647,72.243425839848356,72.538510368388415,73.061801338218018,73.195326332611344,73.409009664917946,74.782419447394645,74.074322539529561,6.0077176041509137,6.2931357240934309,6.6192021667336443,6.9140352085969798,7.2062117286094329,7.4897279653743789,7.8055768409385253,8.1011229271752558,60.042912280928277,60.282477427804338,60.610616868454088,60.899371570506801,61.217393198066517,61.502021792649387,61.822944240348221,62.111114664675611,71.962568901205572,72.355941415134353,72.652106768639143,72.737458466945114,73.223660950202728,73.593007120873594,72.799024713170382,74.100834312623618,23.991851706080315,24.263612571605762,24.594681525999619,24.880828920525449,25.202881054054146,25.505728401879335,25.806254161770948,26.115042136378538,84.060909951510141,85.262608344392547,84.554664274140819,84.856782393863369,85.055626197990804,85.454129357411901,85.853121703393896,86.073287252195456,41.990495649384158,42.28084999954531,42.604264449964489,42.903578751952608,43.190792396768956,43.508931584598727,43.813377268664766,44.093671797537255,83.940431543307866,83.284554584305795,84.652139706239936,84.881711672552115,85.377129785265069,85.574564088385401,85.735811004193081,86.137991933726198]}\n{\"kind\":\"iteration\",\"index\":17,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":17784,\"gpu_items\":14987,\"resident_before\":16385,\"resident_after\":16385,\"ownership_changed_points\":6,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":512,\"d2h_label_bytes\":59948,\"d2h_aggregate_bytes\":552,\"release_ns\":15443225878557,\"cpu_start_ns\":15443225911542,\"cpu_end_ns\":15443226555107,\"gpu_dispatch_ns\":15443225896329,\"h2d_end_ns\":15443226077977,\"compute_end_ns\":15443226227551,\"gpu_end_ns\":15443226446113,\"barrier_end_ns\":15443226587283,\"end_ns\":15443226602126,\"validation_end_ns\":15443230187094,\"control_ns\":510503,\"workers_used\":4,\"objective_before_update\":5063394.6836494049,\"objective_after_update\":5063394.6725800103,\"max_centroid_shift\":0.0016691456197768242,\"changed_labels\":1,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"87bcd8d2db6cb8d2\",\"counts\":[2079,8194,4096,2017,4097,2100,8192,1996],\"sums\":[149874.07460851152,150194.28626122657,150807.10349295981,151893.44124657183,152172.09566797473,152618.47355654079,155471.89571242023,153999.79933914935,49227.238048412619,51565.954123221571,54237.742554215482,56653.604499243665,59047.69890422569,61370.830948277653,63958.8966346503,66380.601265274032,245935.76870268228,246917.02754428651,248261.086693188,249443.8259527958,250746.44253928051,251912.28126269183,253226.77960846634,254407.12566651133,145146.49489520659,145941.84240971948,146539.87251166513,146713.17312054045,147693.14024870074,148436.13689708168,146834.40377044363,149462.12654086752,98294.616439811041,99408.02070586881,100764.41021202045,101936.75608739274,103256.2036784598,104496.96926249965,105728.22330077559,106993.32763274288,176527.91089817131,179051.47752322443,177564.79497569578,178199.24302711303,178616.81501578068,179453.671650565,180291.55557712715,180753.90322961047,343986.1403597545,346364.72319627495,349014.13437410898,351466.11713599606,353818.97131433099,356425.16754103266,358919.186584902,361215.35936542507,167545.1013604425,166235.97095027438,168965.67085365485,169423.89649841393,170412.75105138909,170806.82992041725,171128.67876436946,171931.43189971749],\"centroids\":[72.089501976196019,72.243523935173911,72.538289318402988,73.060818300419356,73.194851211147054,73.409559190255308,74.782056619730753,74.073977556108389,6.0077176041509173,6.2931357240934309,6.6192021667336443,6.9140352085969816,7.2062117286094329,7.489727965374378,7.805576840938528,8.1011229271752541,60.042912280928292,60.282477427804324,60.610616868454102,60.899371570506787,61.217393198066532,61.502021792649373,61.822944240348228,62.111114664675618,71.961574068025087,72.355896088110796,72.65239093290289,72.738310917471722,73.224164724194722,73.592531927159982,72.798415354706805,74.101203044555049,23.991851706080311,24.263612571605762,24.594681525999622,24.880828920525445,25.202881054054139,25.505728401879338,25.806254161770951,26.115042136378538,84.060909951510141,85.262608344392589,84.554664274140848,84.856782393863341,85.055626197990804,85.454129357411901,85.853121703393882,86.073287252195456,41.990495649384094,42.280849999545282,42.604264449964475,42.903578751952644,43.19079239676892,43.508931584598713,43.813377268664794,44.09367179753724,83.940431543307866,83.284554584305795,84.652139706239907,84.881711672552072,85.377129785265069,85.574564088385401,85.73581100419311,86.137991933726198]}\n{\"kind\":\"iteration\",\"index\":18,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":17784,\"gpu_items\":14987,\"resident_before\":16385,\"resident_after\":16385,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":512,\"d2h_label_bytes\":59948,\"d2h_aggregate_bytes\":552,\"release_ns\":15443230694683,\"cpu_start_ns\":15443230742455,\"cpu_end_ns\":15443231291077,\"gpu_dispatch_ns\":15443230734277,\"h2d_end_ns\":15443230888431,\"compute_end_ns\":15443231088278,\"gpu_end_ns\":15443231393295,\"barrier_end_ns\":15443231393702,\"end_ns\":15443231414265,\"validation_end_ns\":15443235712777,\"control_ns\":499112,\"workers_used\":4,\"objective_before_update\":5063394.6662396612,\"objective_after_update\":5063394.6591729885,\"max_centroid_shift\":0.001334466990260753,\"changed_labels\":1,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"b0b49f9d50ed8381\",\"counts\":[2080,8194,4096,2016,4097,2100,8192,1996],\"sums\":[149946.18157855139,150264.85844110855,150880.30689466588,151965.28705293807,152244.01722396916,152692.17812392628,155545.78836251807,154073.73325813498,49227.238048412604,51565.954123221563,54237.742554215496,56653.604499243644,59047.69890422569,61370.830948277639,63958.896634650286,66380.601265274032,245935.76870268231,246917.02754428651,248261.08669318786,249443.82595279568,250746.4425392804,251912.28126269183,253226.7796084662,254407.1256665113,145074.38792516678,145871.27022983748,146466.66910995901,146641.32731417421,147621.21869270637,148362.43232969617,146760.51112034573,149388.19262188193,98294.61643981107,99408.02070586881,100764.41021202042,101936.75608739271,103256.2036784598,104496.96926249965,105728.22330077557,106993.3276327429,176527.91089817131,179051.47752322437,177564.79497569572,178199.24302711306,178616.81501578062,179453.671650565,180291.5555771272,180753.90322961053,343986.1403597545,346364.72319627501,349014.13437410886,351466.11713599612,353818.97131433117,356425.1675410326,358919.18658490205,361215.35936542519,167545.10136044252,166235.97095027447,168965.67085365491,169423.89649841396,170412.75105138897,170806.82992041737,171128.67876436951,171931.43189971754],\"centroids\":[72.089510374303558,72.242720404379114,72.538609083973981,73.060234160066386,73.194239049985171,73.409701021118408,74.781629020441386,74.073910220257204,6.0077176041509155,6.29313572409343,6.619202166733646,6.914035208596979,7.2062117286094329,7.4897279653743762,7.8055768409385262,8.1011229271752541,60.042912280928299,60.282477427804324,60.610616868454066,60.899371570506759,61.217393198066503,61.502021792649373,61.822944240348193,62.111114664675611,71.961501947007335,72.356780867974933,72.652117614066967,72.738753628062611,73.224810859477373,73.592476354015957,72.797872579536573,74.101286022758899,23.991851706080318,24.263612571605762,24.594681525999615,24.880828920525438,25.202881054054139,25.505728401879338,25.806254161770948,26.115042136378545,84.060909951510141,85.262608344392561,84.554664274140819,84.856782393863355,85.055626197990776,85.454129357411901,85.85312170339391,86.073287252195485,41.990495649384094,42.280849999545289,42.604264449964461,42.903578751952651,43.190792396768941,43.508931584598706,43.813377268664802,44.093671797537255,83.940431543307881,83.284554584305852,84.652139706239936,84.881711672552086,85.377129785265012,85.574564088385458,85.735811004193138,86.137991933726227]}\n{\"kind\":\"iteration\",\"index\":19,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":17784,\"gpu_items\":14987,\"resident_before\":16385,\"resident_after\":16385,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":512,\"d2h_label_bytes\":59948,\"d2h_aggregate_bytes\":552,\"release_ns\":15443236992341,\"cpu_start_ns\":15443237052236,\"cpu_end_ns\":15443237702788,\"gpu_dispatch_ns\":15443237021475,\"h2d_end_ns\":15443237297909,\"compute_end_ns\":15443237446893,\"gpu_end_ns\":15443238141309,\"barrier_end_ns\":15443238141523,\"end_ns\":15443238247741,\"validation_end_ns\":15443241790379,\"control_ns\":1272923,\"workers_used\":4,\"objective_before_update\":5063394.6591729801,\"objective_after_update\":5063394.6591729885,\"max_centroid_shift\":1.014858018570358e-13,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"b0b49f9d50ed8381\",\"counts\":[2080,8194,4096,2016,4097,2100,8192,1996],\"sums\":[149946.18157855136,150264.8584411086,150880.30689466593,151965.2870529381,152244.01722396916,152692.17812392634,155545.78836251813,154073.73325813498,49227.238048412597,51565.954123221563,54237.742554215503,56653.604499243629,59047.698904225661,61370.830948277624,63958.896634650286,66380.601265274046,245935.76870268231,246917.02754428654,248261.08669318791,249443.82595279574,250746.44253928046,251912.28126269183,253226.7796084662,254407.1256665113,145074.38792516681,145871.27022983748,146466.66910995898,146641.32731417415,147621.21869270637,148362.4323296962,146760.51112034573,149388.19262188196,98294.61643981107,99408.020705868825,100764.41021202045,101936.75608739273,103256.2036784598,104496.96926249965,105728.22330077557,106993.32763274293,176527.91089817128,179051.47752322443,177564.79497569572,178199.24302711306,178616.81501578071,179453.67165056494,180291.55557712715,180753.90322961041,343986.14035975467,346364.72319627518,349014.13437410904,351466.11713599635,353818.97131433111,356425.16754103266,358919.18658490188,361215.35936542513,167545.10136044258,166235.97095027444,168965.67085365491,169423.89649841399,170412.75105138906,170806.82992041722,171128.67876436946,171931.43189971749],\"centroids\":[72.089510374303543,72.242720404379142,72.538609083974009,73.0602341600664,73.194239049985171,73.409701021118437,74.781629020441414,74.073910220257204,6.0077176041509146,6.29313572409343,6.6192021667336469,6.9140352085969772,7.2062117286094294,7.4897279653743745,7.8055768409385262,8.1011229271752558,60.042912280928299,60.282477427804331,60.61061686845408,60.899371570506773,61.217393198066517,61.502021792649373,61.822944240348193,62.111114664675611,71.961501947007349,72.356780867974933,72.652117614066952,72.738753628062582,73.224810859477373,73.592476354015972,72.797872579536573,74.101286022758913,23.991851706080318,24.263612571605766,24.594681525999622,24.880828920525442,25.202881054054139,25.505728401879338,25.806254161770948,26.115042136378552,84.060909951510126,85.262608344392589,84.554664274140819,84.856782393863355,85.055626197990819,85.454129357411873,85.853121703393882,86.073287252195428,41.990495649384115,42.28084999954531,42.604264449964482,42.903578751952679,43.190792396768934,43.508931584598713,43.81337726866478,44.093671797537247,83.940431543307909,83.284554584305823,84.652139706239936,84.8817116725521,85.377129785265055,85.574564088385387,85.73581100419311,86.137991933726198]}\n{\"kind\":\"iteration\",\"index\":20,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":18400,\"gpu_items\":14371,\"resident_before\":16385,\"resident_after\":16385,\"ownership_changed_points\":616,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":512,\"d2h_label_bytes\":57484,\"d2h_aggregate_bytes\":552,\"release_ns\":15443242414296,\"cpu_start_ns\":15443242459628,\"cpu_end_ns\":15443243061963,\"gpu_dispatch_ns\":15443242436218,\"h2d_end_ns\":15443242603748,\"compute_end_ns\":15443242782366,\"gpu_end_ns\":15443243074840,\"barrier_end_ns\":15443243074989,\"end_ns\":15443243092878,\"validation_end_ns\":15443246320843,\"control_ns\":619190,\"workers_used\":4,\"objective_before_update\":5063394.6591729838,\"objective_after_update\":5063394.6591729885,\"max_centroid_shift\":1.0442802858320781e-13,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"b0b49f9d50ed8381\",\"counts\":[2080,8194,4096,2016,4097,2100,8192,1996],\"sums\":[149946.18157855133,150264.85844110866,150880.30689466582,151965.28705293813,152244.0172239691,152692.17812392622,155545.78836251813,154073.73325813492,49227.238048412619,51565.954123221549,54237.742554215503,56653.604499243665,59047.698904225705,61370.830948277653,63958.896634650293,66380.601265274046,245935.76870268222,246917.02754428663,248261.08669318812,249443.8259527958,250746.44253928054,251912.28126269186,253226.77960846643,254407.12566651148,145074.38792516675,145871.27022983745,146466.66910995901,146641.32731417421,147621.21869270643,148362.4323296962,146760.51112034579,149388.19262188196,98294.616439811012,99408.020705868839,100764.4102120204,101936.75608739269,103256.20367845976,104496.96926249954,105728.22330077557,106993.32763274293,176527.91089817131,179051.47752322449,177564.79497569575,178199.243027113,178616.81501578059,179453.67165056494,180291.55557712709,180753.90322961053,343986.14035975444,346364.72319627518,349014.13437410881,351466.11713599612,353818.97131433134,356425.16754103266,358919.18658490188,361215.35936542507,167545.10136044247,166235.97095027444,168965.67085365485,169423.89649841387,170412.75105138909,170806.82992041711,171128.67876436946,171931.43189971751],\"centroids\":[72.089510374303529,72.24272040437917,72.538609083973952,73.060234160066415,73.194239049985143,73.40970102111838,74.781629020441414,74.073910220257176,6.0077176041509173,6.2931357240934283,6.6192021667336469,6.9140352085969816,7.2062117286094347,7.489727965374378,7.8055768409385271,8.1011229271752558,60.042912280928277,60.282477427804352,60.61061686845413,60.899371570506787,61.217393198066539,61.50202179264938,61.822944240348249,62.111114664675654,71.961501947007321,72.356780867974919,72.652117614066967,72.738753628062611,73.224810859477401,73.592476354015972,72.797872579536602,74.101286022758913,23.991851706080304,24.263612571605769,24.594681525999611,24.880828920525431,25.202881054054128,25.50572840187931,25.806254161770948,26.115042136378552,84.060909951510141,85.262608344392618,84.554664274140833,84.856782393863327,85.055626197990762,85.454129357411873,85.853121703393853,86.073287252195485,41.990495649384087,42.28084999954531,42.604264449964454,42.903578751952651,43.190792396768963,43.508931584598713,43.81337726866478,44.09367179753724,83.940431543307852,83.284554584305823,84.652139706239907,84.881711672552044,85.377129785265069,85.57456408838533,85.73581100419311,86.137991933726212]}\n{\"kind\":\"iteration\",\"index\":21,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":18400,\"gpu_items\":14371,\"resident_before\":16385,\"resident_after\":16385,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":512,\"d2h_label_bytes\":57484,\"d2h_aggregate_bytes\":552,\"release_ns\":15443246897821,\"cpu_start_ns\":15443246934379,\"cpu_end_ns\":15443247510941,\"gpu_dispatch_ns\":15443246912634,\"h2d_end_ns\":15443247029480,\"compute_end_ns\":15443247197259,\"gpu_end_ns\":15443247477890,\"barrier_end_ns\":15443247582596,\"end_ns\":15443247605088,\"validation_end_ns\":15443251669799,\"control_ns\":574382,\"workers_used\":4,\"objective_before_update\":5063394.6591729848,\"objective_after_update\":5063394.6591729885,\"max_centroid_shift\":6.5122317422433295e-14,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"b0b49f9d50ed8381\",\"counts\":[2080,8194,4096,2016,4097,2100,8192,1996],\"sums\":[149946.1815785513,150264.85844110866,150880.30689466582,151965.28705293813,152244.01722396907,152692.17812392628,155545.78836251819,154073.73325813489,49227.238048412604,51565.954123221542,54237.742554215496,56653.604499243665,59047.698904225705,61370.830948277653,63958.896634650286,66380.601265274046,245935.76870268219,246917.02754428666,248261.08669318812,249443.8259527958,250746.44253928051,251912.28126269189,253226.77960846649,254407.12566651142,145074.38792516681,145871.27022983745,146466.66910995898,146641.32731417424,147621.21869270643,148362.43232969617,146760.51112034579,149388.19262188196,98294.616439811012,99408.020705868839,100764.41021202045,101936.75608739269,103256.2036784597,104496.96926249954,105728.2233007756,106993.32763274293,176527.91089817131,179051.47752322452,177564.79497569584,178199.24302711297,178616.81501578059,179453.67165056494,180291.55557712712,180753.90322961053,343986.14035975415,346364.72319627501,349014.13437410886,351466.11713599623,353818.97131433128,356425.16754103277,358919.18658490176,361215.35936542542,167545.1013604425,166235.97095027447,168965.67085365488,169423.89649841381,170412.75105138912,170806.82992041711,171128.67876436943,171931.43189971754],\"centroids\":[72.089510374303515,72.24272040437917,72.538609083973952,73.060234160066415,73.194239049985129,73.409701021118408,74.781629020441429,74.073910220257162,6.0077176041509155,6.2931357240934274,6.619202166733646,6.9140352085969816,7.2062117286094347,7.489727965374378,7.8055768409385262,8.1011229271752558,60.04291228092827,60.282477427804359,60.61061686845413,60.899371570506787,61.217393198066532,61.502021792649387,61.822944240348264,62.11111466467564,71.961501947007349,72.356780867974919,72.652117614066952,72.738753628062625,73.224810859477401,73.592476354015957,72.797872579536602,74.101286022758913,23.991851706080304,24.263612571605769,24.594681525999622,24.880828920525431,25.202881054054114,25.50572840187931,25.806254161770955,26.115042136378552,84.060909951510141,85.262608344392632,84.554664274140876,84.856782393863313,85.055626197990762,85.454129357411873,85.853121703393867,86.073287252195485,41.990495649384052,42.280849999545289,42.604264449964461,42.903578751952665,43.190792396768956,43.508931584598727,43.813377268664766,44.093671797537283,83.940431543307866,83.284554584305852,84.652139706239922,84.881711672552015,85.377129785265083,85.57456408838533,85.735811004193096,86.137991933726227]}\n{\"kind\":\"iteration\",\"index\":22,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":18400,\"gpu_items\":14371,\"resident_before\":16385,\"resident_after\":16385,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":512,\"d2h_label_bytes\":57484,\"d2h_aggregate_bytes\":552,\"release_ns\":15443252426848,\"cpu_start_ns\":15443252567199,\"cpu_end_ns\":15443253242291,\"gpu_dispatch_ns\":15443252485740,\"h2d_end_ns\":15443253202375,\"compute_end_ns\":15443253668292,\"gpu_end_ns\":15443254140875,\"barrier_end_ns\":15443254141671,\"end_ns\":15443254167089,\"validation_end_ns\":15443258100093,\"control_ns\":750717,\"workers_used\":4,\"objective_before_update\":5063394.6591729838,\"objective_after_update\":5063394.6591729885,\"max_centroid_shift\":6.8889674159554621e-14,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"b0b49f9d50ed8381\",\"counts\":[2080,8194,4096,2016,4097,2100,8192,1996],\"sums\":[149946.18157855133,150264.85844110866,150880.30689466582,151965.2870529381,152244.0172239691,152692.17812392628,155545.78836251807,154073.73325813486,49227.238048412604,51565.954123221556,54237.742554215503,56653.604499243651,59047.69890422569,61370.830948277653,63958.896634650286,66380.601265274046,245935.76870268222,246917.02754428668,248261.08669318812,249443.8259527958,250746.44253928051,251912.28126269192,253226.77960846646,254407.12566651142,145074.38792516678,145871.27022983745,146466.66910995904,146641.32731417421,147621.2186927064,148362.4323296962,146760.51112034579,149388.19262188196,98294.616439811012,99408.020705868825,100764.41021202039,101936.75608739271,103256.20367845977,104496.96926249957,105728.22330077557,106993.32763274293,176527.91089817131,179051.47752322446,177564.79497569578,178199.24302711303,178616.81501578065,179453.67165056494,180291.55557712712,180753.90322961053,343986.14035975438,346364.72319627542,349014.13437410898,351466.11713599646,353818.97131433128,356425.16754103266,358919.1865849017,361215.35936542531,167545.10136044252,166235.97095027447,168965.67085365485,169423.89649841384,170412.75105138909,170806.82992041711,171128.67876436946,171931.43189971751],\"centroids\":[72.089510374303529,72.24272040437917,72.538609083973952,73.0602341600664,73.194239049985143,73.409701021118408,74.781629020441386,74.073910220257147,6.0077176041509155,6.2931357240934291,6.6192021667336469,6.9140352085969798,7.2062117286094329,7.489727965374378,7.8055768409385262,8.1011229271752558,60.042912280928277,60.282477427804366,60.61061686845413,60.899371570506787,61.217393198066532,61.502021792649394,61.822944240348257,62.11111466467564,71.961501947007335,72.356780867974919,72.652117614066981,72.738753628062611,73.224810859477387,73.592476354015972,72.797872579536602,74.101286022758913,23.991851706080304,24.263612571605766,24.594681525999608,24.880828920525438,25.202881054054131,25.505728401879317,25.806254161770948,26.115042136378552,84.060909951510141,85.262608344392603,84.554664274140848,84.856782393863341,85.05562619799079,85.454129357411873,85.853121703393867,86.073287252195485,41.99049564938408,42.280849999545339,42.604264449964475,42.903578751952693,43.190792396768956,43.508931584598713,43.813377268664759,44.093671797537269,83.940431543307881,83.284554584305852,84.652139706239907,84.881711672552029,85.377129785265069,85.57456408838533,85.73581100419311,86.137991933726212]}\n{\"kind\":\"iteration\",\"index\":23,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":19564,\"gpu_items\":13207,\"resident_before\":16385,\"resident_after\":16385,\"ownership_changed_points\":1164,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":512,\"d2h_label_bytes\":52828,\"d2h_aggregate_bytes\":552,\"release_ns\":15443258769221,\"cpu_start_ns\":15443258827033,\"cpu_end_ns\":15443259639802,\"gpu_dispatch_ns\":15443258792672,\"h2d_end_ns\":15443259007460,\"compute_end_ns\":15443259179491,\"gpu_end_ns\":15443259501335,\"barrier_end_ns\":15443259715717,\"end_ns\":15443259736816,\"validation_end_ns\":15443263590530,\"control_ns\":664916,\"workers_used\":4,\"objective_before_update\":5063394.6591729801,\"objective_after_update\":5063394.6591729885,\"max_centroid_shift\":1.2120951076064997e-13,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"b0b49f9d50ed8381\",\"counts\":[2080,8194,4096,2016,4097,2100,8192,1996],\"sums\":[149946.1815785513,150264.85844110855,150880.30689466588,151965.2870529381,152244.01722396904,152692.17812392634,155545.78836251807,154073.73325813492,49227.238048412553,51565.954123221571,54237.742554215525,56653.604499243636,59047.698904225661,61370.830948277668,63958.896634650286,66380.601265274017,245935.76870268217,246917.02754428663,248261.08669318788,249443.82595279577,250746.44253928066,251912.28126269186,253226.77960846646,254407.12566651133,145074.38792516681,145871.27022983742,146466.66910995904,146641.32731417421,147621.2186927064,148362.43232969608,146760.51112034573,149388.19262188196,98294.616439811041,99408.020705868825,100764.41021202039,101936.75608739266,103256.20367845974,104496.96926249957,105728.22330077559,106993.32763274293,176527.91089817119,179051.47752322449,177564.79497569578,178199.24302711297,178616.81501578062,179453.671650565,180291.55557712715,180753.90322961041,343986.14035975462,346364.72319627507,349014.13437410898,351466.117135996,353818.97131433111,356425.16754103283,358919.18658490235,361215.35936542496,167545.10136044252,166235.97095027432,168965.67085365494,169423.89649841399,170412.75105138909,170806.82992041711,171128.67876436943,171931.43189971749],\"centroids\":[72.089510374303515,72.242720404379114,72.538609083973981,73.0602341600664,73.194239049985114,73.409701021118437,74.781629020441386,74.073910220257176,6.0077176041509093,6.2931357240934309,6.6192021667336496,6.9140352085969781,7.2062117286094294,7.4897279653743798,7.8055768409385262,8.1011229271752523,60.042912280928263,60.282477427804352,60.610616868454073,60.89937157050678,61.217393198066567,61.50202179264938,61.822944240348257,62.111114664675618,71.961501947007349,72.356780867974905,72.652117614066981,72.738753628062611,73.224810859477387,73.592476354015915,72.797872579536573,74.101286022758913,23.991851706080311,24.263612571605766,24.594681525999608,24.880828920525424,25.202881054054124,25.505728401879317,25.806254161770951,26.115042136378552,84.060909951510084,85.262608344392618,84.554664274140848,84.856782393863313,85.055626197990776,85.454129357411901,85.853121703393882,86.073287252195428,41.990495649384108,42.280849999545296,42.604264449964475,42.903578751952637,43.190792396768934,43.508931584598734,43.813377268664837,44.093671797537226,83.940431543307881,83.284554584305766,84.65213970623995,84.8817116725521,85.377129785265069,85.57456408838533,85.735811004193096,86.137991933726198]}\n{\"kind\":\"summary\",\"status\":\"passed\",\"iterations\":24,\"active_ns\":20692117,\"loop_elapsed_ns\":119120122,\"control_ns\":15480483,\"active_and_control_ns\":36172600,\"final_objective\":5063394.6591729885,\"stop_reason\":\"fixed_budget\",\"final_labels\":[6,2,4,6,6,2,4,0,4,2,1,5,4,3,1,2,1,2,1,2,5,7,6,1,2,1,6,7,1,7,0,2,1,2,4,1,2,1,2,1,2,4,7,1,7,1,4,1,3,0,4,6,1,6,7,4,6,3,6,2,4,7,6,6,2,1,1,1,1,4,7,3,1,3,0,1,3,4,2,4,7,0,6,2,5,1,2,6,4,7,0,1,6,6,6,4,2,2,7,1,6,1,6,1,6,6,3,6,6,4,1,6,6,6,1,6,2,6,2,5,4,2,4,6,7,6,6,1,4,4,2,1,7,1,3,6,2,3,6,2,1,5,6,7,6,1,0,1,6,6,1,6,6,0,6,3,1,6,6,4,7,3,1,6,6,1,6,1,1,0,6,2,4,6,7,3,7,1,2,6,6,4,6,6,6,6,4,6,0,4,6,4,2,1,3,2,1,1,4,2,6,7,3,4,4,1,6,1,0,1,6,5,5,4,6,4,4,7,2,1,4,1,2,6,4,1,1,2,6,5,5,6,6,0,1,1,0,2,1,1,1,7,1,4,0,6,6,6,6,6,4,7,0,7,3,6,0,4,7,4,1,1,1,6,6,2,4,4,1,1,3,4,1,6,6,7,1,6,6,0,1,6,1,6,1,5,2,0,6,1,6,1,6,0,4,1,1,3,6,1,5,6,1,4,7,1,6,7,2,1,4,1,7,1,4,6,6,6,4,6,6,1,1,4,4,6,2,4,3,4,7,0,1,1,6,1,6,1,0,5,6,5,0,4,0,1,1,6,1,6,6,1,1,4,2,6,6,4,4,6,1,6,1,6,2,3,2,6,2,0,1,0,1,5,4,4,1,3,4,1,1,2,1,6,1,1,3,1,6,1,1,1,2,1,4,1,1,6,6,1,6,6,1,2,2,1,6,1,0,6,5,6,3,3,4,6,3,4,6,2,7,1,6,6,4,1,5,2,6,4,1,2,3,6,6,1,4,6,6,7,4,6,1,6,6,1,7,6,2,2,2,2,2,1,2,6,6,1,0,0,2,7,6,4,1,4,6,1,2,6,6,6,3,7,1,3,5,4,2,4,1,1,1,1,6,1,6,1,4,6,1,6,1,7,4,7,6,7,4,5,2,3,2,3,1,1,1,4,1,1,0,6,1,1,6,2,6,1,1,1,1,5,6,6,1,6,3,0,6,6,3,1,1,2,5,2,6,2,3,6,4,4,1,5,1,1,1,1,4,3,1,3,2,6,7,1,6,4,0,4,1,1,1,6,5,7,5,4,6,4,4,6,6,6,6,1,5,1,6,6,0,4,0,0,6,4,3,6,1,1,4,6,6,0,4,6,1,0,6,1,2,4,6,0,0,5,6,2,4,6,7,2,4,4,6,1,0,1,6,1,6,2,4,1,1,2,1,6,3,6,6,6,6,1,1,1,3,6,2,0,6,1,5,6,6,0,6,6,1,6,1,5,1,1,4,1,5,2,2,2,2,0,6,1,3,6,2,4,2,6,7,5,4,1,4,1,7,0,7,1,6,1,7,6,6,1,2,1,2,2,1,4,4,4,1,6,4,6,1,6,1,4,6,6,1,1,5,1,0,2,3,2,6,0,3,7,3,2,6,0,7,7,6,6,2,3,6,1,2,0,6,6,1,6,4,7,6,6,1,1,4,4,1,6,4,6,2,4,6,1,2,1,2,1,4,2,3,7,4,7,6,5,6,3,6,1,4,6,1,0,4,1,6,6,6,4,6,4,4,2,1,3,1,2,6,7,4,5,1,2,6,1,2,2,6,6,2,4,6,4,3,2,4,1,1,1,5,3,4,5,6,1,1,6,7,0,3,6,6,4,4,6,5,1,5,1,1,3,1,1,2,6,0,1,1,2,1,1,0,6,7,3,1,7,7,3,1,0,3,1,4,6,3,6,1,2,6,1,1,7,3,6,1,5,4,6,4,7,2,6,1,7,4,5,6,1,2,2,0,5,7,1,0,3,2,0,1,6,0,6,1,1,1,0,0,5,6,3,1,4,6,4,6,2,6,1,6,2,2,1,1,5,3,5,4,1,3,1,2,1,1,6,2,6,4,0,0,2,2,3,2,4,3,2,6,5,6,4,6,6,6,6,1,2,1,1,7,6,4,1,6,6,4,2,6,5,7,1,4,1,4,6,5,3,2,1,1,0,4,2,1,5,1,5,1,6,6,0,1,4,4,3,6,1,5,2,5,6,1,4,0,6,6,6,0,4,6,6,5,0,6,1,1,6,1,1,6,6,6,6,7,6,2,6,1,1,6,3,2,6,4,1,5,3,5,0,1,6,6,1,6,2,4,0,6,0,2,0,3,7,3,1,1,6,4,6,3,6,6,1,6,5,1,6,1,1,2,6,4,6,6,2,4,6,2,1,6,7,6,4,1,5,2,0,6,4,3,3,6,1,0,2,6,1,1,7,2,0,1,1,1,4,6,4,2,6,1,1,1,5,1,1,0,6,5,1,6,4,2,1,3,4,3,1,6,0,5,6,7,3,1,1,1,4,2,5,1,6,6,6,1,4,6,1,6,6,2,2,5,4,7,4,3,6,1,6,7,1,2,4,0,2,7,1,4,1,5,7,1,0,6,6,6,6,2,1,2,2,4,7,2,1,1,1,2,2,5,4,1,7,6,1,7,5,3,6,6,6,2,5,6,0,7,5,5,1,7,6,2,1,6,7,1,4,0,2,2,5,4,0,6,1,6,1,6,5,0,1,7,5,0,5,2,6,4,6,1,1,4,1,4,5,4,1,6,2,5,2,1,1,6,1,1,1,1,1,2,6,7,6,1,1,7,1,3,1,0,6,1,2,0,1,2,7,0,6,4,1,1,0,6,6,7,0,6,4,3,1,1,2,7,3,6,1,1,6,6,4,6,7,6,4,1,1,4,1,1,3,3,1,1,2,2,6,1,6,2,6,3,2,1,1,4,6,6,0,1,1,6,4,1,7,5,1,3,2,1,3,1,6,3,7,1,2,6,2,6,0,5,6,2,1,1,2,6,6,3,1,3,4,1,1,6,6,1,5,7,1,0,2,6,1,6,6,2,0,6,5,7,2,4,6,6,2,0,1,6,5,1,3,5,6,3,6,1,5,2,6,2,6,6,1,7,6,2,4,5,1,7,1,2,2,6,4,1,3,6,1,1,5,7,0,6,6,6,5,4,3,2,4,1,2,5,7,5,3,3,4,1,2,6,1,6,4,1,7,0,6,6,6,0,6,6,5,6,6,1,1,7,4,7,1,6,6,1,3,7,2,1,0,1,4,6,0,1,6,1,4,4,5,3,7,1,2,7,6,4,1,2,0,4,2,1,5,6,6,7,0,3,6,3,1,6,2,2,7,5,6,1,4,6,5,7,2,2,3,6,4,4,3,6,1,1,7,4,6,1,4,1,2,6,4,4,3,1,2,6,1,0,6,6,2,7,1,1,6,7,2,6,1,5,7,3,2,6,4,6,2,6,1,3,6,2,2,6,4,7,2,1,2,6,5,6,3,1,1,3,1,3,6,6,1,4,4,4,2,7,1,7,2,0,4,6,6,1,6,6,1,4,4,7,1,4,6,4,1,4,6,7,1,6,1,6,6,6,4,7,6,6,4,7,5,4,1,6,1,2,2,6,1,2,1,1,1,1,6,4,6,1,2,5,6,6,3,4,6,5,1,1,4,4,6,5,3,0,6,7,7,1,6,1,6,5,1,1,1,4,6,4,5,2,4,5,6,1,6,6,1,7,4,0,6,2,2,3,6,1,6,1,1,4,2,1,7,1,1,3,6,6,6,0,5,1,1,7,4,2,3,4,0,3,1,6,6,2,6,6,6,2,5,7,6,1,1,6,1,6,6,2,4,6,2,7,0,1,2,4,4,3,6,6,3,6,4,6,4,6,2,2,4,1,6,7,2,1,5,1,6,4,6,4,5,4,1,4,6,6,1,5,1,1,4,4,6,0,1,2,1,1,0,6,0,2,6,6,2,7,1,3,6,2,6,7,1,4,4,2,2,1,2,6,1,6,2,2,1,5,0,2,1,6,4,6,6,2,6,0,2,4,3,6,1,6,1,7,6,2,1,4,1,1,1,2,1,6,4,6,1,1,2,6,5,2,5,2,5,0,2,2,1,3,7,2,2,4,1,7,3,3,6,0,2,5,6,2,6,6,7,6,6,0,0,5,2,1,6,6,2,6,6,2,1,1,1,1,7,6,6,2,1,3,4,2,2,0,0,4,6,7,6,6,0,6,1,2,4,6,1,5,6,1,1,6,2,6,1,6,4,1,1,6,5,1,6,2,1,0,4,6,6,1,2,3,1,2,6,6,4,4,4,6,6,4,5,6,1,1,0,6,5,2,4,6,3,6,1,1,4,1,6,1,7,1,5,2,4,6,6,1,6,2,6,2,4,5,4,6,5,6,3,6,1,4,6,1,1,2,1,6,7,6,6,1,1,0,1,1,2,2,1,1,2,4,1,6,2,2,4,3,1,6,6,1,1,4,6,1,1,7,7,3,2,0,1,4,1,0,1,7,2,6,4,6,1,5,6,1,6,4,1,6,1,5,6,1,1,1,5,4,3,0,1,2,2,2,1,6,6,6,1,1,6,1,4,6,2,4,6,0,2,4,5,2,4,2,6,2,1,1,4,6,0,3,2,5,5,2,2,3,3,3,1,5,0,2,2,6,5,6,6,3,5,1,6,0,1,1,1,7,1,5,4,6,1,1,4,1,4,3,4,4,3,6,0,5,2,0,2,4,4,2,1,6,2,4,0,6,1,0,0,4,0,1,4,1,1,4,1,6,1,6,0,6,4,7,6,6,6,6,0,6,6,6,3,1,4,0,0,6,1,6,5,6,0,1,1,7,1,4,5,0,4,3,4,4,6,5,1,4,7,6,1,1,6,5,6,7,4,6,6,5,0,0,2,6,2,0,1,5,7,2,5,1,6,6,6,1,3,1,3,1,1,4,7,6,3,7,3,1,0,2,2,6,0,6,4,6,1,4,2,3,2,1,1,4,4,2,1,1,1,2,6,5,6,6,1,7,6,0,1,1,7,1,0,0,4,1,1,1,0,0,6,6,4,6,2,1,1,6,6,2,4,2,5,6,7,1,4,1,6,2,1,1,1,1,3,1,1,1,1,6,2,0,4,6,6,6,6,6,6,6,6,4,5,2,7,7,2,2,4,4,6,4,6,1,1,6,1,6,1,6,0,7,4,6,3,3,1,6,3,3,6,4,7,2,1,2,3,1,2,1,1,6,1,6,4,6,6,6,3,1,2,6,1,0,2,7,4,3,1,4,6,2,1,6,5,2,1,0,1,6,1,1,7,6,6,2,7,1,5,5,1,5,1,1,1,4,1,6,5,2,6,1,1,4,4,1,2,4,1,2,4,0,2,1,5,2,1,1,3,4,1,2,6,6,1,6,6,6,2,1,6,7,6,1,5,2,4,1,4,6,2,5,6,5,6,1,2,7,7,3,6,6,1,4,3,6,1,5,2,6,6,2,1,1,6,2,6,1,5,0,6,6,6,0,2,6,2,5,4,0,6,5,2,2,3,0,6,1,1,1,4,0,2,2,1,5,5,6,1,1,6,6,4,1,1,1,0,6,6,3,1,3,6,6,1,6,7,2,2,1,1,6,7,1,5,1,4,1,0,2,3,6,5,1,2,1,7,4,1,4,1,6,6,4,6,1,1,4,4,6,2,4,1,6,1,1,6,1,2,6,4,1,1,1,1,0,1,1,1,1,4,1,0,2,6,7,4,6,6,1,6,1,7,1,1,6,3,3,1,1,3,4,6,1,7,2,4,2,4,6,1,4,7,1,1,6,0,1,6,1,7,7,1,6,6,0,0,4,4,1,6,1,0,6,4,6,3,1,2,5,6,2,4,4,1,7,1,6,6,6,2,2,1,2,6,3,6,1,6,6,1,2,1,4,0,3,0,1,7,6,0,6,6,5,2,0,4,2,1,4,1,4,4,1,6,1,3,0,0,1,6,1,6,6,3,6,1,3,1,1,1,0,1,7,0,1,1,7,6,6,1,2,2,6,1,5,1,1,2,3,2,1,1,6,0,1,7,7,6,4,5,1,4,1,6,0,1,1,4,1,0,4,1,1,2,1,1,0,2,0,0,6,5,1,2,2,1,6,6,6,1,1,4,5,2,1,5,5,0,6,0,1,7,6,3,6,1,6,1,2,4,1,4,2,3,2,0,6,1,6,3,1,3,1,1,2,2,1,4,6,1,2,0,2,2,6,4,0,6,6,0,6,0,4,4,4,4,0,6,1,0,6,3,1,7,6,2,3,2,3,5,0,1,4,2,5,2,5,4,1,1,1,6,2,1,6,6,4,1,4,7,6,1,0,6,4,3,1,3,5,1,1,4,4,1,6,6,1,4,2,6,2,2,2,2,6,1,6,4,7,6,6,2,2,6,1,6,3,6,6,1,4,6,5,6,4,6,5,7,1,1,6,6,1,7,1,5,1,4,6,1,1,2,0,6,2,2,6,6,7,2,7,1,1,5,6,5,1,3,1,0,6,1,2,6,6,1,0,4,3,0,1,1,1,6,1,2,6,1,6,1,6,0,1,2,0,1,4,6,7,4,1,2,6,1,5,1,0,2,3,2,6,2,4,1,6,2,2,6,6,6,6,2,6,0,7,3,1,1,0,1,1,1,6,1,3,6,6,7,1,7,1,6,6,1,7,2,6,2,3,6,4,6,6,6,2,2,6,2,6,6,6,6,2,1,6,2,5,3,4,1,7,1,0,6,2,0,4,6,4,6,6,0,6,6,6,1,1,5,2,2,1,1,2,2,0,6,6,6,2,1,1,6,6,1,6,1,6,4,6,3,0,0,4,1,6,6,1,6,6,4,1,6,0,1,2,6,1,7,3,0,4,7,6,1,6,4,2,6,3,2,2,2,1,2,1,6,0,0,4,1,5,4,3,4,6,1,2,6,0,4,1,6,5,1,6,1,7,2,6,1,6,0,4,4,2,7,2,2,1,2,6,4,1,6,4,1,6,0,6,2,7,1,2,3,2,2,6,1,6,5,2,4,1,4,2,6,1,0,4,5,3,6,1,1,7,6,4,6,1,6,2,4,6,2,2,7,6,7,1,6,6,7,1,2,6,4,6,2,6,1,1,1,0,3,1,1,4,4,2,1,2,1,2,1,6,5,2,6,6,7,6,1,4,3,2,6,7,3,1,1,4,4,6,3,4,1,1,4,5,2,7,0,1,1,1,4,2,4,1,6,5,4,4,1,5,6,5,6,2,1,5,5,0,6,1,1,5,0,7,7,5,1,6,2,4,2,1,1,1,6,1,5,3,3,1,6,4,4,1,1,2,2,1,1,2,6,4,6,2,2,5,0,5,6,0,1,5,4,1,6,6,5,2,5,4,3,4,6,7,6,4,6,5,1,5,6,5,5,2,5,1,1,2,6,6,4,7,1,1,1,1,6,6,4,2,1,6,1,6,1,4,1,2,7,3,4,3,1,5,1,6,3,1,6,6,2,4,1,1,4,6,1,0,6,6,2,1,6,2,1,1,0,5,6,2,1,4,2,1,6,0,4,2,6,6,0,1,4,6,4,2,4,4,1,7,4,2,1,1,2,2,4,4,4,6,6,4,1,7,1,5,6,1,5,6,0,1,6,0,6,4,6,7,6,6,6,1,6,1,0,6,6,7,3,1,7,6,2,1,6,6,1,0,6,1,4,2,7,1,2,4,2,5,7,2,4,1,6,7,1,5,6,0,1,4,1,6,1,2,1,4,1,6,6,6,4,6,6,0,6,3,5,7,1,1,1,4,1,6,6,2,6,2,2,1,1,4,2,1,1,3,7,5,6,0,1,1,1,6,4,6,6,5,5,6,2,6,0,6,6,4,7,1,4,1,3,1,0,7,3,6,1,7,6,2,1,1,6,3,2,7,2,7,1,6,1,4,3,2,6,1,1,1,0,2,2,4,3,7,2,1,6,5,2,6,1,2,0,1,6,6,6,1,6,1,6,0,6,7,1,4,1,1,6,6,6,6,2,6,1,2,4,1,5,2,3,7,6,1,6,7,6,7,1,5,2,3,6,2,6,6,0,6,6,1,4,7,1,1,6,0,6,1,1,4,1,4,7,1,6,1,6,5,1,1,4,7,6,1,4,4,4,6,2,6,4,1,3,2,1,1,1,4,4,1,4,0,2,1,2,7,1,2,3,6,6,4,1,0,2,6,4,2,5,1,0,6,1,7,1,6,6,1,2,2,2,1,4,6,1,5,6,4,1,1,1,1,6,4,3,5,1,2,3,1,6,7,6,3,6,1,2,3,2,6,6,1,4,3,2,6,6,4,6,6,5,1,6,5,6,5,6,5,4,2,6,5,4,5,3,4,4,5,6,1,3,6,1,6,6,7,5,4,7,3,2,1,4,1,6,2,4,1,6,3,1,7,1,1,5,4,7,3,3,3,5,3,1,2,1,3,7,3,2,1,4,1,6,4,5,4,6,3,5,6,1,4,4,1,5,6,1,2,1,6,6,1,2,0,7,1,6,4,3,2,3,1,2,4,0,6,6,1,4,4,1,2,6,0,2,1,1,3,4,2,6,6,4,7,6,2,2,1,1,0,4,6,1,1,1,2,2,1,6,6,6,4,1,2,6,6,2,6,4,2,0,6,2,6,2,6,6,7,1,7,2,6,0,4,6,1,2,6,2,3,5,5,6,1,4,1,1,1,6,5,1,1,1,4,6,6,3,1,4,3,1,6,1,6,1,0,2,6,2,5,1,3,6,4,2,7,3,2,4,0,1,7,6,6,3,4,1,6,1,6,2,5,5,0,4,1,6,1,1,1,6,3,6,6,6,4,1,3,1,6,7,1,6,1,6,1,1,4,1,2,7,1,0,2,6,6,2,6,6,1,4,4,3,2,6,4,1,3,2,6,1,0,2,2,6,4,3,1,5,0,6,1,1,6,5,0,2,1,6,1,6,1,1,2,1,1,0,5,2,5,1,4,5,0,2,4,6,0,6,6,6,2,5,3,4,6,7,6,1,5,4,2,4,6,3,5,1,1,5,1,1,1,1,6,6,1,6,6,2,4,7,6,6,7,4,1,4,0,1,2,4,1,6,1,1,2,6,6,6,4,1,6,0,6,1,6,1,6,6,0,6,2,3,4,3,6,6,1,4,2,1,2,6,6,6,2,6,7,6,5,1,4,1,6,2,6,6,5,6,6,5,1,6,0,7,1,6,6,2,1,0,5,1,2,1,6,2,1,5,1,2,5,6,5,6,1,5,4,2,2,3,4,6,1,1,6,6,6,7,2,1,6,0,2,7,4,1,0,0,4,4,1,1,6,4,4,6,4,6,2,2,6,2,6,6,1,1,6,0,6,6,7,6,4,4,2,6,4,1,5,5,6,1,1,1,6,6,5,6,6,6,6,6,1,4,1,7,1,1,4,6,1,5,6,5,1,6,2,6,5,1,6,1,6,1,3,7,0,2,4,1,6,5,1,7,1,0,6,4,6,4,4,6,0,0,4,4,4,3,6,1,2,1,1,1,5,2,1,1,5,2,1,2,3,4,1,2,1,1,3,1,1,1,6,6,5,6,1,4,4,2,2,6,6,6,6,6,6,5,4,6,7,5,6,6,0,0,0,4,1,1,6,4,6,2,7,7,6,7,4,6,6,3,2,7,6,6,3,6,5,1,2,0,2,1,1,1,1,1,4,6,1,1,4,1,2,6,1,6,6,1,1,4,1,0,1,6,2,6,2,2,1,3,0,1,2,2,0,7,3,0,4,6,1,7,6,0,6,0,6,2,3,2,4,6,1,1,0,6,6,1,0,4,7,1,1,6,4,6,2,0,5,5,0,1,3,1,0,2,6,2,0,6,2,1,2,1,6,1,7,6,4,1,4,1,1,1,0,6,4,0,2,2,0,5,1,1,3,2,2,6,7,6,4,2,1,2,5,6,4,6,7,6,5,0,7,2,1,2,1,3,3,2,5,6,6,6,6,6,7,6,6,0,4,6,4,1,2,2,0,1,1,0,2,6,7,6,4,6,4,1,0,1,5,2,1,6,1,2,7,6,7,2,1,1,6,2,1,1,6,3,6,6,6,6,6,1,3,4,1,6,6,1,1,1,1,6,2,1,1,6,6,4,3,7,2,6,2,1,0,4,4,2,4,2,6,4,6,0,2,1,6,0,4,6,1,7,4,1,1,6,6,1,6,4,5,0,6,1,7,6,2,3,6,2,1,4,7,6,6,6,1,6,3,1,6,6,4,2,1,6,2,3,2,4,5,3,6,0,1,3,4,6,0,5,4,6,2,6,6,6,2,6,1,4,4,6,7,4,4,2,6,5,1,6,1,6,6,6,1,1,0,7,6,4,4,7,4,2,5,6,3,1,7,3,6,1,5,5,2,6,1,1,4,2,1,4,0,2,1,6,1,1,2,4,4,7,6,4,6,1,7,4,6,3,1,1,7,3,1,1,6,6,6,4,1,1,4,1,5,2,1,1,4,1,1,6,6,2,7,6,2,1,6,6,5,6,3,1,1,6,6,3,1,1,6,1,1,1,7,2,6,7,2,2,7,1,1,6,6,1,6,5,1,1,1,3,2,5,4,2,1,2,1,0,6,1,2,1,2,1,1,3,3,7,6,1,7,1,7,6,6,7,1,6,4,2,6,7,5,7,1,2,1,2,7,6,6,4,1,2,4,7,6,6,2,1,2,6,4,5,4,6,4,0,1,6,5,1,4,6,6,0,6,6,1,6,7,2,1,1,1,1,5,6,6,2,1,1,7,5,7,6,4,5,1,0,1,6,4,1,2,1,4,5,1,5,6,6,1,3,4,4,1,1,1,0,0,2,2,2,6,3,6,1,3,7,1,6,2,1,6,2,6,6,7,6,3,6,6,4,1,1,5,4,3,7,2,1,5,1,7,2,1,6,6,4,1,6,2,4,1,2,4,0,1,3,7,5,4,0,6,1,7,1,1,3,6,0,0,6,5,6,2,6,2,1,6,6,4,1,6,2,3,4,6,6,2,7,4,3,6,1,2,2,6,1,0,1,1,7,4,6,7,7,2,1,1,1,6,5,2,6,4,1,6,6,3,6,3,2,1,0,7,6,1,3,6,6,5,7,6,6,3,5,6,4,5,2,6,6,1,1,7,4,1,2,6,1,3,6,6,1,1,0,5,6,6,7,1,6,1,3,4,0,6,4,4,6,1,3,6,6,1,4,2,4,1,6,5,1,1,2,6,1,6,2,4,1,7,2,4,4,1,6,5,1,1,2,1,1,1,6,6,1,6,4,1,6,4,7,5,1,2,4,7,7,6,3,6,7,1,2,7,1,6,1,2,1,5,1,7,7,3,6,6,4,2,1,4,4,6,2,1,4,4,6,2,5,3,7,6,4,1,1,4,4,6,7,1,7,6,1,6,1,1,5,2,6,2,1,6,1,1,7,0,6,1,1,1,6,2,6,6,5,0,7,7,6,4,1,6,5,1,1,1,2,4,7,1,4,4,2,4,1,6,4,1,6,2,7,0,4,1,1,2,1,4,1,0,3,1,7,6,6,7,6,5,3,1,4,1,1,1,0,1,6,1,6,1,6,4,7,1,5,1,2,3,1,1,1,6,6,1,6,4,4,6,1,6,2,6,7,6,7,7,3,4,5,6,6,3,3,1,7,6,6,1,4,6,1,1,1,7,1,6,2,4,5,4,2,6,3,6,1,6,5,5,2,6,1,0,1,5,2,1,3,2,1,1,1,7,7,4,1,4,1,6,1,6,2,2,3,4,6,6,4,1,6,2,6,6,2,1,6,0,5,7,6,5,6,1,2,4,0,2,4,1,5,5,1,6,6,1,3,6,6,6,1,2,4,4,3,6,4,3,6,0,6,1,1,4,3,7,6,4,6,1,3,6,5,6,2,6,6,0,3,1,2,1,1,1,1,2,1,4,1,7,3,6,2,4,2,6,6,1,6,6,4,6,0,1,1,6,4,6,2,3,3,1,2,5,7,0,4,6,4,6,6,1,1,1,1,6,1,0,1,6,6,6,4,1,1,2,5,6,5,1,1,7,4,6,1,1,6,0,3,6,7,2,3,1,6,2,1,1,6,5,3,6,1,2,6,1,2,4,5,7,6,1,0,1,7,6,5,6,0,2,4,5,1,6,3,7,6,1,1,6,6,0,4,1,4,4,6,1,6,4,6,4,1,1,6,0,7,6,7,3,1,5,4,6,6,3,3,0,1,5,1,1,2,2,3,7,1,2,6,1,1,1,1,4,1,6,0,2,1,0,0,1,6,1,0,1,4,1,7,6,5,6,0,5,6,4,2,3,1,6,6,3,6,4,1,7,1,2,6,6,5,6,6,5,4,1,2,6,7,0,7,1,6,6,1,6,6,6,6,6,6,1,1,1,1,6,1,2,2,6,6,1,6,3,6,1,6,6,1,4,4,2,4,7,0,6,6,4,1,5,4,6,4,7,4,2,1,2,1,4,5,4,2,6,3,1,0,1,3,1,5,1,4,4,4,2,6,7,2,4,4,2,6,2,2,0,5,2,6,6,6,6,5,6,1,4,7,2,3,2,1,1,2,4,4,6,6,5,1,1,4,7,4,1,0,1,6,7,1,6,6,4,0,1,6,6,1,6,1,1,1,1,2,4,3,1,1,0,5,6,1,1,1,5,4,2,5,1,2,2,2,1,4,5,6,6,6,3,3,1,1,6,1,5,1,3,0,1,6,1,7,5,1,0,2,6,1,1,4,3,7,7,1,4,1,0,2,1,7,5,2,1,0,1,1,2,1,6,4,5,1,6,6,6,1,4,2,2,7,7,0,2,2,7,3,7,1,2,1,1,4,1,3,7,5,6,7,1,2,7,2,1,7,1,2,1,3,0,7,0,3,1,4,3,1,1,6,6,1,0,1,1,3,1,1,6,6,4,4,4,1,0,1,6,3,6,2,5,6,7,4,1,6,2,2,2,4,1,1,2,0,2,1,6,2,1,6,6,6,6,2,0,6,6,4,4,0,6,2,3,0,6,1,6,4,6,6,1,1,2,1,2,0,7,1,6,2,1,1,6,6,4,6,1,1,1,1,1,1,0,4,2,6,6,6,6,4,4,6,6,1,1,2,6,6,6,5,0,1,6,1,1,1,0,7,1,7,1,5,4,5,3,0,6,0,2,1,0,6,3,1,6,6,0,4,6,6,2,2,6,1,1,2,6,6,1,1,6,6,5,4,2,6,1,5,1,6,1,6,1,6,1,6,4,4,0,4,1,1,1,6,1,1,5,2,5,4,2,4,0,7,0,2,1,4,2,6,4,6,2,1,2,3,1,5,2,2,4,1,1,6,6,6,6,6,0,4,1,7,1,6,7,4,6,1,6,2,2,5,4,4,1,1,2,0,6,3,1,6,7,6,4,6,6,6,1,1,1,1,2,1,5,1,5,6,0,5,4,5,6,1,4,1,5,2,6,2,4,1,2,1,0,0,4,4,1,3,1,2,5,1,4,1,2,4,6,7,6,1,6,4,6,6,6,6,1,5,2,6,2,6,1,1,4,1,4,5,5,2,6,7,6,1,1,2,6,1,6,6,3,0,2,3,5,0,3,1,7,4,6,2,6,4,2,2,6,5,1,4,3,4,4,4,1,6,2,6,4,1,6,1,3,0,2,2,1,2,1,7,0,2,2,6,2,1,1,1,2,1,1,4,6,4,2,6,7,4,6,6,1,4,5,2,1,1,6,4,4,6,6,1,6,1,2,3,4,6,4,6,0,0,3,4,6,6,0,1,1,3,5,2,4,2,7,4,4,1,7,6,5,0,0,7,4,5,1,2,1,6,4,1,4,1,4,2,3,1,0,7,5,5,2,6,6,1,5,4,3,0,6,6,5,2,2,0,1,7,1,5,1,4,6,2,1,4,6,1,1,2,1,2,2,5,2,2,2,4,1,4,7,3,0,2,1,4,4,2,3,4,7,1,2,1,3,1,1,1,6,1,3,6,1,6,6,3,6,2,5,4,4,2,7,6,6,2,6,3,1,2,4,1,2,1,6,5,1,0,7,2,0,1,0,0,2,2,1,2,1,1,3,6,6,1,4,3,0,5,1,6,1,1,0,6,4,2,0,4,0,6,4,6,7,1,6,7,2,0,6,6,2,6,5,4,1,1,6,1,1,6,0,0,3,1,2,6,7,6,7,0,7,3,2,4,4,1,3,0,7,6,5,6,0,3,1,6,2,2,4,1,1,2,1,1,0,6,0,2,6,0,6,1,4,0,7,1,4,7,3,6,4,2,2,6,1,1,1,6,7,1,6,6,6,7,4,4,7,4,6,4,6,1,6,1,3,1,3,2,1,0,6,1,6,5,1,1,1,2,7,6,3,6,1,6,4,6,6,4,6,2,0,6,1,1,6,2,1,2,4,2,6,6,2,6,0,7,1,4,5,1,6,0,4,7,1,1,6,3,7,6,6,0,1,6,4,5,0,1,0,1,1,0,4,1,4,6,1,7,6,3,2,5,3,4,3,2,4,6,6,4,6,1,1,6,6,2,6,1,4,1,1,1,0,0,4,0,3,7,5,4,5,4,1,2,6,0,7,3,6,1,6,2,4,6,1,3,6,5,1,1,6,1,1,1,1,2,6,1,6,2,4,2,6,2,6,6,2,1,2,6,7,1,6,2,1,6,1,2,1,3,3,3,6,2,2,6,4,1,1,6,1,6,6,1,6,2,6,1,1,6,2,6,5,2,5,1,1,3,2,2,6,0,1,3,1,6,6,6,4,1,1,6,6,7,1,1,1,2,4,6,3,6,2,4,1,4,1,1,1,4,2,6,4,5,2,1,6,6,6,1,6,5,1,2,4,1,0,3,2,5,4,2,2,0,1,2,6,6,6,1,3,1,2,6,6,6,1,6,5,0,2,6,1,6,2,0,4,6,7,1,2,1,6,6,5,1,1,6,7,1,3,5,6,1,1,4,5,6,2,6,3,6,7,5,2,5,0,2,2,7,2,6,5,1,2,1,1,4,4,1,1,1,2,4,6,0,6,2,6,1,0,6,6,3,2,1,6,7,1,7,1,1,7,6,1,1,2,1,1,4,6,0,4,6,6,2,7,1,7,0,1,6,4,2,2,3,1,6,1,6,6,7,1,2,2,1,6,1,3,2,7,4,6,3,6,2,3,1,6,6,6,1,6,1,1,0,6,4,5,1,6,6,2,4,1,6,6,2,3,3,1,1,0,3,1,0,1,7,6,4,4,4,3,1,1,6,1,7,0,3,6,0,6,6,6,6,6,6,1,2,4,3,4,7,4,1,6,4,4,2,3,1,5,2,6,2,1,4,6,7,2,1,2,1,4,7,6,0,6,0,2,5,3,2,6,4,7,1,1,3,6,2,2,1,6,7,6,2,4,3,1,1,6,5,3,6,4,7,5,7,1,2,2,1,4,5,1,6,1,2,3,6,6,1,1,6,1,6,7,1,0,4,6,0,2,7,1,4,2,1,6,5,3,4,5,7,6,2,3,5,1,1,0,2,1,1,4,1,5,6,1,3,1,0,2,1,2,2,7,2,1,6,6,4,7,4,2,4,5,1,1,6,0,1,6,1,0,4,6,1,6,6,1,0,6,5,6,7,1,1,1,1,4,7,1,4,1,6,1,1,2,2,6,1,1,1,1,2,1,7,1,4,6,1,6,4,1,0,1,4,6,6,7,4,5,5,6,1,1,6,7,2,6,6,6,6,2,6,3,6,3,2,1,7,7,1,1,6,6,4,2,1,7,4,1,7,4,6,1,1,6,1,3,1,1,0,1,6,6,6,1,5,6,2,4,6,4,5,2,0,1,4,1,6,6,2,1,2,0,2,6,1,6,3,1,2,6,3,1,6,1,4,4,4,7,2,6,0,1,1,2,7,6,5,6,6,3,3,4,7,3,1,4,6,7,4,7,3,2,1,6,5,7,1,6,1,0,6,2,7,0,1,1,0,7,7,6,1,1,7,1,4,5,6,6,5,6,1,1,5,1,1,2,2,1,1,5,1,7,1,2,2,4,5,0,4,4,1,6,1,2,4,2,1,4,2,1,0,2,1,2,1,6,1,6,4,3,1,1,4,4,3,7,4,6,1,1,6,1,1,6,2,4,6,1,6,3,6,0,7,2,6,1,1,1,2,5,4,0,5,4,3,5,6,1,1,2,5,3,6,2,6,1,5,7,6,6,4,6,5,2,3,6,6,1,6,2,3,5,4,1,5,5,4,4,4,4,2,6,2,6,2,4,6,3,1,2,6,6,4,2,0,4,6,6,6,1,1,1,6,6,6,2,1,6,1,4,6,4,6,0,6,4,1,6,1,5,6,2,3,7,1,6,1,4,0,0,6,2,6,7,6,1,6,6,0,7,1,2,6,3,4,2,1,2,6,6,6,1,1,6,0,4,7,1,2,1,4,3,4,0,5,1,0,5,2,1,1,6,2,1,5,2,7,1,1,0,1,1,0,2,7,2,1,1,3,1,4,4,3,1,6,4,1,1,6,1,6,7,5,0,1,2,1,4,6,6,2,6,1,4,6,4,1,4,1,0,6,1,6,4,6,1,1,1,6,1,7,6,2,1,5,6,6,5,6,1,0,1,1,6,1,1,3,3,2,1,2,3,7,5,1,1,1,1,2,0,6,0,4,6,2,0,4,6,6,2,6,4,0,5,7,6,6,1,1,7,2,7,7,6,1,1,1,3,3,5,1,1,2,3,3,6,4,1,2,1,7,3,0,6,2,3,0,6,6,6,4,1,0,2,6,6,1,6,1,3,3,1,3,2,0,1,1,1,5,4,6,1,0,1,2,6,7,2,1,1,1,4,6,4,1,2,6,0,6,6,4,5,2,6,1,6,4,1,6,6,4,6,7,2,1,1,0,1,2,5,6,6,2,6,6,4,2,0,6,6,6,3,1,3,3,1,2,5,7,4,4,1,6,4,1,4,4,3,6,2,6,3,0,1,0,2,3,6,6,6,6,5,1,1,0,6,1,6,6,6,4,2,1,6,1,3,5,5,2,1,1,6,1,4,0,1,3,4,0,4,0,4,3,4,6,0,0,2,6,4,1,6,6,0,0,6,2,6,1,0,1,1,4,2,2,0,0,0,4,4,5,6,5,4,5,4,7,1,7,5,5,7,6,1,1,1,1,6,1,7,6,2,2,1,1,1,1,4,1,0,5,4,1,1,6,1,4,0,1,1,5,4,3,6,5,0,1,6,6,6,1,7,3,5,1,6,1,5,5,4,3,1,1,1,7,6,2,0,5,6,4,1,1,1,5,3,1,5,7,4,4,2,4,7,6,7,6,7,6,2,4,5,0,5,6,6,6,2,3,3,5,1,4,1,4,3,1,6,1,0,4,1,1,5,3,6,2,1,6,1,6,1,4,6,0,6,7,2,6,2,2,1,4,4,6,7,1,3,1,6,7,6,3,0,1,4,0,6,2,4,6,3,6,2,5,5,7,1,6,2,6,0,1,1,6,4,7,1,6,6,0,2,3,3,1,4,0,4,1,2,2,1,7,7,1,3,2,0,6,4,0,6,1,2,6,6,3,5,7,3,6,0,2,4,3,6,4,6,6,6,1,1,7,0,6,3,6,1,1,2,6,6,2,0,1,2,1,1,7,4,1,0,1,1,0,4,4,1,5,6,6,2,6,1,4,1,0,7,4,5,2,6,1,2,7,1,6,0,2,6,7,6,1,5,2,6,4,7,7,6,3,1,4,4,1,1,4,2,1,6,6,6,1,1,1,7,6,6,7,6,1,4,2,4,5,2,2,6,4,6,6,7,6,5,5,2,4,2,5,2,3,0,1,2,6,1,7,4,6,6,6,0,6,1,0,6,6,6,4,1,3,6,6,6,6,5,6,2,2,1,6,0,6,4,6,2,1,6,6,5,1,1,2,1,4,6,2,6,6,1,4,4,1,6,1,3,1,1,0,1,6,6,6,6,4,1,3,6,5,6,6,5,1,2,1,1,6,1,5,6,6,1,0,2,1,5,4,4,6,6,2,1,5,6,1,7,0,0,3,3,6,3,1,1,4,6,6,2,6,1,2,1,1,6,5,1,1,7,6,4,1,2,1,6,6,1,6,1,0,7,1,4,7,5,6,5,6,2,4,1,2,0,6,1,7,2,2,2,0,1,6,2,1,6,6,4,5,1,7,1,3,1,2,6,2,1,7,1,1,1,1,7,1,7,2,7,6,3,2,1,4,1,6,1,6,7,4,0,2,7,6,0,4,1,2,6,6,1,1,2,3,3,1,4,2,2,1,1,0,2,6,1,6,6,1,1,6,4,6,2,6,3,1,6,6,3,3,7,6,1,6,6,0,0,1,4,1,0,4,6,6,2,1,7,1,1,1,0,4,5,1,5,3,3,6,5,3,1,6,3,5,7,6,1,4,6,7,1,6,7,4,3,1,1,3,1,1,1,2,6,0,6,1,6,4,6,1,2,1,2,2,1,2,6,7,2,2,2,1,4,1,4,5,1,2,3,0,1,1,7,5,2,1,5,6,1,1,3,2,4,5,4,1,1,1,5,6,7,7,4,0,6,5,2,2,1,4,6,1,1,6,6,2,6,1,5,5,6,7,1,6,6,6,6,7,6,1,6,6,0,5,1,1,6,0,7,7,2,4,4,3,1,1,5,6,0,1,1,4,6,4,6,6,1,0,6,7,4,3,2,6,2,1,6,4,1,4,1,6,6,2,1,6,6,5,2,7,0,6,5,1,5,1,6,6,0,6,7,6,1,6,3,5,2,6,2,7,6,3,6,1,2,6,1,1,1,3,6,0,1,1,6,6,2,4,6,6,1,0,5,1,6,6,7,6,3,7,2,4,7,6,6,4,6,4,2,6,1,5,7,6,4,1,1,1,1,0,6,0,1,3,2,2,1,6,6,5,3,1,1,1,1,6,0,4,1,3,4,4,6,1,5,1,2,1,6,3,4,3,6,5,6,3,3,2,4,6,1,6,1,6,1,7,1,6,1,7,6,2,6,4,1,6,6,2,4,1,4,7,6,4,4,6,6,2,0,2,6,6,6,6,2,1,0,1,0,6,6,2,4,6,1,2,7,1,3,6,1,4,1,1,1,1,7,4,3,1,3,1,1,6,1,2,1,3,1,6,4,1,3,2,1,1,4,6,4,1,6,3,1,3,6,1,1,1,7,1,6,2,7,6,1,2,4,2,4,2,2,7,6,6,1,6,0,2,1,2,6,1,0,6,5,6,0,4,6,2,0,1,6,7,2,6,6,4,1,6,2,0,4,6,1,0,7,6,6,7,6,2,6,7,5,0,1,3,0,6,1,4,1,1,6,4,1,7,0,1,3,0,0,6,1,3,7,2,1,6,6,5,1,0,1,1,4,1,6,0,6,1,0,1,2,6,3,6,1,6,2,1,4,1,1,6,6,6,6,7,4,6,4,4,1,1,6,4,7,1,1,1,2,1,5,5,4,7,6,6,1,1,6,6,3,1,7,2,6,5,6,2,5,0,1,6,6,1,6,0,2,4,3,1,4,6,5,6,4,4,1,6,1,6,1,1,5,6,6,6,1,0,3,6,5,6,1,6,6,7,6,1,2,1,4,5,5,1,4,1,1,1,3,1,1,1,1,1,6,6,3,6,5,1,4,4,4,6,7,3,6,6,0,4,1,1,6,3,0,1,6,5,2,6,6,6,0,6,2,4,5,2,1,4,1,2,5,1,2,6,1,4,7,6,2,1,6,4,3,7,6,6,0,1,3,6,0,1,1,3,1,0,1,1,1,1,7,1,1,4,6,4,2,5,1,0,6,1,1,2,3,6,6,1,4,1,2,7,2,5,4,4,6,7,7,2,6,7,4,5,1,1,1,1,3,1,6,6,6,0,4,7,1,7,1,6,6,6,2,6,1,3,4,6,7,6,6,0,2,2,1,1,2,2,4,5,6,2,4,1,2,6,4,1,1,4,1,1,5,6,1,2,2,3,1,1,7,6,2,3,2,7,0,7,1,6,4,6,1,1,2,3,5,4,3,1,5,7,6,2,1,1,4,2,6,1,6,6,1,7,6,6,6,5,7,2,1,2,0,6,1,2,0,4,1,6,1,2,4,1,5,6,4,6,4,4,7,2,5,1,1,4,1,1,1,7,4,1,6,4,1,2,6,3,2,6,4,6,1,2,5,6,1,2,6,2,7,1,1,1,6,1,3,1,5,1,6,2,0,1,6,4,1,0,1,0,1,2,6,7,4,4,6,2,3,7,1,6,6,6,1,6,7,6,6,7,2,5,0,2,3,1,6,4,2,2,4,4,6,6,1,7,2,1,4,1,6,6,6,6,2,4,1,1,2,6,1,7,2,4,1,1,4,2,4,6,6,3,1,6,1,6,1,6,4,5,6,6,1,4,2,1,6,1,3,1,5,3,2,0,6,7,4,3,4,4,6,1,2,4,1,1,4,5,0,2,7,6,1,4,7,0,1,4,7,1,0,1,4,1,3,6,7,1,4,1,1,3,2,6,6,1,0,1,0,6,1,5,2,6,2,6,1,1,4,3,6,3,6,6,4,7,4,1,4,1,6,1,4,2,2,4,2,1,6,0,5,1,6,3,2,7,1,6,0,6,2,6,1,6,6,4,6,1,0,1,5,2,2,7,6,7,7,3,5,6,4,0,1,1,3,1,1,6,6,6,1,7,6,1,6,6,6,5,6,3,5,6,5,6,6,2,6,1,6,3,4,1,3,6,6,4,6,4,6,3,1,4,6,1,1,6,5,1,4,1,6,1,3,2,5,1,1,0,6,1,6,6,6,1,7,6,2,6,4,1,1,4,3,5,1,5,6,4,1,1,6,2,1,6,5,6,5,5,1,2,6,2,4,0,4,6,6,2,1,5,1,1,1,4,5,4,5,0,1,1,4,6,7,4,4,0,7,1,5,1,7,1,2,2,1,6,2,1,6,4,0,1,1,0,2,4,0,2,1,6,6,5,6,7,2,1,6,1,2,6,3,0,1,1,5,0,4,0,2,5,4,1,4,6,3,1,4,6,1,1,0,6,6,1,6,2,7,2,6,6,2,7,2,2,6,2,7,3,2,2,7,6,1,6,4,7,4,1,2,1,6,6,2,1,1,3,6,2,7,2,4,5,4,6,6,5,1,1,1,2,4,6,1,6,6,4,4,1,1,6,6,4,6,6,2,4,7,1,4,4,3,5,6,6,1,6,6,1,5,0,6,4,1,2,6,0,6,3,6,1,1,2,6,6,7,5,1,6,6,2,2,1,1,7,2,1,6,4,7,2,4,7,1,4,5,4,1,6,2,6,2,4,1,2,0,6,3,1,6,4,5,6,6,1,6,2,0,2,6,1,1,7,2,0,4,6,5,6,1,4,1,1,0,4,2,2,4,6,1,3,6,1,6,5,4,1,6,0,6,2,1,1,6,0,1,6,0,6,4,2,4,1,3,7,6,1,1,1,0,4,4,3,6,4,6,7,1,5,5,4,1,6,1,6,0,1,6,5,6,0,4,1,2,3,6,5,6,4,1,7,6,1,1,1,5,2,6,7,1,6,3,6,5,1,2,7,1,0,6,7,4,1,1,6,4,0,6,6,7,6,5,1,1,6,7,5,1,1,6,5,5,5,7,1,0,6,2,7,2,4,4,3,0,2,6,6,5,6,4,6,0,1,0,0,1,6,1,5,1,4,6,6,4,4,1,4,2,5,1,1,0,2,1,1,5,4,6,4,6,1,4,6,1,6,5,4,3,1,6,6,1,0,4,6,4,1,1,3,1,5,7,2,5,1,0,5,6,4,2,6,2,4,6,6,3,6,6,5,1,6,4,6,4,1,2,6,6,6,5,4,1,3,1,6,6,0,0,5,1,6,1,1,1,6,6,1,2,0,3,6,7,1,1,2,6,6,5,4,5,1,6,0,5,3,6,1,0,1,4,4,4,1,3,1,3,1,5,2,6,1,6,1,2,2,1,1,1,6,1,1,0,1,1,6,2,1,1,1,4,1,0,1,6,6,2,1,1,1,6,6,6,4,4,6,1,5,1,4,1,2,0,6,1,6,5,4,7,3,6,1,6,0,2,1,1,2,1,1,6,4,3,0,6,1,6,1,4,4,1,6,6,5,1,6,1,6,6,3,3,6,3,0,6,6,6,6,3,5,1,7,1,1,2,1,1,1,1,1,6,3,3,4,3,5,6,4,4,2,6,0,5,5,0,4,5,1,0,2,1,1,6,1,2,6,2,1,4,2,0,1,6,6,6,3,0,2,1,1,3,6,5,1,7,6,0,5,4,6,1,1,1,6,6,1,2,7,6,1,1,7,1,1,4,4,6,6,1,5,6,1,6,6,1,7,2,4,0,6,6,2,6,2,1,4,5,4,2,2,7,1,1,6,2,4,6,7,0,6,3,7,7,0,6,7,5,6,6,1,6,3,4,1,6,1,3,1,1,6,7,5,4,1,1,3,6,6,6,1,2,6,1,1,3,0,6,1,6,0,6,2,4,7,1,6,1,0,6,7,2,1,6,1,6,1,2,0,4,5,1,6,4,1,6,4,6,3,2,1,2,2,4,2,3,4,6,6,2,2,4,6,7,2,2,6,6,1,2,4,1,3,1,6,1,2,6,6,6,7,0,6,2,4,2,1,1,0,2,6,6,7,7,0,4,2,0,6,6,6,0,6,1,1,6,2,3,4,6,2,2,6,0,2,5,5,4,0,6,4,5,6,2,6,6,1,4,1,2,7,5,4,1,3,0,6,1,2,6,2,5,2,6,2,2,6,6,5,4,3,1,5,6,6,2,7,4,6,5,6,4,6,3,6,5,1,6,6,6,3,6,1,3,5,1,4,2,2,6,7,1,6,3,6,2,6,1,4,0,0,7,6,1,7,0,1,6,6,4,6,2,1,6,3,6,6,0,3,1,1,6,5,2,1,2,6,3,6,4,4,7,1,1,0,3,1,5,0,1,6,7,6,1,1,1,5,6,6,6,1,5,2,1,6,6,6,6,4,1,0,4,6,1,4,0,6,6,1,7,2,2,1,6,4,4,2,1,7,6,6,7,4,1,1,6,1,0,6,2,5,6,2,6,1,1,1,7,6,3,6,5,7,6,6,1,3,6,0,6,7,7,2,2,3,7,1,1,4,1,6,1,4,1,1,6,2,4,1,3,1,2,1,5,6,4,2,1,6,7,4,4,1,6,4,2,1,6,1,6,4,4,2,0,2,4,1,5,2,1,1,5,1,6,2,6,1,3,1,4,5,4,0,0,6,6,4,4,2,5,6,4,1,6,1,6,4,1,0,1,1,1,6,6,2,2,1,2,4,5,4,6,1,6,7,1,1,7,4,7,2,3,1,1,3,6,0,7,4,6,1,1,6,6,2,6,6,6,4,3,3,1,6,4,6,5,2,4,6,4,0,1,6,1,2,6,5,5,4,2,2,0,1,0,5,1,2,1,6,6,6,2,0,2,2,1,7,3,2,6,1,2,6,0,4,6,0,6,1,1,7,1,4,7,1,6,1,6,1,2,3,1,7,7,6,6,6,3,1,1,3,1,4,2,2,1,1,6,6,0,1,5,2,1,1,6,4,3,6,6,1,4,5,6,6,2,7,1,2,1,1,1,1,7,6,1,6,0,1,6,6,4,1,0,6,6,0,3,1,6,1,1,5,3,2,1,1,4,7,0,6,1,3,1,6,2,2,6,5,1,1,0,5,1,0,3,1,1,3,5,2,1,2,1,6,0,1,5,1,2,1,1,4,6,5,2,0,6,1,7,4,6,4,1,4,6,5,2,6,1,4,6,4,6,2,0,0,4,1,6,6,2,6,6,6,2,3,1,7,1,6,6,4,6,1,1,6,7,6,0,1,7,6,3,1,2,7,6,3,4,2,1,1,3,5,4,1,1,0,1,6,1,6,6,2,5,0,1,6,6,1,1,1,6,5,4,1,4,1,0,1,0,4,2,7,7,2,4,4,2,0,6,5,6,5,1,4,4,1,3,6,0,7,1,6,2,6,5,3,6,3,4,6,3,1,1,1,1,3,6,6,7,1,1,4,6,2,6,5,3,2,6,4,6,3,6,5,2,3,1,6,2,6,5,6,6,6,3,4,5,6,2,4,1,1,6,1,6,7,1,7,6,1,2,7,1,1,6,6,4,4,2,1,6,1,5,4,4,6,2,1,7,2,4,5,0,6,2,6,5,0,1,3,3,1,0,1,2,1,3,1,0,5,2,6,1,1,4,1,4,1,1,6,2,4,1,6,2,1,1,1,1,4,6,0,6,1,7,1,7,6,6,7,6,1,2,6,7,0,1,7,0,2,6,1,2,7,3,2,5,6,2,4,1,5,1,4,1,1,2,2,6,0,4,3,1,6,6,5,2,2,1,4,6,4,5,4,6,1,7,1,6,1,0,6,6,1,5,6,3,6,6,6,4,4,1,7,3,6,4,6,1,7,1,2,7,1,6,6,1,6,6,1,6,2,1,0,6,2,4,3,6,2,1,1,1,0,2,6,6,6,4,3,6,4,0,1,5,6,5,6,6,1,6,6,3,6,2,6,5,2,4,6,6,6,1,1,1,6,1,1,6,2,4,4,0,5,6,4,6,2,5,5,6,6,1,2,6,4,2,2,0,4,4,1,6,5,3,6,4,7,4,3,6,2,6,0,3,1,4,3,1,6,7,1,4,6,0,6,5,4,4,4,3,1,7,0,6,1,6,6,6,1,6,6,6,0,5,2,6,0,4,5,6,4,6,7,2,6,5,6,0,1,6,6,6,6,4,5,4,7,1,5,5,2,5,2,6,4,6,6,1,2,2,6,1,3,1,2,1,0,1,1,3,6,6,4,2,6,1,6,6,1,1,6,2,4,2,6,3,0,1,2,3,4,6,4,0,4,6,1,1,4,6,4,6,1,4,5,1,2,4,3,4,3,1,4,1,1,0,1,6,1,2,1,1,2,1,5,5,4,1,1,2,0,3,2,1,2,2,7,1,6,2,1,7,1,1,6,4,1,6,0,6,6,6,4,5,1,2,2,4,3,6,4,5,6,4,4,1,0,4,6,4,4,0,6,5,0,5,1,6,2,5,1,1,6,0,6,0,5,2,2,6,6,6,3,2,2,1,6,4,5,6,1,2,2,6,6,4,4,4,1,6,6,2,6,4,2,6,5,1,6,1,0,5,2,4,0,0,7,1,2,1,2,2,0,2,0,4,2,0,6,4,1,6,4,5,4,1,2,1,1,3,1,7,2,7,6,6,3,5,0,3,1,6,6,4,6,2,4,6,1,4,1,7,1,1,1,5,6,2,1,6,7,2,7,6,2,5,0,1,4,1,0,1,6,1,6,1,4,0,5,6,1,4,1,3,2,1,6,1,2,1,1,1,2,6,4,1,5,6,4,1,7,4,1,2,2,1,2,7,6,1,6,4,2,2,6,1,6,1,5,6,6,1,6,3,4,1,1,1,6,1,2,6,6,3,1,0,6,6,7,1,6,7,4,2,5,6,6,1,4,6,3,4,6,6,2,2,6,2,1,1,3,1,2,1,2,1,1,6,3,1,0,6,6,6,6,5,0,2,1,6,4,6,6,0,5,2,1,1,4,6,4,1,6,1,6,1,6,2,6,6,6,3,5,6,2,4,3,6,2,0,4,4,2,3,6,7,1,0,1,6,6,3,4,2,3,2,0,3,0,1,0,6,6,4,6,3,1,1,2,6,4,6,3,1,4,1,3,1,1,0,1,7,6,2,1,6,4,6,2,3,4,2,4,4,6,1,6,2,6,6,4,6,1,6,4,1,1,6,7,7,0,6,5,6,6,5,6,5,0,4,1,5,1,1,1,4,6,3,3,4,4,6,1,4,1,0,1,4,6,2,6,2,6,1,4,4,2,2,1,4,5,7,0,4,4,5,2,6,7,6,6,5,1,6,1,6,2,0,1,3,6,2,7,6,1,6,5,4,2,1,4,6,4,1,5,4,0,6,6,1,6,2,6,4,6,7,1,4,4,6,7,5,0,1,6,6,2,1,6,1,2,6,5,6,1,4,0,1,1,6,1,6,1,1,1,6,2,2,2,1,1,5,6,6,1,1,1,6,2,1,1,6,2,6,6,3,6,1,7,6,1,1,5,1,2,0,4,1,4,7,6,0,1,1,6,6,3,0,7,5,1,4,0,4,6,2,4,4,1,4,5,3,1,1,3,6,1,4,4,2,2,0,2,6,2,6,6,1,6,7,1,4,2,6,1,2,2,4,6,2,1,4,6,1,1,6,1,1,4,2,1,1,6,4,2,2,1,1,7,1,4,2,3,2,6,2,6,1,4,6,2,1,4,7,4,1,4,2,6,6,1,5,2,1,3,6,6,6,2,2,1,0,5,6,5,1,1,0,1,6,0,6,1,1,1,6,6,1,1,1,1,5,4,0,6,6,6,0,2,5,6,2,6,1,1,0,2,1,6,6,6,1,2,2,6,4,7,5,6,5,0,6,4,7,6,7,6,6,1,2,6,2,1,7,6,3,6,4,1,7,1,4,1,6,5,4,4,1,6,7,6,6,2,1,1,1,6,2,4,7,1,6,1,6,6,4,5,2,1,1,6,1,6,5,6,1,2,2,0,2,4,7,4,2,1,6,6,5,1,2,6,1,1,2,1,6,6,6,7,6,7,6,4,6,6,2,2,2,7,4,4,6,6,1,1,1,6,4,2,3,2,2,1,1,6,2,7,2,3,1,6,1,1,6,1,4,2,6,2,2,1,2,5,2,4,4,1,4,2,6,1,6,4,1,6,6,6,6,6,6,1,1,1,1,4,6,1,4,1,5,1,3,7,5,1,5,2,1,1,0,7,1,3,0,1,6,1,5,5,2,1,1,4,1,1,6,6,1,1,1,3,6,5,6,1,0,5,1,4,3,1,6,7,1,1,0,1,1,1,2,1,4,1,1,1,1,1,2,6,4,1,2,6,6,3,6,4,1,6,7,4,6,1,1,3,1,6,5,6,2,4,1,1,1,3,1,1,1,4,6,2,1,1,1,1,1,2,6,7,6,6,6,1,1,5,2,7,1,2,1,5,6,6,2,7,1,6,6,3,6,3,2,7,1,6,6,1,2,6,1,6,6,4,6,1,1,1,7,4,6,6,7,1,1,4,2,5,2,6,4,7,2,6,1,6,6,4,4,6,6,1,0,1,4,7,2,4,4,4,1,1,3,2,4,5,1,1,4,2,1,4,5,1,7,6,1,1,6,2,1,7,1,2,2,1,6,3,4,6,5,4,1,4,7,1,1,1,1,3,4,6,6,6,4,5,6,1,3,4,7,6,2,1,0,6,1,0,0,2,5,1,3,1,5,2,1,1,1,1,2,1,1,6,1,1,6,6,1,6,1,2,2,1,1,2,3,3,6,3,7,4,4,2,2,1,6,2,4,2,6,1,6,6,4,1,2,1,4,0,1,1,4,3,1,6,0,6,2,0,1,7,7,2,0,6,0,1,4,3,6,6,6,4,6,4,2,7,6,1,5,3,2,6,6,0,4,1,1,1,1,4,1,1,6,3,6,6,7,1,2,0,2,2,7,0,6,2,0,4,1,6,2,0,1,7,5,4,6,6,6,0,1,1,3,2,6,5,1,1,1,1,2,7,0,5,3,2,2,3,2,4,4,7,6,6,6,6,3,6,6,1,1,2,1,3,1,2,2,1,1,2,5,3,4,1,6,2,6,6,2,5,4,3,0,1,7,4,6,6,1,1,5,4,7,2,1,7,5,4,2,4,4,1,1,0,1,2,1,5,0,0,3,6,1,1,4,0,6,6,4,1,2,6,1,4,2,6,6,1,7,6,1,6,6,6,6,2,0,4,3,6,7,1,6,1,1,6,1,5,5,4,1,7,1,4,2,2,2,4,2,7,7,1,6,1,4,1,1,2,6,2,6,6,0,6,4,5,6,1,1,1,2,1,3,1,6,1,2,6,7,7,4,1,3,1,6,5,7,6,6,3,1,6,6,4,6,3,4,1,5,2,6,6,1,2,3,1,6,4,1,6,2,6,1,6,6,1,1,6,3,4,4,4,6,1,6,1,3,4,7,6,7,1,4,6,6,6,5,1,1,6,4,6,5,6,3,1,6,6,1,6,5,6,1,1,6,4,2,1,6,4,1,0,4,1,4,1,6,0,1,2,2,2,6,3,6,1,0,0,1,2,6,4,6,1,6,6,3,2,5,0,6,0,3,5,6,1,2,6,6,6,1,1,4,6,6,1,1,0,1,2,1,4,6,3,5,5,6,0,1,1,3,6,1,6,0,0,4,2,3,7,0,7,6,0,1,4,4,1,6,1,4,1,0,1,5,0,6,6,2,6,2,6,6,2,6,3,1,2,7,4,0,2,5,1,2,7,6,1,1,2,1,1,2,6,1,1,6,1,1,0,1,0,6,1,6,4,3,0,2,7,4,1,1,1,7,2,3,3,4,3,6,6,7,2,5,2,6,6,1,0,2,7,2,7,1,1,7,2,3,1,6,6,6,1,7,2,2,4,2,6,1,0,2,1,1,1,1,3,3,4,1,1,1,4,6,6,6,1,4,1,0,2,2,6,7,6,6,0,6,6,6,7,1,0,7,5,4,7,6,7,1,1,6,2,3,3,3,0,1,0,2,1,4,2,5,1,6,1,1,1,6,1,4,4,6,6,6,1,4,7,6,1,1,0,4,4,7,5,2,4,4,1,5,6,6,6,3,4,5,2,6,7,1,6,6,0,2,2,6,4,6,6,2,3,1,2,6,6,7,6,1,1,2,7,1,1,1,5,1,4,4,5,6,5,6,2,4,1,2,1,6,6,6,4,4,2,3,4,1,3,6,2,1,4,4,5,4,1,3,0,6,7,3,1,4,4,4,4,0,2,6,6,1,2,6,4,2,2,4,1,1,4,7,7,3,1,0,6,7,1,6,6,6,1,1,1,1,1,2,1,1,1,6,3,4,6,0,4,1,6,5,6,1,4,6,6,0,1,4,7,4,6,2,2,1,2,6,3,3,3,6,6,2,6,1,1,4,4,0,1,6,6,1,6,2,6,3,3,1,0,4,6,4,6,1,6,3,1,2,4,6,4,4,6,3,1,1,1,1,1,4,1,6,4,6,6,6,7,7,1,2,6,7,1,2,6,6,6,1,0,2,7,4,4,6,1,6,1,4,4,6,0,3,4,2,2,1,6,1,1,1,2,1,2,4,3,6,5,3,6,6,2,1,1,6,3,1,2,6,1,6,2,2,6,6,2,3,2,4,1,6,7,1,3,6,1,2,6,4,1,3,1,0,5,3,6,1,1,2,2,1,2,6,1,1,2,4,2,2,6,4,1,1,2,3,4,4,5,6,2,3,4,1,1,5,6,6,2,5,4,4,1,0,7,6,4,1,1,5,1,6,5,7,6,1,1,4,5,6,6,4,1,6,1,4,6,0,4,6,6,7,3,6,0,4,4,6,6,6,3,1,1,4,3,1,1,6,1,5,1,7,5,2,1,0,2,6,4,6,6,1,1,6,4,6,7,3,4,6,3,1,6,6,4,1,1,6,1,1,6,1,0,4,6,6,3,3,5,6,0,6,2,4,2,2,6,4,6,1,6,5,1,0,7,7,1,1,6,1,6,6,1,2,1,1,2,1,6,3,3,6,5,6,1,4,5,6,2,6,0,6,4,6,0,3,6,6,0,1,3,5,1,0,0,2,1,1,7,1,1,1,0,6,1,1,1,1,6,2,1,1,5,6,1,1,6,2,2,2,6,6,1,1,2,1,0,0,4,0,1,1,6,3,3,1,1,6,2,1,1,4,4,6,6,6,1,0,2,2,6,5,4,2,6,2,1,6,3,5,1,1,1,1,1,1,1,1,2,6,0,3,6,7,1,3,1,1,5,6,7,6,6,1,1,6,6,4,1,0,6,6,6,5,6,6,2,1,1,1,5,4,1,2,1,3,4,6,1,1,1,0,1,2,5,4,3,6,6,6,1,3,1,4,1,3,3,6,4,3,6,4,6,6,1,1,3,1,5,6,1,6,1,6,3,5,0,1,2,1,1,2,6,3,6,2,4,6,1,1,4,1,4,4,6,6,2,7,7,6,4,6,4,3,1,1,6,7,4,2,1,6,4,7,1,1,1,1,4,1,1,7,4,1,1,7,1,4,7,1,4,0,6,1,6,4,3,6,2,6,7,1,2,5,3,4,4,6,1,6,4,6,4,3,4,1,6,1,7,2,6,5,1,1,3,6,6,7,5,1,1,3,3,4,4,4,2,6,6,6,7,6,4,6,7,0,3,1,1,1,4,0,4,2,2,1,1,4,2,1,1,6,3,5,1,0,6,4,1,4,1,1,2,3,4,1,5,6,4,1,1,6,6,4,7,5,4,0,1,2,4,1,1,2,7,0,6,5,0,1,6,1,6,6,1,2,2,5,1,6,6,1,7,2,6,4,1,0,1,4,0,2,0,7,6,0,4,7,2,7,6,1,4,6,1,0,2,6,1,1,2,0,2,6,1,6,2,6,6,6,3,4,6,6,7,1,1,6,5,1,1,1,0,4,1,2,5,6,1,7,6,1,0,6,2,4,4,4,6,0,7,2,1,2,1,5,1,7,7,6,5,1,1,1,4,1,7,4,6,7,0,0,6,7,6,1,4,1,6,2,2,1,5,6,0,4,6,4,6,4,4,1,7,4,6,6,6,5,2,3,1,6,1,5,3,1,3,6,2,6,6,6,6,1,4,6,3,2,1,1,6,4,1,6,6,5,6,4,6,0,1,3,1,5,3,7,6,1,7,4,0,7,6,6,3,1,7,1,6,5,6,1,6,2,1,1,1,2,6,1,6,0,6,4,1,2,6,0,2,4,2,6,6,4,2,4,6,6,2,3,5,6,2,0,1,6,1,4,6,1,6,1,5,6,1,2,3,5,3,6,3,1,1,6,0,1,0,1,0,6,4,6,6,7,4,1,4,7,4,3,2,7,1,6,2,6,4,0,1,6,1,4,5,0,6,1,6,3,6,3,6,5,6,1,6,6,1,1,1,6,6,0,1,4,6,1,0,2,1,6,1,6,2,0,1,5,1,4,7,1,6,1,4,2,2,1,2,6,6,4,5,6,6,4,3,1,0,2,4,1,7,1,2,1,7,3,6,1,3,3,2,7,6,6,4,4,1,7,6,7,1,0,1,6,5,6,6,4,4,2,4,5,3,6,7,3,5,7,2,1,6,7,6,3,6,6,1,3,6,0,4,6,0,4,1,3,6,4,1,2,6,0,1,1,2,7,2,6,2,2,6,1,4,2,4,4,6,1,5,6,1,6,2,3,1,6,3,1,6,6,4,2,2,1,4,3,1,4,0,0,1,4,6,1,0,3,6,3,2,1,4,6,4,3,3,6,7,5,6,7,1,4,1,6,6,6,3,6,5,6,5,4,6,3,2,1,1,4,7,4,6,2,1,6,1,2,1,4,6,4,1,5,0,1,4,1,6,6,6,1,1,6,6,2,1,2,6,4,1,4,0,1,2,5,2,4,3,7,6,1,2,4,1,4,1,2,7,4,4,0,6,5,1,4,7,7,6,0,6,7,6,1,1,2,6,1,1,1,1,6,2,0,6,4,3,4,4,1,1,6,1,1,6,1,4,6,1,5,1,6,3,6,1,3,6,1,3,1,5,1,4,5,3,7,2,5,4,1,4,6,1,2,4,3,6,5,1,4,6,1,2,5,1,4,1,0,2,1,6,7,6,1,2,6,6,4,2,6,2,5,6,4,6,2,1,3,3,6,4,1,3,2,1,6,4,6,7,1,3,2,5,5,2,6,6,1,2,1,6,1,4,7,5,3,6,2,1,5,7,1,6,2,6,2,4,6,7,5,2,6,2,5,6,1,6,1,6,2,4,6,2,1,6,4,1,1,6,2,7,1,1,2,0,4,5,2,0,1,1,6,5,2,1,6,7,6,2,7,1,2,3,6,6,1,4,1,1,4,1,2,0,0,6,2,4,6,2,6,4,3,0,4,4,1,1,3,1,2,1,4,2,5,4,5,6,7,6,4,4,1,6,6,6,0,2,2,6,2,6,6,1,0,2,1,6,2,3,4,5,6,3,1,6,4,5,1,6,2,1,4,7,6,5,2,4,1,6,6,1,5,2,6,7,6,0,7,5,4,1,2,6,3,6,0,2,6,7,4,0,7,5,3,1,7,3,6,1,0,5,6,3,6,5,4,4,1,6,1,1,5,6,1,4,2,5,2,4,1,1,6,3,2,6,4,6,4,5,4,4,6,2,6,6,4,6,5,6,1,6,7,6,6,4,4,6,1,5,1,1,4,6,6,2,6,1,1,1,1,4,2,6,1,4,1,1,3,2,6,1,1,6,0,3,7,4,6,5,5,6,4,1,3,4,7,1,1,6,6,7,1,5,5,1,2,5,4,1,6,6,6,2,4,6,7,4,6,1,5,1,4,6,2,7,1,3,0,2,6,6,1,1,2,4,2,6,5,1,6,4,6,5,0,0,6,1,6,1,5,2,1,1,4,2,5,1,6,4,2,6,1,4,6,4,2,0,7,6,4,4,1,1,7,1,4,3,0,6,2,2,3,5,6,7,1,6,6,6,1,6,1,1,6,3,1,5,2,1,1,6,4,6,1,4,3,3,1,2,3,4,7,6,3,3,6,3,6,2,1,7,6,6,1,6,4,6,1,4,0,1,6,6,1,1,1,1,2,1,1,4,3,3,7,5,5,4,4,4,0,3,6,6,0,3,4,6,6,1,2,6,0,3,6,1,7,5,1,4,4,1,1,6,1,5,6,1,0,6,2,1,2,5,4,0,0,2,0,2,1,1,7,7,6,1,1,4,6,1,7,2,6,4,1,6,2,2,1,0,1,6,2,1,4,7,7,4,1,0,0,1,0,0,5,5,6,6,2,2,6,2,5,6,5,4,5,6,1,1,1,5,0,1,1,2,4,5,6,7,6,6,3,2,1,0,6,6,5,1,3,2,4,5,6,6,7,6,6,7,5,4,0,6,1,2,3,4,5,1,5,1,0,0,1,1,7,1,4,1,1,3,6,6,6,4,5,6,1,4,2,4,4,4,1,1,1,1,6,1,6,1,4,4,6,6,6,2,4,3,1,7,3,2,1,1,6,1,1,0,6,6,7,3,4,4,1,0,5,1,7,2,6,6,4,6,3,6,7,6,6,2,7,6,1,7,2,1,6,1,0,6,4,1,6,4,7,7,5,3,6,2,4,6,1,3,6,1,2,0,4,1,6,1,4,6,6,1,2,2,6,1,7,1,3,1,3,1,1,4,6,3,6,1,0,2,3,4,1,6,7,6,4,7,1,6,1,6,6,1,1,6,1,0,1,2,1,6,1,1,1,4,3,6,6,3,4,3,1,4,4,0,5,6,1,6,2,7,5,1,1,1,3,6,4,4,7,1,4,7,6,5,7,0,3,3,6,1,2,6,6,1,1,4,5,2,1,1,2,4,2,1,6,2,0,7,7,0,6,1,6,1,0,5,6,5,4,6,6,3,1,1,5,3,1,1,2,6,0,4,6,2,6,4,6,6,4,4,1,6,5,1,3,1,6,6,6,2,6,2,6,4,0,6,0,0,6,1,0,4,1,1,1,6,6,6,2,4,4,1,1,2,6,1,6,2,1,2,6,1,0,0,6,1,1,1,1,2,1,3,1,4,6,6,1,3,6,2,6,1,2,1,2,2,3,4,3,1,1,6,2,2,7,1,2,7,1,4,1,1,3,1,6,1,3,5,2,4,6,1,5,7,1,2,3,6,2,1,0,1,7,4,1,6,1,4,5,6,6,6,6,4,1,1,1,1,6,6,4,1,3,2,4,5,6,4,6,4,4,1,1,3,3,7,6,5,6,6,1,6,1,1,1,6,1,2,6,3,4,2,1,4,4,6,6,5,3,1,5,5,3,0,4,3,1,1,7,6,3,7,3,1,1,3,6,7,7,7,2,5,3,7,2,6,5,0,2,3,5,1,1,4,2,3,1,6,2,6,6,6,3,5,1,4,1,1,6,1,6,6,6,0,4,1,7,4,1,1,2,2,6,5,1,4,4,1,3,3,6,6,6,6,6,4,5,1,6,6,4,6,6,1,6,0,2,4,2,2,1,1,1,3,4,2,1,6,1,6,6,6,3,6,5,2,5,2,1,1,6,6,2,5,0,6,0,1,6,1,1,1,0,1,1,1,4,5,6,0,1,1,1,1,4,1,4,1,2,4,4,6,0,1,3,6,6,3,1,4,4,2,1,4,0,5,6,2,1,1,6,1,6,6,5,1,1,1,2,1,6,5,2,1,3,1,6,6,1,6,2,1,1,2,6,2,6,1,7,2,3,2,4,4,4,6,5,1,1,6,6,6,2,6,4,7,2,1,6,2,4,2,5,6,1,1,4,3,6,1,7,5,5,7,6,2,7,4,1,6,6,5,5,7,6,0,0,4,6,1,0,2,2,0,1,2,4,6,1,2,4,1,3,6,7,2,6,1,1,4,0,5,4,5,7,1,1,6,5,6,1,1,1,2,4,5,3,6,5,1,4,7,2,0,1,1,4,1,6,1,1,1,2,4,6,6,5,7,2,4,7,2,1,0,2,1,1,6,2,6,6,1,6,2,1,7,1,2,4,4,6,6,4,2,1,2,1,1,2,3,1,7,1,4,0,2,5,0,6,6,6,4,3,6,1,7,1,3,1,6,4,6,2,2,5,1,4,2,6,4,6,3,1,4,6,6,6,6,1,1,6,4,4,7,2,4,0,6,4,0,6,0,6,4,6,5,1,6,7,5,7,6,6,1,0,2,4,1,4,7,6,2,1,2,6,5,2,6,2,1,1,2,7,2,3,1,6,6,1,0,1,1,4,5,1,0,4,6,6,4,3,2,1,7,7,1,4,4,6,2,6,1,6,2,6,1,1,5,1,6,6,5,2,1,4,1,6,6,4,3,5,6,6,6,1,6,1,2,5,6,6,6,0,2,6,4,1,6,6,1,2,6,1,1,5,1,1,1,6,4,1,6,6,7,6,2,5,6,0,1,2,1,2,4,0,1,4,7,6,5,4,1,2,7,6,0,1,6,7,7,3,7,1,2,6,1,0,2,4,0,6,1,1,3,1,1,4,1,4,2,7,2,3,6,1,1,4,4,1,0,1,4,6,5,6,1,3,2,1,2,2,4,4,5,1,0,4,4,7,1,6,1,1,6,1,1,1,4,4,1,2,1,2,1,5,1,2,6,0,6,4,4,0,1,1,5,1,6,6,6,1,7,2,3,6,6,1,2,7,1,2,2,1,1,6,1,3,7,6,3,6,4,2,6,1,1,7,6,3,6,4,1,6,6,2,4,4,4,6,2,3,4,6,1,2,4,5,6,7,6,6,1,2,6,6,0,6,6,5,3,5,2,6,4,1,2,3,1,1,2,4,7,3,6,6,1,1,2,1,0,4,2,2,5,4,5,4,1,2,6,6,5,4,5,7,2,6,2,6,7,6,2,6,2,6,2,1,5,4,4,1,1,1,6,0,0,1,5,2,4,2,6,6,4,1,1,7,6,1,6,5,4,4,1,6,1,4,4,1,2,6,4,1,1,1,1,6,6,0,6,1,2,4,6,2,6,7,2,1,1,6,6,0,4,1,4,1,6,4,4,6,4,3,1,4,4,2,3,7,6,0,1,5,5,6,0,4,6,4,6,7,7,4,1,2,6,6,6,4,1,0,4,4,6,0,0,7,2,5,6,3,0,6,7,2,0,5,6,2,0,0,4,6,5,1,4,7,5,1,7,6,2,3,6,2,4,5,1,6,4,6,1,2,4,6,3,6,0,1,2,1,0,1,0,1,1,2,2,1,5,6,2,4,3,4,2,3,5,2,1,6,3,6,4,3,2,2,6,4,3,4,1,6,1,7,3,6,1,7,1,2,2,4,6,5,6,0,1,2,1,1,6,7,2,2,6,5,1,6,1,7,6,4,1,6,1,6,2,6,6,6,6,6,5,4,2,5,4,2,5,6,7,4,2,6,0,4,6,1,0,6,3,1,5,1,6,5,2,2,4,1,4,6,6,6,4,6,4,6,7,4,0,0,2,5,4,2,3,0,7,2,1,3,5,5,6,4,3,7,7,4,7,7,1,6,6,4,1,2,2,6,1,4,1,3,7,2,5,1,0,2,6,1,2,1,1,3,2,2,2,2,6,7,5,4,6,4,6,6,3,1,6,6,1,0,0,6,1,6,1,6,6,1,7,5,6,2,2,2,7,3,4,2,2,4,3,6,4,5,0,3,1,1,6,6,2,1,4,2,1,1,6,6,1,1,6,7,5,3,7,0,4,2,1,5,7,2,0,1,1,1,1,7,1,6,3,6,1,1,7,6,3,6,6,2,2,2,4,6,0,2,1,1,1,6,0,2,2,5,2,6,6,6,1,1,6,6,6,5,6,2,1,4,6,4,3,0,5,3,6,6,6,7,6,5,0,2,4,1,6,6,6,2,4,1,1,4,2,1,3,6,4,4,4,4,1,4,5,2,4,6,1,1,2,0,2,1,6,5,4,7,0,2,7,3,7,3,3,1,1,2,2,5,6,2,1,7,1,4,6,6,4,3,1,1,7,1,0,1,6,6,6,6,2,3,1,6,1,1,4,7,1,6,1,2,6,5,6,2,6,7,6,6,1,6,1,7,1,6,5,2,2,6,2,6,4,1,1,1,5,2,2,1,2,1,5,6,4,1,1,6,6,5,6,6,2,0,2,4,4,0,2,2,6,6,5,1,1,1,4,5,3,5,3,6,6,6,1,1,5,1,1,3,6,5,1,4,6,6,6,4,6,0,1,5,2,6,4,6,6,1,2,1,0,1,7,6,5,2,3,1,1,3,6,4,4,4,2,0,4,5,4,1,3,5,0,5,2,6,0,2,1,5,6,6,6,0,6,6,1,2,5,3,3,1,6,2,4,6,4,1,2,3,5,4,1,4,1,1,0,4,5,7,6,5,1,6,6,1,7,3,6,1,1,7,7,3,5,2,5,3,5,2,0,6,6,1,1,1,1,1,1,1,4,6,4,6,1,4,6,1,5,4,6,2,2,1,1,4,7,4,4,6,3,2,2,6,2,2,4,1,6,5,1,6,1,1,4,5,1,6,7,4,4,2,5,5,1,1,4,2,5,1,7,6,4,6,6,3,4,1,7,4,6,1,1,6,7,6,1,6,2,3,2,7,6,1,6,2,6,4,4,6,6,6,6,2,3,1,4,0,1,1,4,7,1,3,4,4,2,2,6,1,1,6,3,7,6,1,7,6,6,6,1,1,2,4,1,6,1,1,7,6,2,2,4,1,5,1,7,2,1,3,4,1,4,1,6,0,2,2,1,6,1,6,5,3,7,6,2,5,4,1,5,6,1,4,6,1,5,1,6,2,6,4,2,2,6,4,2,5,6,7,6,5,5,2,0,4,1,5,5,6,1,1,0,4,6,6,7,6,4,3,6,6,5,1,1,7,5,1,3,6,3,4,1,6,4,3,6,6,1,2,0,6,1,5,5,7,4,6,5,4,1,1,7,7,6,5,5,1,2,1,1,3,6,0,2,1,4,6,6,3,6,1,2,3,4,1,1,4,0,0,2,6,6,6,6,2,6,6,5,6,3,3,6,1,2,1,0,1,1,2,1,6,4,5,1,6,1,4,0,5,2,2,4,3,6,7,1,2,6,6,6,1,6,6,7,4,6,6,7,3,1,4,4,2,6,1,0,1,4,5,2,4,6,6,6,6,1,1,6,6,4,1,1,6,6,4,1,2,2,4,4,3,2,1,4,1,4,6,0,7,5,2,3,1,2,5,4,5,5,1,7,5,1,6,6,4,0,2,6,1,1,6,1,6,3,1,6,6,6,3,1,4,3,5,1,4,0,4,2,6,6,1,0,2,3,7,3,1,6,1,6,3,4,6,3,0,2,1,4,1,1,2,2,1,6,0,1,5,6,6,6,5,4,4,1,0,6,7,1,6,2,1,1,0,6,1,2,1,6,1,1,6,6,2,2,5,2,0,2,1,2,1,1,4,6,1,2,5,5,6,6,2,1,7,1,6,5,2,1,6,1,0,6,6,6,0,5,3,1,1,1,3,5,0,2,6,1,6,4,0,6,6,4,2,1,6,0,4,4,6,1,6,6,2,2,1,4,3,1,6,6,6,3,6,2,6,4,4,7,6,0,2,3,4,2,6,0,5,3,6,3,6,0,6,2,3,1,1,6,2,2,2,1,6,5,6,1,6,1,6,6,2,5,2,4,1,1,4,6,2,6,4,4,2,2,3,6,5,6,6,4,2,1,1,1,5,1,2,2,4,6,4,0,4,0,6,1,1,5,5,6,2,2,0,2,6,1,5,1,2,1,0,4,6,3,2,6,7,2,7,2,6,6,5,5,1,1,2,6,1,1,6,4,3,1,2,2,4,6,7,6,6,6,7,1,2,2,1,2,2,2,2,1,2,6,6,1,1,2,6,3,1,3,1,3,1,1,6,6,4,2,1,1,3,4,6,6,6,0,6,4,2,6,5,7,1,5,6,6,7,1,4,2,3,1,5,3,0,5,7,4,6,4,4,0,6,4,5,7,6,4,1,0,6,4,5,4,1,4,2,5,7,2,6,1,7,3,6,5,1,7,2,1,0,6,1,1,7,5,1,0,2,4,6,1,1,2,1,1,4,2,2,7,3,6,0,1,6,2,2,1,6,4,3,6,2,6,6,2,3,4,6,0,4,0,0,4,0,1,1,1,7,2,1,1,6,4,1,1,4,6,1,1,6,6,6,1,4,1,0,1,1,1,2,0,1,2,1,1,2,1,6,1,6,4,2,1,6,1,3,3,1,1,6,6,7,7,3,1,7,0,5,2,1,4,4,5,4,0,1,6,1,3,1,6,1,0,0,1,6,2,6,6,6,6,3,4,4,1,6,6,0,7,6,6,1,6,3,5,0,1,0,7,5,4,1,1,1,6,6,6,2,6,1,3,6,6,1,6,6,6,6,7,3,1,6,1,6,1,1,5,1,4,1,4,1,2,7,5,6,7,5,1,2,6,4,2,3,6,4,1,1,1,7,0,3,6,0,4,2,4,1,1,1,7,6,4,6,1,2,6,4,1,6,4,2,0,1,6,6,2,1,1,4,2,5,6,2,2,1,7,7,1,7,6,1,1,1,4,3,6,1,6,1,3,7,3,7,6,6,0,6,4,2,6,4,6,7,6,6,2,5,2,2,3,6,2,1,1,6,5,7,6,3,1,6,6,7,3,5,6,1,4,6,0,1,1,0,0,1,2,4,6,6,4,1,2,1,0,1,4,0,1,4,7,1,3,1,1,3,2,6,6,0,6,6,1,6,2,6,4,6,4,6,1,6,6,2,1,1,1,6,2,3,0,1,1,4,6,5,1,5,1,2,1,4,4,4,2,0,1,2,7,2,1,6,2,4,6,1,0,2,7,3,6,4,2,4,6,1,0,6,1,1,2,6,2,6,6,1,6,2,6,6,6,1,4,1,6,6,4,4,5,6,5,1,1,1,0,1,4,0,1,2,4,4,0,6,2,4,6,6,6,6,7,6,4,5,0,5,7,6,0,0,6,2,1,1,2,7,6,5,1,0,1,6,5,0,6,1,5,1,1,3,1,1,1,0,0,7,4,1,1,1,1,0,5,4,3,7,2,6,6,0,6,2,3,1,3,1,0,1,3,1,4,6,6,3,2,1,1,6,5,2,1,6,1,5,4,1,5,5,5,2,7,6,6,0,1,5,1,6,2,1,1,1,2,6,6,4,6,7,2,1,7,6,1,0,2,2,1,6,2,4,1,4,6,1,1,1,2,6,2,6,5,1,6,4,7,1,6,6,3,7,6,7,6,2,7,4,1,6,1,1,6,2,0,4,7,6,6,5,7,7,2,6,6,3,2,6,2,4,1,2,2,3,3,2,6,4,6,6,5,1,0,5,0,2,1,7,1,5,1,6,1,2,6,6,3,5,2,1,1,1,7,5,1,6,4,2,1,6,1,7,3,0,3,2,1,7,3,1,1,6,4,6,2,1,1,5,1,3,1,1,7,1,4,1,3,1,2,0,1,6,6,1,4,6,3,1,6,7,1,2,3,1,1,1,1,4,6,2,4,6,6,2,6,0,1,4,4,7,3,3,0,7,6,1,5,1,2,4,1,5,6,4,7,3,0,2,1,2,5,2,7,4,7,2,1,6,1,1,4,6,1,7,6,6,6,0,2,2,6,1,2,1,6,1,1,4,0,2,6,5,6,4,4,1,6,6,5,1,1,1,2,0,1,1,7,1,6,1,1,6,3,5,2,3,4,7,5,6,7,1,6,6,6,1,3,7,2,1,2,6,3,1,6,1,6,6,2,4,6,6,0,6,4,6,7,4,1,6,2,1,6,6,5,2,2,6,5,4,4,1,0,4,6,3,7,0,1,4,1,1,1,6,6,6,1,2,1,6,6,7,6,2,4,3,1,1,0,6,3,3,2,4,6,6,4,5,6,3,4,1,6,2,2,2,2,2,7,6,4,5,6,3,1,6,6,6,3,1,5,3,1,2,6,0,1,4,1,1,6,7,5,2,4,2,1,2,3,6,1,3,1,5,6,1,4,0,1,6,1,4,7,1,1,1,5,2,1,2,1,6,1,2,6,2,2,6,7,1,6,6,4,1,2,3,6,4,4,1,2,6,7,3,1,6,1,2,1,5,2,2,4,6,3,4,1,1,0,0,1,6,4,1,2,4,4,1,1,6,7,1,4,6,6,2,6,3,5,1,4,1,2,1,1,1,3,3,7,2,3,5,3,5,4,1,7,6,1,6,6,2,6,1,6,4,3,1,4,6,1,4,0,4,1,2,7,7,2,1,1,2,6,1,6,6,4,6,1,0,1,0,1,2,1,6,4,7,6,6,0,1,6,1,7,6,1,6,6,4,3,4,0,6,0,6,1,2,4,2,2,4,6,2,4,4,6,7,1,0,6,0,3,7,6,6,6,6,3,2,1,6,1,4,0,2,1,1,0,4,1,1,2,3,1,4,1,1,5,1,5,3,4,4,1,0,5,6,1,3,1,6,2,6,1,6,6,6,6,0,3,6,1,1,5,2,6,2,5,6,4,7,1,1,3,6,3,4,1,1,7,5,5,2,3,7,6,5,1,6,4,4,6,6,4,1,5,6,1,0,6,1,6,1,4,1,6,6,7,6,6,6,3,4,2,4,3,0,3,6,4,1,4,1,4,4,1,6,2,2,4,6,1,6,6,1,2,4,6,1,6,6,4,0,1,1,1,6,4,2,1,2,6,6,6,2,4,1,7,4,6,6,6,1,1,5,4,1,1,6,6,1,7,6,2,2,6,7,4,1,0,2,6,1,1,2,2,2,4,6,3,2,2,1,2,0,1,1,6,6,5,6,4,1,7,4,2,7,2,3,2,5,1,6,4,7,4,6,2,3,1,7,1,4,0,6,6,6,2,3,6,1,1,1,4,1,7,4,6,2,3,2,3,1,3,7,6,2,5,1,1,2,6,6,0,4,7,1,1,1,6,7,7,7,3,1,6,2,1,6,7,5,6,5,1,7,6,1,1,0,5,1,2,1,6,4,3,6,4,1,2,1,1,6,6,1,1,4,6,1,7,1,1,4,4,4,0,4,4,2,2,6,6,2,3,1,5,4,6,4,7,6,6,3,1,2,5,1,6,6,1,3,1,3,5,1,4,6,6,6,3,2,6,1,1,1,6,6,4,0,1,2,1,6,4,1,1,5,2,0,2,1,6,1,6,1,1,0,6,2,6,4,2,2,0,6,6,1,7,4,1,5,2,0,6,7,1,3,6,6,1,0,4,6,0,6,2,2,6,1,6,2,1,6,4,3,6,6,6,0,4,1,2,0,3,1,1,6,0,0,1,2,1,3,2,2,6,3,1,0,1,6,2,4,7,2,4,2,6,4,1,6,3,6,5,6,0,4,2,6,6,4,6,6,1,6,6,3,6,6,6,1,6,4,1,6,4,0,5,0,6,4,6,6,1,1,7,1,2,6,4,6,7,1,1,6,7,6,4,1,5,6,1,1,0,4,0,6,6,2,4,3,1,6,3,1,1,6,1,6,6,6,2,1,6,1,2,1,1,1,4,6,7,4,7,6,0,6,2,2,6,2,2,1,1,4,3,1,6,7,0,6,6,6,4,6,6,1,3,4,4,2,0,4,0,7,4,4,4,2,5,1,4,2,2,1,7,1,1,3,6,2,4,1,5,1,3,3,3,6,6,0,3,0,4,3,5,4,1,7,5,4,0,5,6,6,4,4,4,1,6,4,4,0,0,7,3,6,3,6,6,0,2,5,6,4,1,1,7,0,4,1,5,1,3,0,6,1,7,1,6,1,6,6,4,1,6,1,4,6,6,4,2,1,6,2,6,7,4,5,1,0,2,2,2,1,6,1,6,4,4,4,6,1,6,6,2,1,2,1,6,0,1,5,4,4,6,4,4,4,2,1,6,0,6,0,5,2,1,4,0,2,1,1,7,2,1,2,6,4,1,7,0,6,2,4,4,2,5,1,1,3,1,6,3,2,4,6,6,2,6,0,4,1,1,6,1,6,1,5,2,4,6,1,6,1,1,0,1,3,1,1,6,2,2,4,2,6,1,6,2,4,5,6,1,4,1,2,3,1,0,7,5,5,7,5,1,4,0,1,1,0,5,1,1,2,1,3,2,1,6,6,1,6,2,0,2,2,6,1,5,6,6,2,6,3,1,6,6,4,3,1,6,6,6,1,4,1,1,6,6,6,1,1,0,6,2,3,1,3,7,1,2,1,6,0,7,4,4,1,6,2,4,6,6,7,6,6,3,6,4,1,6,4,5,1,6,7,3,7,3,1,6,7,1,7,2,5,4,3,6,2,6,6,6,5,4,0,0,6,3,3,3,1,1,6,1,1,6,6,1,3,4,3,5,6,2,0,4,1,0,1,2,7,6,1,1,6,4,2,2,2,2,4,4,3,1,5,6,5,1,6,2,2,1,6,1,2,7,1,6,6,3,4,7,1,6,4,1,4,6,6,1,2,4,6,1,1,1,5,6,2,1,1,5,6,1,0,7,1,5,6,0,6,7,6,4,1,2,2,6,7,0,4,0,0,4,5,1,2,4,1,0,1,1,7,1,4,1,1,7,4,2,7,6,1,3,5,7,0,3,6,0,3,6,3,1,5,7,0,6,6,1,1,3,3,7,7,3,0,7,2,3,1,7,6,5,1,7,6,6,6,6,2,6,1,7,1,5,1,6,1,4,5,3,0,1,7,1,6,4,7,5,6,6,2,2,4,4,6,7,2,4,6,5,3,6,6,1,1,6,7,0,6,1,2,5,5,4,6,5,6,6,1,4,2,1,6,1,2,6,3,2,4,2,6,2,4,2,1,6,6,4,0,6,7,2,1,4,6,6,6,1,1,6,2,0,4,0,6,4,3,6,2,4,6,2,6,5,4,1,0,6,4,6,3,1,1,1,6,3,0,3,5,6,6,1,1,6,1,1,4,7,2,3,1,0,6,1,6,1,6,2,1,6,0,6,5,3,5,1,1,5,3,3,1,7,6,6,6,1,7,6,5,6,0,0,0,0,4,4,4,2,7,6,1,1,1,6,0,1,4,6,7,1,1,5,6,6,6,4,2,6,6,4,2,1,6,5,4,2,4,6,4,1,5,2,6,3,5,6,6,1,5,6,2,6,4,0,6,4,2,6,2,1,6,1,7,5,6,6,6,7,6,5,2,1,6,3,1,7,6,6,6,0,5,0,1,4,7,1,5,4,1,6,1,1,7,7,0,0,1,6,1,2,6,1,4,3,4,1,4,4,1,1,1,3,4,6,1,4,0,1,4,6,0,5,4,2,6,1,5,2,6,2,1,6,7,4,1,4,3,5,1,4,1,4,6,1,6,1,5,6,1,5,4,5,1,2,2,4,1,2,6,6,6,6,6,2,6,6,6,6,2,1,2,6,1,6,2,5,5,2,6,6,1,7,5,1,1,6,1,2,6,6,3,4,1,6,3,1,6,1,0,6,6,2,5,1,6,6,4,0,6,7,5,1,2,6,3,1,1,6,3,4,1,6,7,6,2,3,6,2,0,6,1,7,0,1,4,6,2,2,3,1,6,1,3,4,0,4,1,6,1,6,1,6,1,1,1,1,6,3,1,2,2,7,5,5,2,2,7,1,6,5,2,2,2,4,7,1,1,5,6,3,3,1,2,6,3,1,7,4,6,3,2,1,6,3,1,7,4,6,2,2,4,1,3,6,1,6,1,0,0,7,6,6,2,3,2,7,5,6,5,2,3,4,1,1,6,2,5,1,4,4,4,1,2,2,6,1,1,6,1,1,1,2,6,4,6,0,3,0,0,6,0,2,4,3,2,6,6,6,6,2,4,1,0,0,4,1,3,0,3,7,1,4,6,6,3,1,2,5,5,4,7,6,1,4,1,1,7,4,4,6,2,6,6,6,6,1,1,2,4,5,2,4,5,6,1,2,2,1,7,3,6,3,4,1,0,6,7,6,7,2,3,5,2,4,1,5,5,1,6,4,4,6,4,1,0,1,7,6,1,3,2,4,6,1,4,7,5,1,1,6,6,4,6,3,2,1,0,4,6,5,6,2,1,3,6,6,2,0,6,6,5,1,1,1,2,6,7,4,6,1,1,6,6,1,1,7,7,1,1,1,1,3,2,1,4,7,6,6,1,4,2,1,2,5,6,6,2,6,6,1,2,1,0,2,6,6,0,3,5,0,7,1,6,6,7,2,7,1,5,6,4,1,7,7,6,5,6,0,1,2,6,6,1,4,6,0,7,0,3,1,1,1,2,6,6,4,1,3,1,3,3,0,1,1,3,6,2,1,5,4,3,5,6,5,1,1,4,1,2,0,5,1,0,6,7,4,6,3,7,1,6,5,6,7,7,1,6,6,2,4,6,1,1,1,3,3,6,7,6,2,6,5,0,0,6,6,4,1,1,6,2,1,4,5,4,2,6,5,2,5,3,0,1,1,1,1,6,5,1,7,1,1,2,1,1,0,2,7,2,1,7,4,7,3,2,7,1,4,2,2,4,1,4,4,1,1,5,4,3,1,7,2,2,4,0,5,7,6,5,6,5,1,5,1,2,2,6,2,6,2,6,6,1,6,6,5,1,1,3,1,1,4,3,1,5,6,6,4,2,6,4,7,6,1,6,3,0,6,0,4,1,1,2,6,2,1,6,4,1,6,1,1,2,1,6,1,1,0,2,0,6,6,1,6,0,6,1,1,5,6,1,6,3,2,5,4,1,6,1,6,1,6,3,1,0,6,0,6,7,1,6,6,4,1,6,0,1,5,1,4,6,1,0,3,1,2,4,7,3,6,5,1,2,6,1,6,1,6,4,7,6,6,5,1,4,6,6,6,1,6,5,7,2,1,7,6,5,6,4,2,1,6,2,7,4,1,1,1,3,1,6,4,6,1,7,2,6,6,6,6,2,6,6,2,1,7,2,6,1,6,1,7,4,1,5,0,1,2,3,2,3,1,6,0,1,6,2,6,4,4,0,1,1,0,1,3,1,4,3,4,1,6,7,5,6,6,4,6,6,0,6,3,1,2,0,5,1,2,5,5,6,1,5,2,6,7,7,4,6,4,1,0,7,6,7,4,4,1,2,3,5,6,2,0,4,2,1,2,6,4,2,0,1,1,6,2,6,4,2,1,2,4,1,6,6,0,6,4,1,1,6,1,1,1,0,5,6,4,3,3,6,2,6,2,5,1,7,6,0,6,4,7,2,5,1,2,1,1,6,4,0,1,4,3,1,6,1,6,3,0,3,0,2,2,1,5,7,1,1,6,6,3,5,1,2,1,6,5,6,2,1,4,6,2,6,1,7,6,5,1,6,7,4,5,5,1,0,1,6,2,4,6,6,7,5,1,3,2,6,7,1,6,2,0,1,1,6,1,6,5,1,1,1,1,1,2,3,6,6,2,6,1,2,4,1,0,4,3,5,2,6,1,6,1,4,6,6,3,0,1,1,2,1,1,6,1,2,6,6,2,6,6,1,6,2,5,4,4,2,6,2,4,6,6,1,1,3,6,5,5,2,1,1,5,3,5,6,6,6,2,6,1,2,4,6,6,1,6,6,6,2,7,7,7,6,0,5,4,6,3,6,1,7,1,6,6,5,6,1,0,0,6,6,1,1,3,1,4,1,6,1,4,0,4,4,6,5,1,5,1,1,6,7,3,5,3,4,1,2,1,6,0,1,3,1,4,6,6,6,2,3,3,3,4,1,1,2,1,1,1,0,0,6,1,5,6,6,6,1,4,1,6,4,1,5,6,5,7,6,4,4,0,6,6,2,1,6,1,1,1,6,7,6,1,3,1,1,1,4,1,5,5,6,7,2,2,1,6,2,2,1,6,3,7,6,4,4,2,1,6,6,5,7,4,1,1,6,1,2,7,1,6,1,1,2,6,1,6,2,1,0,1,4,4,7,1,1,1,3,1,1,5,4,2,6,6,6,1,7,4,1,4,1,2,3,4,1,6,5,1,6,3,6,4,2,1,4,0,6,2,1,1,6,1,5,6,1,6,4,1,4,4,6,1,6,6,1,2,0,6,0,1,4,0,6,4,6,6,5,1,0,0,6,2,1,4,1,1,3,3,6,4,1,3,6,4,4,5,4,6,1,6,1,5,4,4,1,3,6,4,4,2,1,4,5,0,6,2,1,0,6,6,1,3,7,1,1,1,7,1,7,6,1,5,1,6,6,5,5,3,6,7,2,6,4,4,5,7,6,6,4,7,4,1,2,6,6,1,1,1,3,7,1,5,1,6,1,2,5,7,6,6,1,1,6,2,6,4,6,2,1,6,1,1,6,2,6,1,4,2,1,6,2,0,5,5,7,0,6,6,4,0,2,1,0,4,3,6,3,6,4,6,5,1,6,1,1,4,1,2,5,5,1,6,2,5,4,1,1,4,7,6,5,1,5,1,1,1,0,1,1,1,4,7,4,1,3,2,2,6,2,2,6,7,6,0,5,6,6,1,5,7,3,3,2,1,1,3,1,1,1,6,1,3,6,1,1,4,2,4,1,1,5,6,5,2,6,3,1,2,2,0,6,0,2,3,1,6,6,6,5,1,6,5,1,6,4,1,1,2,4,6,4,2,6,4,4,0,5,3,1,6,3,3,4,1,1,6,1,1,6,1,1,7,2,2,3,1,1,5,7,3,6,6,1,6,7,2,6,1,6,6,2,6,4,3,1,3,6,7,1,4,6,7,4,1,7,2,6,4,1,6,6,6,6,7,2,3,1,3,3,7,0,1,6,2,0,6,3,6,6,6,6,0,5,6,6,2,7,0,6,1,5,1,2,6,1,6,3,2,2,0,5,6,1,6,0,1,5,3,7,6,1,6,2,4,1,1,6,4,1,1,1,7,6,2,3,1,1,1,6,7,0,6,6,2,2,1,4,6,2,4,5,6,3,6,0,0,4,4,1,4,1,6,4,4,1,6,1,1,3,1,2,0,4,1,3,1,6,0,0,1,3,7,7,1,1,4,2,7,6,1,6,6,5,4,2,1,6,0,7,1,2,0,5,1,3,1,6,6,2,1,1,5,4,1,4,1,1,6,0,4,5,6,1,4,6,6,4,6,0,7,1,6,1,1,4,1,1,6,2,6,1,6,2,6,6,6,6,1,6,1,6,1,0,7,3,0,5,6,2,1,1,5,6,1,7,6,4,4,1,7,1,2,1,4,7,1,4,2,1,1,7,5,6,1,2,2,6,6,6,1,6,1,2,5,1,5,2,2,4,1,6,1,3,6,2,1,6,4,1,4,1,1,2,3,5,4,0,4,7,6,2,1,1,6,1,4,2,4,3,2,1,1,3,5,6,1,2,4,6,6,6,6,6,6,6,0,3,3,7,6,6,4,6,6,2,2,7,1,4,5,1,6,2,0,2,3,2,6,6,6,2,4,1,5,1,2,2,1,6,3,1,3,7,1,0,1,7,7,6,3,2,6,0,1,7,2,1,6,4,6,1,6,4,5,5,1,4,1,5,5,2,1,1,6,0,2,4,1,1,1,0,4,4,4,1,3,1,3,3,6,7,0,4,6,1,6,1,1,2,0,5,6,1,7,2,0,0,4,4,3,2,4,2,2,1,4,1,5,7,1,2,1,5,6,7,6,2,1,1,7,6,1,6,4,2,6,6,6,7,4,3,6,4,2,1,6,2,6,5,6,4,2,1,1,1,1,2,6,6,3,4,6,1,2,6,0,6,4,3,5,1,1,1,0,1,1,1,1,1,4,2,1,2,2,4,1,2,5,1,1,1,0,1,0,5,2,1,1,4,1,0,1,1,4,6,2,6,1,1,4,1,6,1,4,6,1,6,0,4,1,4,1,6,4,4,6,6,4,6,4,4,1,5,1,7,6,7,2,6,6,7,6,2,7,3,3,4,2,5,6,6,4,1,1,4,2,6,1,5,1,2,6,1,1,1,4,6,2,6,7,4,6,4,6,4,6,1,6,1,3,0,0,6,1,6,6,1,6,0,6,1,6,4,6,1,1,1,3,3,4,6,4,4,7,4,4,4,4,1,0,3,4,0,4,4,1,4,0,6,4,6,6,2,6,4,1,5,6,6,6,3,6,4,1,1,6,6,3,6,1,1,6,6,5,4,6,2,3,6,1,6,6,6,6,4,1,6,1,6,7,6,6,5,7,6,2,1,7,1,5,5,2,5,3,0,2,6,7,1,2,6,2,1,6,7,6,3,2,1,5,1,2,3,6,5,1,0,4,6,1,3,4,3,2,1,3,2,6,4,4,1,6,6,1,7,6,1,0,7,7,2,3,2,7,1,1,4,6,2,1,6,6,6,4,6,7,1,1,2,6,3,7,4,2,2,3,1,1,6,0,1,1,6,2,1,5,4,2,2,2,4,6,2,2,4,6,1,4,3,5,1,1,1,2,1,3,6,1,2,4,1,1,1,4,3,1,6,1,6,4,0,6,4,6,1,1,1,1,4,6,0,4,7,7,1,6,6,6,0,6,5,1,6,1,6,2,1,1,3,6,6,6,6,5,4,4,1,3,6,2,2,1,5,6,6,1,1,6,1,1,6,6,1,7,6,6,0,4,6,1,6,6,6,3,6,0,4,3,5,1,5,6,2,2,2,1,6,2,2,3,4,1,6,6,1,4,2,1,6,1,5,1,6,4,6,2,6,4,4,2,6,1,5,6,5,2,6,6,4,1,6,4,2,6,1,5,1,2,4,0,6,6,4,2,3,1,2,6,5,4,4,4,4,1,1,4,2,5,6,2,2,4,1,2,5,3,6,6,4,2,1,6,6,1,2,6,1,4,1,5,1,1,7,6,6,6,4,5,1,6,4,6,7,4,7,3,1,2,2,4,3,6,4,6,5,3,6,1,5,3,2,2,6,6,4,2,6,1,1,6,6,7,6,6,6,2,1,1,1,6,7,6,6,5,7,1,1,2,1,5,6,6,7,6,1,6,6,6,4,3,6,1,0,6,6,2,6,1,2,6,4,6,5,1,1,1,1,1,6,6,7,1,0,6,2,4,6,1,6,1,1,4,6,0,2,1,2,1,1,1,0,5,6,2,2,4,0,2,1,2,2,4,2,3,1,3,7,6,0,4,7,6,6,7,1,2,6,3,1,5,4,6,6,4,1,0,2,4,3,4,6,4,7,6,3,5,6,6,2,2,1,6,6,4,1,1,6,2,7,1,7,1,2,6,1,3,7,3,1,2,1,2,1,4,2,6,1,2,1,2,2,4,1,0,6,6,1,7,4,3,2,1,0,5,6,1,2,5,1,6,2,2,2,6,5,6,1,4,7,2,1,4,4,3,5,7,1,1,4,0,0,6,3,5,1,2,6,1,1,1,3,1,1,2,1,7,7,7,2,6,6,6,2,2,1,4,0,1,0,6,4,1,6,7,6,5,6,6,6,1,6,4,4,4,4,1,6,6,0,6,6,2,6,7,1,1,4,4,6,1,5,6,5,4,1,2,1,1,0,6,6,6,7,5,6,6,3,6,6,5,1,6,6,2,3,6,6,3,0,5,5,6,2,1,6,2,2,1,2,4,6,3,1,2,5,1,6,4,6,1,2,6,3,2,1,6,1,6,4,6,0,6,6,6,1,6,2,1,1,1,2,6,2,1,3,2,1,6,2,5,1,2,4,1,6,2,6,1,6,1,7,4,1,2,4,2,0,1,6,6,2,1,6,0,6,0,2,6,1,4,1,2,1,1,6,3,5,1,3,4,7,4,5,4,1,0,2,1,7,0,6,1,6,6,5,2,1,6,6,2,6,4,7,1,0,6,0,1,4,1,1,6,1,5,1,1,4,1,6,6,6,1,3,3,6,4,5,2,7,1,1,4,1,7,6,2,1,7,6,5,4,1,6,4,6,1,4,0,1,6,6,7,6,1,4,6,3,1,7,1,1,6,2,1,1,7,2,6,3,6,4,2,4,6,2,5,1,0,3,2,1,6,0,0,2,1,0,1,2,2,1,3,4,6,7,6,2,1,1,6,1,1,1,1,1,6,1,4,6,6,6,1,2,1,4,2,1,2,1,2,1,3,5,5,4,1,7,1,4,3,6,6,4,3,1,6,6,6,1,7,6,6,6,4,2,6,6,7,4,4,2,6,5,1,6,0,6,6,7,6,6,7,2,3,2,6,5,6,7,3,1,6,1,6,1,6,1,2,2,6,2,0,7,2,1,1,6,1,2,1,6,0,0,4,6,1,2,2,1,1,4,2,1,4,1,4,7,1,6,6,5,4,6,2,6,1,4,6,1,1,6,6,6,6,1,2,2,6,4,1,2,6,4,4,4,5,6,6,7,7,4,4,6,6,3,6,4,3,7,1,2,6,6,6,4,3,1,1,0,1,4,0,6,6,2,2,1,4,5,1,3,6,4,4,0,1,7,7,7,6,6,6,2,6,0,4,0,6,6,4,6,4,1,6,1,2,0,5,1,6,6,4,4,4,2,5,7,4,1,1,6,0,4,6,6,0,4,7,1,1,6,2,1,3,7,0,7,4,3,4,1,6,6,4,6,6,0,1,4,1,6,0,3,1,4,1,4,0,5,6,3,1,4,5,6,4,6,2,6,6,1,0,6,0,6,1,0,6,1,1,6,1,1,1,4,5,7,5,6,2,1,2,1,1,6,0,1,3,6,0,6,6,5,5,4,6,5,1,1,4,6,1,6,2,3,6,1,1,7,1,5,1,2,1,3,4,6,5,5,5,4,3,5,1,4,6,2,6,1,6,1,6,2,6,1,4,4,1,6,5,6,3,6,5,6,1,6,6,4,4,7,6,3,6,4,4,6,1,6,6,6,6,1,1,0,7,0,6,7,1,2,4,6,6,1,2,6,0,0,6,1,2,7,1,0,6,6,1,7,5,6,1,6,6,0,1,6,1,2,6,1,0,5,2,2,6,6,4,4,6,6,4,1,1,3,4,5,6,6,4,1,1,5,1,6,6,2,6,1,6,4,6,1,0,2,6,1,1,0,0,6,1,6,5,3,6,2,6,6,6,2,2,6,5,6,1,2,2,1,0,3,6,6,6,3,1,6,3,6,1,6,0,6,4,2,6,6,4,7,7,1,3,6,7,1,2,1,7,1,6,6,0,6,0,6,2,1,0,7,1,5,0,2,5,5,1,3,6,6,1,6,5,6,1,4,1,1,6,1,1,2,7,2,1,0,6,6,1,7,6,2,6,1,2,4,7,1,6,6,6,4,0,7,4,6,0,7,6,2,6,5,2,6,0,6,4,0,2,6,6,3,1,4,1,6,1,7,7,3,3,1,6,6,7,1,3,6,4,7,5,0,6,4,6,1,1,1,6,7,4,0,6,7,1,0,1,1,0,6,0,6,3,6,7,3,1,1,0,2,6,3,2,6,6,6,6,1,6,6,4,0,4,0,1,6,5,1,5,3,3,6,7,2,6,1,6,1,6,4,4,6,2,1,1,4,3,3,1,5,6,6,7,7,6,1,6,7,3,6,6,3,0,4,3,4,7,6,4,4,2,6,6,0,2,6,6,1,6,0,1,2,4,0,1,3,5,1,1,6,3,4,1,0,2,0,7,1,6,6,0,6,4,5,1,0,2,4,6,1,1,2,1,6,4,0,6,6,1,6,1,1,5,2,1,1,2,0,4,2,1,4,4,7,6,6,6,6,4,5,7,1,3,1,1,7,6,6,6,5,6,6,1,1,2,7,1,2,5,6,0,6,4,1,1,5,2,6,1,1,2,0,6,6,3,7,6,6,2,3,4,4,1,2,6,3,1,1,1,6,3,6,6,6,7,2,6,1,7,4,1,1,5,1,6,1,5,2,6,1,6,3,1,4,6,1,4,4,6,5,4,1,4,2,2,1,0,6,1,6,1,4,1,4,0,0,4,5,1,4,6,6,5,4,2,1,6,1,3,5,2,1,6,1,2,4,1,2,0,2,6,4,4,2,1,1,1,4,7,6,6,0,0,4,6,4,6,6,6,2,7,5,5,1,1,3,1,1,1,1,2,1,5,3,1,5,4,6,6,0,6,1,3,0,4,6,1,0,4,4,1,4,3,6,1,1,1,5,4,3,4,2,2,2,5,2,3,5,4,1,7,1,6,1,7,2,6,7,1,6,2,6,2,5,6,3,0,6,0,4,0,4,4,1,3,6,5,2,2,4,1,1,2,0,4,6,6,2,6,6,6,1,6,1,0,2,0,3,7,4,6,1,6,6,0,7,3,0,0,7,1,6,4,6,3,6,1,7,2,4,1,6,5,4,6,6,1,6,7,4,2,1,5,5,4,6,0,5,4,0,6,3,6,3,2,1,4,7,1,7,7,6,1,6,7,2,1,0,1,1,7,7,1,2,6,1,1,6,2,6,6,3,5,2,6,4,1,1,3,6,2,4,0,4,1,6,1,4,1,3,1,6,1,3,1,3,7,4,7,2,6,7,1,0,2,4,1,1,5,2,2,7,6,1,6,5,6,6,2,6,2,2,1,6,1,2,4,6,7,1,6,0,6,3,2,6,5,0,1,1,2,5,0,5,6,1,7,2,7,2,1,6,1,1,2,0,6,6,4,3,5,1,1,7,5,2,7,2,6,6,6,6,6,4,2,3,6,1,2,4,3,1,6,1,6,3,2,6,1,0,0,1,2,7,6,4,6,2,4,4,6,4,1,1,3,6,6,6,6,6,7,2,0,5,6,2,3,0,3,6,4,0,0,3,6,4,6,6,7,2,0,5,1,1,2,6,7,4,1,4,5,1,3,1,7,1,6,6,6,6,1,4,1,1,2,4,7,5,4,4,3,6,6,1,1,2,1,1,0,0,6,1,2,1,1,6,3,1,4,5,3,6,0,5,1,1,3,4,5,5,6,4,7,5,1,1,1,6,6,2,4,1,0,6,1,4,4,6,1,1,1,4,3,7,6,1,1,4,0,5,5,4,6,3,1,2,1,6,2,6,1,2,6,3,1,3,1,2,2,1,0,0,5,4,3,6,6,6,1,7,4,1,6,0,2,2,2,1,6,4,4,1,2,5,6,2,6,2,2,6,0,6,2,2,1,2,6,1,6,6,0,4,6,2,6,6,0,6,7,6,6,4,7,5,6,3,6,3,4,2,1,1,6,6,3,0,2,3,4,4,6,7,6,6,6,6,5,4,2,1,4,6,6,6,7,6,2,5,1,6,0,6,6,2,4,1,1,5,1,1,1,5,3,6,2,6,3,0,2,6,1,0,1,0,2,1,1,0,4,6,0,0,1,1,4,6,3,6,3,0,1,4,3,1,2,1,6,4,6,1,3,1,6,1,6,3,1,5,7,1,7,4,0,1,1,1,2,6,6,0,6,1,6,0,6,4,1,2,1,0,4,6,2,6,6,6,1,1,1,1,0,6,6,5,6,4,7,0,2,1,4,6,6,4,2,1,2,1,4,6,0,4,6,4,6,2,1,4,6,6,6,6,3,6,4,1,0,6,6,6,2,6,1,4,6,4,2,3,1,7,2,1,6,2,6,1,7,3,3,1,6,0,3,1,6,4,3,7,6,6,5,4,1,1,1,6,1,7,1,4,1,0,2,6,3,4,5,1,0,6,1,2,1,6,4,1,6,1,1,1,6,4,3,5,6,1,2,1,3,6,3,1,6,6,0,1,6,6,6,2,1,7,2,1,6,1,1,1,4,6,4,6,4,2,1,6,1,1,0,6,1,7,1,3,2,6,1,1,4,3,2,6,7,7,7,6,4,7,0,1,4,4,6,4,5,0,3,6,1,3,0,7,6,4,1,2,6,4,1,2,2,6,6,6,1,1,2,6,6,4,7,6,6,2,6,3,6,6,7,6,4,6,2,6,1,2,6,1,1,1,1,6,6,4,4,0,7,3,1,6,6,6,6,4,5,4,7,6,4,6,3,2,2,3,2,6,6,1,5,7,6,3,1,2,2,6,0,5,1,6,5,1,1,3,2,1,1,6,6,6,1,2,5,6,3,1,6,4,2,6,6,1,1,6,6,3,5,6,7,2,0,6,6,6,2,1,5,1,4,6,7,3,1,2,2,1,6,1,6,6,6,1,2,0,6,2,1,6,0,5,1,1,6,6,0,3,2,6,7,6,5,6,5,6,6,4,6,5,4,6,2,4,2,2,6,4,4,0,6,1,1,4,6,1,6,6,2,6,4,6,1,1,7,2,1,6,4,4,2,1,1,7,6,6,7,7,2,2,5,1,7,1,0,4,5,0,6,1,4,5,6,2,6,2,4,3,4,6,2,7,2,7,1,1,6,6,7,4,3,0,1,2,1,6,6,0,2,6,1,4,7,1,0,1,4,6,0,4,6,4,5,1,4,6,0,2,3,0,2,0,6,0,6,6,1,1,5,1,4,1,6,6,6,5,1,1,7,3,2,7,3,1,4,1,2,5,6,1,3,6,0,4,4,2,1,1,1,1,4,6,3,1,1,3,2,2,1,7,5,1,6,0,7,7,2,2,3,1,2,5,1,1,2,2,1,4,5,3,2,1,3,7,4,2,6,6,1,1,1,6,1,5,4,1,7,2,5,1,1,1,4,1,6,1,3,5,2,6,4,7,1,4,4,2,1,5,3,6,5,6,1,1,3,1,4,6,6,4,4,4,1,2,6,6,1,0,2,1,1,2,0,6,6,1,7,7,6,6,1,3,4,6,1,1,1,3,3,4,2,0,4,1,5,6,1,2,6,2,2,6,1,6,0,3,1,1,6,4,3,5,5,2,1,1,1,4,1,4,2,5,1,1,1,6,2,3,3,6,1,4,4,6,1,6,6,4,2,5,6,2,6,6,6,4,5,1,6,6,2,2,1,5,6,6,6,1,1,6,2,2,6,2,1,6,0,6,6,1,6,2,6,1,6,0,6,6,1,2,6,1,6,7,4,2,3,7,1,4,3,1,6,6,4,5,2,2,0,3,3,6,0,6,6,3,6,5,1,7,5,6,1,4,6,6,1,2,7,4,7,1,4,6,5,1,1,7,6,6,1,4,4,3,2,6,3,1,7,0,6,6,6,2,4,5,7,0,6,6,5,4,6,0,4,1,6,7,7,4,5,5,6,6,1,1,2,7,2,1,1,4,3,2,1,5,2,6,6,6,1,7,1,6,6,7,1,7,1,1,4,5,6,6,3,6,2,6,6,6,1,6,6,6,1,4,2,1,4,7,1,6,4,5,2,6,1,7,4,4,6,4,1,1,1,6,1,2,7,1,2,6,3,5,7,1,6,1,2,1,6,3,3,1,0,5,2,0,6,2,2,5,6,6,7,6,1,4,3,4,6,6,6,6,1,6,0,1,6,1,6,4,0,4,4,4,6,1,6,3,6,6,6,1,6,1,6,4,1,1,1,1,7,2,0,6,4,1,4,1,1,6,1,4,1,1,1,6,2,4,5,0,6,6,4,1,6,6,6,4,1,3,4,1,1,7,7,6,5,6,4,1,6,4,1,2,6,5,2,1,1,4,4,6,6,5,5,4,7,3,4,1,6,6,0,2,6,6,4,0,6,2,1,2,5,6,0,6,1,4,1,1,1,1,1,6,5,4,5,2,0,6,0,6,1,4,1,0,1,4,4,5,5,4,5,6,1,6,3,1,6,6,1,5,6,0,1,6,1,6,0,6,2,7,4,7,5,6,7,1,6,1,0,5,3,1,1,1,3,0,6,1,1,5,1,1,1,6,2,4,6,5,4,7,6,6,4,5,6,0,0,6,1,2,5,5,6,7,6,3,6,5,0,5,4,6,4,7,2,4,5,1,2,1,3,1,6,2,3,1,6,4,3,0,6,4,6,6,4,2,4,1,0,6,6,6,6,6,2,2,1,5,7,6,1,1,1,1,6,5,2,3,4,5,6,6,7,6,6,6,6,2,6,1,1,0,1,4,2,2,2,1,4,1,4,4,6,4,1,5,6,1,6,4,3,4,7,1,1,4,6,2,1,3,1,5,2,6,6,2,6,6,2,7,6,2,1,6,2,4,1,5,6,2,6,6,6,1,6,4,0,3,3,5,6,4,2,6,6,5,2,2,1,0,4,6,3,1,6,1,3,1,6,2,4,6,4,7,4,5,1,6,0,2,1,7,2,6,5,1,1,6,1,6,5,6,4,2,6,7,6,0,1,1,5,1,1,1,3,1,6,3,1,5,2,1,2,1,4,5,6,4,2,5,6,3,7,5,6,2,6,0,1,0,7,1,4,2,4,2,2,1,3,6,1,6,1,5,1,6,1,4,1,0,2,0,4,1,6,2,6,4,6,3,1,6,2,6,0,6,7,1,6,4,5,0,6,4,6,1,1,3,4,2,3,4,1,6,4,6,1,2,6,6,7,1,6,2,6,7,3,1,1,6,5,7,1,2,1,3,6,4,4,0,1,1,1,2,5,6,6,1,6,6,1,5,4,5,2,4,7,4,3,6,6,3,4,1,0,7,4,4,4,1,1,1,1,2,1,4,1,7,7,5,6,7,6,1,6,1,4,0,7,4,4,1,6,1,2,6,1,1,0,2,5,6,1,5,6,1,3,1,1,3,0,4,4,5,2,7,6,1,6,7,1,1,2,7,6,7,1,1,1,6,7,1,2,5,2,3,4,1,4,1,3,6,2,1,6,1,6,1,7,1,1,4,6,7,1,6,5,0,4,4,3,2,6,4,3,6,0,7,7,4,1,0,1,6,6,7,6,1,6,6,2,4,1,2,6,6,6,6,6,5,1,0,7,7,1,1,4,2,5,3,3,6,6,4,4,6,5,4,1,6,5,6,5,4,7,3,1,6,1,3,4,4,1,4,2,1,2,0,2,2,6,4,4,2,2,6,4,6,1,6,2,1,7,4,1,2,6,1,6,1,7,6,6,0,1,5,1,0,6,4,6,1,4,4,6,5,1,1,6,2,6,6,2,6,6,0,1,1,1,6,1,0,1,6,1,3,6,7,3,4,4,6,1,1,4,4,1,2,6,1,3,1,6,0,3,1,6,1,6,2,2,4,6,1,2,6,6,5,1,4,3,4,6,4,1,0,6,7,4,6,6,1,0,6,3,4,1,6,2,4,4,1,1,2,6,5,3,4,6,6,1,0,6,4,6,7,2,6,1,3,1,1,7,2,1,1,1,1,6,6,1,4,6,6,2,5,3,1,4,3,7,2,4,3,1,0,0,7,6,3,6,1,1,4,5,4,6,4,3,1,0,1,1,1,1,6,4,2,3,3,1,6,5,4,1,1,1,3,7,7,4,4,3,2,3,1,6,1,6,1,2,2,1,0,7,2,1,1,5,2,4,6,1,3,1,1,2,2,1,1,6,4,6,1,7,4,4,1,1,5,2,1,1,2,5,5,6,1,5,0,6,7,1,6,1,6,4,6,0,4,6,1,6,6,3,2,4,2,1,5,1,1,4,1,6,2,3,3,6,1,0,7,7,1,6,4,6,6,5,6,6,1,6,3,1,0,2,7,6,1,1,1,6,1,3,2,3,6,6,4,0,1,1,7,6,0,6,1,2,0,1,4,6,6,2,7,4,4,6,6,6,2,6,7,6,1,7,1,6,1,1,2,5,7,6,1,6,6,1,1,2,6,6,4,1,6,0,3,2,0,6,1,4,5,1,0,6,1,0,1,1,2,3,7,3,6,1,0,2,5,6,1,0,5,7,6,3,2,1,6,6,0,4,7,6,1,2,1,3,2,0,6,2,5,1,5,4,1,5,1,4,6,6,6,6,2,6,1,5,2,0,4,4,2,1,1,4,6,1,6,5,2,4,6,4,1,6,6,2,6,1,1,1,4,5,2,2,2,2,3,4,5,2,1,2,4,2,4,4,6,6,6,1,1,6,4,1,0,1,4,4,6,1,6,4,5,6,4,5,6,6,1,1,6,5,5,1,5,5,2,6,1,2,0,1,3,6,1,1,6,1,4,5,7,6,5,3,1,6,0,0,3,2,5,7,6,6,4,1,2,6,1,4,6,4,0,6,3,6,5,6,3,6,1,0,1,4,6,4,3,1,1,4,2,5,4,1,2,5,7,2,4,2,2,2,1,6,6,0,1,1,2,6,1,0,3,1,3,3,7,1,2,6,6,3,6,7,5,4,4,3,4,2,6,6,6,1,6,6,5,6,0,1,6,1,6,5,1,6,6,4,0,2,4,6,4,6,0,4,1,3,6,4,3,1,1,5,1,2,1,1,1,6,1,1,4,2,1,1,6,2,1,6,4,1,3,6,1,2,3,1,7,2,6,4,1,1,3,1,1,2,5,1,6,1,3,1,6,2,1,4,4,6,4,5,2,2,1,1,2,1,0,1,3,4,6,2,6,1,0,6,1,2,2,4,1,6,6,6,3,1,1,2,4,1,6,6,4,4,1,6,1,1,6,1,1,3,6,7,1,6,4,7,2,3,3,3,1,6,7,6,1,4,5,3,6,5,6,7,4,0,0,1,6,7,0,4,3,1,4,6,6,6,7,6,0,0,2,2,0,6,1,1,1,1,5,1,2,2,6,6,4,3,4,6,4,6,4,2,1,4,7,4,1,5,1,1,1,4,5,2,6,2,1,6,4,4,1,4,6,2,1,1,2,6,1,6,5,0,3,6,0,2,2,1,4,2,5,1,6,1,2,2,6,6,6,1,7,6,1,7,2,1,1,6,1,6,6,1,2,7,6,1,0,3,4,6,1,6,0,6,7,1,5,7,6,0,2,2,6,5,1,1,6,6,6,3,4,7,2,6,1,6,2,4,3,6,6,6,1,2,6,5,2,7,1,6,1,6,4,4,2,1,1,0,1,4,0,1,6,4,1,2,0,4,2,4,1,1,4,1,1,2,1,5,2,1,1,1,0,4,2,1,7,1,4,1,6,0,1,0,4,1,4,6,4,2,4,6,1,2,6,4,3,4,7,1,0,4,6,7,1,6,4,6,6,1,1,6,6,1,4,1,6,3,0,1,2,6,5,6,6,5,2,1,6,7,6,5,1,7,1,6,1,3,1,1,6,6,2,6,1,1,6,1,2,0,2,1,3,1,6,5,0,2,1,3,1,5,6,4,2,1,3,1,1,1,6,5,7,6,3,0,6,6,6,2,1,6,5,4,0,2,6,3,0,6,6,1,5,1,6,2,4,6,1,2,2,0,1,6,4,6,7,4,6,1,2,1,2,6,2,1,6,7,6,6,1,1,2,4,2,4,2,5,1,6,5,1,4,2,1,2,2,2,6,0,6,7,6,4,6,5,5,4,3,2,1,0,1,2,7,1,4,3,7,1,2,1,6,4,1,1,0,2,6,6,0,1,4,6,2,0,7,6,2,0,6,0,6,0,4,1,2,1,7,1,6,1,6,4,6,0,1,2,2,4,3,6,4,5,4,2,7,6,1,6,1,4,1,7,5,5,5,6,5,7,2,4,6,1,1,2,6,1,1,6,2,3,1,6,5,1,6,6,3,0,4,6,6,1,1,0,1,1,2,3,6,2,6,2,3,1,1,6,4,0,6,1,0,6,1,4,5,1,0,3,4,1,3,1,1,3,1,6,1,2,7,1,2,1,6,0,2,1,3,3,0,6,2,6,6,4,6,5,4,1,4,1,1,6,6,3,5,6,2,6,0,6,0,1,5,2,3,3,6,6,1,6,6,6,6,4,4,4,1,0,6,2,5,2,1,6,4,3,6,2,2,0,1,1,1,1,4,1,6,6,1,4,6,0,4,4,6,1,1,5,7,6,5,2,1,1,6,3,4,6,4,4,6,6,6,6,5,1,6,1,3,2,6,1,1,1,6,6,0,2,2,1,1,2,6,5,6,4,4,4,6,4,1,0,7,6,4,5,7,5,4,6,6,1,1,1,6,7,1,0,1,1,4,3,6,4,2,4,1,1,6,1,6,1,4,6,3,7,7,1,1,1,7,6,1,2,0,2,1,7,6,1,2,1,6,1,7,6,6,2,4,4,1,5,1,6,5,0,6,2,4,2,0,4,4,1,6,2,2,4,0,1,6,2,6,5,7,5,1,6,2,1,5,1,3,2,3,0,2,4,6,1,1,1,0,6,0,4,1,7,1,6,4,1,6,6,7,5,2,4,6,4,6,0,1,5,1,6,1,7,0,6,1,6,4,4,0,4,1,4,4,2,1,1,2,2,2,1,5,1,6,2,4,1,1,0,0,2,1,0,0,2,4,5,6,4,1,1,2,4,4,0,5,1,4,2,1,6,2,5,5,2,2,5,6,4,4,1,2,5,6,1,1,1,5,1,7,6,0,4,1,4,2,1,3,1,3,1,4,2,2,6,1,1,2,1,1,5,4,0,1,1,2,2,1,5,7,2,3,1,6,1,3,2,4,5,1,6,1,1,6,2,7,1,1,6,4,6,6,4,2,6,1,1,6,6,2,6,3,6,0,6,6,6,6,6,2,6,1,1,1,1,0,7,3,6,6,2,5,6,6,6,1,3,1,6,6,6,1,6,2,4,4,7,4,3,4,5,1,1,2,2,1,6,4,5,1,4,1,4,6,1,2,7,2,2,6,6,2,6,7,4,3,6,4,3,0,7,1,4,6,1,6,2,1,6,5,7,2,6,1,5,2,1,1,2,4,4,0,6,0,3,6,4,4,0,4,6,1,1,3,7,5,2,1,6,1,4,6,1,3,4,4,4,1,3,4,6,3,7,5,6,1,3,4,6,1,2,1,2,5,2,6,4,6,2,1,0,6,2,4,1,6,4,4,1,0,1,4,2,6,2,1,2,6,4,1,6,3,6,4,2,6,6,7,6,5,1,5,3,5,7,6,4,6,1,7,6,5,1,7,6,2,4,6,1,1,1,1,1,6,2,0,6,1,1,6,2,1,3,7,2,1,4,3,1,6,6,1,4,1,2,6,1,1,6,7,1,0,1,7,1,6,1,3,5,7,4,6,4,2,0,7,0,1,1,1,6,7,3,1,1,6,4,1,7,4,5,5,5,4,1,2,6,5,7,6,4,4,3,2,3,1,7,5,5,6,5,6,7,4,4,5,3,6,3,5,1,6,2,2,4,2,1,1,6,1,0,0,7,1,1,1,6,3,2,5,6,1,2,1,7,7,4,5,2,2,6,5,6,2,3,2,2,3,2,7,6,6,1,2,1,3,2,4,6,6,0,6,0,6,6,4,1,2,2,6,4,4,5,4,6,4,6,6,6,3,5,7,4,5,5,6,1,4,5,7,6,1,0,0,4,2,7,1,4,6,4,6,6,2,2,0,2,0,6,6,2,6,6,3,0,0,1,6,1,1,1,1,6,6,1,6,6,2,4,1,6,2,1,6,0,3,6,1,4,1,3,0,0,1,1,6,5,5,5,1,2,1,1,0,4,4,2,1,1,1,6,1,6,2,2,4,2,5,1,0,1,2,3,2,1,5,0,6,6,1,6,2,1,1,6,6,1,6,6,1,2,0,3,6,7,2,1,2,2,3,2,6,6,2,7,0,6,6,5,6,6,6,2,5,5,6,5,4,1,4,7,4,4,0,1,6,4,6,6,7,6,1,6,6,1,6,6,5,5,4,0,6,1,5,4,6,1,6,7,6,0,0,2,6,7,4,4,6,1,7,3,6,2,3,6,6,4,6,6,5,1,2,2,1,6,1,7,1,6,1,2,6,3,2,1,2,6,1,3,2,2,1,1,1,1,4,4,7,1,2,0,1,6,6,6,4,0,7,7,6,5,6,6,1,6,6,7,2,6,7,0,4,4,6,6,1,3,6,1,5,1,1,0,1,6,1,1,3,6,7,1,1,6,2,4,2,6,2,1,4,7,6,6,0,5,4,5,6,6,1,7,3,2,5,1,1,1,7,0,1,1,4,4,6,4,1,6,0,6,5,4,4,6,4,0,1,6,5,7,6,4,6,4,0,4,5,6,1,6,1,1,6,1,3,2,7,2,4,6,6,6,1,1,6,7,2,6,2,1,4,5,7,7,6,2,7,6,1,1,4,2,5,7,2,7,2,3,1,5,1,7,1,6,6,0,6,4,3,4,6,7,2,6,6,6,1,4,1,6,5,5,1,6,7,3,4,6,4,6,1,6,1,7,2,4,1,1,0,1,4,6,6,6,4,6,0,5,0,4,0,6,2,4,6,1,6,6,1,3,2,1,5,1,1,2,0,2,6,0,2,1,1,2,6,5,0,2,3,4,1,6,7,5,6,6,6,2,1,6,6,4,0,1,1,1,7,7,0,6,4,1,1,2,1,1,6,4,1,1,2,4,4,2,4,6,1,6,5,6,1,4,1,0,6,6,4,2,1,4,5,5,1,3,0,6,6,2,1,4,3,1,6,1,4,0,6,6,1,2,4,4,6,1,1,4,7,6,1,4,6,4,6,1,6,4,1,4,2,4,3,1,1,4,2,6,7,2,6,1,5,0,1,3,5,3,1,5,1,5,1,5,7,0,0,6,6,1,2,1,0,4,6,1,2,6,3,0,0,5,5,5,3,2,5,3,4,6,6,7,6,6,4,6,6,2,7,2,6,2,6,1,4,6,6,6,6,6,4,2,6,1,2,6,6,4,6,3,1,1,1,4,5,2,6,6,2,2,0,6,6,4,1,7,6,4,1,6,2,5,2,2,2,1,7,5,6,4,0,6,2,1,1,2,1,1,2,2,6,3,1,1,4,1,5,5,3,2,6,4,4,1,1,7,6,6,1,1,4,6,3,6,1,4,1,7,1,3,6,2,1,4,1,3,3,6,1,2,1,1,4,7,1,3,6,1,1,1,7,6,6,6,1,1,1,7,2,2,4,1,7,5,4,1,1,2,6,1,4,4,6,6,6,2,3,4,2,1,3,4,6,4,4,0,6,1,2,6,6,6,1,4,4,2,4,1,0,4,7,6,1,3,3,2,6,1,2,4,6,1,2,1,0,6,7,4,6,1,6,6,1,7,6,1,2,0,1,5,4,1,1,4,4,1,0,2,2,4,1,4,3,6,6,0,1,4,1,5,6,1,5,6,6,6,7,0,6,2,5,4,6,1,1,4,4,6,4,5,6,2,2,4,6,1,6,2,2,1,1,4,1,7,0,6,2,5,0,2,6,4,4,6,3,6,7,3,1,1,6,6,4,2,5,6,4,2,1,7,1,4,5,4,0,7,3,7,6,1,5,1,1,6,1,1,1,6,1,6,4,0,7,6,6,1,2,6,6,1,1,1,3,5,6,0,0,6,1,6,7,6,6,0,5,1,0,1,3,4,3,0,1,6,1,6,6,4,1,6,1,5,2,2,6,2,6,4,7,6,6,5,5,6,1,3,7,6,3,2,6,6,0,1,5,6,1,5,5,6,1,2,1,6,6,0,0,6,2,0,7,7,6,6,6,1,3,1,6,5,5,6,2,6,2,6,4,5,4,7,1,3,2,2,1,6,6,6,6,6,1,2,1,5,5,6,6,1,2,4,1,1,6,1,7,6,3,1,1,6,2,1,3,4,5,6,6,2,1,4,5,2,4,6,1,1,1,5,4,6,1,6,6,2,4,2,1,1,4,1,0,1,3,4,6,4,1,6,6,7,3,3,0,1,6,6,6,3,6,3,2,3,1,6,1,5,1,6,3,2,6,3,4,2,5,2,1,2,2,5,7,2,1,2,6,5,4,6,6,0,1,6,6,6,6,0,1,7,6,1,6,4,5,1,3,7,6,2,1,6,4,6,1,2,5,2,1,3,6,2,2,4,6,4,4,4,1,0,3,6,3,1,4,1,1,1,1,6,5,4,6,3,1,1,3,4,4,2,6,1,6,3,5,3,7,7,1,6,1,6,2,1,2,4,6,6,1,5,1,2,1,6,5,7,1,0,5,5,6,5,1,1,6,4,7,1,2,1,7,3,6,3,4,2,2,6,3,1,1,0,7,1,7,4,1,3,1,4,3,1,6,6,0,1,1,2,6,6,2,2,1,1,6,4,6,1,1,2,4,6,1,1,5,7,4,6,0,0,4,6,6,4,1,6,1,4,4,6,1,4,5,0,6,2,0,2,1,1,2,6,6,1,0,3,1,1,4,0,6,5,1,2,1,2,6,6,1,1,2,3,4,1,0,2,4,6,0,4,6,6,3,3,1,1,1,4,2,4,4,4,6,1,7,4,6,5,1,7,6,4,4,3,5,6,0,1,2,7,7,5,7,6,6,6,1,2,1,2,1,3,1,0,6,2,5,6,1,1,1,0,6,6,1,5,6,1,2,6,1,0,4,2,6,1,1,4,6,2,7,2,4,6,4,4,1,1,7,4,6,2,6,6,0,1,4,1,4,6,2,3,6,4,1,5,6,1,1,2,6,2,2,2,4,4,1,0,1,6,1,2,1,6,6,0,7,1,4,2,4,6,1,4,5,0,6,3,2,0,1,1,6,0,6,6,1,4,1,1,6,6,5,5,1,1,6,1,1,2,1,4,1,6,6,6,6,0,6,1,0,6,1,6,6,4,0,6,1,1,2,1,0,5,1,2,2,0,1,6,0,4,1,1,1,4,6,5,4,4,2,6,1,0,6,1,2,1,6,6,6,1,4,4,2,6,2,6,1,4,4,0,2,5,1,2,2,7,4,1,3,0,1,6,6,6,6,7,1,3,4,2,4,6,6,1,2,2,6,7,7,7,6,1,6,2,6,3,2,6,4,3,1,6,6,1,1,7,5,4,4,6,6,6,0,3,1,6,1,1,2,1,6,4,3,6,6,2,0,3,7,6,6,6,4,6,6,4,6,4,7,6,4,2,2,1,6,1,4,6,2,2,7,1,4,1,1,5,1,6,2,2,6,6,1,4,7,7,6,4,6,1,4,1,5,1,5,2,1,2,1,3,2,3,3,7,1,1,6,1,2,1,7,7,6,1,2,2,4,1,6,5,3,1,0,6,1,4,6,6,7,2,1,6,2,3,4,1,6,7,1,5,0,5,0,4,5,6,5,1,6,1,1,6,4,6,6,5,7,6,0,2,6,1,7,2,6,2,2,7,2,1,5,7,4,3,1,4,4,0,7,1,2,0,1,7,7,6,0,1,3,2,5,6,1,1,2,4,1,1,1,1,0,1,1,4,3,1,4,4,7,1,4,4,6,5,2,1,1,7,3,1,5,2,4,1,1,6,2,5,6,6,1,3,5,2,3,2,4,2,6,6,6,4,3,4,3,2,1,1,6,5,0,1,6,1,6,5,1,6,1,0,4,5,4,0,0,6,6,5,1,3,7,2,6,4,2,0,6,1,1,6,1,3,5,5,0,1,1,7,4,0,7,0,6,1,1,6,3,4,6,0,2,6,5,6,7,2,3,1,6,1,0,6,1,1,6,3,4,1,6,6,5,1,0,6,6,1,4,7,3,1,6,6,1,4,6,1,2,0,6,4,2,6,1,1,6,6,1,3,6,6,1,4,2,7,0,1,7,0,1,6,4,2,1,3,2,1,1,4,6,2,6,0,6,5,0,6,3,0,6,6,5,6,4,7,3,5,6,4,6,3,4,6,4,7,6,6,3,5,1,7,1,1,1,6,0,6,1,0,5,6,1,0,1,2,6,1,3,1,1,6,2,1,1,1,6,3,3,6,1,7,7,6,6,3,6,6,5,1,5,4,6,6,5,5,3,1,7,2,1,4,4,7,6,1,3,6,1,2,6,6,1,1,2,4,4,6,0,6,5,4,1,1,5,6,6,1,3,1,1,1,1,6,3,1,5,4,2,6,3,1,6,6,1,7,6,1,1,6,6,5,6,1,6,6,1,1,1,2,1,2,5,1,1,3,3,2,6,6,7,6,4,4,6,4,6,6,4,4,6,6,2,1,4,1,6,6,1,4,4,1,6,1,1,1,1,4,1,1,1,2,1,1,7,6,3,4,2,6,0,5,2,5,6,0,6,4,6,6,1,1,2,6,1,0,4,2,4,4,4,0,2,6,2,6,2,4,6,1,5,2,1,1,4,7,1,6,6,6,0,6,6,0,6,7,6,4,7,6,1,1,1,1,2,1,4,0,1,1,7,0,7,1,6,6,0,1,0,6,6,6,6,1,6,1,6,1,1,4,6,6,1,6,6,4,4,6,6,1,5,1,6,6,6,2,1,1,2,4,0,7,0,4,6,6,6,6,4,3,4,2,3,1,1,0,6,4,0,2,6,2,4,6,2,5,6,6,4,6,0,0,1,4,6,6,6,6,4,1,1,2,2,6,6,6,3,6,1,2,6,2,5,6,0,1,6,4,4,5,1,6,2,5,1,6,6,6,5,2,5,4,6,1,6,6,1,0,1,5,6,1,4,6,0,1,6,0,3,6,3,2,0,1,4,6,6,2,3,7,1,7,6,1,5,4,1,2,4,0,0,1,2,4,6,5,1,1,2,2,2,1,4,5,0,4,6,6,1,4,3,6,1,6,2,1,1,1,4,6,3,2,4,1,4,5,0,4,1,4,7,2,6,1,3,6,4,1,6,6,1,6,7,1,4,2,3,6,2,1,1,0,4,1,6,1,2,2,6,3,6,4,1,0,5,2,2,4,4,6,6,2,6,1,2,1,6,6,6,0,6,4,4,0,1,6,7,4,4,1,2,2,6,0,6,4,6,4,6,7,1,4,4,6,4,4,6,0,0,6,7,2,2,1,0,0,6,6,7,7,2,1,5,2,6,0,2,6,1,6,2,2,6,4,6,1,1,6,2,7,1,2,1,5,7,6,4,2,1,4,7,2,1,5,1,6,6,1,1,4,7,7,4,6,7,4,6,2,4,5,4,4,2,1,2,6,3,4,1,1,2,2,1,3,0,1,1,1,5,1,1,1,2,4,5,6,0,3,7,1,1,6,4,7,4,1,6,6,4,6,1,7,6,6,2,2,4,1,2,6,5,2,5,1,2,6,4,3,2,6,0,2,6,2,6,2,3,6,2,3,6,7,1,0,5,2,6,4,5,7,6,7,6,6,6,1,4,6,2,0,3,3,3,3,6,2,4,2,2,1,0,1,1,1,3,7,1,0,4,5,7,4,0,7,4,4,1,4,2,6,2,1,6,1,1,4,1,1,5,5,4,2,2,0,6,7,2,1,2,1,3,1,1,2,1,1,6,7,6,6,6,0,1,6,4,1,2,2,2,1,5,0,5,1,3,3,0,5,1,0,6,4,1,1,4,6,1,2,6,6,3,7,2,2,7,3,4,1,2,1,1,1,6,6,6,6,2,3,7,5,5,2,2,1,1,1,4,1,4,4,1,0,3,1,2,2,1,7,6,2,0,3,0,2,2,1,1,1,0,6,1,6,6,4,4,6,6,2,4,7,1,1,2,6,4,1,6,1,6,6,6,3,1,6,6,2,2,4,5,7,3,1,6,3,5,7,2,1,1,2,2,2,2,3,3,2,2,7,7,2,6,0,4,6,3,2,2,4,2,6,1,4,0,2,2,2,1,6,5,1,4,4,1,2,1,1,1,6,6,4,4,4,1,6,6,1,6,3,4,5,2,5,2,6,6,1,4,6,1,4,6,7,6,7,6,0,4,6,4,6,2,2,0,2,6,1,1,6,3,6,5,6,3,1,6,1,6,6,1,0,6,1,6,0,1,1,4,0,1,4,1,4,5,6,1,2,3,7,5,6,6,6,1,6,7,2,0,4,1,2,6,4,3,6,1,2,1,4,1,6,6,5,6,1,2,2,5,6,5,6,6,4,4,1,0,1,4,1,3,2,1,6,5,1,6,0,1,1,0,1,1,6,6,1,0,4,4,0,4,4,2,4,0,1,6,1,1,4,1,1,1,1,2,4,2,2,5,6,5,6,3,6,2,1,2,3,2,6,1,1,1,4,4,4,3,2,6,1,6,1,0,4,2,5,3,1,2,1,6,1,1,5,6,2,1,2,6,6,1,1,6,5,6,6,4,6,0,1,2,6,1,2,6,4,2,3,6,5,1,1,0,6,4,4,3,2,2,4,1,1,5,5,1,4,7,4,1,2,1,4,5,0,5,2,1,1,4,6,6,3,7,4,1,5,4,2,2,0,6,2,6,5,7,6,4,6,5,5,5,6,6,6,1,4,6,7,6,6,1,5,1,6,6,1,1,2,1,3,6,4,6,7,2,6,1,6,2,6,4,3,1,6,1,2,2,6,1,1,4,6,2,6,1,7,1,6,6,1,4,1,6,1,7,6,6,7,6,4,1,6,5,5,3,6,4,1,5,6,1,6,6,6,2,1,1,1,6,1,7,6,6,2,7,6,1,4,1,2,5,4,2,2,6,2,6,1,4,4,2,2,6,6,5,2,1,6,6,2,6,1,5,0,4,4,1,1,1,6,1,0,6,4,2,5,5,6,1,6,3,2,1,5,4,6,6,1,7,2,6,6,6,1,3,6,2,4,5,4,4,1,2,6,4,6,1,1,1,4,2,4,5,6,6,3,5,0,6,2,4,2,6,1,2,6,5,6,1,1,1,3,2,1,0,5,2,4,6,1,2,2,3,5,2,4,6,1,1,2,4,0,1,2,1,1,1,3,1,6,1,6,1,0,6,1,1,1,6,6,1,7,4,2,4,1,2,0,6,7,7,7,4,6,2,6,2,6,7,7,0,6,5,0,6,1,2,1,3,7,2,0,2,6,1,6,6,1,2,2,1,4,1,1,1,6,0,6,1,6,2,0,4,7,1,1,1,6,2,2,4,4,0,1,0,3,6,6,1,2,1,2,1,4,4,4,1,1,2,6,2,1,3,1,1,6,4,4,1,0,2,6,3,1,1,6,6,4,6,0,4,6,5,5,2,6,6,1,4,5,6,6,3,1,0,1,2,6,1,4,4,6,6,4,7,2,6,7,1,6,1,6,5,1,1,1,3,0,1,5,3,0,4,5,1,1,2,6,5,4,5,4,2,7,1,3,0,6,1,7,4,4,3,3,6,1,6,6,6,6,5,7,7,2,5,2,3,1,1,1,3,1,6,1,7,6,0,7,4,4,0,6,4,5,1,1,2,1,0,6,6,6,6,1,6,1,1,7,7,1,4,6,5,2,4,6,2,5,6,1,3,1,2,1,3,1,2,1,2,0,3,4,6,3,3,6,1,0,5,4,1,1,6,1,6,6,5,6,0,4,4,6,0,7,2,3,1,6,0,2,1,1,4,6,4,6,1,4,6,1,1,4,5,2,3,4,2,1,6,7,6,1,5,1,6,5,1,6,3,1,0,2,3,6,7,2,5,5,1,4,2,6,1,6,3,6,4,1,6,0,6,4,6,4,1,7,4,6,6,2,0,2,7,6,1,2,2,6,6,2,2,4,7,1,1,6,1,1,3,4,3,6,5,2,6,2,6,6,0,1,1,1,6,6,6,3,6,2,1,4,1,6,1,0,6,2,2,1,1,1,4,1,6,1,6,0,1,6,2,7,6,4,6,0,4,1,6,1,6,1,6,1,5,2,5,0,6,1,2,1,5,1,4,2,1,2,6,1,6,7,3,4,1,1,1,6,3,1,5,0,7,3,3,6,6,1,4,2,1,2,6,5,5,6,3,2,1,1,1,6,1,7,6,6,1,3,1,5,6,2,6,1,3,1,1,1,6,7,1,1,5,0,0,6,7,2,4,3,7,2,4,1,2,2,0,3,2,7,6,7,6,1,4,5,4,2,1,4,1,6,4,7,4,4,1,0,5,6,5,7,6,1,6,1,5,1,1,3,7,2,1,0,4,6,1,4,3,1,6,2,6,1,5,1,6,1,6,2,1,1,6,6,1,4,1,4,4,2,1,1,6,6,2,3,5,4,1,5,6,2,1,1,4,1,3,2,3,6,2,0,2,4,1,4,0,1,1,4,7,3,2,6,0,6,1,4,1,4,7,7,5,3,4,1,6,1,4,1,1,4,0,5,6,1,2,3,0,1,2,2,6,4,6,0,5,1,6,3,0,2,6,0,1,5,6,2,1,4,6,1,6,7,1,6,4,1,6,4,6,1,6,5,1,5,1,7,1,6,5,1,4,6,3,1,2,3,1,1,2,6,1,6,1,4,3,1,6,1,4,3,3,1,6,1,1,1,1,1,2,6,1,3,1,2,6,3,6,6,2,6,5,1,6,7,1,0,1,6,2,2,1,1,6,7,1,2,6,7,3,2,1,7,7,7,6,2,6,1,4,3,1,6,0,2,7,6,1,4,6,1,5,6,0,6,1,1,5,5,1,6,3,4,1,3,1,2,6,3,6,1,4,4,6,6,6,0,6,1,3,1,6,1,6,1,0,4,6,6,1,2,6,1,6,0,5,3,0,1,4,6,6,6,2,1,4,7,7,1,2,4,1,3,1,2,4,2,3,1,1,6,5,0,2,2,6,4,6,1,4,7,6,4,4,6,4,4,1,6,6,7,1,6,3,2,5,1,1,1,7,3,7,4,1,1,6,6,6,1,6,1,1,6,1,1,3,6,0,6,1,1,6,2,5,2,2,0,0,0,1,4,6,4,6,7,6,7,1,1,1,4,5,1,1,3,1,0,7,6,4,0,4,4,6,5,1,0,1,2,5,6,2,1,4,7,2,2,1,0,0,6,0,1,2,1,2,6,6,6,6,0,1,4,0,0,1,0,6,2,6,0,1,2,1,1,6,5,7,4,6,0,5,6,7,7,0,6,1,1,5,6,2,7,2,1,7,4,1,1,6,6,4,6,1,4,1,6,2,1,6,1,6,0,6,6,5,3,2,6,4,6,4,3,6,5,6,6,0,1,1,7,0,1,1,7,6,1,2,5,6,7,4,1,1,6,4,1,0,0,1,6,2,7,1,5,2,6,1,0,6,4,4,4,6,6,0,3,2,3,2,1,2,5,1,2,0,1,6,1,5,3,2,4,7,4,4,1,5,3,3,5,1,4,3,2,5,0,1,1,1,4,1,6,7,7,6,4,0,1,6,7,6,6,2,1,5,5,1,7,7,6,5,6,6,6,3,1,2,4,2,4,4,1,6,1,0,4,6,4,2,6,1,1,2,6,1,1,1,2,2,0,4,4,5,4,1,5,1,2,4,4,7,6,6,2,2,1,1,6,5,7,1,6,4,6,5,1,4,3,7,0,5,1,6,1,6,0,6,5,6,6,6,2,4,6,1,6,3,1,6,6,0,6,4,1,6,1,7,2,6,6,1,4,6,6,6,1,1,2,1,1,3,4,5,1,2,2,7,2,5,1,6,7,0,1,1,1,5,1,6,2,1,1,1,2,2,6,7,4,1,3,4,3,4,6,2,4,5,6,6,1,1,1,2,7,2,4,7,3,2,2,4,5,3,4,1,1,1,1,0,7,6,2,6,6,2,4,4,4,4,1,3,4,5,2,4,3,6,6,5,0,5,6,1,0,2,0,2,1,6,1,4,3,4,1,6,0,6,1,1,4,2,2,1,6,2,1,2,1,7,4,6,1,4,6,2,5,6,6,2,4,1,0,4,2,2,7,0,5,6,6,6,1,6,6,4,0,3,3,4,6,6,1,6,7,1,5,2,1,5,4,1,1,6,4,7,3,2,1,0,4,1,1,6,0,2,7,4,6,1,6,6,6,6,3,6,4,2,1,1,4,4,2,6,1,4,2,1,6,1,6,0,7,7,0,6,1,2,1,7,2,2,2,1,6,4,6,0,6,0,6,6,2,2,3,1,6,1,1,1,1,5,2,6,6,1,4,1,2,6,3,6,4,6,1,1,1,4,2,6,6,1,1,2,1,1,0,1,6,6,1,2,1,4,3,2,6,6,6,5,6,2,4,2,4,3,2,6,1,1,7,1,4,6,5,1,1,1,6,1,6,2,6,5,2,4,1,2,6,6,1,1,3,3,1,2,0,6,4,4,1,1,7,1,1,6,0,7,5,0,6,1,5,0,1,7,0,7,5,1,6,7,2,2,0,6,0,3,7,2,4,1,6,6,3,4,1,6,3,2,0,0,7,0,6,6,2,1,4,5,6,4,4,6,6,5,2,3,4,7,4,4,0,1,4,0,6,1,4,2,2,2,6,2,7,5,5,4,1,5,0,1,6,4,2,1,1,1,1,6,1,3,6,6,5,3,5,6,5,2,5,7,6,2,1,6,1,1,3,2,6,0,1,1,6,6,5,1,4,3,3,1,4,7,1,5,6,1,6,6,6,3,1,5,6,2,6,4,2,1,4,5,6,7,6,2,3,1,6,6,4,6,1,1,5,1,7,1,4,5,6,2,6,1,6,7,1,1,5,1,6,3,3,7,1,2,5,0,1,6,1,0,6,4,5,1,2,6,6,6,2,6,1,1,6,5,6,6,2,6,5,1,1,1,6,4,6,2,6,1,1,6,1,2,4,3,6,1,7,2,1,6,7,2,6,0,6,4,6,1,4,1,1,1,1,1,1,2,7,1,2,3,1,2,6,1,1,4,4,4,6,4,6,3,0,3,7,1,2,1,1,1,1,1,5,4,1,7,4,2,3,0,6,0,6,1,1,6,2,0,6,4,0,6,1,6,1,5,1,1,6,7,2,1,6,1,4,3,7,1,1,0,6,3,6,1,5,5,6,6,0,6,1,1,1,4,1,1,1,7,1,4,6,6,6,4,1,1,3,1,1,6,1,1,2,1,1,6,1,2,2,6,4,4,0,1,4,7,6,4,6,4,1,1,2,2,1,1,7,4,0,1,7,1,6,1,6,0,4,1,0,6,1,1,1,4,0,6,5,0,0,1,6,4,7,0,0,4,1,3,1,4,2,6,2,0,2,6,1,3,6,0,2,4,6,1,6,3,7,4,4,2,3,6,6,6,4,2,4,6,2,4,6,1,0,0,2,5,4,6,4,7,1,1,4,1,1,7,6,1,2,6,6,6,7,4,6,1,4,4,1,6,5,1,1,4,6,6,4,2,7,6,1,3,6,2,6,4,1,1,2,6,2,3,1,1,4,3,1,6,0,1,1,6,1,1,2,4,7,2,0,6,0,6,2,6,6,1,4,1,4,7,7,6,1,7,6,1,6,6,1,4,2,5,1,6,4,6,6,6,7,2,6,7,3,5,3,1,5,2,6,1,4,1,2,1,3,6,3,1,6,1,6,2,6,1,2,6,1,1,6,4,5,7,6,1,6,2,4,1,5,5,4,4,7,3,1,4,6,4,4,1,1,5,3,7,5,3,2,1,1,3,6,7,4,4,6,3,2,2,4,1],\"final_centroids\":[72.089510374303515,72.242720404379114,72.538609083973981,73.0602341600664,73.194239049985114,73.409701021118437,74.781629020441386,74.073910220257176,6.0077176041509093,6.2931357240934309,6.6192021667336496,6.9140352085969781,7.2062117286094294,7.4897279653743798,7.8055768409385262,8.1011229271752523,60.042912280928263,60.282477427804352,60.610616868454073,60.89937157050678,61.217393198066567,61.50202179264938,61.822944240348257,62.111114664675618,71.961501947007349,72.356780867974905,72.652117614066981,72.738753628062611,73.224810859477387,73.592476354015915,72.797872579536573,74.101286022758913,23.991851706080311,24.263612571605766,24.594681525999608,24.880828920525424,25.202881054054124,25.505728401879317,25.806254161770951,26.115042136378552,84.060909951510084,85.262608344392618,84.554664274140848,84.856782393863313,85.055626197990776,85.454129357411901,85.853121703393882,86.073287252195428,41.990495649384108,42.280849999545296,42.604264449964475,42.903578751952637,43.190792396768934,43.508931584598734,43.813377268664837,44.093671797537226,83.940431543307881,83.284554584305766,84.65213970623995,84.8817116725521,85.377129785265069,85.57456408838533,85.735811004193096,86.137991933726198]}\n",
+  "timed_out": false
+}

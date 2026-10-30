@@ -2,7 +2,7 @@
 
 Date: 2026-10-31
 
-Status: Phases 0, 1, and 3 complete. Phase 4 kmeans implementation, correctness, migration, concurrency, and exploratory static timing study are complete. Phase 2 physical GPU energy and device-event timing qualification remain blocked, so Phase 4's full runtime-and-energy exit gate is not complete. See the [Phase 0 review](docs/phase0_review.md), [Phase 1 review](docs/phase1_review.md), [Phase 2 review](docs/phase2_review.md), [Phase 3 review](docs/phase3_review.md), and [Phase 4 review](docs/phase4_review.md).
+Status: Phases 0, 1, and 3 complete. Phase 4 kmeans and Phase 5 allocation implementations are complete, with correctness and exploratory timing evidence. Phase 2 physical GPU energy and device-event timing qualification remain blocked; automatic clock policy does not establish fixed capacity. The full Phase 4/5 research exit gates remain incomplete. See the [Phase 0 review](docs/phase0_review.md), [Phase 1 review](docs/phase1_review.md), [Phase 2 review](docs/phase2_review.md), [Phase 3 review](docs/phase3_review.md), [Phase 4 review](docs/phase4_review.md), and [Phase 5 review](docs/phase5_review.md).
 
 Primary source: [GreenGPU research paper](GreenGPU.pdf), Kai Ma et al., *Energy conservation for GPU-CPU architectures with dynamic workload division and frequency scaling*, 2016, journal pages 21-33.
 
@@ -226,6 +226,8 @@ Prefer existing supported telemetry bindings over a handwritten native interface
 **Exit gate:** kmeans is correct at endpoints and interior splits; migration works; static timing and energy minima are measured separately. The workload remains usable even if dynamic control later loses to a baseline.
 
 ## 9. Phase 5 - Implement and evaluate workload allocation
+
+**Status:** Tier 1 implementation complete: pure reference/corrected policies, the separately specified robust extension, deterministic diagnostics, and persistent native kmeans feedback. Real trials include endpoint probes, changing partitions, convergence-mode correctness, held-out static comparisons, and auditable transition replay. Adaptation/IPC and migration time are included. No claim of universal convergence or improvement is made. Energy accounting and fixed-capacity hardware qualification remain blocked, so the full research gate is not complete. See the [contract](docs/phase5_spec.md) and [validation review](docs/phase5_review.md).
 
 **Depends on:** Phase 4.
 

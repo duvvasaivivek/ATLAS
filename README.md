@@ -176,3 +176,41 @@ and merging. Intervening validation/logging time is reported separately.
 `implementation_status: passed` does **not** mean the full research gate passed:
 energy curves/minima remain blocked by Phase 2 qualification. See the
 [Phase 4 review and retained evidence](docs/phase4_review.md).
+
+## Run Phase 5 workload allocation
+
+Phase 5 implements the five reference/corrected allocation policies and the
+separately specified robust proportional extension. Run from the repository root
+inside the retained WSL environment:
+
+```bash
+export PYTHONPATH="$PWD/src"
+cmake -S . -B build/phase5 -G Ninja \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_CUDA_COMPILER=/usr/local/cuda-13.1/bin/nvcc
+cmake --build build/phase5 --parallel 2
+python -m unittest discover -s tests -v
+OMP_NUM_THREADS=4 ctest --test-dir build/phase5 --output-on-failure
+
+python -m greengpu allocation-check \
+  --binary build/phase5/atlas_kmeans \
+  --output results/phase5/local-check --workers 4 --blocks 3
+python -m greengpu allocation-replay results/phase5/local-check
+# Requires the optional Matplotlib extra documented above.
+python -m greengpu allocation-plot results/phase5/local-check \
+  --output results/phase5/local-figures
+```
+
+The runner verifies the retained Phase 4 final-v2 archive, selects its static
+comparator and a near-balance starting share from tuning evidence, then freezes
+the plan before new held-out trials. It retains synthetic diagnostics, native
+feedback records, independent correctness checks, and every policy transition.
+Each trial keeps one native process alive, preserving centroids and GPU residency.
+Malformed feedback, missing decisions, inconsistent next splits, altered evidence,
+and incorrect output fail validation. Every run needs a new output directory.
+
+Timing comparisons include migration and feedback/IPC costs. Static baselines use
+the same protocol. Frozen adjustment, oscillation, failed bracketing, and lack of
+balance are reported honestly; passing correctness does not imply faster runtime.
+Energy and fixed-capacity hardware qualification remain blocked. See the
+[Phase 5 contract](docs/phase5_spec.md) and [review](docs/phase5_review.md).

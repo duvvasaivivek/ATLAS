@@ -1,0 +1,554 @@
+{
+  "argv": [
+    "/mnt/c/Users/saivi/Downloads/ATLAS/build/phase5/atlas_kmeans",
+    "/mnt/c/Users/saivi/Downloads/ATLAS/results/phase5/2026-10-31-final/datasets/ties.kmdat",
+    "3",
+    "8",
+    "4",
+    "fixed",
+    "feedback"
+  ],
+  "configuration": {
+    "adaptive_step": 0.15,
+    "alpha": 0.25,
+    "budget": 200,
+    "damping": 0.5,
+    "deadband": 0.05,
+    "dwell": 3,
+    "legal_counts": null,
+    "max_move": 0.1,
+    "n": 3,
+    "phase_factor": 2.0,
+    "phase_patience": 2,
+    "policy": "bracketed_bisection",
+    "precision": 0.01,
+    "step": 0.05
+  },
+  "decisions": [
+    {
+      "controller_ns": 204568,
+      "decision": {
+        "config_hash": "89716f683a3e7bd07733d53bbeb43a5a64fd52764feec67dab16208851d82d66",
+        "cpu_items": 1,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 3,
+          "epoch": 0,
+          "iteration": 0,
+          "run_id": "phase5-023",
+          "t_cpu": 4.5016e-05,
+          "t_gpu": null,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 0,
+          "epoch": null,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": -1,
+          "phase_hits": 0,
+          "previous_ratio": null,
+          "run_id": "phase5-023",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 0,
+          "epoch": null,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": -1,
+          "phase_hits": 0,
+          "previous_ratio": null,
+          "run_id": "phase5-023",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.3333333333333333,
+        "reason": "needs_interior_probe",
+        "requested_ratio": 0.5,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 150918,
+      "decision": {
+        "config_hash": "89716f683a3e7bd07733d53bbeb43a5a64fd52764feec67dab16208851d82d66",
+        "cpu_items": 2,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 1,
+          "epoch": 0,
+          "iteration": 1,
+          "run_id": "phase5-023",
+          "t_cpu": 4.8588e-05,
+          "t_gpu": 0.009868542,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": null,
+            "dlo": -0.009819953999999999,
+            "hi": null,
+            "lo": 1,
+            "samples": [
+              [
+                1,
+                -0.009819953999999999
+              ]
+            ],
+            "updates": 0
+          },
+          "dwell": 0,
+          "eligible": 1,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 1,
+          "phase_hits": 0,
+          "previous_ratio": 0.3333333333333333,
+          "run_id": "phase5-023",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 0,
+          "epoch": null,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": -1,
+          "phase_hits": 0,
+          "previous_ratio": null,
+          "run_id": "phase5-023",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.6666666666666666,
+        "reason": "probe_bracket_high",
+        "requested_ratio": 0.6666666666666666,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 135341,
+      "decision": {
+        "config_hash": "89716f683a3e7bd07733d53bbeb43a5a64fd52764feec67dab16208851d82d66",
+        "cpu_items": 2,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 2,
+          "epoch": 0,
+          "iteration": 2,
+          "run_id": "phase5-023",
+          "t_cpu": 0.000174368,
+          "t_gpu": 0.000453651,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": -0.000279283,
+            "dlo": -0.009819953999999999,
+            "hi": 2,
+            "lo": 1,
+            "samples": [
+              [
+                1,
+                -0.009819953999999999
+              ],
+              [
+                2,
+                -0.000279283
+              ]
+            ],
+            "updates": 0
+          },
+          "dwell": 0,
+          "eligible": 2,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "no_bracket",
+          "last_iteration": 2,
+          "phase_hits": 0,
+          "previous_ratio": 0.6666666666666666,
+          "run_id": "phase5-023",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": null,
+            "dlo": -0.009819953999999999,
+            "hi": null,
+            "lo": 1,
+            "samples": [
+              [
+                1,
+                -0.009819953999999999
+              ]
+            ],
+            "updates": 0
+          },
+          "dwell": 0,
+          "eligible": 1,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 1,
+          "phase_hits": 0,
+          "previous_ratio": 0.3333333333333333,
+          "run_id": "phase5-023",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.6666666666666666,
+        "reason": "no_bracket",
+        "requested_ratio": 0.6666666666666666,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 139705,
+      "decision": {
+        "config_hash": "89716f683a3e7bd07733d53bbeb43a5a64fd52764feec67dab16208851d82d66",
+        "cpu_items": 2,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 2,
+          "epoch": 0,
+          "iteration": 3,
+          "run_id": "phase5-023",
+          "t_cpu": 4.8138e-05,
+          "t_gpu": 0.000474408,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": -0.000279283,
+            "dlo": -0.009819953999999999,
+            "hi": 2,
+            "lo": 1,
+            "samples": [
+              [
+                1,
+                -0.009819953999999999
+              ],
+              [
+                2,
+                -0.000279283
+              ]
+            ],
+            "updates": 0
+          },
+          "dwell": 0,
+          "eligible": 3,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "no_bracket",
+          "last_iteration": 3,
+          "phase_hits": 0,
+          "previous_ratio": 0.6666666666666666,
+          "run_id": "phase5-023",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": -0.000279283,
+            "dlo": -0.009819953999999999,
+            "hi": 2,
+            "lo": 1,
+            "samples": [
+              [
+                1,
+                -0.009819953999999999
+              ],
+              [
+                2,
+                -0.000279283
+              ]
+            ],
+            "updates": 0
+          },
+          "dwell": 0,
+          "eligible": 2,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "no_bracket",
+          "last_iteration": 2,
+          "phase_hits": 0,
+          "previous_ratio": 0.6666666666666666,
+          "run_id": "phase5-023",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.6666666666666666,
+        "reason": "no_bracket",
+        "requested_ratio": 0.6666666666666666,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 117195,
+      "decision": {
+        "config_hash": "89716f683a3e7bd07733d53bbeb43a5a64fd52764feec67dab16208851d82d66",
+        "cpu_items": 2,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 2,
+          "epoch": 0,
+          "iteration": 4,
+          "run_id": "phase5-023",
+          "t_cpu": 0.000195222,
+          "t_gpu": 0.000455423,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": -0.000279283,
+            "dlo": -0.009819953999999999,
+            "hi": 2,
+            "lo": 1,
+            "samples": [
+              [
+                1,
+                -0.009819953999999999
+              ],
+              [
+                2,
+                -0.000279283
+              ]
+            ],
+            "updates": 0
+          },
+          "dwell": 0,
+          "eligible": 4,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "no_bracket",
+          "last_iteration": 4,
+          "phase_hits": 0,
+          "previous_ratio": 0.6666666666666666,
+          "run_id": "phase5-023",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": -0.000279283,
+            "dlo": -0.009819953999999999,
+            "hi": 2,
+            "lo": 1,
+            "samples": [
+              [
+                1,
+                -0.009819953999999999
+              ],
+              [
+                2,
+                -0.000279283
+              ]
+            ],
+            "updates": 0
+          },
+          "dwell": 0,
+          "eligible": 3,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "no_bracket",
+          "last_iteration": 3,
+          "phase_hits": 0,
+          "previous_ratio": 0.6666666666666666,
+          "run_id": "phase5-023",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.6666666666666666,
+        "reason": "no_bracket",
+        "requested_ratio": 0.6666666666666666,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 107949,
+      "decision": {
+        "config_hash": "89716f683a3e7bd07733d53bbeb43a5a64fd52764feec67dab16208851d82d66",
+        "cpu_items": 2,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 2,
+          "epoch": 0,
+          "iteration": 5,
+          "run_id": "phase5-023",
+          "t_cpu": 0.000218661,
+          "t_gpu": 0.000449405,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": -0.000279283,
+            "dlo": -0.009819953999999999,
+            "hi": 2,
+            "lo": 1,
+            "samples": [
+              [
+                1,
+                -0.009819953999999999
+              ],
+              [
+                2,
+                -0.000279283
+              ]
+            ],
+            "updates": 0
+          },
+          "dwell": 0,
+          "eligible": 5,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "no_bracket",
+          "last_iteration": 5,
+          "phase_hits": 0,
+          "previous_ratio": 0.6666666666666666,
+          "run_id": "phase5-023",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": -0.000279283,
+            "dlo": -0.009819953999999999,
+            "hi": 2,
+            "lo": 1,
+            "samples": [
+              [
+                1,
+                -0.009819953999999999
+              ],
+              [
+                2,
+                -0.000279283
+              ]
+            ],
+            "updates": 0
+          },
+          "dwell": 0,
+          "eligible": 4,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "no_bracket",
+          "last_iteration": 4,
+          "phase_hits": 0,
+          "previous_ratio": 0.6666666666666666,
+          "run_id": "phase5-023",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.6666666666666666,
+        "reason": "no_bracket",
+        "requested_ratio": 0.6666666666666666,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 116151,
+      "decision": {
+        "config_hash": "89716f683a3e7bd07733d53bbeb43a5a64fd52764feec67dab16208851d82d66",
+        "cpu_items": 2,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 2,
+          "epoch": 0,
+          "iteration": 6,
+          "run_id": "phase5-023",
+          "t_cpu": 0.000155417,
+          "t_gpu": 0.000588604,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": -0.000279283,
+            "dlo": -0.009819953999999999,
+            "hi": 2,
+            "lo": 1,
+            "samples": [
+              [
+                1,
+                -0.009819953999999999
+              ],
+              [
+                2,
+                -0.000279283
+              ]
+            ],
+            "updates": 0
+          },
+          "dwell": 0,
+          "eligible": 6,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "no_bracket",
+          "last_iteration": 6,
+          "phase_hits": 0,
+          "previous_ratio": 0.6666666666666666,
+          "run_id": "phase5-023",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": -0.000279283,
+            "dlo": -0.009819953999999999,
+            "hi": 2,
+            "lo": 1,
+            "samples": [
+              [
+                1,
+                -0.009819953999999999
+              ],
+              [
+                2,
+                -0.000279283
+              ]
+            ],
+            "updates": 0
+          },
+          "dwell": 0,
+          "eligible": 5,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "no_bracket",
+          "last_iteration": 5,
+          "phase_hits": 0,
+          "previous_ratio": 0.6666666666666666,
+          "run_id": "phase5-023",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.6666666666666666,
+        "reason": "no_bracket",
+        "requested_ratio": 0.6666666666666666,
+        "specification_version": "1.1"
+      }
+    }
+  ],
+  "elapsed_ns": 440938604,
+  "failure": null,
+  "returncode": 0,
+  "status": "ok",
+  "stderr": "",
+  "stdout": "{\"kind\":\"configuration\",\"schema_version\":\"4.0\",\"clock\":\"CLOCK_MONOTONIC\",\"n\":3,\"d\":1,\"k\":2,\"max_iterations\":8,\"workers_requested\":4,\"mode\":\"fixed\",\"atol\":1e-8,\"rtol\":1e-10,\"shift_tolerance\":1e-6,\"preparation_start_ns\":15594197830970,\"feedback\":true,\"initial_centroids\":[-2,2]}\n{\"kind\":\"iteration\",\"index\":-1,\"warmup\":true,\"status\":\"passed\",\"cpu_items\":3,\"gpu_items\":0,\"resident_before\":3,\"resident_after\":3,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":0,\"d2h_label_bytes\":0,\"d2h_aggregate_bytes\":0,\"release_ns\":15594569907662,\"cpu_start_ns\":15594569939226,\"cpu_end_ns\":15594570162726,\"gpu_dispatch_ns\":null,\"h2d_end_ns\":null,\"compute_end_ns\":null,\"gpu_end_ns\":null,\"barrier_end_ns\":15594570213103,\"end_ns\":15594570213662,\"validation_end_ns\":15594570225289,\"control_ns\":0,\"workers_used\":4,\"objective_before_update\":4,\"objective_after_update\":2,\"max_centroid_shift\":1,\"changed_labels\":3,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"b46d04d1c6daa804\",\"counts\":[2,1],\"sums\":[-2,2],\"centroids\":[-1,2],\"labels\":[0,0,1]}\n{\"kind\":\"iteration\",\"index\":0,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":3,\"gpu_items\":0,\"resident_before\":3,\"resident_after\":3,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":0,\"d2h_label_bytes\":0,\"d2h_aggregate_bytes\":0,\"release_ns\":15594570301365,\"cpu_start_ns\":15594570342105,\"cpu_end_ns\":15594570346381,\"gpu_dispatch_ns\":null,\"h2d_end_ns\":null,\"compute_end_ns\":null,\"gpu_end_ns\":null,\"barrier_end_ns\":15594570379505,\"end_ns\":15594570379922,\"validation_end_ns\":15594570380938,\"control_ns\":0,\"workers_used\":4,\"objective_before_update\":4,\"objective_after_update\":2,\"max_centroid_shift\":1,\"changed_labels\":3,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"b46d04d1c6daa804\",\"counts\":[2,1],\"sums\":[-2,2],\"centroids\":[-1,2],\"labels\":[0,0,1]}\n{\"kind\":\"iteration\",\"index\":1,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":1,\"gpu_items\":2,\"resident_before\":3,\"resident_after\":1,\"ownership_changed_points\":2,\"h2d_point_bytes\":16,\"h2d_centroid_bytes\":16,\"d2h_label_bytes\":8,\"d2h_aggregate_bytes\":32,\"release_ns\":15594570735483,\"cpu_start_ns\":15594570779949,\"cpu_end_ns\":15594570784071,\"gpu_dispatch_ns\":15594570750325,\"h2d_end_ns\":15594578363442,\"compute_end_ns\":15594580309620,\"gpu_end_ns\":15594580604025,\"barrier_end_ns\":15594580604425,\"end_ns\":15594580604732,\"validation_end_ns\":15594580606261,\"control_ns\":354436,\"workers_used\":4,\"objective_before_update\":2,\"objective_after_update\":2,\"max_centroid_shift\":0,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"b46d04d1c6daa804\",\"counts\":[2,1],\"sums\":[-2,2],\"centroids\":[-1,2],\"labels\":[0,0,1]}\n{\"kind\":\"iteration\",\"index\":2,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":2,\"gpu_items\":1,\"resident_before\":1,\"resident_after\":1,\"ownership_changed_points\":1,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":16,\"d2h_label_bytes\":4,\"d2h_aggregate_bytes\":32,\"release_ns\":15594580974280,\"cpu_start_ns\":15594581040863,\"cpu_end_ns\":15594581148648,\"gpu_dispatch_ns\":15594580993940,\"h2d_end_ns\":15594581110728,\"compute_end_ns\":15594581180157,\"gpu_end_ns\":15594581427931,\"barrier_end_ns\":15594581428093,\"end_ns\":15594581428296,\"validation_end_ns\":15594581429511,\"control_ns\":367873,\"workers_used\":4,\"objective_before_update\":2,\"objective_after_update\":2,\"max_centroid_shift\":0,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"b46d04d1c6daa804\",\"counts\":[2,1],\"sums\":[-2,2],\"centroids\":[-1,2],\"labels\":[0,0,1]}\n{\"kind\":\"iteration\",\"index\":3,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":2,\"gpu_items\":1,\"resident_before\":1,\"resident_after\":1,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":16,\"d2h_label_bytes\":4,\"d2h_aggregate_bytes\":32,\"release_ns\":15594581742302,\"cpu_start_ns\":15594581784435,\"cpu_end_ns\":15594581790440,\"gpu_dispatch_ns\":15594581761472,\"h2d_end_ns\":15594581894944,\"compute_end_ns\":15594581949483,\"gpu_end_ns\":15594582216710,\"barrier_end_ns\":15594582216882,\"end_ns\":15594582217260,\"validation_end_ns\":15594582218651,\"control_ns\":312569,\"workers_used\":4,\"objective_before_update\":2,\"objective_after_update\":2,\"max_centroid_shift\":0,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"b46d04d1c6daa804\",\"counts\":[2,1],\"sums\":[-2,2],\"centroids\":[-1,2],\"labels\":[0,0,1]}\n{\"kind\":\"iteration\",\"index\":4,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":2,\"gpu_items\":1,\"resident_before\":1,\"resident_after\":1,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":16,\"d2h_label_bytes\":4,\"d2h_aggregate_bytes\":32,\"release_ns\":15594582560501,\"cpu_start_ns\":15594582612541,\"cpu_end_ns\":15594582755723,\"gpu_dispatch_ns\":15594582581650,\"h2d_end_ns\":15594582711350,\"compute_end_ns\":15594582746996,\"gpu_end_ns\":15594583015924,\"barrier_end_ns\":15594583016109,\"end_ns\":15594583016392,\"validation_end_ns\":15594583017675,\"control_ns\":341642,\"workers_used\":4,\"objective_before_update\":2,\"objective_after_update\":2,\"max_centroid_shift\":0,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"b46d04d1c6daa804\",\"counts\":[2,1],\"sums\":[-2,2],\"centroids\":[-1,2],\"labels\":[0,0,1]}\n{\"kind\":\"iteration\",\"index\":5,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":2,\"gpu_items\":1,\"resident_before\":1,\"resident_after\":1,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":16,\"d2h_label_bytes\":4,\"d2h_aggregate_bytes\":32,\"release_ns\":15594583307904,\"cpu_start_ns\":15594583357618,\"cpu_end_ns\":15594583526565,\"gpu_dispatch_ns\":15594583328024,\"h2d_end_ns\":15594583444950,\"compute_end_ns\":15594583512095,\"gpu_end_ns\":15594583757309,\"barrier_end_ns\":15594583757466,\"end_ns\":15594583757668,\"validation_end_ns\":15594583758964,\"control_ns\":290013,\"workers_used\":4,\"objective_before_update\":2,\"objective_after_update\":2,\"max_centroid_shift\":0,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"b46d04d1c6daa804\",\"counts\":[2,1],\"sums\":[-2,2],\"centroids\":[-1,2],\"labels\":[0,0,1]}\n{\"kind\":\"iteration\",\"index\":6,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":2,\"gpu_items\":1,\"resident_before\":1,\"resident_after\":1,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":16,\"d2h_label_bytes\":4,\"d2h_aggregate_bytes\":32,\"release_ns\":15594584027814,\"cpu_start_ns\":15594584055479,\"cpu_end_ns\":15594584183231,\"gpu_dispatch_ns\":15594584033239,\"h2d_end_ns\":15594584240818,\"compute_end_ns\":15594584290948,\"gpu_end_ns\":15594584616418,\"barrier_end_ns\":15594584616616,\"end_ns\":15594584616830,\"validation_end_ns\":15594584618073,\"control_ns\":240979,\"workers_used\":4,\"objective_before_update\":2,\"objective_after_update\":2,\"max_centroid_shift\":0,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"b46d04d1c6daa804\",\"counts\":[2,1],\"sums\":[-2,2],\"centroids\":[-1,2],\"labels\":[0,0,1]}\n{\"kind\":\"iteration\",\"index\":7,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":2,\"gpu_items\":1,\"resident_before\":1,\"resident_after\":1,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":16,\"d2h_label_bytes\":4,\"d2h_aggregate_bytes\":32,\"release_ns\":15594584871421,\"cpu_start_ns\":15594584899160,\"cpu_end_ns\":15594584904073,\"gpu_dispatch_ns\":15594584889458,\"h2d_end_ns\":15594584962337,\"compute_end_ns\":15594585036741,\"gpu_end_ns\":15594585300338,\"barrier_end_ns\":15594585300510,\"end_ns\":15594585300721,\"validation_end_ns\":15594585301789,\"control_ns\":253155,\"workers_used\":4,\"objective_before_update\":2,\"objective_after_update\":2,\"max_centroid_shift\":0,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"b46d04d1c6daa804\",\"counts\":[2,1],\"sums\":[-2,2],\"centroids\":[-1,2],\"labels\":[0,0,1]}\n{\"kind\":\"summary\",\"status\":\"passed\",\"iterations\":8,\"active_ns\":12800751,\"loop_elapsed_ns\":14999356,\"control_ns\":2160667,\"active_and_control_ns\":14961418,\"final_objective\":2,\"stop_reason\":\"fixed_budget\",\"final_labels\":[0,0,1],\"final_centroids\":[-1,2]}\n",
+  "timed_out": false
+}

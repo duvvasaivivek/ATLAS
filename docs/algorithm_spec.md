@@ -1,6 +1,10 @@
-# Controller specification v1.0
+# Controller specification v1.1
 
-Status: Phase 0 specification, 2026-10-31. Algorithms are not implemented by this document.
+Status: Tier 1 allocation is implemented in Phase 5, 2026-10-31. The original
+literal allocation rules below are retained. Version 1.1 adds the explicitly
+specified robust extension and persistent runtime contract in
+[Phase 5 implementation specification](phase5_spec.md). Tier 2 frequency policies
+remain specifications for later phases.
 
 Traceability: [paper mapping](paper_mapping.md). Every default or edge-case choice identified as **ATLAS** is an implementation decision, not an experimental result from the paper.
 
@@ -91,7 +95,10 @@ The denominator is positive by contract. Map the result to a legal ratio; record
 
 **ATLAS stopping choice:** continue to evaluate each eligible observation until the experiment ends or its budget is reached; record sustained balance without freezing adaptation. This preserves the distinction between the paper's proportional update and an added stability heuristic.
 
-Reserve `robust_proportional_v1` for a later fully specified filtered/damped extension. It has no default implementation or claims in v1.0.
+`robust_proportional_v1` is a separately named ATLAS extension implemented in
+Phase 5. Its complete filtering, movement, dwell, and reset rules are in the
+[version 1.1 implementation contract](phase5_spec.md#robust-proportional-extension).
+These rules are never applied silently to `paper_proportional`.
 
 ## 7. `paper_additive` frequency policy
 

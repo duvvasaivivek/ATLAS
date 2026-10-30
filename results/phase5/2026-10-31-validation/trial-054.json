@@ -1,0 +1,386 @@
+{
+  "argv": [
+    "/mnt/c/Users/saivi/Downloads/ATLAS/build/phase5/atlas_kmeans",
+    "/mnt/c/Users/saivi/Downloads/ATLAS/results/phase5/2026-10-31-validation/datasets/awkward.kmdat",
+    "0",
+    "8",
+    "4",
+    "fixed",
+    "feedback"
+  ],
+  "configuration": {
+    "adaptive_step": 0.15,
+    "alpha": 0.25,
+    "budget": 200,
+    "damping": 0.5,
+    "deadband": 0.05,
+    "dwell": 3,
+    "legal_counts": null,
+    "max_move": 0.1,
+    "n": 257,
+    "phase_factor": 2.0,
+    "phase_patience": 2,
+    "policy": "paper_binary_literal",
+    "precision": 0.01,
+    "step": 0.05
+  },
+  "decisions": [
+    {
+      "controller_ns": 131096,
+      "decision": {
+        "config_hash": "b510f259c66a4bf062ebe0b51dcbb3e656b992698439c83701a4226c832e2bcc",
+        "cpu_items": 128,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 0,
+          "epoch": 0,
+          "iteration": 0,
+          "run_id": "phase5-054",
+          "t_cpu": null,
+          "t_gpu": 0.000339561,
+          "valid": true
+        },
+        "policy": "paper_binary_literal",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 0,
+          "epoch": null,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": -1,
+          "phase_hits": 0,
+          "previous_ratio": null,
+          "run_id": "phase5-054",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 0,
+          "epoch": null,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": -1,
+          "phase_hits": 0,
+          "previous_ratio": null,
+          "run_id": "phase5-054",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.4980544747081712,
+        "reason": "needs_interior_probe",
+        "requested_ratio": 0.5,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 155457,
+      "decision": {
+        "config_hash": "b510f259c66a4bf062ebe0b51dcbb3e656b992698439c83701a4226c832e2bcc",
+        "cpu_items": 192,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 128,
+          "epoch": 0,
+          "iteration": 1,
+          "run_id": "phase5-054",
+          "t_cpu": 0.000350937,
+          "t_gpu": 0.000514432,
+          "valid": true
+        },
+        "policy": "paper_binary_literal",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 1,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 1,
+          "phase_hits": 0,
+          "previous_ratio": 0.4980544747081712,
+          "run_id": "phase5-054",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 0,
+          "epoch": null,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": -1,
+          "phase_hits": 0,
+          "previous_ratio": null,
+          "run_id": "phase5-054",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.7470817120622568,
+        "reason": "literal_binary_adjust",
+        "requested_ratio": 0.7490272373540856,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 177955,
+      "decision": {
+        "config_hash": "b510f259c66a4bf062ebe0b51dcbb3e656b992698439c83701a4226c832e2bcc",
+        "cpu_items": 224,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 192,
+          "epoch": 0,
+          "iteration": 2,
+          "run_id": "phase5-054",
+          "t_cpu": 7.236e-05,
+          "t_gpu": 0.000471377,
+          "valid": true
+        },
+        "policy": "paper_binary_literal",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 2,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 2,
+          "phase_hits": 0,
+          "previous_ratio": 0.7470817120622568,
+          "run_id": "phase5-054",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 1,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 1,
+          "phase_hits": 0,
+          "previous_ratio": 0.4980544747081712,
+          "run_id": "phase5-054",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.8715953307392996,
+        "reason": "literal_binary_adjust",
+        "requested_ratio": 0.8735408560311284,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 141310,
+      "decision": {
+        "config_hash": "b510f259c66a4bf062ebe0b51dcbb3e656b992698439c83701a4226c832e2bcc",
+        "cpu_items": 240,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 224,
+          "epoch": 0,
+          "iteration": 3,
+          "run_id": "phase5-054",
+          "t_cpu": 6.4717e-05,
+          "t_gpu": 0.000459306,
+          "valid": true
+        },
+        "policy": "paper_binary_literal",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 3,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 3,
+          "phase_hits": 0,
+          "previous_ratio": 0.8715953307392996,
+          "run_id": "phase5-054",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 2,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 2,
+          "phase_hits": 0,
+          "previous_ratio": 0.7470817120622568,
+          "run_id": "phase5-054",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.933852140077821,
+        "reason": "literal_binary_adjust",
+        "requested_ratio": 0.9357976653696498,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 137962,
+      "decision": {
+        "config_hash": "b510f259c66a4bf062ebe0b51dcbb3e656b992698439c83701a4226c832e2bcc",
+        "cpu_items": 248,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 240,
+          "epoch": 0,
+          "iteration": 4,
+          "run_id": "phase5-054",
+          "t_cpu": 7.3832e-05,
+          "t_gpu": 0.000440776,
+          "valid": true
+        },
+        "policy": "paper_binary_literal",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 4,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 4,
+          "phase_hits": 0,
+          "previous_ratio": 0.933852140077821,
+          "run_id": "phase5-054",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 3,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 3,
+          "phase_hits": 0,
+          "previous_ratio": 0.8715953307392996,
+          "run_id": "phase5-054",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.9649805447470817,
+        "reason": "literal_binary_adjust",
+        "requested_ratio": 0.9669260700389105,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 104122,
+      "decision": {
+        "config_hash": "b510f259c66a4bf062ebe0b51dcbb3e656b992698439c83701a4226c832e2bcc",
+        "cpu_items": 253,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 248,
+          "epoch": 0,
+          "iteration": 5,
+          "run_id": "phase5-054",
+          "t_cpu": 7.1851e-05,
+          "t_gpu": 0.000463451,
+          "valid": true
+        },
+        "policy": "paper_binary_literal",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 5,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 5,
+          "phase_hits": 0,
+          "previous_ratio": 0.9649805447470817,
+          "run_id": "phase5-054",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 4,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 4,
+          "phase_hits": 0,
+          "previous_ratio": 0.933852140077821,
+          "run_id": "phase5-054",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.9844357976653697,
+        "reason": "literal_binary_adjust",
+        "requested_ratio": 0.9824902723735409,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 89451,
+      "decision": {
+        "config_hash": "b510f259c66a4bf062ebe0b51dcbb3e656b992698439c83701a4226c832e2bcc",
+        "cpu_items": 255,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 253,
+          "epoch": 0,
+          "iteration": 6,
+          "run_id": "phase5-054",
+          "t_cpu": 6.357e-05,
+          "t_gpu": 0.000493116,
+          "valid": true
+        },
+        "policy": "paper_binary_literal",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 6,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 6,
+          "phase_hits": 0,
+          "previous_ratio": 0.9844357976653697,
+          "run_id": "phase5-054",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 5,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 5,
+          "phase_hits": 0,
+          "previous_ratio": 0.9649805447470817,
+          "run_id": "phase5-054",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.9922178988326849,
+        "reason": "literal_binary_adjust",
+        "requested_ratio": 0.9922178988326849,
+        "specification_version": "1.1"
+      }
+    }
+  ],
+  "elapsed_ns": 478911451,
+  "failure": null,
+  "returncode": 0,
+  "status": "ok",
+  "stderr": "",
+  "stdout": "{\"kind\":\"configuration\",\"schema_version\":\"4.0\",\"clock\":\"CLOCK_MONOTONIC\",\"n\":257,\"d\":3,\"k\":4,\"max_iterations\":8,\"workers_requested\":4,\"mode\":\"fixed\",\"atol\":1e-8,\"rtol\":1e-10,\"shift_tolerance\":1e-6,\"preparation_start_ns\":15386754166022,\"feedback\":true,\"initial_centroids\":[12.554598669171922,11.678731719574847,12.986428233247389,13.843525553971734,13.424762059041765,13.358336125534461,-1.7354126833925889,1.369377417271848,1.5957559724857968,37.838602840606079,35.472495615444139,36.125960766514595]}\n{\"kind\":\"iteration\",\"index\":-1,\"warmup\":true,\"status\":\"passed\",\"cpu_items\":0,\"gpu_items\":257,\"resident_before\":257,\"resident_after\":0,\"ownership_changed_points\":257,\"h2d_point_bytes\":6168,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":1028,\"d2h_aggregate_bytes\":120,\"release_ns\":15387185477802,\"cpu_start_ns\":null,\"cpu_end_ns\":null,\"gpu_dispatch_ns\":15387185484886,\"h2d_end_ns\":15387187688309,\"compute_end_ns\":15387189126165,\"gpu_end_ns\":15387189365753,\"barrier_end_ns\":15387189365842,\"end_ns\":15387189366818,\"validation_end_ns\":15387189386272,\"control_ns\":0,\"workers_used\":0,\"objective_before_update\":24039.176165953177,\"objective_after_update\":7749.7699368500516,\"max_centroid_shift\":14.933120211890596,\"changed_labels\":257,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"18fe9ed934135dd6\",\"counts\":[51,67,65,74],\"sums\":[588.53479545693006,617.75596828989728,649.26306856812994,1476.5605629369993,1471.2492563904759,1505.4547896403742,2.6510244261991924,40.602365628800399,38.806620369501388,2544.6475441255038,2571.0316508431624,2608.7874928549659],\"centroids\":[11.539897950135883,12.11286212333132,12.730648403296666,22.038217357268646,21.958944125230985,22.469474472244389,0.040784991172295268,0.62465177890462154,0.59702492876155977,34.387128974668968,34.743670957340029,35.25388503858062],\"labels\":[1,2,1,1,1,3,0,1,2,0,0,1,3,0,0,2,2,3,3,3,3,3,2,3,0,3,1,1,2,0,0,2,1,2,3,1,1,3,1,0,0,1,3,2,2,3,3,3,3,3,2,1,1,0,3,2,3,0,2,2,1,3,1,2,3,2,0,2,3,2,3,3,0,3,3,2,0,1,0,3,3,1,2,2,1,0,1,3,2,1,2,0,0,1,2,2,1,1,0,1,2,2,0,2,2,2,1,2,1,3,0,0,3,2,2,1,1,2,1,1,2,3,2,3,2,1,3,3,2,3,1,1,0,3,2,1,0,1,3,1,1,2,1,1,0,3,3,2,1,3,3,0,1,0,3,1,0,1,1,2,2,0,1,2,0,1,3,3,2,3,3,0,2,0,0,3,1,3,2,0,1,2,3,0,3,2,0,0,0,3,1,1,2,1,1,3,0,2,2,3,1,3,0,0,1,0,2,2,3,3,3,3,3,3,3,0,2,2,3,0,1,3,0,1,1,0,2,2,3,3,3,1,1,3,2,3,2,2,0,3,0,2,3,3,1,3,0,2,1,1,1,2,0,1,3,2,1]}\n{\"kind\":\"iteration\",\"index\":0,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":0,\"gpu_items\":257,\"resident_before\":257,\"resident_after\":0,\"ownership_changed_points\":257,\"h2d_point_bytes\":6168,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":1028,\"d2h_aggregate_bytes\":120,\"release_ns\":15387189470317,\"cpu_start_ns\":null,\"cpu_end_ns\":null,\"gpu_dispatch_ns\":15387189470376,\"h2d_end_ns\":15387189549278,\"compute_end_ns\":15387189586141,\"gpu_end_ns\":15387189809878,\"barrier_end_ns\":15387189809948,\"end_ns\":15387189810631,\"validation_end_ns\":15387189822283,\"control_ns\":0,\"workers_used\":0,\"objective_before_update\":24039.176165953166,\"objective_after_update\":7749.7699368500516,\"max_centroid_shift\":14.933120211890595,\"changed_labels\":257,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"18fe9ed934135dd6\",\"counts\":[51,67,65,74],\"sums\":[588.53479545693006,617.75596828989728,649.26306856813005,1476.5605629369988,1471.2492563904761,1505.454789640374,2.6510244261991907,40.602365628800385,38.806620369501388,2544.6475441255029,2571.0316508431638,2608.7874928549654],\"centroids\":[11.539897950135883,12.11286212333132,12.730648403296668,22.038217357268639,21.958944125230989,22.469474472244389,0.04078499117229524,0.62465177890462131,0.59702492876155977,34.387128974668961,34.743670957340051,35.253885038580613],\"labels\":[1,2,1,1,1,3,0,1,2,0,0,1,3,0,0,2,2,3,3,3,3,3,2,3,0,3,1,1,2,0,0,2,1,2,3,1,1,3,1,0,0,1,3,2,2,3,3,3,3,3,2,1,1,0,3,2,3,0,2,2,1,3,1,2,3,2,0,2,3,2,3,3,0,3,3,2,0,1,0,3,3,1,2,2,1,0,1,3,2,1,2,0,0,1,2,2,1,1,0,1,2,2,0,2,2,2,1,2,1,3,0,0,3,2,2,1,1,2,1,1,2,3,2,3,2,1,3,3,2,3,1,1,0,3,2,1,0,1,3,1,1,2,1,1,0,3,3,2,1,3,3,0,1,0,3,1,0,1,1,2,2,0,1,2,0,1,3,3,2,3,3,0,2,0,0,3,1,3,2,0,1,2,3,0,3,2,0,0,0,3,1,1,2,1,1,3,0,2,2,3,1,3,0,0,1,0,2,2,3,3,3,3,3,3,3,0,2,2,3,0,1,3,0,1,1,0,2,2,3,3,3,1,1,3,2,3,2,2,0,3,0,2,3,3,1,3,0,2,1,1,1,2,0,1,3,2,1]}\n{\"kind\":\"iteration\",\"index\":1,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":128,\"gpu_items\":129,\"resident_before\":0,\"resident_after\":0,\"ownership_changed_points\":128,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":516,\"d2h_aggregate_bytes\":120,\"release_ns\":15387190250472,\"cpu_start_ns\":15387190331944,\"cpu_end_ns\":15387190601409,\"gpu_dispatch_ns\":15387190306506,\"h2d_end_ns\":15387190471538,\"compute_end_ns\":15387190539621,\"gpu_end_ns\":15387190764904,\"barrier_end_ns\":15387190765069,\"end_ns\":15387190765769,\"validation_end_ns\":15387190776426,\"control_ns\":427850,\"workers_used\":4,\"objective_before_update\":2422.0468042577445,\"objective_after_update\":982.82924623952033,\"max_centroid_shift\":3.975089567020424,\"changed_labels\":23,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"5c9c99a28f938b77\",\"counts\":[64,64,65,64],\"sums\":[753.98682226511335,794.40028336679234,827.32122474346977,1559.2525873969116,1547.2329440813742,1587.8944309014319,2.6510244261991911,40.602365628800399,38.806620369501381,2296.5034928574069,2318.4036480753693,2348.2896954185685],\"centroids\":[11.781044097892396,12.41250442760613,12.926894136616715,24.363321678076744,24.175514751271471,24.810850482834873,0.040784991172295247,0.62465177890462154,0.59702492876155966,35.882867075896982,36.225057001177646,36.692026490915133],\"labels\":[1,2,1,1,1,3,0,1,2,0,0,1,3,0,0,2,2,3,1,3,1,3,2,3,0,3,1,1,2,0,0,2,0,2,3,0,0,3,0,0,0,0,3,2,2,3,3,3,3,3,2,1,0,0,3,2,3,0,2,2,1,3,1,2,3,2,0,2,3,2,1,3,0,3,3,2,0,1,0,1,3,1,2,2,1,0,1,3,2,0,2,0,0,1,2,2,0,1,0,1,2,2,0,2,2,2,0,2,1,3,0,0,3,2,2,1,1,2,1,1,2,1,2,1,2,1,1,1,2,3,0,1,0,3,2,1,0,1,3,1,1,2,1,1,0,3,3,2,1,3,3,0,1,0,3,1,0,1,1,2,2,0,1,2,0,0,3,3,2,3,1,0,2,0,0,3,1,3,2,0,1,2,3,0,3,2,0,0,0,3,1,1,2,0,1,3,0,2,2,3,1,3,0,0,0,0,2,2,3,3,3,3,3,3,3,0,2,2,3,0,1,3,0,1,1,0,2,2,3,3,3,1,1,3,2,1,2,2,0,3,0,2,3,3,1,3,0,2,1,1,1,2,0,1,3,2,1]}\n{\"kind\":\"iteration\",\"index\":2,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":192,\"gpu_items\":65,\"resident_before\":0,\"resident_after\":0,\"ownership_changed_points\":64,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":260,\"d2h_aggregate_bytes\":120,\"release_ns\":15387191218270,\"cpu_start_ns\":15387191283585,\"cpu_end_ns\":15387191290630,\"gpu_dispatch_ns\":15387191260708,\"h2d_end_ns\":15387191400959,\"compute_end_ns\":15387191470320,\"gpu_end_ns\":15387191689647,\"barrier_end_ns\":15387191689897,\"end_ns\":15387191690882,\"validation_end_ns\":15387191703781,\"control_ns\":441498,\"workers_used\":4,\"objective_before_update\":982.82924623952022,\"objective_after_update\":982.82924623952033,\"max_centroid_shift\":1.0048591735576161e-14,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"5c9c99a28f938b77\",\"counts\":[64,64,65,64],\"sums\":[753.98682226511323,794.40028336679222,827.32122474346977,1559.2525873969116,1547.2329440813744,1587.8944309014314,2.6510244261991907,40.602365628800399,38.806620369501374,2296.5034928574073,2318.4036480753693,2348.289695418568],\"centroids\":[11.781044097892394,12.412504427606128,12.926894136616715,24.363321678076744,24.175514751271475,24.810850482834866,0.04078499117229524,0.62465177890462154,0.59702492876155955,35.882867075896989,36.225057001177646,36.692026490915126],\"labels\":[1,2,1,1,1,3,0,1,2,0,0,1,3,0,0,2,2,3,1,3,1,3,2,3,0,3,1,1,2,0,0,2,0,2,3,0,0,3,0,0,0,0,3,2,2,3,3,3,3,3,2,1,0,0,3,2,3,0,2,2,1,3,1,2,3,2,0,2,3,2,1,3,0,3,3,2,0,1,0,1,3,1,2,2,1,0,1,3,2,0,2,0,0,1,2,2,0,1,0,1,2,2,0,2,2,2,0,2,1,3,0,0,3,2,2,1,1,2,1,1,2,1,2,1,2,1,1,1,2,3,0,1,0,3,2,1,0,1,3,1,1,2,1,1,0,3,3,2,1,3,3,0,1,0,3,1,0,1,1,2,2,0,1,2,0,0,3,3,2,3,1,0,2,0,0,3,1,3,2,0,1,2,3,0,3,2,0,0,0,3,1,1,2,0,1,3,0,2,2,3,1,3,0,0,0,0,2,2,3,3,3,3,3,3,3,0,2,2,3,0,1,3,0,1,1,0,2,2,3,3,3,1,1,3,2,1,2,2,0,3,0,2,3,3,1,3,0,2,1,1,1,2,0,1,3,2,1]}\n{\"kind\":\"iteration\",\"index\":3,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":224,\"gpu_items\":33,\"resident_before\":0,\"resident_after\":0,\"ownership_changed_points\":32,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":132,\"d2h_aggregate_bytes\":120,\"release_ns\":15387192186437,\"cpu_start_ns\":15387192243448,\"cpu_end_ns\":15387192251154,\"gpu_dispatch_ns\":15387192224106,\"h2d_end_ns\":15387192357212,\"compute_end_ns\":15387192421448,\"gpu_end_ns\":15387192645743,\"barrier_end_ns\":15387192646039,\"end_ns\":15387192646963,\"validation_end_ns\":15387192660307,\"control_ns\":482230,\"workers_used\":4,\"objective_before_update\":982.82924623952022,\"objective_after_update\":982.82924623952033,\"max_centroid_shift\":2.5121479338940403e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"5c9c99a28f938b77\",\"counts\":[64,64,65,64],\"sums\":[753.98682226511323,794.40028336679234,827.32122474346966,1559.2525873969116,1547.2329440813744,1587.8944309014314,2.6510244261991898,40.602365628800399,38.806620369501374,2296.5034928574073,2318.4036480753693,2348.289695418568],\"centroids\":[11.781044097892394,12.41250442760613,12.926894136616713,24.363321678076744,24.175514751271475,24.810850482834866,0.040784991172295226,0.62465177890462154,0.59702492876155955,35.882867075896989,36.225057001177646,36.692026490915126],\"labels\":[1,2,1,1,1,3,0,1,2,0,0,1,3,0,0,2,2,3,1,3,1,3,2,3,0,3,1,1,2,0,0,2,0,2,3,0,0,3,0,0,0,0,3,2,2,3,3,3,3,3,2,1,0,0,3,2,3,0,2,2,1,3,1,2,3,2,0,2,3,2,1,3,0,3,3,2,0,1,0,1,3,1,2,2,1,0,1,3,2,0,2,0,0,1,2,2,0,1,0,1,2,2,0,2,2,2,0,2,1,3,0,0,3,2,2,1,1,2,1,1,2,1,2,1,2,1,1,1,2,3,0,1,0,3,2,1,0,1,3,1,1,2,1,1,0,3,3,2,1,3,3,0,1,0,3,1,0,1,1,2,2,0,1,2,0,0,3,3,2,3,1,0,2,0,0,3,1,3,2,0,1,2,3,0,3,2,0,0,0,3,1,1,2,0,1,3,0,2,2,3,1,3,0,0,0,0,2,2,3,3,3,3,3,3,3,0,2,2,3,0,1,3,0,1,1,0,2,2,3,3,3,1,1,3,2,1,2,2,0,3,0,2,3,3,1,3,0,2,1,1,1,2,0,1,3,2,1]}\n{\"kind\":\"iteration\",\"index\":4,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":240,\"gpu_items\":17,\"resident_before\":0,\"resident_after\":0,\"ownership_changed_points\":16,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":68,\"d2h_aggregate_bytes\":120,\"release_ns\":15387193107938,\"cpu_start_ns\":15387193167585,\"cpu_end_ns\":15387193181770,\"gpu_dispatch_ns\":15387193147901,\"h2d_end_ns\":15387193249763,\"compute_end_ns\":15387193332994,\"gpu_end_ns\":15387193548714,\"barrier_end_ns\":15387193549009,\"end_ns\":15387193549919,\"validation_end_ns\":15387193563354,\"control_ns\":447325,\"workers_used\":4,\"objective_before_update\":982.82924623952033,\"objective_after_update\":982.82924623952033,\"max_centroid_shift\":7.1054273576010019e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"5c9c99a28f938b77\",\"counts\":[64,64,65,64],\"sums\":[753.98682226511323,794.40028336679222,827.32122474346977,1559.2525873969116,1547.2329440813744,1587.8944309014319,2.6510244261991902,40.602365628800399,38.806620369501374,2296.5034928574073,2318.4036480753693,2348.289695418568],\"centroids\":[11.781044097892394,12.412504427606128,12.926894136616715,24.363321678076744,24.175514751271475,24.810850482834873,0.040784991172295233,0.62465177890462154,0.59702492876155955,35.882867075896989,36.225057001177646,36.692026490915126],\"labels\":[1,2,1,1,1,3,0,1,2,0,0,1,3,0,0,2,2,3,1,3,1,3,2,3,0,3,1,1,2,0,0,2,0,2,3,0,0,3,0,0,0,0,3,2,2,3,3,3,3,3,2,1,0,0,3,2,3,0,2,2,1,3,1,2,3,2,0,2,3,2,1,3,0,3,3,2,0,1,0,1,3,1,2,2,1,0,1,3,2,0,2,0,0,1,2,2,0,1,0,1,2,2,0,2,2,2,0,2,1,3,0,0,3,2,2,1,1,2,1,1,2,1,2,1,2,1,1,1,2,3,0,1,0,3,2,1,0,1,3,1,1,2,1,1,0,3,3,2,1,3,3,0,1,0,3,1,0,1,1,2,2,0,1,2,0,0,3,3,2,3,1,0,2,0,0,3,1,3,2,0,1,2,3,0,3,2,0,0,0,3,1,1,2,0,1,3,0,2,2,3,1,3,0,0,0,0,2,2,3,3,3,3,3,3,3,0,2,2,3,0,1,3,0,1,1,0,2,2,3,3,3,1,1,3,2,1,2,2,0,3,0,2,3,3,1,3,0,2,1,1,1,2,0,1,3,2,1]}\n{\"kind\":\"iteration\",\"index\":5,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":248,\"gpu_items\":9,\"resident_before\":0,\"resident_after\":0,\"ownership_changed_points\":8,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":36,\"d2h_aggregate_bytes\":120,\"release_ns\":15387194015690,\"cpu_start_ns\":15387194080443,\"cpu_end_ns\":15387194087541,\"gpu_dispatch_ns\":15387194057680,\"h2d_end_ns\":15387194201155,\"compute_end_ns\":15387194256623,\"gpu_end_ns\":15387194479141,\"barrier_end_ns\":15387194479381,\"end_ns\":15387194480278,\"validation_end_ns\":15387194493155,\"control_ns\":451905,\"workers_used\":4,\"objective_before_update\":982.82924623952022,\"objective_after_update\":982.82924623952033,\"max_centroid_shift\":1.0048591735576161e-14,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"5c9c99a28f938b77\",\"counts\":[64,64,65,64],\"sums\":[753.98682226511335,794.40028336679234,827.32122474346977,1559.2525873969116,1547.2329440813746,1587.8944309014319,2.6510244261991911,40.602365628800399,38.806620369501374,2296.5034928574078,2318.4036480753689,2348.289695418568],\"centroids\":[11.781044097892396,12.41250442760613,12.926894136616715,24.363321678076744,24.175514751271479,24.810850482834873,0.040784991172295247,0.62465177890462154,0.59702492876155955,35.882867075896996,36.225057001177639,36.692026490915126],\"labels\":[1,2,1,1,1,3,0,1,2,0,0,1,3,0,0,2,2,3,1,3,1,3,2,3,0,3,1,1,2,0,0,2,0,2,3,0,0,3,0,0,0,0,3,2,2,3,3,3,3,3,2,1,0,0,3,2,3,0,2,2,1,3,1,2,3,2,0,2,3,2,1,3,0,3,3,2,0,1,0,1,3,1,2,2,1,0,1,3,2,0,2,0,0,1,2,2,0,1,0,1,2,2,0,2,2,2,0,2,1,3,0,0,3,2,2,1,1,2,1,1,2,1,2,1,2,1,1,1,2,3,0,1,0,3,2,1,0,1,3,1,1,2,1,1,0,3,3,2,1,3,3,0,1,0,3,1,0,1,1,2,2,0,1,2,0,0,3,3,2,3,1,0,2,0,0,3,1,3,2,0,1,2,3,0,3,2,0,0,0,3,1,1,2,0,1,3,0,2,2,3,1,3,0,0,0,0,2,2,3,3,3,3,3,3,3,0,2,2,3,0,1,3,0,1,1,0,2,2,3,3,3,1,1,3,2,1,2,2,0,3,0,2,3,3,1,3,0,2,1,1,1,2,0,1,3,2,1]}\n{\"kind\":\"iteration\",\"index\":6,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":253,\"gpu_items\":4,\"resident_before\":0,\"resident_after\":0,\"ownership_changed_points\":5,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":16,\"d2h_aggregate_bytes\":120,\"release_ns\":15387194846914,\"cpu_start_ns\":15387194901584,\"cpu_end_ns\":15387194910484,\"gpu_dispatch_ns\":15387194883328,\"h2d_end_ns\":15387195050912,\"compute_end_ns\":15387195113526,\"gpu_end_ns\":15387195340030,\"barrier_end_ns\":15387195340304,\"end_ns\":15387195340810,\"validation_end_ns\":15387195351062,\"control_ns\":353400,\"workers_used\":4,\"objective_before_update\":982.82924623952033,\"objective_after_update\":982.82924623952033,\"max_centroid_shift\":6.1534805964274042e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"5c9c99a28f938b77\",\"counts\":[64,64,65,64],\"sums\":[753.98682226511323,794.40028336679234,827.32122474346977,1559.2525873969118,1547.2329440813744,1587.8944309014316,2.6510244261991915,40.602365628800399,38.806620369501374,2296.5034928574078,2318.4036480753689,2348.289695418568],\"centroids\":[11.781044097892394,12.41250442760613,12.926894136616715,24.363321678076748,24.175514751271475,24.810850482834869,0.040784991172295254,0.62465177890462154,0.59702492876155955,35.882867075896996,36.225057001177639,36.692026490915126],\"labels\":[1,2,1,1,1,3,0,1,2,0,0,1,3,0,0,2,2,3,1,3,1,3,2,3,0,3,1,1,2,0,0,2,0,2,3,0,0,3,0,0,0,0,3,2,2,3,3,3,3,3,2,1,0,0,3,2,3,0,2,2,1,3,1,2,3,2,0,2,3,2,1,3,0,3,3,2,0,1,0,1,3,1,2,2,1,0,1,3,2,0,2,0,0,1,2,2,0,1,0,1,2,2,0,2,2,2,0,2,1,3,0,0,3,2,2,1,1,2,1,1,2,1,2,1,2,1,1,1,2,3,0,1,0,3,2,1,0,1,3,1,1,2,1,1,0,3,3,2,1,3,3,0,1,0,3,1,0,1,1,2,2,0,1,2,0,0,3,3,2,3,1,0,2,0,0,3,1,3,2,0,1,2,3,0,3,2,0,0,0,3,1,1,2,0,1,3,0,2,2,3,1,3,0,0,0,0,2,2,3,3,3,3,3,3,3,0,2,2,3,0,1,3,0,1,1,0,2,2,3,3,3,1,1,3,2,1,2,2,0,3,0,2,3,3,1,3,0,2,1,1,1,2,0,1,3,2,1]}\n{\"kind\":\"iteration\",\"index\":7,\"warmup\":false,\"status\":\"passed\",\"cpu_items\":255,\"gpu_items\":2,\"resident_before\":0,\"resident_after\":0,\"ownership_changed_points\":2,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":8,\"d2h_aggregate_bytes\":120,\"release_ns\":15387195642872,\"cpu_start_ns\":15387195690050,\"cpu_end_ns\":15387195697185,\"gpu_dispatch_ns\":15387195662476,\"h2d_end_ns\":15387195794381,\"compute_end_ns\":15387195843690,\"gpu_end_ns\":15387196110415,\"barrier_end_ns\":15387196110593,\"end_ns\":15387196111080,\"validation_end_ns\":15387196121574,\"control_ns\":291484,\"workers_used\":4,\"objective_before_update\":982.82924623952022,\"objective_after_update\":982.82924623952033,\"max_centroid_shift\":7.1054273576010019e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"5c9c99a28f938b77\",\"counts\":[64,64,65,64],\"sums\":[753.98682226511323,794.40028336679234,827.32122474346977,1559.2525873969116,1547.2329440813744,1587.8944309014314,2.6510244261991915,40.602365628800399,38.806620369501374,2296.5034928574078,2318.4036480753693,2348.289695418568],\"centroids\":[11.781044097892394,12.41250442760613,12.926894136616715,24.363321678076744,24.175514751271475,24.810850482834866,0.040784991172295254,0.62465177890462154,0.59702492876155955,35.882867075896996,36.225057001177646,36.692026490915126],\"labels\":[1,2,1,1,1,3,0,1,2,0,0,1,3,0,0,2,2,3,1,3,1,3,2,3,0,3,1,1,2,0,0,2,0,2,3,0,0,3,0,0,0,0,3,2,2,3,3,3,3,3,2,1,0,0,3,2,3,0,2,2,1,3,1,2,3,2,0,2,3,2,1,3,0,3,3,2,0,1,0,1,3,1,2,2,1,0,1,3,2,0,2,0,0,1,2,2,0,1,0,1,2,2,0,2,2,2,0,2,1,3,0,0,3,2,2,1,1,2,1,1,2,1,2,1,2,1,1,1,2,3,0,1,0,3,2,1,0,1,3,1,1,2,1,1,0,3,3,2,1,3,3,0,1,0,3,1,0,1,1,2,2,0,1,2,0,0,3,3,2,3,1,0,2,0,0,3,1,3,2,0,1,2,3,0,3,2,0,0,0,3,1,1,2,0,1,3,0,2,2,3,1,3,0,0,0,0,2,2,3,3,3,3,3,3,3,0,2,2,3,0,1,3,0,1,1,0,2,2,3,3,3,1,1,3,2,1,2,2,0,3,0,2,3,3,1,3,0,2,1,1,1,2,0,1,3,2,1]}\n{\"kind\":\"summary\",\"status\":\"passed\",\"iterations\":8,\"active_ns\":3657422,\"loop_elapsed_ns\":6640763,\"control_ns\":2895692,\"active_and_control_ns\":6553114,\"final_objective\":982.82924623952033,\"stop_reason\":\"fixed_budget\",\"final_labels\":[1,2,1,1,1,3,0,1,2,0,0,1,3,0,0,2,2,3,1,3,1,3,2,3,0,3,1,1,2,0,0,2,0,2,3,0,0,3,0,0,0,0,3,2,2,3,3,3,3,3,2,1,0,0,3,2,3,0,2,2,1,3,1,2,3,2,0,2,3,2,1,3,0,3,3,2,0,1,0,1,3,1,2,2,1,0,1,3,2,0,2,0,0,1,2,2,0,1,0,1,2,2,0,2,2,2,0,2,1,3,0,0,3,2,2,1,1,2,1,1,2,1,2,1,2,1,1,1,2,3,0,1,0,3,2,1,0,1,3,1,1,2,1,1,0,3,3,2,1,3,3,0,1,0,3,1,0,1,1,2,2,0,1,2,0,0,3,3,2,3,1,0,2,0,0,3,1,3,2,0,1,2,3,0,3,2,0,0,0,3,1,1,2,0,1,3,0,2,2,3,1,3,0,0,0,0,2,2,3,3,3,3,3,3,3,0,2,2,3,0,1,3,0,1,1,0,2,2,3,3,3,1,1,3,2,1,2,2,0,3,0,2,3,3,1,3,0,2,1,1,1,2,0,1,3,2,1],\"final_centroids\":[11.781044097892394,12.41250442760613,12.926894136616715,24.363321678076744,24.175514751271475,24.810850482834866,0.040784991172295254,0.62465177890462154,0.59702492876155955,35.882867075896996,36.225057001177646,36.692026490915126]}\n",
+  "timed_out": false
+}

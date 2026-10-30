@@ -39,6 +39,16 @@ def main(argv=None) -> int:
     kmeans_plot = sub.add_parser("kmeans-plot",help="Plot verified timing curves outside the raw archive")
     kmeans_plot.add_argument("run",type=Path)
     kmeans_plot.add_argument("--output",type=Path,required=True)
+    allocation = sub.add_parser("allocation-check",help="Validate Tier 1 policies and persistent kmeans feedback")
+    allocation.add_argument("--output",type=Path,required=True)
+    allocation.add_argument("--binary",type=Path,required=True)
+    allocation.add_argument("--workers",type=int,default=4)
+    allocation.add_argument("--blocks",type=int,default=3)
+    allocation_replay = sub.add_parser("allocation-replay",help="Verify Phase 5 evidence and replay every decision")
+    allocation_replay.add_argument("run",type=Path)
+    allocation_plot = sub.add_parser("allocation-plot",help="Plot verified Phase 5 timing and allocation traces")
+    allocation_plot.add_argument("run",type=Path)
+    allocation_plot.add_argument("--output",type=Path,required=True)
     args = parser.parse_args(argv)
     if not Path("pyproject.toml").is_file() or not Path("src/greengpu").is_dir():
         parser.error("Run this command from the ATLAS repository root")
@@ -61,8 +71,25 @@ def main(argv=None) -> int:
         except (ValueError,OSError,ImportError) as error:
             parser.exit(1,f"Plot failed: {error}\n")
         return 0
+    if args.command == "allocation-plot":
+        from .allocation_plot import render
+        print(render(args.run,args.output))
+        return 0
+    if args.command == "allocation-replay":
+        from .allocation_experiment import replay
+        result=replay(args.run)
+        print(json.dumps(dict(status=result['implementation_status'],trials=len(result['results']),full_phase_gate=result['full_phase_gate']),indent=2))
+        return 0
     if args.output.exists():
         parser.error("Output already exists; use a new directory to preserve earlier evidence")
+    if args.command == "allocation-check":
+        from .allocation_experiment import run
+        try:
+            result=run(args.output,args.binary,args.workers,args.blocks)
+        except (ValueError,RuntimeError,OSError) as error:
+            parser.exit(1,f"Allocation validation failed: {error}\n")
+        print(json.dumps(dict(output=str(args.output),status=result['implementation_status'],trials=len(result['results']),full_phase_gate=result['full_phase_gate']),indent=2))
+        return 0 if result['implementation_status']=='passed' else 1
     if args.command == "kmeans-check":
         from .kmeans import run
         try:
