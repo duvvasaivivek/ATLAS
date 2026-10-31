@@ -1,0 +1,2791 @@
+{
+  "argv": [
+    "/mnt/c/Users/saivi/Downloads/ATLAS/build/phase6/atlas_hotspot",
+    "/mnt/c/Users/saivi/Downloads/ATLAS/results/phase6/2026-10-31-final/datasets/heldout.hsdat",
+    "39",
+    "24",
+    "4",
+    "timing",
+    "/mnt/c/Users/saivi/Downloads/ATLAS/results/phase6/2026-10-31-final/fields/trial-100.hstemp",
+    "feedback"
+  ],
+  "configuration": {
+    "adaptive_step": 0.15,
+    "alpha": 0.25,
+    "budget": 200,
+    "damping": 0.5,
+    "deadband": 0.05,
+    "dwell": 3,
+    "legal_counts": null,
+    "max_move": 0.1,
+    "n": 257,
+    "phase_factor": 2.0,
+    "phase_patience": 2,
+    "policy": "bracketed_bisection",
+    "precision": 0.01,
+    "step": 0.05
+  },
+  "decisions": [
+    {
+      "controller_ns": 175137,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 1,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 39,
+          "epoch": 0,
+          "iteration": 0,
+          "run_id": "hotspot-100",
+          "t_cpu": 0.000391644,
+          "t_gpu": 0.000395729,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 1,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 0,
+          "phase_hits": 0,
+          "previous_ratio": 0.1517509727626459,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 0,
+          "epoch": null,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": -1,
+          "phase_hits": 0,
+          "previous_ratio": null,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.0038910505836575876,
+        "reason": "probe_bracket_low",
+        "requested_ratio": 0.0038910505836575876,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 120414,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 256,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 1,
+          "epoch": 0,
+          "iteration": 1,
+          "run_id": "hotspot-100",
+          "t_cpu": 0.000249254,
+          "t_gpu": 0.000289327,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": null,
+            "dlo": -4.007299999999995e-05,
+            "hi": null,
+            "lo": 1,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ]
+            ],
+            "updates": 0
+          },
+          "dwell": 0,
+          "eligible": 2,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 1,
+          "phase_hits": 0,
+          "previous_ratio": 0.0038910505836575876,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 1,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 0,
+          "phase_hits": 0,
+          "previous_ratio": 0.1517509727626459,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.9961089494163424,
+        "reason": "probe_bracket_high",
+        "requested_ratio": 0.9961089494163424,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 110509,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 128,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 256,
+          "epoch": 0,
+          "iteration": 2,
+          "run_id": "hotspot-100",
+          "t_cpu": 0.000331962,
+          "t_gpu": 0.000274491,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 5.7470999999999965e-05,
+            "dlo": -4.007299999999995e-05,
+            "hi": 256,
+            "lo": 1,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ]
+            ],
+            "updates": 0
+          },
+          "dwell": 0,
+          "eligible": 3,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 2,
+          "phase_hits": 0,
+          "previous_ratio": 0.9961089494163424,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": null,
+            "dlo": -4.007299999999995e-05,
+            "hi": null,
+            "lo": 1,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ]
+            ],
+            "updates": 0
+          },
+          "dwell": 0,
+          "eligible": 2,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 1,
+          "phase_hits": 0,
+          "previous_ratio": 0.0038910505836575876,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.4980544747081712,
+        "reason": "bisect",
+        "requested_ratio": 0.5,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 139991,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 192,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 128,
+          "epoch": 0,
+          "iteration": 3,
+          "run_id": "hotspot-100",
+          "t_cpu": 0.000270952,
+          "t_gpu": 0.000274873,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 5.7470999999999965e-05,
+            "dlo": -3.921000000000046e-06,
+            "hi": 256,
+            "lo": 128,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ]
+            ],
+            "updates": 1
+          },
+          "dwell": 0,
+          "eligible": 4,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 3,
+          "phase_hits": 0,
+          "previous_ratio": 0.4980544747081712,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 5.7470999999999965e-05,
+            "dlo": -4.007299999999995e-05,
+            "hi": 256,
+            "lo": 1,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ]
+            ],
+            "updates": 0
+          },
+          "dwell": 0,
+          "eligible": 3,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 2,
+          "phase_hits": 0,
+          "previous_ratio": 0.9961089494163424,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.7470817120622568,
+        "reason": "bisect",
+        "requested_ratio": 0.7470817120622568,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 110980,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 160,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 192,
+          "epoch": 0,
+          "iteration": 4,
+          "run_id": "hotspot-100",
+          "t_cpu": 0.000326662,
+          "t_gpu": 0.000305936,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 2.0726000000000045e-05,
+            "dlo": -3.921000000000046e-06,
+            "hi": 192,
+            "lo": 128,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ]
+            ],
+            "updates": 2
+          },
+          "dwell": 0,
+          "eligible": 5,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 4,
+          "phase_hits": 0,
+          "previous_ratio": 0.7470817120622568,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 5.7470999999999965e-05,
+            "dlo": -3.921000000000046e-06,
+            "hi": 256,
+            "lo": 128,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ]
+            ],
+            "updates": 1
+          },
+          "dwell": 0,
+          "eligible": 4,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 3,
+          "phase_hits": 0,
+          "previous_ratio": 0.4980544747081712,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.622568093385214,
+        "reason": "bisect",
+        "requested_ratio": 0.622568093385214,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 105016,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 144,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 160,
+          "epoch": 0,
+          "iteration": 5,
+          "run_id": "hotspot-100",
+          "t_cpu": 0.00027647,
+          "t_gpu": 0.000244319,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 3.215100000000001e-05,
+            "dlo": -3.921000000000046e-06,
+            "hi": 160,
+            "lo": 128,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ]
+            ],
+            "updates": 3
+          },
+          "dwell": 0,
+          "eligible": 6,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 5,
+          "phase_hits": 0,
+          "previous_ratio": 0.622568093385214,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 2.0726000000000045e-05,
+            "dlo": -3.921000000000046e-06,
+            "hi": 192,
+            "lo": 128,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ]
+            ],
+            "updates": 2
+          },
+          "dwell": 0,
+          "eligible": 5,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 4,
+          "phase_hits": 0,
+          "previous_ratio": 0.7470817120622568,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5603112840466926,
+        "reason": "bisect",
+        "requested_ratio": 0.5603112840466926,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 143371,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 152,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 144,
+          "epoch": 0,
+          "iteration": 6,
+          "run_id": "hotspot-100",
+          "t_cpu": 0.000238729,
+          "t_gpu": 0.000238899,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 3.215100000000001e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 160,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ]
+            ],
+            "updates": 4
+          },
+          "dwell": 0,
+          "eligible": 7,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 6,
+          "phase_hits": 0,
+          "previous_ratio": 0.5603112840466926,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 3.215100000000001e-05,
+            "dlo": -3.921000000000046e-06,
+            "hi": 160,
+            "lo": 128,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ]
+            ],
+            "updates": 3
+          },
+          "dwell": 0,
+          "eligible": 6,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 5,
+          "phase_hits": 0,
+          "previous_ratio": 0.622568093385214,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5914396887159533,
+        "reason": "bisect",
+        "requested_ratio": 0.5914396887159533,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 230839,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 148,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 152,
+          "epoch": 0,
+          "iteration": 7,
+          "run_id": "hotspot-100",
+          "t_cpu": 0.000310908,
+          "t_gpu": 0.000178215,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 0.000132693,
+            "dlo": -1.699999999999933e-07,
+            "hi": 152,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ]
+            ],
+            "updates": 5
+          },
+          "dwell": 0,
+          "eligible": 8,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 7,
+          "phase_hits": 0,
+          "previous_ratio": 0.5914396887159533,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 3.215100000000001e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 160,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ]
+            ],
+            "updates": 4
+          },
+          "dwell": 0,
+          "eligible": 7,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 6,
+          "phase_hits": 0,
+          "previous_ratio": 0.5603112840466926,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5758754863813229,
+        "reason": "bisect",
+        "requested_ratio": 0.5758754863813229,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 110658,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 146,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 148,
+          "epoch": 0,
+          "iteration": 8,
+          "run_id": "hotspot-100",
+          "t_cpu": 0.000521394,
+          "t_gpu": 0.000281195,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 0.00024019900000000002,
+            "dlo": -1.699999999999933e-07,
+            "hi": 148,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ]
+            ],
+            "updates": 6
+          },
+          "dwell": 0,
+          "eligible": 9,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 8,
+          "phase_hits": 0,
+          "previous_ratio": 0.5758754863813229,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 0.000132693,
+            "dlo": -1.699999999999933e-07,
+            "hi": 152,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ]
+            ],
+            "updates": 5
+          },
+          "dwell": 0,
+          "eligible": 8,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 7,
+          "phase_hits": 0,
+          "previous_ratio": 0.5914396887159533,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5680933852140078,
+        "reason": "bisect",
+        "requested_ratio": 0.5680933852140078,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 102375,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 144,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 146,
+          "epoch": 0,
+          "iteration": 9,
+          "run_id": "hotspot-100",
+          "t_cpu": 0.000240609,
+          "t_gpu": 0.000188795,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 10,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "stop_bracket_width",
+          "last_iteration": 9,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 0.00024019900000000002,
+            "dlo": -1.699999999999933e-07,
+            "hi": 148,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ]
+            ],
+            "updates": 6
+          },
+          "dwell": 0,
+          "eligible": 9,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 8,
+          "phase_hits": 0,
+          "previous_ratio": 0.5758754863813229,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5603112840466926,
+        "reason": "stop_bracket_width",
+        "requested_ratio": 0.5603112840466926,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 95605,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 144,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 144,
+          "epoch": 0,
+          "iteration": 10,
+          "run_id": "hotspot-100",
+          "t_cpu": 0.000234572,
+          "t_gpu": 0.000197111,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 11,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 10,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 10,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "stop_bracket_width",
+          "last_iteration": 9,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5603112840466926,
+        "reason": "invalid_bracket",
+        "requested_ratio": 0.5603112840466926,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 95807,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 144,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 144,
+          "epoch": 0,
+          "iteration": 11,
+          "run_id": "hotspot-100",
+          "t_cpu": 0.000174821,
+          "t_gpu": 0.000134406,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 12,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 11,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 11,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 10,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5603112840466926,
+        "reason": "invalid_bracket",
+        "requested_ratio": 0.5603112840466926,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 129206,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 144,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 144,
+          "epoch": 0,
+          "iteration": 12,
+          "run_id": "hotspot-100",
+          "t_cpu": 0.00020152,
+          "t_gpu": 0.000169833,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 13,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 12,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 12,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 11,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5603112840466926,
+        "reason": "invalid_bracket",
+        "requested_ratio": 0.5603112840466926,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 104974,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 144,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 144,
+          "epoch": 0,
+          "iteration": 13,
+          "run_id": "hotspot-100",
+          "t_cpu": 0.000177724,
+          "t_gpu": 0.0001663,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 14,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 13,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 13,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 12,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5603112840466926,
+        "reason": "invalid_bracket",
+        "requested_ratio": 0.5603112840466926,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 208147,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 144,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 144,
+          "epoch": 0,
+          "iteration": 14,
+          "run_id": "hotspot-100",
+          "t_cpu": 0.000248898,
+          "t_gpu": 0.000474647,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 15,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 14,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 14,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 13,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5603112840466926,
+        "reason": "invalid_bracket",
+        "requested_ratio": 0.5603112840466926,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 124186,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 144,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 144,
+          "epoch": 0,
+          "iteration": 15,
+          "run_id": "hotspot-100",
+          "t_cpu": 0.000228446,
+          "t_gpu": 0.000153171,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 16,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 15,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 15,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 14,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5603112840466926,
+        "reason": "invalid_bracket",
+        "requested_ratio": 0.5603112840466926,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 159787,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 144,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 144,
+          "epoch": 0,
+          "iteration": 16,
+          "run_id": "hotspot-100",
+          "t_cpu": 0.000235096,
+          "t_gpu": 0.000181331,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 17,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 16,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 16,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 15,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5603112840466926,
+        "reason": "invalid_bracket",
+        "requested_ratio": 0.5603112840466926,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 120200,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 144,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 144,
+          "epoch": 0,
+          "iteration": 17,
+          "run_id": "hotspot-100",
+          "t_cpu": 0.00026321,
+          "t_gpu": 0.000211592,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 18,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 17,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 17,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 16,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5603112840466926,
+        "reason": "invalid_bracket",
+        "requested_ratio": 0.5603112840466926,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 130220,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 144,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 144,
+          "epoch": 0,
+          "iteration": 18,
+          "run_id": "hotspot-100",
+          "t_cpu": 0.000216434,
+          "t_gpu": 0.000169499,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 19,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 18,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 18,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 17,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5603112840466926,
+        "reason": "invalid_bracket",
+        "requested_ratio": 0.5603112840466926,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 143592,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 144,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 144,
+          "epoch": 0,
+          "iteration": 19,
+          "run_id": "hotspot-100",
+          "t_cpu": 0.000252388,
+          "t_gpu": 0.000141957,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 20,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 19,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 19,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 18,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5603112840466926,
+        "reason": "invalid_bracket",
+        "requested_ratio": 0.5603112840466926,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 260579,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 144,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 144,
+          "epoch": 0,
+          "iteration": 20,
+          "run_id": "hotspot-100",
+          "t_cpu": 0.000190362,
+          "t_gpu": 0.000153718,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 21,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 20,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 20,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 19,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5603112840466926,
+        "reason": "invalid_bracket",
+        "requested_ratio": 0.5603112840466926,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 123838,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 144,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 144,
+          "epoch": 0,
+          "iteration": 21,
+          "run_id": "hotspot-100",
+          "t_cpu": 0.000173453,
+          "t_gpu": 0.00013924,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 22,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 21,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 21,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 20,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5603112840466926,
+        "reason": "invalid_bracket",
+        "requested_ratio": 0.5603112840466926,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 120724,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 144,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 144,
+          "epoch": 0,
+          "iteration": 22,
+          "run_id": "hotspot-100",
+          "t_cpu": 0.000297372,
+          "t_gpu": 0.000166323,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 23,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 22,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 5.181399999999999e-05,
+            "dlo": -1.699999999999933e-07,
+            "hi": 146,
+            "lo": 144,
+            "samples": [
+              [
+                1,
+                -4.007299999999995e-05
+              ],
+              [
+                256,
+                5.7470999999999965e-05
+              ],
+              [
+                128,
+                -3.921000000000046e-06
+              ],
+              [
+                192,
+                2.0726000000000045e-05
+              ],
+              [
+                160,
+                3.215100000000001e-05
+              ],
+              [
+                144,
+                -1.699999999999933e-07
+              ],
+              [
+                152,
+                0.000132693
+              ],
+              [
+                148,
+                0.00024019900000000002
+              ],
+              [
+                146,
+                5.181399999999999e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 22,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 21,
+          "phase_hits": 0,
+          "previous_ratio": 0.5680933852140078,
+          "run_id": "hotspot-100",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5603112840466926,
+        "reason": "invalid_bracket",
+        "requested_ratio": 0.5603112840466926,
+        "specification_version": "1.1"
+      }
+    }
+  ],
+  "elapsed_ns": 1103982658,
+  "failure": null,
+  "returncode": 0,
+  "status": "ok",
+  "stderr": "",
+  "stdout": "{\"kind\":\"configuration\",\"schema_version\":\"6.0\",\"clock\":\"CLOCK_MONOTONIC\",\"rows\":257,\"cols\":259,\"steps\":24,\"workers\":4,\"mode\":\"timing\",\"feedback\":true,\"atol\":1e-8,\"rtol\":1e-10,\"cap\":1.6826164686086868e-06,\"rx\":9.922779922779922,\"ry\":10.077821011673151,\"rz\":1300.05859375,\"dt\":1.4583333333333335e-07,\"nominal_dt\":1.4583333333333335e-07,\"stability_sum\":0.034735937500000001}\n{\"kind\":\"iteration\",\"index\":-1,\"warmup\":true,\"cpu_rows\":39,\"old_cpu_rows\":257,\"input_epoch\":0,\"output_epoch\":1,\"status\":\"completed\",\"validation\":\"checked\",\"errors\":0,\"max_error\":7.4107386893729199e-15,\"initial_h2d_bytes\":451696,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":451696,\"validation_d2h_bytes\":451696,\"power_begin_after\":39,\"control_ns\":0,\"release_ns\":173574178424,\"communication_end_ns\":173577067303,\"cpu_start_ns\":173577126562,\"cpu_end_ns\":173577565490,\"gpu_end_ns\":173587004653,\"end_ns\":173587005160,\"validation_end_ns\":173588665857}\n{\"kind\":\"iteration\",\"index\":0,\"warmup\":false,\"cpu_rows\":39,\"old_cpu_rows\":257,\"input_epoch\":0,\"output_epoch\":1,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":451696,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":451696,\"validation_d2h_bytes\":0,\"power_begin_after\":39,\"control_ns\":0,\"release_ns\":173589183393,\"communication_end_ns\":173589495297,\"cpu_start_ns\":173589547981,\"cpu_end_ns\":173589575037,\"gpu_end_ns\":173589579122,\"end_ns\":173589579296,\"validation_end_ns\":173589579405}\n{\"kind\":\"iteration\",\"index\":1,\"warmup\":false,\"cpu_rows\":1,\"old_cpu_rows\":39,\"input_epoch\":1,\"output_epoch\":2,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":78736,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":78736,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":394188,\"release_ns\":173589973734,\"communication_end_ns\":173590169346,\"cpu_start_ns\":173590218098,\"cpu_end_ns\":173590222988,\"gpu_end_ns\":173590263061,\"end_ns\":173590263270,\"validation_end_ns\":173590263400}\n{\"kind\":\"iteration\",\"index\":2,\"warmup\":false,\"cpu_rows\":256,\"old_cpu_rows\":1,\"input_epoch\":2,\"output_epoch\":3,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":528360,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":293572,\"release_ns\":173590557156,\"communication_end_ns\":173590765480,\"cpu_start_ns\":173590808975,\"cpu_end_ns\":173590889118,\"gpu_end_ns\":173590831647,\"end_ns\":173590935744,\"validation_end_ns\":173590935889}\n{\"kind\":\"iteration\",\"index\":3,\"warmup\":false,\"cpu_rows\":128,\"old_cpu_rows\":256,\"input_epoch\":3,\"output_epoch\":4,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":265216,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":244164,\"release_ns\":173591180217,\"communication_end_ns\":173591371218,\"cpu_start_ns\":173591416736,\"cpu_end_ns\":173591451169,\"gpu_end_ns\":173591455090,\"end_ns\":173591455291,\"validation_end_ns\":173591455396}\n{\"kind\":\"iteration\",\"index\":4,\"warmup\":false,\"cpu_rows\":192,\"old_cpu_rows\":128,\"input_epoch\":4,\"output_epoch\":5,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":132608,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":379560,\"release_ns\":173591835128,\"communication_end_ns\":173592066837,\"cpu_start_ns\":173592107534,\"cpu_end_ns\":173592161790,\"gpu_end_ns\":173592141064,\"end_ns\":173592174365,\"validation_end_ns\":173592174451}\n{\"kind\":\"iteration\",\"index\":5,\"warmup\":false,\"cpu_rows\":160,\"old_cpu_rows\":192,\"input_epoch\":5,\"output_epoch\":6,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":66304,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":250974,\"release_ns\":173592425569,\"communication_end_ns\":173592583994,\"cpu_start_ns\":173592633049,\"cpu_end_ns\":173592702039,\"gpu_end_ns\":173592669888,\"end_ns\":173592744865,\"validation_end_ns\":173592744976}\n{\"kind\":\"iteration\",\"index\":6,\"warmup\":false,\"cpu_rows\":144,\"old_cpu_rows\":160,\"input_epoch\":6,\"output_epoch\":7,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":33152,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":277643,\"release_ns\":173593022761,\"communication_end_ns\":173593174321,\"cpu_start_ns\":173593225380,\"cpu_end_ns\":173593261490,\"gpu_end_ns\":173593261660,\"end_ns\":173593308234,\"validation_end_ns\":173593308326}\n{\"kind\":\"iteration\",\"index\":7,\"warmup\":false,\"cpu_rows\":152,\"old_cpu_rows\":144,\"input_epoch\":7,\"output_epoch\":8,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":16576,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":354231,\"release_ns\":173593662726,\"communication_end_ns\":173593786333,\"cpu_start_ns\":173593836328,\"cpu_end_ns\":173593973634,\"gpu_end_ns\":173593840941,\"end_ns\":173594020558,\"validation_end_ns\":173594020688}\n{\"kind\":\"iteration\",\"index\":8,\"warmup\":false,\"cpu_rows\":148,\"old_cpu_rows\":152,\"input_epoch\":8,\"output_epoch\":9,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":8288,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":369788,\"release_ns\":173594390554,\"communication_end_ns\":173594600763,\"cpu_start_ns\":173594649913,\"cpu_end_ns\":173594911948,\"gpu_end_ns\":173594671749,\"end_ns\":173594951056,\"validation_end_ns\":173594951147}\n{\"kind\":\"iteration\",\"index\":9,\"warmup\":false,\"cpu_rows\":146,\"old_cpu_rows\":148,\"input_epoch\":9,\"output_epoch\":10,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":4144,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":257594,\"release_ns\":173595208853,\"communication_end_ns\":173595338576,\"cpu_start_ns\":173595383156,\"cpu_end_ns\":173595449462,\"gpu_end_ns\":173595397648,\"end_ns\":173595480511,\"validation_end_ns\":173595480625}\n{\"kind\":\"iteration\",\"index\":10,\"warmup\":false,\"cpu_rows\":144,\"old_cpu_rows\":146,\"input_epoch\":10,\"output_epoch\":11,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":4144,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":222753,\"release_ns\":173595703476,\"communication_end_ns\":173595828919,\"cpu_start_ns\":173595871084,\"cpu_end_ns\":173595938048,\"gpu_end_ns\":173595900587,\"end_ns\":173595964063,\"validation_end_ns\":173595964175}\n{\"kind\":\"iteration\",\"index\":11,\"warmup\":false,\"cpu_rows\":144,\"old_cpu_rows\":144,\"input_epoch\":11,\"output_epoch\":12,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":222722,\"release_ns\":173596187127,\"communication_end_ns\":173596251323,\"cpu_start_ns\":173596295882,\"cpu_end_ns\":173596361948,\"gpu_end_ns\":173596321533,\"end_ns\":173596404174,\"validation_end_ns\":173596404216}\n{\"kind\":\"iteration\",\"index\":12,\"warmup\":false,\"cpu_rows\":144,\"old_cpu_rows\":144,\"input_epoch\":12,\"output_epoch\":13,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":234303,\"release_ns\":173596638751,\"communication_end_ns\":173596723569,\"cpu_start_ns\":173596774112,\"cpu_end_ns\":173596840271,\"gpu_end_ns\":173596808584,\"end_ns\":173596959758,\"validation_end_ns\":173596959932}\n{\"kind\":\"iteration\",\"index\":13,\"warmup\":false,\"cpu_rows\":144,\"old_cpu_rows\":144,\"input_epoch\":13,\"output_epoch\":14,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":293320,\"release_ns\":173597253410,\"communication_end_ns\":173597348129,\"cpu_start_ns\":173597394168,\"cpu_end_ns\":173597431134,\"gpu_end_ns\":173597419710,\"end_ns\":173597451765,\"validation_end_ns\":173597451821}\n{\"kind\":\"iteration\",\"index\":14,\"warmup\":false,\"cpu_rows\":144,\"old_cpu_rows\":144,\"input_epoch\":14,\"output_epoch\":15,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":230561,\"release_ns\":173597682557,\"communication_end_ns\":173597823154,\"cpu_start_ns\":173597867178,\"cpu_end_ns\":173597931455,\"gpu_end_ns\":173598157204,\"end_ns\":173598157367,\"validation_end_ns\":173598157419}\n{\"kind\":\"iteration\",\"index\":15,\"warmup\":false,\"cpu_rows\":144,\"old_cpu_rows\":144,\"input_epoch\":15,\"output_epoch\":16,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":362446,\"release_ns\":173598519985,\"communication_end_ns\":173598595225,\"cpu_start_ns\":173598635407,\"cpu_end_ns\":173598748431,\"gpu_end_ns\":173598673156,\"end_ns\":173598843817,\"validation_end_ns\":173598843988}\n{\"kind\":\"iteration\",\"index\":16,\"warmup\":false,\"cpu_rows\":144,\"old_cpu_rows\":144,\"input_epoch\":16,\"output_epoch\":17,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":384809,\"release_ns\":173599229073,\"communication_end_ns\":173599321538,\"cpu_start_ns\":173599376626,\"cpu_end_ns\":173599464169,\"gpu_end_ns\":173599410404,\"end_ns\":173599575276,\"validation_end_ns\":173599575476}\n{\"kind\":\"iteration\",\"index\":17,\"warmup\":false,\"cpu_rows\":144,\"old_cpu_rows\":144,\"input_epoch\":17,\"output_epoch\":18,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":349991,\"release_ns\":173599925708,\"communication_end_ns\":173600056259,\"cpu_start_ns\":173600094942,\"cpu_end_ns\":173600188918,\"gpu_end_ns\":173600137300,\"end_ns\":173600217447,\"validation_end_ns\":173600217577}\n{\"kind\":\"iteration\",\"index\":18,\"warmup\":false,\"cpu_rows\":144,\"old_cpu_rows\":144,\"input_epoch\":18,\"output_epoch\":19,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":270371,\"release_ns\":173600488486,\"communication_end_ns\":173600579544,\"cpu_start_ns\":173600624380,\"cpu_end_ns\":173600704920,\"gpu_end_ns\":173600657985,\"end_ns\":173600735321,\"validation_end_ns\":173600735437}\n{\"kind\":\"iteration\",\"index\":19,\"warmup\":false,\"cpu_rows\":144,\"old_cpu_rows\":144,\"input_epoch\":19,\"output_epoch\":20,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":248811,\"release_ns\":173600984382,\"communication_end_ns\":173601054519,\"cpu_start_ns\":173601097338,\"cpu_end_ns\":173601236770,\"gpu_end_ns\":173601126339,\"end_ns\":173601277433,\"validation_end_ns\":173601277529}\n{\"kind\":\"iteration\",\"index\":20,\"warmup\":false,\"cpu_rows\":144,\"old_cpu_rows\":144,\"input_epoch\":20,\"output_epoch\":21,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":311420,\"release_ns\":173601589104,\"communication_end_ns\":173601672134,\"cpu_start_ns\":173601714881,\"cpu_end_ns\":173601779466,\"gpu_end_ns\":173601742822,\"end_ns\":173601810942,\"validation_end_ns\":173601811074}\n{\"kind\":\"iteration\",\"index\":21,\"warmup\":false,\"cpu_rows\":144,\"old_cpu_rows\":144,\"input_epoch\":21,\"output_epoch\":22,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":501868,\"release_ns\":173602313058,\"communication_end_ns\":173602376550,\"cpu_start_ns\":173602417098,\"cpu_end_ns\":173602486511,\"gpu_end_ns\":173602452298,\"end_ns\":173602546787,\"validation_end_ns\":173602546962}\n{\"kind\":\"iteration\",\"index\":22,\"warmup\":false,\"cpu_rows\":144,\"old_cpu_rows\":144,\"input_epoch\":22,\"output_epoch\":23,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":324619,\"release_ns\":173602871965,\"communication_end_ns\":173602953901,\"cpu_start_ns\":173603002861,\"cpu_end_ns\":173603169337,\"gpu_end_ns\":173603038288,\"end_ns\":173603211177,\"validation_end_ns\":173603211315}\n{\"kind\":\"iteration\",\"index\":23,\"warmup\":false,\"cpu_rows\":144,\"old_cpu_rows\":144,\"input_epoch\":23,\"output_epoch\":24,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":232737,\"release_ns\":173603444280,\"communication_end_ns\":173603531523,\"cpu_start_ns\":173603582353,\"cpu_end_ns\":173603724887,\"gpu_end_ns\":173603616670,\"end_ns\":173603762283,\"validation_end_ns\":173603762326}\n{\"kind\":\"summary\",\"status\":\"passed\",\"steps\":24,\"errors\":0,\"max_error\":6.193656698627592e-14,\"active_ns\":7559347,\"control_ns\":7012445,\"gather_ns\":152281,\"gather_d2h_bytes\":234136,\"validation_d2h_bytes\":0,\"work_and_control_and_gather_ns\":14724073,\"loop_elapsed_ns\":14578890,\"simulated_seconds\":3.5000000000000004e-06}\n",
+  "timed_out": false
+}

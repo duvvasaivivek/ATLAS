@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0",
+  "captured_utc": "2026-10-31T00:14:58.004608+00:00",
+  "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "os_release": {
+    "status": "available",
+    "value": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.5 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo",
+    "path": "/etc/os-release"
+  },
+  "kernel": "6.18.54.1-microsoft-standard-WSL2",
+  "is_wsl": true,
+  "python": {
+    "version": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "executable": "/mnt/c/Users/saivi/Downloads/ATLAS/.venv-wsl/bin/python",
+    "prefix": "/mnt/c/Users/saivi/Downloads/ATLAS/.venv-wsl",
+    "base_prefix": "/usr",
+    "virtual_environment": true
+  },
+  "visible_logical_cpus": 12,
+  "cpu_inventory": {
+    "argv": [
+      "lscpu",
+      "--json"
+    ],
+    "started_utc": "2026-10-31T00:14:15.865193+00:00",
+    "elapsed_s": 0.008985537999999238,
+    "status": "ok",
+    "returncode": 0,
+    "stdout": "{\n   \"lscpu\": [\n      {\n         \"field\": \"Architecture:\",\n         \"data\": \"x86_64\"\n      },{\n         \"field\": \"CPU op-mode(s):\",\n         \"data\": \"32-bit, 64-bit\"\n      },{\n         \"field\": \"Address sizes:\",\n         \"data\": \"39 bits physical, 48 bits virtual\"\n      },{\n         \"field\": \"Byte Order:\",\n         \"data\": \"Little Endian\"\n      },{\n         \"field\": \"CPU(s):\",\n         \"data\": \"12\"\n      },{\n         \"field\": \"On-line CPU(s) list:\",\n         \"data\": \"0-11\"\n      },{\n         \"field\": \"Vendor ID:\",\n         \"data\": \"GenuineIntel\"\n      },{\n         \"field\": \"Model name:\",\n         \"data\": \"12th Gen Intel(R) Core(TM) i5-12450H\"\n      },{\n         \"field\": \"CPU family:\",\n         \"data\": \"6\"\n      },{\n         \"field\": \"Model:\",\n         \"data\": \"154\"\n      },{\n         \"field\": \"Thread(s) per core:\",\n         \"data\": \"2\"\n      },{\n         \"field\": \"Core(s) per socket:\",\n         \"data\": \"6\"\n      },{\n         \"field\": \"Socket(s):\",\n         \"data\": \"1\"\n      },{\n         \"field\": \"Stepping:\",\n         \"data\": \"3\"\n      },{\n         \"field\": \"BogoMIPS:\",\n         \"data\": \"4992.01\"\n      },{\n         \"field\": \"Flags:\",\n         \"data\": \"fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves avx_vnni vnmi umip waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize ibt flush_l1d arch_capabilities\"\n      },{\n         \"field\": \"Virtualization:\",\n         \"data\": \"VT-x\"\n      },{\n         \"field\": \"Hypervisor vendor:\",\n         \"data\": \"Microsoft\"\n      },{\n         \"field\": \"Virtualization type:\",\n         \"data\": \"full\"\n      },{\n         \"field\": \"L1d cache:\",\n         \"data\": \"288 KiB (6 instances)\"\n      },{\n         \"field\": \"L1i cache:\",\n         \"data\": \"192 KiB (6 instances)\"\n      },{\n         \"field\": \"L2 cache:\",\n         \"data\": \"7.5 MiB (6 instances)\"\n      },{\n         \"field\": \"L3 cache:\",\n         \"data\": \"12 MiB (1 instance)\"\n      },{\n         \"field\": \"NUMA node(s):\",\n         \"data\": \"1\"\n      },{\n         \"field\": \"NUMA node0 CPU(s):\",\n         \"data\": \"0-11\"\n      },{\n         \"field\": \"Vulnerability Gather data sampling:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Ghostwrite:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Indirect target selection:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Itlb multihit:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability L1tf:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Mds:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Meltdown:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Mmio stale data:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Old microcode:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Reg file data sampling:\",\n         \"data\": \"Mitigation; Clear Register File\"\n      },{\n         \"field\": \"Vulnerability Retbleed:\",\n         \"data\": \"Mitigation; Enhanced IBRS\"\n      },{\n         \"field\": \"Vulnerability Spec rstack overflow:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Spec store bypass:\",\n         \"data\": \"Mitigation; Speculative Store Bypass disabled via prctl\"\n      },{\n         \"field\": \"Vulnerability Spectre v1:\",\n         \"data\": \"Mitigation; usercopy/swapgs barriers and __user pointer sanitization\"\n      },{\n         \"field\": \"Vulnerability Spectre v2:\",\n         \"data\": \"Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI BHI_DIS_S\"\n      },{\n         \"field\": \"Vulnerability Srbds:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Tsa:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Tsx async abort:\",\n         \"data\": \"Not affected\"\n      },{\n         \"field\": \"Vulnerability Vmscape:\",\n         \"data\": \"Not affected\"\n      }\n   ]\n}\n",
+    "stderr": ""
+  },
+  "memory": {
+    "status": "available",
+    "value": "MemTotal:        7942952 kB\nMemFree:         6003084 kB\nMemAvailable:    7251844 kB\nBuffers:           56452 kB\nCached:          1337096 kB\nSwapCached:            0 kB\nActive:           135684 kB\nInactive:        1317692 kB\nActive(anon):       3544 kB\nInactive(anon):    74560 kB\nActive(file):     132140 kB\nInactive(file):  1243132 kB\nUnevictable:      157808 kB\nMlocked:          157808 kB\nSwapTotal:       2097152 kB\nSwapFree:        2097152 kB\nDirty:               284 kB\nWriteback:             0 kB\nAnonPages:        217672 kB\nMapped:           141584 kB\nShmem:              4232 kB\nKReclaimable:      26136 kB\nSlab:              81404 kB\nSReclaimable:      26136 kB\nSUnreclaim:        55268 kB\nKernelStack:        4544 kB\nPageTables:         4292 kB\nSecPageTables:         0 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:     6068628 kB\nCommitted_AS:     674464 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:       32144 kB\nVmallocChunk:          0 kB\nPercpu:             6592 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:         0 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:         0 kB\nFilePmdMapped:         0 kB\nBalloon:               0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:       56320 kB\nDirectMap2M:     4993024 kB\nDirectMap1G:    11534336 kB",
+    "path": "/proc/meminfo"
+  },
+  "tools": {
+    "nvcc": {
+      "argv": [
+        "/usr/local/cuda-13.1/bin/nvcc",
+        "--version"
+      ],
+      "started_utc": "2026-10-31T00:14:15.888082+00:00",
+      "elapsed_s": 0.03428935200000005,
+      "status": "ok",
+      "returncode": 0,
+      "stdout": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Tue_Dec_16_07:23:41_PM_PST_2025\nCuda compilation tools, release 13.1, V13.1.115\nBuild cuda_13.1.r13.1/compiler.37061995_0\n",
+      "stderr": ""
+    },
+    "gxx": {
+      "argv": [
+        "g++",
+        "--version"
+      ],
+      "started_utc": "2026-10-31T00:14:15.937408+00:00",
+      "elapsed_s": 0.007451555000000276,
+      "status": "ok",
+      "returncode": 0,
+      "stdout": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+      "stderr": ""
+    },
+    "cmake": {
+      "argv": [
+        "cmake",
+        "--version"
+      ],
+      "started_utc": "2026-10-31T00:14:15.956393+00:00",
+      "elapsed_s": 0.058208465000000764,
+      "status": "ok",
+      "returncode": 0,
+      "stdout": "cmake version 3.28.3\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake).\n",
+      "stderr": ""
+    },
+    "ninja": {
+      "argv": [
+        "ninja",
+        "--version"
+      ],
+      "started_utc": "2026-10-31T00:14:16.034857+00:00",
+      "elapsed_s": 0.005278495999999855,
+      "status": "ok",
+      "returncode": 0,
+      "stdout": "1.11.1\n",
+      "stderr": ""
+    },
+    "git": {
+      "argv": [
+        "git",
+        "--version"
+      ],
+      "started_utc": "2026-10-31T00:14:16.055444+00:00",
+      "elapsed_s": 0.010548030999999902,
+      "status": "ok",
+      "returncode": 0,
+      "stdout": "git version 2.43.0\n",
+      "stderr": ""
+    }
+  },
+  "packages": {
+    "argv": [
+      "dpkg-query",
+      "-W",
+      "build-essential",
+      "g++",
+      "cmake",
+      "ninja-build",
+      "python3-dev",
+      "python3-venv",
+      "cuda-toolkit-13-1",
+      "cuda-nvcc-13-1"
+    ],
+    "started_utc": "2026-10-31T00:14:16.083356+00:00",
+    "elapsed_s": 0.021079196999999716,
+    "status": "ok",
+    "returncode": 0,
+    "stdout": "build-essential\t12.10ubuntu1\ncmake\t3.28.3-1build7\ncuda-nvcc-13-1\t13.1.115-1\ncuda-toolkit-13-1\t13.1.2-1\ng++\t4:13.2.0-7ubuntu1\nninja-build\t1.11.1-2\npython3-dev\t3.12.3-0ubuntu2.1\npython3-venv\t3.12.3-0ubuntu2.1\n",
+    "stderr": ""
+  },
+  "process_configuration": {
+    "OMP_NUM_THREADS": null,
+    "OMP_DYNAMIC": null,
+    "CUDA_VISIBLE_DEVICES": null,
+    "CUDACXX": null
+  },
+  "git_revision": "301deb6a113d041d9b8f48244cddb98c657f1c93",
+  "git_status": "",
+  "topology_scope": "Guest-visible topology; do not infer physical hybrid core count from WSL lscpu"
+}

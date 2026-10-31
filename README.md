@@ -214,3 +214,52 @@ the same protocol. Frozen adjustment, oscillation, failed bracketing, and lack o
 balance are reported honestly; passing correctness does not imply faster runtime.
 Energy and fixed-capacity hardware qualification remain blocked. See the
 [Phase 5 contract](docs/phase5_spec.md) and [review](docs/phase5_review.md).
+
+## Run Phase 6 HotSpot
+
+HotSpot adds evolving thermal state, row halos, and bidirectional ownership
+migration. It uses the documented Rodinia CUDA thermal model with FP64 and an
+explicit stability limit. The pinned model sources and license are retained under
+`references/rodinia`; no external dataset is needed.
+
+```bash
+# WSL, repository root, retained .venv-wsl activated
+export PYTHONPATH="$PWD/src"
+cmake -S . -B build/phase6 -G Ninja \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_CUDA_COMPILER=/usr/local/cuda-13.1/bin/nvcc
+cmake --build build/phase6 --parallel 2
+python -m unittest discover -s tests -v
+OMP_NUM_THREADS=4 ctest --test-dir build/phase6 --output-on-failure
+
+python -m greengpu hotspot-check \
+  --binary build/phase6/atlas_hotspot \
+  --output results/phase6/local-check --workers 4 --blocks 3
+python -m greengpu hotspot-replay results/phase6/local-check
+# Optional Matplotlib extra, already used for earlier phase figures
+python -m greengpu hotspot-plot results/phase6/local-check \
+  --output results/phase6/local-figures
+```
+
+The complete matrix includes six small fixtures, static tuning/refinement, held-out
+allocation trials, a 600-step irregular trajectory, a 2048×2048/600-step migration
+check, and a separate Nsight trace. The large independent scalar reference check
+can take several minutes. `nsys` must be on PATH. New archives and output fields
+are created exclusively; use a fresh output directory for each run.
+
+For a single small migration run:
+
+```bash
+# Input, CPU row counts, steps, workers, validation mode, new output field
+build/phase6/atlas_hotspot tests/data/hotspot_edge.hsdat \
+  3,1,0,3,2,0 6 4 verify build/hotspot-example.hstemp
+```
+
+`verify` checks every timestep using a separate full-field snapshot. `timing`
+avoids those validation downloads during the loop and checks the full final field
+afterward. Required halo/migration transfers and final gathering remain counted.
+Pure Phase 5 policies are reused with rows as their work units.
+
+See the [model and execution contract](docs/hotspot_spec.md) and
+[Phase 6 review](docs/phase6_review.md). Energy remains unavailable, and an unchanged
+automatic clock policy does not establish fixed hardware capacity.

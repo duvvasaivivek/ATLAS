@@ -49,6 +49,16 @@ def main(argv=None) -> int:
     allocation_plot = sub.add_parser("allocation-plot",help="Plot verified Phase 5 timing and allocation traces")
     allocation_plot.add_argument("run",type=Path)
     allocation_plot.add_argument("--output",type=Path,required=True)
+    hotspot = sub.add_parser("hotspot-check",help="Validate thermal state migration and allocation policies")
+    hotspot.add_argument("--output",type=Path,required=True)
+    hotspot.add_argument("--binary",type=Path,required=True)
+    hotspot.add_argument("--workers",type=int,default=4)
+    hotspot.add_argument("--blocks",type=int,default=3)
+    hotspot_replay = sub.add_parser("hotspot-replay",help="Verify and replay Phase 6 evidence")
+    hotspot_replay.add_argument("run",type=Path)
+    hotspot_plot = sub.add_parser("hotspot-plot",help="Plot verified Phase 6 thermal/timing evidence")
+    hotspot_plot.add_argument("run",type=Path)
+    hotspot_plot.add_argument("--output",type=Path,required=True)
     args = parser.parse_args(argv)
     if not Path("pyproject.toml").is_file() or not Path("src/greengpu").is_dir():
         parser.error("Run this command from the ATLAS repository root")
@@ -80,8 +90,25 @@ def main(argv=None) -> int:
         result=replay(args.run)
         print(json.dumps(dict(status=result['implementation_status'],trials=len(result['results']),full_phase_gate=result['full_phase_gate']),indent=2))
         return 0
+    if args.command == "hotspot-plot":
+        from .hotspot_plot import render
+        print(render(args.run,args.output))
+        return 0
+    if args.command == "hotspot-replay":
+        from .hotspot import replay
+        result=replay(args.run)
+        print(json.dumps(dict(status=result['implementation_status'],trials=len(result['results']),steps=result['measured_steps']),indent=2))
+        return 0 if result['implementation_status']=='passed' else 1
     if args.output.exists():
         parser.error("Output already exists; use a new directory to preserve earlier evidence")
+    if args.command == "hotspot-check":
+        from .hotspot import run
+        try:
+            result=run(args.output,args.binary,args.workers,args.blocks)
+        except (ValueError,RuntimeError,OSError) as error:
+            parser.exit(1,f"HotSpot validation failed: {error}\n")
+        print(json.dumps(dict(output=str(args.output),status=result['implementation_status'],trials=len(result['results']),steps=result['measured_steps'],energy=result['energy_qualification']),indent=2))
+        return 0 if result['implementation_status']=='passed' else 1
     if args.command == "allocation-check":
         from .allocation_experiment import run
         try:

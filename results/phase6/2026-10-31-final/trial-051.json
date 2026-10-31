@@ -1,0 +1,110 @@
+{
+  "argv": [
+    "/mnt/c/Users/saivi/Downloads/ATLAS/build/phase6/atlas_hotspot",
+    "/mnt/c/Users/saivi/Downloads/ATLAS/results/phase6/2026-10-31-final/datasets/equilibrium.hsdat",
+    "7",
+    "12",
+    "4",
+    "verify",
+    "/mnt/c/Users/saivi/Downloads/ATLAS/results/phase6/2026-10-31-final/fields/trial-051.hstemp",
+    "feedback"
+  ],
+  "configuration": null,
+  "decisions": [
+    {
+      "controller_ns": 7894,
+      "decision": {
+        "cpu_items": 3,
+        "iteration": 0,
+        "reason": "scripted_schedule"
+      }
+    },
+    {
+      "controller_ns": 4734,
+      "decision": {
+        "cpu_items": 0,
+        "iteration": 1,
+        "reason": "scripted_schedule"
+      }
+    },
+    {
+      "controller_ns": 4478,
+      "decision": {
+        "cpu_items": 7,
+        "iteration": 2,
+        "reason": "scripted_schedule"
+      }
+    },
+    {
+      "controller_ns": 2779,
+      "decision": {
+        "cpu_items": 1,
+        "iteration": 3,
+        "reason": "scripted_schedule"
+      }
+    },
+    {
+      "controller_ns": 2779,
+      "decision": {
+        "cpu_items": 6,
+        "iteration": 4,
+        "reason": "scripted_schedule"
+      }
+    },
+    {
+      "controller_ns": 2965,
+      "decision": {
+        "cpu_items": 7,
+        "iteration": 5,
+        "reason": "scripted_schedule"
+      }
+    },
+    {
+      "controller_ns": 2476,
+      "decision": {
+        "cpu_items": 3,
+        "iteration": 6,
+        "reason": "scripted_schedule"
+      }
+    },
+    {
+      "controller_ns": 2200,
+      "decision": {
+        "cpu_items": 0,
+        "iteration": 7,
+        "reason": "scripted_schedule"
+      }
+    },
+    {
+      "controller_ns": 6779,
+      "decision": {
+        "cpu_items": 7,
+        "iteration": 8,
+        "reason": "scripted_schedule"
+      }
+    },
+    {
+      "controller_ns": 6557,
+      "decision": {
+        "cpu_items": 1,
+        "iteration": 9,
+        "reason": "scripted_schedule"
+      }
+    },
+    {
+      "controller_ns": 15679,
+      "decision": {
+        "cpu_items": 6,
+        "iteration": 10,
+        "reason": "scripted_schedule"
+      }
+    }
+  ],
+  "elapsed_ns": 656048440,
+  "failure": null,
+  "returncode": 0,
+  "status": "ok",
+  "stderr": "",
+  "stdout": "{\"kind\":\"configuration\",\"schema_version\":\"6.0\",\"clock\":\"CLOCK_MONOTONIC\",\"rows\":7,\"cols\":9,\"steps\":12,\"workers\":4,\"mode\":\"verify\",\"feedback\":true,\"atol\":1e-8,\"rtol\":1e-10,\"cap\":0.0017777777777777779,\"rx\":7.7777777777777777,\"ry\":12.857142857142858,\"rz\":1.2304687499999998,\"dt\":1.4583333333333335e-07,\"nominal_dt\":1.4583333333333335e-07,\"stability_sum\":0.00010052083333333335}\n{\"kind\":\"iteration\",\"index\":-1,\"warmup\":true,\"cpu_rows\":7,\"old_cpu_rows\":7,\"input_epoch\":0,\"output_epoch\":1,\"status\":\"completed\",\"validation\":\"checked\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":0,\"halo_d2h_bytes\":0,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":7,\"control_ns\":0,\"release_ns\":114596655654,\"communication_end_ns\":114596664777,\"cpu_start_ns\":114596716005,\"cpu_end_ns\":114597299549,\"gpu_end_ns\":null,\"end_ns\":114597371372,\"validation_end_ns\":114597374092,\"temperatures\":[80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80]}\n{\"kind\":\"iteration\",\"index\":0,\"warmup\":false,\"cpu_rows\":7,\"old_cpu_rows\":7,\"input_epoch\":0,\"output_epoch\":1,\"status\":\"completed\",\"validation\":\"checked\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":0,\"halo_d2h_bytes\":0,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":7,\"control_ns\":0,\"release_ns\":114597700014,\"communication_end_ns\":114597700154,\"cpu_start_ns\":114597787319,\"cpu_end_ns\":114598220141,\"gpu_end_ns\":null,\"end_ns\":114598293800,\"validation_end_ns\":114598296660,\"temperatures\":[80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80]}\n{\"kind\":\"iteration\",\"index\":1,\"warmup\":false,\"cpu_rows\":3,\"old_cpu_rows\":7,\"input_epoch\":1,\"output_epoch\":2,\"status\":\"completed\",\"validation\":\"checked\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":288,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":72,\"halo_d2h_bytes\":72,\"power_h2d_bytes\":288,\"validation_d2h_bytes\":288,\"power_begin_after\":3,\"control_ns\":479117,\"release_ns\":114598775931,\"communication_end_ns\":114602266933,\"cpu_start_ns\":114602337994,\"cpu_end_ns\":114602352493,\"gpu_end_ns\":114606560721,\"end_ns\":114606561912,\"validation_end_ns\":114611642538,\"temperatures\":[80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80]}\n{\"kind\":\"iteration\",\"index\":2,\"warmup\":false,\"cpu_rows\":0,\"old_cpu_rows\":3,\"input_epoch\":2,\"output_epoch\":3,\"status\":\"completed\",\"validation\":\"checked\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":216,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":0,\"halo_d2h_bytes\":0,\"power_h2d_bytes\":216,\"validation_d2h_bytes\":504,\"power_begin_after\":0,\"control_ns\":652413,\"release_ns\":114612295075,\"communication_end_ns\":114612593875,\"cpu_start_ns\":null,\"cpu_end_ns\":null,\"gpu_end_ns\":114612743156,\"end_ns\":114612743206,\"validation_end_ns\":114612849399,\"temperatures\":[80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80]}\n{\"kind\":\"iteration\",\"index\":3,\"warmup\":false,\"cpu_rows\":7,\"old_cpu_rows\":0,\"input_epoch\":3,\"output_epoch\":4,\"status\":\"completed\",\"validation\":\"checked\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":504,\"halo_h2d_bytes\":0,\"halo_d2h_bytes\":0,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":0,\"control_ns\":307894,\"release_ns\":114613158007,\"communication_end_ns\":114613269208,\"cpu_start_ns\":114613352455,\"cpu_end_ns\":114613365230,\"gpu_end_ns\":null,\"end_ns\":114613420922,\"validation_end_ns\":114613422612,\"temperatures\":[80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80]}\n{\"kind\":\"iteration\",\"index\":4,\"warmup\":false,\"cpu_rows\":1,\"old_cpu_rows\":7,\"input_epoch\":4,\"output_epoch\":5,\"status\":\"completed\",\"validation\":\"checked\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":432,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":72,\"halo_d2h_bytes\":72,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":432,\"power_begin_after\":0,\"control_ns\":228763,\"release_ns\":114613651512,\"communication_end_ns\":114613872623,\"cpu_start_ns\":114613931013,\"cpu_end_ns\":114613940090,\"gpu_end_ns\":114614036714,\"end_ns\":114614036904,\"validation_end_ns\":114614147241,\"temperatures\":[80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80]}\n{\"kind\":\"iteration\",\"index\":5,\"warmup\":false,\"cpu_rows\":6,\"old_cpu_rows\":1,\"input_epoch\":5,\"output_epoch\":6,\"status\":\"completed\",\"validation\":\"checked\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":360,\"halo_h2d_bytes\":72,\"halo_d2h_bytes\":72,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":72,\"power_begin_after\":0,\"control_ns\":257014,\"release_ns\":114614404698,\"communication_end_ns\":114614642203,\"cpu_start_ns\":114614717788,\"cpu_end_ns\":114614726097,\"gpu_end_ns\":114614778595,\"end_ns\":114614778888,\"validation_end_ns\":114614889135,\"temperatures\":[80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80]}\n{\"kind\":\"iteration\",\"index\":6,\"warmup\":false,\"cpu_rows\":7,\"old_cpu_rows\":6,\"input_epoch\":6,\"output_epoch\":7,\"status\":\"completed\",\"validation\":\"checked\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":72,\"halo_h2d_bytes\":0,\"halo_d2h_bytes\":0,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":0,\"control_ns\":272222,\"release_ns\":114615161723,\"communication_end_ns\":114615237420,\"cpu_start_ns\":114615300619,\"cpu_end_ns\":114615324294,\"gpu_end_ns\":null,\"end_ns\":114615369822,\"validation_end_ns\":114615371444,\"temperatures\":[80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80]}\n{\"kind\":\"iteration\",\"index\":7,\"warmup\":false,\"cpu_rows\":3,\"old_cpu_rows\":7,\"input_epoch\":7,\"output_epoch\":8,\"status\":\"completed\",\"validation\":\"checked\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":288,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":72,\"halo_d2h_bytes\":72,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":288,\"power_begin_after\":0,\"control_ns\":191297,\"release_ns\":114615562845,\"communication_end_ns\":114615727222,\"cpu_start_ns\":114615775193,\"cpu_end_ns\":114615787412,\"gpu_end_ns\":114615832054,\"end_ns\":114615832264,\"validation_end_ns\":114615900434,\"temperatures\":[80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80]}\n{\"kind\":\"iteration\",\"index\":8,\"warmup\":false,\"cpu_rows\":0,\"old_cpu_rows\":3,\"input_epoch\":8,\"output_epoch\":9,\"status\":\"completed\",\"validation\":\"checked\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":216,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":0,\"halo_d2h_bytes\":0,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":504,\"power_begin_after\":0,\"control_ns\":173637,\"release_ns\":114616074144,\"communication_end_ns\":114616161009,\"cpu_start_ns\":null,\"cpu_end_ns\":null,\"gpu_end_ns\":114616239276,\"end_ns\":114616239351,\"validation_end_ns\":114616311472,\"temperatures\":[80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80]}\n{\"kind\":\"iteration\",\"index\":9,\"warmup\":false,\"cpu_rows\":7,\"old_cpu_rows\":0,\"input_epoch\":9,\"output_epoch\":10,\"status\":\"completed\",\"validation\":\"checked\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":504,\"halo_h2d_bytes\":0,\"halo_d2h_bytes\":0,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":0,\"control_ns\":472445,\"release_ns\":114616784655,\"communication_end_ns\":114617317630,\"cpu_start_ns\":114617542913,\"cpu_end_ns\":114617565274,\"gpu_end_ns\":null,\"end_ns\":114617678872,\"validation_end_ns\":114617685511,\"temperatures\":[80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80]}\n{\"kind\":\"iteration\",\"index\":10,\"warmup\":false,\"cpu_rows\":1,\"old_cpu_rows\":7,\"input_epoch\":10,\"output_epoch\":11,\"status\":\"completed\",\"validation\":\"checked\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":432,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":72,\"halo_d2h_bytes\":72,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":432,\"power_begin_after\":0,\"control_ns\":528710,\"release_ns\":114618214365,\"communication_end_ns\":114619155465,\"cpu_start_ns\":114619275525,\"cpu_end_ns\":114619292883,\"gpu_end_ns\":114619359636,\"end_ns\":114619359890,\"validation_end_ns\":114619449663,\"temperatures\":[80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80]}\n{\"kind\":\"iteration\",\"index\":11,\"warmup\":false,\"cpu_rows\":6,\"old_cpu_rows\":1,\"input_epoch\":11,\"output_epoch\":12,\"status\":\"completed\",\"validation\":\"checked\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":360,\"halo_h2d_bytes\":72,\"halo_d2h_bytes\":72,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":72,\"power_begin_after\":0,\"control_ns\":783436,\"release_ns\":114620234251,\"communication_end_ns\":114620735025,\"cpu_start_ns\":114620840466,\"cpu_end_ns\":114620859904,\"gpu_end_ns\":114621052738,\"end_ns\":114621052963,\"validation_end_ns\":114621209452,\"temperatures\":[80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80]}\n{\"kind\":\"summary\",\"status\":\"passed\",\"steps\":12,\"errors\":0,\"max_error\":0,\"active_ns\":13351574,\"control_ns\":4346948,\"gather_ns\":755,\"gather_d2h_bytes\":0,\"validation_d2h_bytes\":2592,\"work_and_control_and_gather_ns\":17699277,\"loop_elapsed_ns\":23352949,\"simulated_seconds\":1.7500000000000002e-06}\n",
+  "timed_out": false
+}

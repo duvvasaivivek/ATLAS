@@ -1,0 +1,1322 @@
+{
+  "argv": [
+    "/mnt/c/Users/saivi/Downloads/ATLAS/build/phase6/atlas_hotspot",
+    "/mnt/c/Users/saivi/Downloads/ATLAS/results/phase6/2026-10-31-final/datasets/heldout.hsdat",
+    "128",
+    "24",
+    "4",
+    "timing",
+    "/mnt/c/Users/saivi/Downloads/ATLAS/results/phase6/2026-10-31-final/fields/trial-145.hstemp",
+    "feedback"
+  ],
+  "configuration": {
+    "adaptive_step": 0.15,
+    "alpha": 0.25,
+    "budget": 200,
+    "damping": 0.5,
+    "deadband": 0.05,
+    "dwell": 3,
+    "legal_counts": null,
+    "max_move": 0.1,
+    "n": 257,
+    "phase_factor": 2.0,
+    "phase_patience": 2,
+    "policy": "robust_proportional_v1",
+    "precision": 0.01,
+    "step": 0.05
+  },
+  "decisions": [
+    {
+      "controller_ns": 199099,
+      "decision": {
+        "config_hash": "b02b922f108c661199b49d0854eb83e2555b9c3b49581d7814585b104a72b17a",
+        "cpu_items": 132,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 128,
+          "epoch": 0,
+          "iteration": 0,
+          "run_id": "hotspot-145",
+          "t_cpu": 0.00032237,
+          "t_gpu": 0.000365692,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 1,
+          "epoch": 0,
+          "filter": [
+            0.000647258515625,
+            0.0007285491782945737
+          ],
+          "frozen": null,
+          "last_iteration": 0,
+          "phase_hits": 0,
+          "previous_ratio": 0.4980544747081712,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 0,
+          "epoch": null,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": -1,
+          "phase_hits": 0,
+          "previous_ratio": null,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5136186770428015,
+        "reason": "robust_adjust",
+        "requested_ratio": 0.513798680890279,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 121741,
+      "decision": {
+        "config_hash": "b02b922f108c661199b49d0854eb83e2555b9c3b49581d7814585b104a72b17a",
+        "cpu_items": 132,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 132,
+          "epoch": 0,
+          "iteration": 1,
+          "run_id": "hotspot-145",
+          "t_cpu": 0.000245511,
+          "t_gpu": 0.000276715,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 2,
+          "epoch": 0,
+          "filter": [
+            0.0006049445060369318,
+            0.0006886433937209303
+          ],
+          "frozen": null,
+          "last_iteration": 1,
+          "phase_hits": 0,
+          "previous_ratio": 0.5136186770428015,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 1,
+          "epoch": 0,
+          "filter": [
+            0.000647258515625,
+            0.0007285491782945737
+          ],
+          "frozen": null,
+          "last_iteration": 0,
+          "phase_hits": 0,
+          "previous_ratio": 0.4980544747081712,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5136186770428015,
+        "reason": "hold_dwell",
+        "requested_ratio": 0.5136186770428015,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 104990,
+      "decision": {
+        "config_hash": "b02b922f108c661199b49d0854eb83e2555b9c3b49581d7814585b104a72b17a",
+        "cpu_items": 132,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 132,
+          "epoch": 0,
+          "iteration": 2,
+          "run_id": "hotspot-145",
+          "t_cpu": 0.000264874,
+          "t_gpu": 0.000298174,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 3,
+          "epoch": 0,
+          "filter": [
+            0.0005826337924064867,
+            0.0006697439812906978
+          ],
+          "frozen": null,
+          "last_iteration": 2,
+          "phase_hits": 0,
+          "previous_ratio": 0.5136186770428015,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 2,
+          "epoch": 0,
+          "filter": [
+            0.0006049445060369318,
+            0.0006886433937209303
+          ],
+          "frozen": null,
+          "last_iteration": 1,
+          "phase_hits": 0,
+          "previous_ratio": 0.5136186770428015,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5136186770428015,
+        "reason": "hold_dwell",
+        "requested_ratio": 0.5136186770428015,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 132250,
+      "decision": {
+        "config_hash": "b02b922f108c661199b49d0854eb83e2555b9c3b49581d7814585b104a72b17a",
+        "cpu_items": 135,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 132,
+          "epoch": 0,
+          "iteration": 3,
+          "run_id": "hotspot-145",
+          "t_cpu": 0.000385935,
+          "t_gpu": 0.000428251,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 4,
+          "epoch": 0,
+          "filter": [
+            0.000624826281804865,
+            0.0007224289999680233
+          ],
+          "frozen": null,
+          "last_iteration": 3,
+          "phase_hits": 0,
+          "previous_ratio": 0.5136186770428015,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 3,
+          "epoch": 0,
+          "filter": [
+            0.0005826337924064867,
+            0.0006697439812906978
+          ],
+          "frozen": null,
+          "last_iteration": 2,
+          "phase_hits": 0,
+          "previous_ratio": 0.5136186770428015,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5252918287937743,
+        "reason": "robust_adjust",
+        "requested_ratio": 0.5249207386924806,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 105866,
+      "decision": {
+        "config_hash": "b02b922f108c661199b49d0854eb83e2555b9c3b49581d7814585b104a72b17a",
+        "cpu_items": 135,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 135,
+          "epoch": 0,
+          "iteration": 4,
+          "run_id": "hotspot-145",
+          "t_cpu": 0.000263027,
+          "t_gpu": 0.00029414,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 5,
+          "epoch": 0,
+          "filter": [
+            0.0005938010798721673,
+            0.000696727446697329
+          ],
+          "frozen": null,
+          "last_iteration": 4,
+          "phase_hits": 0,
+          "previous_ratio": 0.5252918287937743,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 4,
+          "epoch": 0,
+          "filter": [
+            0.000624826281804865,
+            0.0007224289999680233
+          ],
+          "frozen": null,
+          "last_iteration": 3,
+          "phase_hits": 0,
+          "previous_ratio": 0.5136186770428015,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5252918287937743,
+        "reason": "hold_dwell",
+        "requested_ratio": 0.5252918287937743,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 101726,
+      "decision": {
+        "config_hash": "b02b922f108c661199b49d0854eb83e2555b9c3b49581d7814585b104a72b17a",
+        "cpu_items": 135,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 135,
+          "epoch": 0,
+          "iteration": 5,
+          "run_id": "hotspot-145",
+          "t_cpu": 0.000321242,
+          "t_gpu": 0.000181047,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 6,
+          "epoch": 0,
+          "filter": [
+            0.0005982382062004218,
+            0.0006178920583836525
+          ],
+          "frozen": null,
+          "last_iteration": 5,
+          "phase_hits": 0,
+          "previous_ratio": 0.5252918287937743,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 5,
+          "epoch": 0,
+          "filter": [
+            0.0005938010798721673,
+            0.000696727446697329
+          ],
+          "frozen": null,
+          "last_iteration": 4,
+          "phase_hits": 0,
+          "previous_ratio": 0.5252918287937743,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5252918287937743,
+        "reason": "hold_dwell",
+        "requested_ratio": 0.5252918287937743,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 143581,
+      "decision": {
+        "config_hash": "b02b922f108c661199b49d0854eb83e2555b9c3b49581d7814585b104a72b17a",
+        "cpu_items": 131,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 135,
+          "epoch": 0,
+          "iteration": 6,
+          "run_id": "hotspot-145",
+          "t_cpu": 0.000399024,
+          "t_gpu": 0.000293017,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 7,
+          "epoch": 0,
+          "filter": [
+            0.0006385845213169831,
+            0.0006177333245254443
+          ],
+          "frozen": null,
+          "last_iteration": 6,
+          "phase_hits": 0,
+          "previous_ratio": 0.5252918287937743,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 6,
+          "epoch": 0,
+          "filter": [
+            0.0005982382062004218,
+            0.0006178920583836525
+          ],
+          "frozen": null,
+          "last_iteration": 5,
+          "phase_hits": 0,
+          "previous_ratio": 0.5252918287937743,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5097276264591439,
+        "reason": "robust_adjust",
+        "requested_ratio": 0.5084966465860894,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 167739,
+      "decision": {
+        "config_hash": "b02b922f108c661199b49d0854eb83e2555b9c3b49581d7814585b104a72b17a",
+        "cpu_items": 131,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 131,
+          "epoch": 0,
+          "iteration": 7,
+          "run_id": "hotspot-145",
+          "t_cpu": 0.000464685,
+          "t_gpu": 0.000370734,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 8,
+          "epoch": 0,
+          "filter": [
+            0.0007068468738121648,
+            0.0006523449100607499
+          ],
+          "frozen": null,
+          "last_iteration": 7,
+          "phase_hits": 0,
+          "previous_ratio": 0.5097276264591439,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 7,
+          "epoch": 0,
+          "filter": [
+            0.0006385845213169831,
+            0.0006177333245254443
+          ],
+          "frozen": null,
+          "last_iteration": 6,
+          "phase_hits": 0,
+          "previous_ratio": 0.5252918287937743,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5097276264591439,
+        "reason": "hold_dwell",
+        "requested_ratio": 0.5097276264591439,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 225706,
+      "decision": {
+        "config_hash": "b02b922f108c661199b49d0854eb83e2555b9c3b49581d7814585b104a72b17a",
+        "cpu_items": 131,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 131,
+          "epoch": 0,
+          "iteration": 8,
+          "run_id": "hotspot-145",
+          "t_cpu": 0.00057948,
+          "t_gpu": 0.000340235,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 9,
+          "epoch": 0,
+          "filter": [
+            0.0008143457660461465,
+            0.0006627515297677846
+          ],
+          "frozen": null,
+          "last_iteration": 8,
+          "phase_hits": 0,
+          "previous_ratio": 0.5097276264591439,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 8,
+          "epoch": 0,
+          "filter": [
+            0.0007068468738121648,
+            0.0006523449100607499
+          ],
+          "frozen": null,
+          "last_iteration": 7,
+          "phase_hits": 0,
+          "previous_ratio": 0.5097276264591439,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.5097276264591439,
+        "reason": "hold_dwell",
+        "requested_ratio": 0.5097276264591439,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 228114,
+      "decision": {
+        "config_hash": "b02b922f108c661199b49d0854eb83e2555b9c3b49581d7814585b104a72b17a",
+        "cpu_items": 123,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 131,
+          "epoch": 0,
+          "iteration": 9,
+          "run_id": "hotspot-145",
+          "t_cpu": 0.000300397,
+          "t_gpu": 0.000233886,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 10,
+          "epoch": 0,
+          "filter": [
+            0.0007580914409468237,
+            0.000616326944944886
+          ],
+          "frozen": null,
+          "last_iteration": 9,
+          "phase_hits": 0,
+          "previous_ratio": 0.5097276264591439,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 9,
+          "epoch": 0,
+          "filter": [
+            0.0008143457660461465,
+            0.0006627515297677846
+          ],
+          "frozen": null,
+          "last_iteration": 8,
+          "phase_hits": 0,
+          "previous_ratio": 0.5097276264591439,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.4785992217898833,
+        "reason": "robust_adjust",
+        "requested_ratio": 0.47907754293205224,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 127621,
+      "decision": {
+        "config_hash": "b02b922f108c661199b49d0854eb83e2555b9c3b49581d7814585b104a72b17a",
+        "cpu_items": 123,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 123,
+          "epoch": 0,
+          "iteration": 10,
+          "run_id": "hotspot-145",
+          "t_cpu": 0.00052637,
+          "t_gpu": 0.000521045,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 11,
+          "epoch": 0,
+          "filter": [
+            0.0008435220156694673,
+            0.0007120746210220973
+          ],
+          "frozen": null,
+          "last_iteration": 10,
+          "phase_hits": 0,
+          "previous_ratio": 0.4785992217898833,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 10,
+          "epoch": 0,
+          "filter": [
+            0.0007580914409468237,
+            0.000616326944944886
+          ],
+          "frozen": null,
+          "last_iteration": 9,
+          "phase_hits": 0,
+          "previous_ratio": 0.5097276264591439,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.4785992217898833,
+        "reason": "hold_deadband",
+        "requested_ratio": 0.4785992217898833,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 230970,
+      "decision": {
+        "config_hash": "b02b922f108c661199b49d0854eb83e2555b9c3b49581d7814585b104a72b17a",
+        "cpu_items": 123,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 123,
+          "epoch": 0,
+          "iteration": 11,
+          "run_id": "hotspot-145",
+          "t_cpu": 0.000595064,
+          "t_gpu": 0.000246163,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 12,
+          "epoch": 0,
+          "filter": [
+            0.0009434777881748646,
+            0.0006520856131546326
+          ],
+          "frozen": null,
+          "last_iteration": 11,
+          "phase_hits": 0,
+          "previous_ratio": 0.4785992217898833,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 11,
+          "epoch": 0,
+          "filter": [
+            0.0008435220156694673,
+            0.0007120746210220973
+          ],
+          "frozen": null,
+          "last_iteration": 10,
+          "phase_hits": 0,
+          "previous_ratio": 0.4785992217898833,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.4785992217898833,
+        "reason": "hold_dwell",
+        "requested_ratio": 0.4785992217898833,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 161964,
+      "decision": {
+        "config_hash": "b02b922f108c661199b49d0854eb83e2555b9c3b49581d7814585b104a72b17a",
+        "cpu_items": 116,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 123,
+          "epoch": 0,
+          "iteration": 12,
+          "run_id": "hotspot-145",
+          "t_cpu": 0.000566865,
+          "t_gpu": 0.000504378,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 13,
+          "epoch": 0,
+          "filter": [
+            0.001003714652106758,
+            0.0007309021688211983
+          ],
+          "frozen": null,
+          "last_iteration": 12,
+          "phase_hits": 0,
+          "previous_ratio": 0.4785992217898833,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 12,
+          "epoch": 0,
+          "filter": [
+            0.0009434777881748646,
+            0.0006520856131546326
+          ],
+          "frozen": null,
+          "last_iteration": 11,
+          "phase_hits": 0,
+          "previous_ratio": 0.4785992217898833,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.45136186770428016,
+        "reason": "robust_adjust",
+        "requested_ratio": 0.4499807711382144,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 130182,
+      "decision": {
+        "config_hash": "b02b922f108c661199b49d0854eb83e2555b9c3b49581d7814585b104a72b17a",
+        "cpu_items": 116,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 116,
+          "epoch": 0,
+          "iteration": 13,
+          "run_id": "hotspot-145",
+          "t_cpu": 0.000462954,
+          "t_gpu": 0.000389781,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 14,
+          "epoch": 0,
+          "filter": [
+            0.001009206631321448,
+            0.0007257896000201541
+          ],
+          "frozen": null,
+          "last_iteration": 13,
+          "phase_hits": 0,
+          "previous_ratio": 0.45136186770428016,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 13,
+          "epoch": 0,
+          "filter": [
+            0.001003714652106758,
+            0.0007309021688211983
+          ],
+          "frozen": null,
+          "last_iteration": 12,
+          "phase_hits": 0,
+          "previous_ratio": 0.4785992217898833,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.45136186770428016,
+        "reason": "hold_dwell",
+        "requested_ratio": 0.45136186770428016,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 137782,
+      "decision": {
+        "config_hash": "b02b922f108c661199b49d0854eb83e2555b9c3b49581d7814585b104a72b17a",
+        "cpu_items": 116,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 116,
+          "epoch": 0,
+          "iteration": 14,
+          "run_id": "hotspot-145",
+          "t_cpu": 0.000213066,
+          "t_gpu": 0.000221455,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 15,
+          "epoch": 0,
+          "filter": [
+            0.000874917822629017,
+            0.000645253432284619
+          ],
+          "frozen": null,
+          "last_iteration": 14,
+          "phase_hits": 1,
+          "previous_ratio": 0.45136186770428016,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 14,
+          "epoch": 0,
+          "filter": [
+            0.001009206631321448,
+            0.0007257896000201541
+          ],
+          "frozen": null,
+          "last_iteration": 13,
+          "phase_hits": 0,
+          "previous_ratio": 0.45136186770428016,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.45136186770428016,
+        "reason": "hold_deadband",
+        "requested_ratio": 0.45136186770428016,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 105071,
+      "decision": {
+        "config_hash": "b02b922f108c661199b49d0854eb83e2555b9c3b49581d7814585b104a72b17a",
+        "cpu_items": 116,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 116,
+          "epoch": 0,
+          "iteration": 15,
+          "run_id": "hotspot-145",
+          "t_cpu": 0.000187568,
+          "t_gpu": 0.000196847,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 16,
+          "epoch": 0,
+          "filter": [
+            0.00041556013793103447,
+            0.00035879204964539004
+          ],
+          "frozen": null,
+          "last_iteration": 15,
+          "phase_hits": 0,
+          "previous_ratio": 0.45136186770428016,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 15,
+          "epoch": 0,
+          "filter": [
+            0.000874917822629017,
+            0.000645253432284619
+          ],
+          "frozen": null,
+          "last_iteration": 14,
+          "phase_hits": 1,
+          "previous_ratio": 0.45136186770428016,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.45136186770428016,
+        "reason": "hold_deadband",
+        "requested_ratio": 0.45136186770428016,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 136367,
+      "decision": {
+        "config_hash": "b02b922f108c661199b49d0854eb83e2555b9c3b49581d7814585b104a72b17a",
+        "cpu_items": 116,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 116,
+          "epoch": 0,
+          "iteration": 16,
+          "run_id": "hotspot-145",
+          "t_cpu": 0.000257491,
+          "t_gpu": 0.000224226,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 17,
+          "epoch": 0,
+          "filter": [
+            0.0004542890409482759,
+            0.00037126794148936173
+          ],
+          "frozen": null,
+          "last_iteration": 16,
+          "phase_hits": 0,
+          "previous_ratio": 0.45136186770428016,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 16,
+          "epoch": 0,
+          "filter": [
+            0.00041556013793103447,
+            0.00035879204964539004
+          ],
+          "frozen": null,
+          "last_iteration": 15,
+          "phase_hits": 0,
+          "previous_ratio": 0.45136186770428016,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.45136186770428016,
+        "reason": "hold_quantized",
+        "requested_ratio": 0.450539998330713,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 129584,
+      "decision": {
+        "config_hash": "b02b922f108c661199b49d0854eb83e2555b9c3b49581d7814585b104a72b17a",
+        "cpu_items": 116,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 116,
+          "epoch": 0,
+          "iteration": 17,
+          "run_id": "hotspot-145",
+          "t_cpu": 0.000256106,
+          "t_gpu": 0.000205748,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 18,
+          "epoch": 0,
+          "filter": [
+            0.0004825685953663793,
+            0.0003722049206560284
+          ],
+          "frozen": null,
+          "last_iteration": 17,
+          "phase_hits": 0,
+          "previous_ratio": 0.45136186770428016,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 17,
+          "epoch": 0,
+          "filter": [
+            0.0004542890409482759,
+            0.00037126794148936173
+          ],
+          "frozen": null,
+          "last_iteration": 16,
+          "phase_hits": 0,
+          "previous_ratio": 0.45136186770428016,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.45136186770428016,
+        "reason": "hold_dwell",
+        "requested_ratio": 0.45136186770428016,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 116694,
+      "decision": {
+        "config_hash": "b02b922f108c661199b49d0854eb83e2555b9c3b49581d7814585b104a72b17a",
+        "cpu_items": 116,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 116,
+          "epoch": 0,
+          "iteration": 18,
+          "run_id": "hotspot-145",
+          "t_cpu": 0.000188232,
+          "t_gpu": 0.000218987,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 19,
+          "epoch": 0,
+          "filter": [
+            0.0004661842568696121,
+            0.0003789403199246454
+          ],
+          "frozen": null,
+          "last_iteration": 18,
+          "phase_hits": 0,
+          "previous_ratio": 0.45136186770428016,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 18,
+          "epoch": 0,
+          "filter": [
+            0.0004825685953663793,
+            0.0003722049206560284
+          ],
+          "frozen": null,
+          "last_iteration": 17,
+          "phase_hits": 0,
+          "previous_ratio": 0.45136186770428016,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.45136186770428016,
+        "reason": "hold_dwell",
+        "requested_ratio": 0.45136186770428016,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 109639,
+      "decision": {
+        "config_hash": "b02b922f108c661199b49d0854eb83e2555b9c3b49581d7814585b104a72b17a",
+        "cpu_items": 118,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 116,
+          "epoch": 0,
+          "iteration": 19,
+          "run_id": "hotspot-145",
+          "t_cpu": 0.00017976,
+          "t_gpu": 0.000242953,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 20,
+          "epoch": 0,
+          "filter": [
+            0.0004492035374797953,
+            0.00039491254668107273
+          ],
+          "frozen": null,
+          "last_iteration": 19,
+          "phase_hits": 0,
+          "previous_ratio": 0.45136186770428016,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 19,
+          "epoch": 0,
+          "filter": [
+            0.0004661842568696121,
+            0.0003789403199246454
+          ],
+          "frozen": null,
+          "last_iteration": 18,
+          "phase_hits": 0,
+          "previous_ratio": 0.45136186770428016,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.4591439688715953,
+        "reason": "robust_adjust",
+        "requested_ratio": 0.45960169077839474,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 119330,
+      "decision": {
+        "config_hash": "b02b922f108c661199b49d0854eb83e2555b9c3b49581d7814585b104a72b17a",
+        "cpu_items": 118,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 118,
+          "epoch": 0,
+          "iteration": 20,
+          "run_id": "hotspot-145",
+          "t_cpu": 0.000372495,
+          "t_gpu": 0.000340668,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 21,
+          "epoch": 0,
+          "filter": [
+            0.0005397230238725583,
+            0.0004536514531762722
+          ],
+          "frozen": null,
+          "last_iteration": 20,
+          "phase_hits": 0,
+          "previous_ratio": 0.4591439688715953,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 2,
+          "eligible": 20,
+          "epoch": 0,
+          "filter": [
+            0.0004492035374797953,
+            0.00039491254668107273
+          ],
+          "frozen": null,
+          "last_iteration": 19,
+          "phase_hits": 0,
+          "previous_ratio": 0.45136186770428016,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.4591439688715953,
+        "reason": "hold_dwell",
+        "requested_ratio": 0.4591439688715953,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 113213,
+      "decision": {
+        "config_hash": "b02b922f108c661199b49d0854eb83e2555b9c3b49581d7814585b104a72b17a",
+        "cpu_items": 118,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 118,
+          "epoch": 0,
+          "iteration": 21,
+          "run_id": "hotspot-145",
+          "t_cpu": 0.000318561,
+          "t_gpu": 0.000343108,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 22,
+          "epoch": 0,
+          "filter": [
+            0.0005782460327349272,
+            0.0004988334747742905
+          ],
+          "frozen": null,
+          "last_iteration": 21,
+          "phase_hits": 0,
+          "previous_ratio": 0.4591439688715953,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 1,
+          "eligible": 21,
+          "epoch": 0,
+          "filter": [
+            0.0005397230238725583,
+            0.0004536514531762722
+          ],
+          "frozen": null,
+          "last_iteration": 20,
+          "phase_hits": 0,
+          "previous_ratio": 0.4591439688715953,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.4591439688715953,
+        "reason": "hold_dwell",
+        "requested_ratio": 0.4591439688715953,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 125838,
+      "decision": {
+        "config_hash": "b02b922f108c661199b49d0854eb83e2555b9c3b49581d7814585b104a72b17a",
+        "cpu_items": 118,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 118,
+          "epoch": 0,
+          "iteration": 22,
+          "run_id": "hotspot-145",
+          "t_cpu": 0.000168919,
+          "t_gpu": 0.000168649,
+          "valid": true
+        },
+        "policy": "robust_proportional_v1",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 23,
+          "epoch": 0,
+          "filter": [
+            0.0005256594885342462,
+            0.0004520797697497826
+          ],
+          "frozen": null,
+          "last_iteration": 22,
+          "phase_hits": 0,
+          "previous_ratio": 0.4591439688715953,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 22,
+          "epoch": 0,
+          "filter": [
+            0.0005782460327349272,
+            0.0004988334747742905
+          ],
+          "frozen": null,
+          "last_iteration": 21,
+          "phase_hits": 0,
+          "previous_ratio": 0.4591439688715953,
+          "run_id": "hotspot-145",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.4591439688715953,
+        "reason": "hold_deadband",
+        "requested_ratio": 0.4591439688715953,
+        "specification_version": "1.1"
+      }
+    }
+  ],
+  "elapsed_ns": 589726653,
+  "failure": null,
+  "returncode": 0,
+  "status": "ok",
+  "stderr": "",
+  "stdout": "{\"kind\":\"configuration\",\"schema_version\":\"6.0\",\"clock\":\"CLOCK_MONOTONIC\",\"rows\":257,\"cols\":259,\"steps\":24,\"workers\":4,\"mode\":\"timing\",\"feedback\":true,\"atol\":1e-8,\"rtol\":1e-10,\"cap\":1.6826164686086868e-06,\"rx\":9.922779922779922,\"ry\":10.077821011673151,\"rz\":1300.05859375,\"dt\":1.4583333333333335e-07,\"nominal_dt\":1.4583333333333335e-07,\"stability_sum\":0.034735937500000001}\n{\"kind\":\"iteration\",\"index\":-1,\"warmup\":true,\"cpu_rows\":128,\"old_cpu_rows\":257,\"input_epoch\":0,\"output_epoch\":1,\"status\":\"completed\",\"validation\":\"checked\",\"errors\":0,\"max_error\":7.4107386893729199e-15,\"initial_h2d_bytes\":267288,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":267288,\"validation_d2h_bytes\":267288,\"power_begin_after\":128,\"control_ns\":0,\"release_ns\":230328564803,\"communication_end_ns\":230329943350,\"cpu_start_ns\":230329976829,\"cpu_end_ns\":230330352020,\"gpu_end_ns\":230332492407,\"end_ns\":230332492769,\"validation_end_ns\":230335925064}\n{\"kind\":\"iteration\",\"index\":0,\"warmup\":false,\"cpu_rows\":128,\"old_cpu_rows\":257,\"input_epoch\":0,\"output_epoch\":1,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":267288,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":267288,\"validation_d2h_bytes\":0,\"power_begin_after\":128,\"control_ns\":0,\"release_ns\":230336836450,\"communication_end_ns\":230337035250,\"cpu_start_ns\":230337109853,\"cpu_end_ns\":230337158820,\"gpu_end_ns\":230337202142,\"end_ns\":230337202456,\"validation_end_ns\":230337202546}\n{\"kind\":\"iteration\",\"index\":1,\"warmup\":false,\"cpu_rows\":132,\"old_cpu_rows\":128,\"input_epoch\":1,\"output_epoch\":2,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":8288,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":128,\"control_ns\":452647,\"release_ns\":230337655659,\"communication_end_ns\":230337814654,\"cpu_start_ns\":230337863666,\"cpu_end_ns\":230337901170,\"gpu_end_ns\":230337932374,\"end_ns\":230337932581,\"validation_end_ns\":230337932691}\n{\"kind\":\"iteration\",\"index\":2,\"warmup\":false,\"cpu_rows\":132,\"old_cpu_rows\":132,\"input_epoch\":2,\"output_epoch\":3,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":128,\"control_ns\":338877,\"release_ns\":230338271793,\"communication_end_ns\":230338379859,\"cpu_start_ns\":230338420591,\"cpu_end_ns\":230338536667,\"gpu_end_ns\":230338569967,\"end_ns\":230338570105,\"validation_end_ns\":230338570172}\n{\"kind\":\"iteration\",\"index\":3,\"warmup\":false,\"cpu_rows\":132,\"old_cpu_rows\":132,\"input_epoch\":3,\"output_epoch\":4,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":128,\"control_ns\":413003,\"release_ns\":230338983668,\"communication_end_ns\":230339259049,\"cpu_start_ns\":230339329360,\"cpu_end_ns\":230339369603,\"gpu_end_ns\":230339411919,\"end_ns\":230339412095,\"validation_end_ns\":230339412174}\n{\"kind\":\"iteration\",\"index\":4,\"warmup\":false,\"cpu_rows\":135,\"old_cpu_rows\":132,\"input_epoch\":4,\"output_epoch\":5,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":6216,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":128,\"control_ns\":272570,\"release_ns\":230339684889,\"communication_end_ns\":230339858701,\"cpu_start_ns\":230339907416,\"cpu_end_ns\":230339947916,\"gpu_end_ns\":230339979029,\"end_ns\":230339979182,\"validation_end_ns\":230339979230}\n{\"kind\":\"iteration\",\"index\":5,\"warmup\":false,\"cpu_rows\":135,\"old_cpu_rows\":135,\"input_epoch\":5,\"output_epoch\":6,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":128,\"control_ns\":259981,\"release_ns\":230340239451,\"communication_end_ns\":230340340709,\"cpu_start_ns\":230340407385,\"cpu_end_ns\":230340560693,\"gpu_end_ns\":230340420498,\"end_ns\":230340630979,\"validation_end_ns\":230340631132}\n{\"kind\":\"iteration\",\"index\":6,\"warmup\":false,\"cpu_rows\":135,\"old_cpu_rows\":135,\"input_epoch\":6,\"output_epoch\":7,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":128,\"control_ns\":236484,\"release_ns\":230340867748,\"communication_end_ns\":230341072709,\"cpu_start_ns\":230341216190,\"cpu_end_ns\":230341266772,\"gpu_end_ns\":230341160765,\"end_ns\":230341344489,\"validation_end_ns\":230341344666}\n{\"kind\":\"iteration\",\"index\":7,\"warmup\":false,\"cpu_rows\":131,\"old_cpu_rows\":135,\"input_epoch\":7,\"output_epoch\":8,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":8288,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":128,\"control_ns\":330145,\"release_ns\":230341674907,\"communication_end_ns\":230341953812,\"cpu_start_ns\":230342005075,\"cpu_end_ns\":230342139592,\"gpu_end_ns\":230342045641,\"end_ns\":230342177697,\"validation_end_ns\":230342177861}\n{\"kind\":\"iteration\",\"index\":8,\"warmup\":false,\"cpu_rows\":131,\"old_cpu_rows\":131,\"input_epoch\":8,\"output_epoch\":9,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":128,\"control_ns\":354235,\"release_ns\":230342532685,\"communication_end_ns\":230342735874,\"cpu_start_ns\":230342801893,\"cpu_end_ns\":230343112165,\"gpu_end_ns\":230342872920,\"end_ns\":230343166421,\"validation_end_ns\":230343166786}\n{\"kind\":\"iteration\",\"index\":9,\"warmup\":false,\"cpu_rows\":131,\"old_cpu_rows\":131,\"input_epoch\":9,\"output_epoch\":10,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":128,\"control_ns\":463841,\"release_ns\":230343630990,\"communication_end_ns\":230343757126,\"cpu_start_ns\":230343811260,\"cpu_end_ns\":230343931387,\"gpu_end_ns\":230343864876,\"end_ns\":230343968084,\"validation_end_ns\":230343968126}\n{\"kind\":\"iteration\",\"index\":10,\"warmup\":false,\"cpu_rows\":123,\"old_cpu_rows\":131,\"input_epoch\":10,\"output_epoch\":11,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":16576,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":10360,\"validation_d2h_bytes\":0,\"power_begin_after\":123,\"control_ns\":518004,\"release_ns\":230344486797,\"communication_end_ns\":230344839357,\"cpu_start_ns\":230344945674,\"cpu_end_ns\":230345013167,\"gpu_end_ns\":230345007842,\"end_ns\":230345157725,\"validation_end_ns\":230345157950}\n{\"kind\":\"iteration\",\"index\":11,\"warmup\":false,\"cpu_rows\":123,\"old_cpu_rows\":123,\"input_epoch\":11,\"output_epoch\":12,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":123,\"control_ns\":303202,\"release_ns\":230345461415,\"communication_end_ns\":230345619947,\"cpu_start_ns\":230345744226,\"cpu_end_ns\":230346056479,\"gpu_end_ns\":230345707578,\"end_ns\":230346120586,\"validation_end_ns\":230346120650}\n{\"kind\":\"iteration\",\"index\":12,\"warmup\":false,\"cpu_rows\":123,\"old_cpu_rows\":123,\"input_epoch\":12,\"output_epoch\":13,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":123,\"control_ns\":733837,\"release_ns\":230346856913,\"communication_end_ns\":230347172257,\"cpu_start_ns\":230347277418,\"cpu_end_ns\":230347423778,\"gpu_end_ns\":230347361291,\"end_ns\":230347584104,\"validation_end_ns\":230347584300}\n{\"kind\":\"iteration\",\"index\":13,\"warmup\":false,\"cpu_rows\":116,\"old_cpu_rows\":123,\"input_epoch\":13,\"output_epoch\":14,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":14504,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":14504,\"validation_d2h_bytes\":0,\"power_begin_after\":116,\"control_ns\":428694,\"release_ns\":230348013145,\"communication_end_ns\":230348243965,\"cpu_start_ns\":230348300019,\"cpu_end_ns\":230348476099,\"gpu_end_ns\":230348402926,\"end_ns\":230348514977,\"validation_end_ns\":230348515124}\n{\"kind\":\"iteration\",\"index\":14,\"warmup\":false,\"cpu_rows\":116,\"old_cpu_rows\":116,\"input_epoch\":14,\"output_epoch\":15,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":116,\"control_ns\":304467,\"release_ns\":230348819941,\"communication_end_ns\":230348937475,\"cpu_start_ns\":230348984654,\"cpu_end_ns\":230349033007,\"gpu_end_ns\":230349041396,\"end_ns\":230349041556,\"validation_end_ns\":230349041678}\n{\"kind\":\"iteration\",\"index\":15,\"warmup\":false,\"cpu_rows\":116,\"old_cpu_rows\":116,\"input_epoch\":15,\"output_epoch\":16,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":116,\"control_ns\":305696,\"release_ns\":230349347764,\"communication_end_ns\":230349446920,\"cpu_start_ns\":230349486719,\"cpu_end_ns\":230349535332,\"gpu_end_ns\":230349544611,\"end_ns\":230349544792,\"validation_end_ns\":230349544886}\n{\"kind\":\"iteration\",\"index\":16,\"warmup\":false,\"cpu_rows\":116,\"old_cpu_rows\":116,\"input_epoch\":16,\"output_epoch\":17,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":116,\"control_ns\":262461,\"release_ns\":230349807639,\"communication_end_ns\":230349910043,\"cpu_start_ns\":230349945903,\"cpu_end_ns\":230350065130,\"gpu_end_ns\":230350031865,\"end_ns\":230350096614,\"validation_end_ns\":230350096757}\n{\"kind\":\"iteration\",\"index\":17,\"warmup\":false,\"cpu_rows\":116,\"old_cpu_rows\":116,\"input_epoch\":17,\"output_epoch\":18,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":116,\"control_ns\":311576,\"release_ns\":230350408579,\"communication_end_ns\":230350538003,\"cpu_start_ns\":230350577264,\"cpu_end_ns\":230350664685,\"gpu_end_ns\":230350614327,\"end_ns\":230350697326,\"validation_end_ns\":230350697463}\n{\"kind\":\"iteration\",\"index\":18,\"warmup\":false,\"cpu_rows\":116,\"old_cpu_rows\":116,\"input_epoch\":18,\"output_epoch\":19,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":116,\"control_ns\":257909,\"release_ns\":230350955516,\"communication_end_ns\":230351049336,\"cpu_start_ns\":230351093515,\"cpu_end_ns\":230351143748,\"gpu_end_ns\":230351174503,\"end_ns\":230351174867,\"validation_end_ns\":230351174964}\n{\"kind\":\"iteration\",\"index\":19,\"warmup\":false,\"cpu_rows\":116,\"old_cpu_rows\":116,\"input_epoch\":19,\"output_epoch\":20,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":116,\"control_ns\":274659,\"release_ns\":230351449990,\"communication_end_ns\":230351556172,\"cpu_start_ns\":230351593447,\"cpu_end_ns\":230351629750,\"gpu_end_ns\":230351692943,\"end_ns\":230351693183,\"validation_end_ns\":230351693352}\n{\"kind\":\"iteration\",\"index\":20,\"warmup\":false,\"cpu_rows\":118,\"old_cpu_rows\":116,\"input_epoch\":20,\"output_epoch\":21,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":4144,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":116,\"control_ns\":263150,\"release_ns\":230351956654,\"communication_end_ns\":230352203874,\"cpu_start_ns\":230352241905,\"cpu_end_ns\":230352329149,\"gpu_end_ns\":230352297322,\"end_ns\":230352364642,\"validation_end_ns\":230352364796}\n{\"kind\":\"iteration\",\"index\":21,\"warmup\":false,\"cpu_rows\":118,\"old_cpu_rows\":118,\"input_epoch\":21,\"output_epoch\":22,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":116,\"control_ns\":273444,\"release_ns\":230352638638,\"communication_end_ns\":230352752877,\"cpu_start_ns\":230352807805,\"cpu_end_ns\":230352957199,\"gpu_end_ns\":230352981746,\"end_ns\":230352981928,\"validation_end_ns\":230352982029}\n{\"kind\":\"iteration\",\"index\":22,\"warmup\":false,\"cpu_rows\":118,\"old_cpu_rows\":118,\"input_epoch\":22,\"output_epoch\":23,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":116,\"control_ns\":351099,\"release_ns\":230353333598,\"communication_end_ns\":230353412926,\"cpu_start_ns\":230353468794,\"cpu_end_ns\":230353502517,\"gpu_end_ns\":230353502247,\"end_ns\":230353505028,\"validation_end_ns\":230353505157}\n{\"kind\":\"iteration\",\"index\":23,\"warmup\":false,\"cpu_rows\":118,\"old_cpu_rows\":118,\"input_epoch\":23,\"output_epoch\":24,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":116,\"control_ns\":259186,\"release_ns\":230353764610,\"communication_end_ns\":230353856671,\"cpu_start_ns\":230353893813,\"cpu_end_ns\":230353928305,\"gpu_end_ns\":230353950936,\"end_ns\":230353951148,\"validation_end_ns\":230353951226}\n{\"kind\":\"summary\",\"status\":\"passed\",\"steps\":24,\"errors\":0,\"max_error\":6.193656698627592e-14,\"active_ns\":9133126,\"control_ns\":7969167,\"gather_ns\":154657,\"gather_d2h_bytes\":288008,\"validation_d2h_bytes\":0,\"work_and_control_and_gather_ns\":17256950,\"loop_elapsed_ns\":17114698,\"simulated_seconds\":3.5000000000000004e-06}\n",
+  "timed_out": false
+}

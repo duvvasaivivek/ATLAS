@@ -34,3 +34,16 @@ target_compile_options(atlas_kmeans PRIVATE $<$<COMPILE_LANGUAGE:CXX>:-ffp-contr
 add_test(NAME kmeans_migration COMMAND atlas_kmeans ${CMAKE_SOURCE_DIR}/tests/data/kmeans_ties.kmdat 3,1,0,3,0 5 4 fixed)
 add_test(NAME kmeans_convergence COMMAND atlas_kmeans ${CMAKE_SOURCE_DIR}/tests/data/kmeans_ties.kmdat 1 20 4 converge)
 set_tests_properties(kmeans_migration kmeans_convergence PROPERTIES TIMEOUT 60)
+
+add_executable(atlas_hotspot native/hotspot/main.cu native/hotspot/cpu.cpp)
+set_target_properties(atlas_hotspot PROPERTIES CXX_STANDARD 17 CXX_STANDARD_REQUIRED YES
+  CUDA_STANDARD 17 CUDA_STANDARD_REQUIRED YES)
+target_include_directories(atlas_hotspot PRIVATE ${CMAKE_CUDA_TOOLKIT_INCLUDE_DIRECTORIES})
+target_link_libraries(atlas_hotspot PRIVATE OpenMP::OpenMP_CXX Threads::Threads ${CMAKE_DL_LIBS})
+target_compile_options(atlas_hotspot PRIVATE $<$<COMPILE_LANGUAGE:CXX>:-ffp-contract=off> $<$<COMPILE_LANGUAGE:CUDA>:--fmad=false>)
+find_package(Python3 REQUIRED COMPONENTS Interpreter)
+add_test(NAME hotspot_verify_migration COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/tests/native_hotspot.py
+  $<TARGET_FILE:atlas_hotspot> ${CMAKE_SOURCE_DIR}/tests/data/hotspot_edge.hsdat verify)
+add_test(NAME hotspot_deferred_migration COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/tests/native_hotspot.py
+  $<TARGET_FILE:atlas_hotspot> ${CMAKE_SOURCE_DIR}/tests/data/hotspot_edge.hsdat timing)
+set_tests_properties(hotspot_verify_migration hotspot_deferred_migration PROPERTIES TIMEOUT 90)

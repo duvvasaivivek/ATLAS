@@ -2,7 +2,7 @@
 
 Date: 2026-10-31
 
-Status: Phases 0, 1, and 3 complete. Phase 4 kmeans and Phase 5 allocation implementations are complete, with correctness and exploratory timing evidence. Phase 2 physical GPU energy and device-event timing qualification remain blocked; automatic clock policy does not establish fixed capacity. The full Phase 4/5 research exit gates remain incomplete. See the [Phase 0 review](docs/phase0_review.md), [Phase 1 review](docs/phase1_review.md), [Phase 2 review](docs/phase2_review.md), [Phase 3 review](docs/phase3_review.md), [Phase 4 review](docs/phase4_review.md), and [Phase 5 review](docs/phase5_review.md).
+Status: Phases 0, 1, 3, and 6 workload validation complete. Phase 4 kmeans and Phase 5 allocation implementations are complete, with correctness and exploratory timing evidence. Phase 6 adds validated thermal-state migration and allocation trials on HotSpot. Phase 2 physical GPU energy and device-event timing qualification remain blocked; automatic clock policy does not establish fixed capacity. The full Phase 4/5 research exit gates remain incomplete. See the [Phase 0 review](docs/phase0_review.md), [Phase 1 review](docs/phase1_review.md), [Phase 2 review](docs/phase2_review.md), [Phase 3 review](docs/phase3_review.md), [Phase 4 review](docs/phase4_review.md), [Phase 5 review](docs/phase5_review.md), and [Phase 6 review](docs/phase6_review.md).
 
 Primary source: [GreenGPU research paper](GreenGPU.pdf), Kai Ma et al., *Energy conservation for GPU-CPU architectures with dynamic workload division and frequency scaling*, 2016, journal pages 21-33.
 
@@ -254,6 +254,8 @@ Prefer existing supported telemetry bindings over a handwritten native interface
 **Exit gate:** Corrected bisection obeys its bracket-width bound on a stationary monotone fixture; the proportional rule gives approximately 0.17647 for `r=0.3, t_cpu=6, t_gpu=3`; real-run correctness survives changing partitions; total adaptation and migration costs are included in energy results.
 
 ## 10. Phase 6 - Add HotSpot and validate state migration
+
+**Status:** Complete for the workload/migration exit gate. The FP64 thermal stencil passes independent references, halo/timestep checks, endpoint and repeated ownership changes, deferred-validation comparisons, and 600-step trajectories including a 2048×2048 migration case. Static tuning and held-out Tier 1 trials retain all communication/feedback costs. CUDA overlap, memory/race checks, and checksum replay are verified. The model uses a documented stability limiter and generated input rather than claiming historical numerical reproduction. Energy and fixed-capacity qualification remain blocked. See the [model contract](docs/hotspot_spec.md) and [review/evidence](docs/phase6_review.md).
 
 **Depends on:** Phase 5.
 

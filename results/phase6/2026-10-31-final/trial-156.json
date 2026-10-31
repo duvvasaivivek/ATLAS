@@ -1,0 +1,2791 @@
+{
+  "argv": [
+    "/mnt/c/Users/saivi/Downloads/ATLAS/build/phase6/atlas_hotspot",
+    "/mnt/c/Users/saivi/Downloads/ATLAS/results/phase6/2026-10-31-final/datasets/heldout.hsdat",
+    "128",
+    "24",
+    "4",
+    "timing",
+    "/mnt/c/Users/saivi/Downloads/ATLAS/results/phase6/2026-10-31-final/fields/trial-156.hstemp",
+    "feedback"
+  ],
+  "configuration": {
+    "adaptive_step": 0.15,
+    "alpha": 0.25,
+    "budget": 200,
+    "damping": 0.5,
+    "deadband": 0.05,
+    "dwell": 3,
+    "legal_counts": null,
+    "max_move": 0.1,
+    "n": 257,
+    "phase_factor": 2.0,
+    "phase_patience": 2,
+    "policy": "bracketed_bisection",
+    "precision": 0.01,
+    "step": 0.05
+  },
+  "decisions": [
+    {
+      "controller_ns": 1096021,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 1,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 128,
+          "epoch": 0,
+          "iteration": 0,
+          "run_id": "hotspot-156",
+          "t_cpu": 0.001778433,
+          "t_gpu": 0.001395908,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 1,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 0,
+          "phase_hits": 0,
+          "previous_ratio": 0.4980544747081712,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 0,
+          "epoch": null,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": -1,
+          "phase_hits": 0,
+          "previous_ratio": null,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.0038910505836575876,
+        "reason": "probe_bracket_low",
+        "requested_ratio": 0.0038910505836575876,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 215984,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 256,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 1,
+          "epoch": 0,
+          "iteration": 1,
+          "run_id": "hotspot-156",
+          "t_cpu": 0.000533638,
+          "t_gpu": 0.000628325,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": null,
+            "dlo": -9.468699999999998e-05,
+            "hi": null,
+            "lo": 1,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ]
+            ],
+            "updates": 0
+          },
+          "dwell": 0,
+          "eligible": 2,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 1,
+          "phase_hits": 0,
+          "previous_ratio": 0.0038910505836575876,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 1,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 0,
+          "phase_hits": 0,
+          "previous_ratio": 0.4980544747081712,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.9961089494163424,
+        "reason": "probe_bracket_high",
+        "requested_ratio": 0.9961089494163424,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 586672,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 128,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 256,
+          "epoch": 0,
+          "iteration": 2,
+          "run_id": "hotspot-156",
+          "t_cpu": 0.000510985,
+          "t_gpu": 0.000426926,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 8.405900000000004e-05,
+            "dlo": -9.468699999999998e-05,
+            "hi": 256,
+            "lo": 1,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ]
+            ],
+            "updates": 0
+          },
+          "dwell": 0,
+          "eligible": 3,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 2,
+          "phase_hits": 0,
+          "previous_ratio": 0.9961089494163424,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": null,
+            "dlo": -9.468699999999998e-05,
+            "hi": null,
+            "lo": 1,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ]
+            ],
+            "updates": 0
+          },
+          "dwell": 0,
+          "eligible": 2,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 1,
+          "phase_hits": 0,
+          "previous_ratio": 0.0038910505836575876,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.4980544747081712,
+        "reason": "bisect",
+        "requested_ratio": 0.5,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 260507,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 64,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 128,
+          "epoch": 0,
+          "iteration": 3,
+          "run_id": "hotspot-156",
+          "t_cpu": 0.000822002,
+          "t_gpu": 0.000765572,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 5.643e-05,
+            "dlo": -9.468699999999998e-05,
+            "hi": 128,
+            "lo": 1,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ]
+            ],
+            "updates": 1
+          },
+          "dwell": 0,
+          "eligible": 4,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 3,
+          "phase_hits": 0,
+          "previous_ratio": 0.4980544747081712,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 8.405900000000004e-05,
+            "dlo": -9.468699999999998e-05,
+            "hi": 256,
+            "lo": 1,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ]
+            ],
+            "updates": 0
+          },
+          "dwell": 0,
+          "eligible": 3,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 2,
+          "phase_hits": 0,
+          "previous_ratio": 0.9961089494163424,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.2490272373540856,
+        "reason": "bisect",
+        "requested_ratio": 0.2509727626459144,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 169981,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 32,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 64,
+          "epoch": 0,
+          "iteration": 4,
+          "run_id": "hotspot-156",
+          "t_cpu": 0.000532684,
+          "t_gpu": 0.00048022,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 5.246399999999995e-05,
+            "dlo": -9.468699999999998e-05,
+            "hi": 64,
+            "lo": 1,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ]
+            ],
+            "updates": 2
+          },
+          "dwell": 0,
+          "eligible": 5,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 4,
+          "phase_hits": 0,
+          "previous_ratio": 0.2490272373540856,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 5.643e-05,
+            "dlo": -9.468699999999998e-05,
+            "hi": 128,
+            "lo": 1,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ]
+            ],
+            "updates": 1
+          },
+          "dwell": 0,
+          "eligible": 4,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 3,
+          "phase_hits": 0,
+          "previous_ratio": 0.4980544747081712,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.1245136186770428,
+        "reason": "bisect",
+        "requested_ratio": 0.1264591439688716,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 154440,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 48,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 32,
+          "epoch": 0,
+          "iteration": 5,
+          "run_id": "hotspot-156",
+          "t_cpu": 0.000243538,
+          "t_gpu": 0.000283629,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 5.246399999999995e-05,
+            "dlo": -4.0090999999999966e-05,
+            "hi": 64,
+            "lo": 32,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ]
+            ],
+            "updates": 3
+          },
+          "dwell": 0,
+          "eligible": 6,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 5,
+          "phase_hits": 0,
+          "previous_ratio": 0.1245136186770428,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 5.246399999999995e-05,
+            "dlo": -9.468699999999998e-05,
+            "hi": 64,
+            "lo": 1,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ]
+            ],
+            "updates": 2
+          },
+          "dwell": 0,
+          "eligible": 5,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 4,
+          "phase_hits": 0,
+          "previous_ratio": 0.2490272373540856,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.1867704280155642,
+        "reason": "bisect",
+        "requested_ratio": 0.1867704280155642,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 214608,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 56,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 48,
+          "epoch": 0,
+          "iteration": 6,
+          "run_id": "hotspot-156",
+          "t_cpu": 0.000221574,
+          "t_gpu": 0.000250511,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 5.246399999999995e-05,
+            "dlo": -2.8936999999999984e-05,
+            "hi": 64,
+            "lo": 48,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ]
+            ],
+            "updates": 4
+          },
+          "dwell": 0,
+          "eligible": 7,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 6,
+          "phase_hits": 0,
+          "previous_ratio": 0.1867704280155642,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 5.246399999999995e-05,
+            "dlo": -4.0090999999999966e-05,
+            "hi": 64,
+            "lo": 32,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ]
+            ],
+            "updates": 3
+          },
+          "dwell": 0,
+          "eligible": 6,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 5,
+          "phase_hits": 0,
+          "previous_ratio": 0.1245136186770428,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.2178988326848249,
+        "reason": "bisect",
+        "requested_ratio": 0.2178988326848249,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 339698,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 52,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 56,
+          "epoch": 0,
+          "iteration": 7,
+          "run_id": "hotspot-156",
+          "t_cpu": 0.00057143,
+          "t_gpu": 0.000429689,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -2.8936999999999984e-05,
+            "hi": 56,
+            "lo": 48,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ]
+            ],
+            "updates": 5
+          },
+          "dwell": 0,
+          "eligible": 8,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 7,
+          "phase_hits": 0,
+          "previous_ratio": 0.2178988326848249,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 5.246399999999995e-05,
+            "dlo": -2.8936999999999984e-05,
+            "hi": 64,
+            "lo": 48,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ]
+            ],
+            "updates": 4
+          },
+          "dwell": 0,
+          "eligible": 7,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 6,
+          "phase_hits": 0,
+          "previous_ratio": 0.1867704280155642,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.20233463035019456,
+        "reason": "bisect",
+        "requested_ratio": 0.20233463035019456,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 185384,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 54,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 52,
+          "epoch": 0,
+          "iteration": 8,
+          "run_id": "hotspot-156",
+          "t_cpu": 0.000340774,
+          "t_gpu": 0.000343841,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -3.0669999999999894e-06,
+            "hi": 56,
+            "lo": 52,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ]
+            ],
+            "updates": 6
+          },
+          "dwell": 0,
+          "eligible": 9,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 8,
+          "phase_hits": 0,
+          "previous_ratio": 0.20233463035019456,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -2.8936999999999984e-05,
+            "hi": 56,
+            "lo": 48,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ]
+            ],
+            "updates": 5
+          },
+          "dwell": 0,
+          "eligible": 8,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 7,
+          "phase_hits": 0,
+          "previous_ratio": 0.2178988326848249,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.21011673151750973,
+        "reason": "bisect",
+        "requested_ratio": 0.21011673151750973,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 178830,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 54,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 54,
+          "epoch": 0,
+          "iteration": 9,
+          "run_id": "hotspot-156",
+          "t_cpu": 0.000206055,
+          "t_gpu": 0.000270761,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 10,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "stop_bracket_width",
+          "last_iteration": 9,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -3.0669999999999894e-06,
+            "hi": 56,
+            "lo": 52,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ]
+            ],
+            "updates": 6
+          },
+          "dwell": 0,
+          "eligible": 9,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 8,
+          "phase_hits": 0,
+          "previous_ratio": 0.20233463035019456,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.21011673151750973,
+        "reason": "stop_bracket_width",
+        "requested_ratio": 0.21011673151750973,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 199681,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 54,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 54,
+          "epoch": 0,
+          "iteration": 10,
+          "run_id": "hotspot-156",
+          "t_cpu": 0.000271339,
+          "t_gpu": 0.000211119,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 11,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 10,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 10,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "stop_bracket_width",
+          "last_iteration": 9,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.21011673151750973,
+        "reason": "invalid_bracket",
+        "requested_ratio": 0.21011673151750973,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 287497,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 54,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 54,
+          "epoch": 0,
+          "iteration": 11,
+          "run_id": "hotspot-156",
+          "t_cpu": 0.001066503,
+          "t_gpu": 0.00091702,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 12,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 11,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 11,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 10,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.21011673151750973,
+        "reason": "invalid_bracket",
+        "requested_ratio": 0.21011673151750973,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 187662,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 54,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 54,
+          "epoch": 0,
+          "iteration": 12,
+          "run_id": "hotspot-156",
+          "t_cpu": 0.000201844,
+          "t_gpu": 0.000239834,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 13,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 12,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 12,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 11,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.21011673151750973,
+        "reason": "invalid_bracket",
+        "requested_ratio": 0.21011673151750973,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 332935,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 54,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 54,
+          "epoch": 0,
+          "iteration": 13,
+          "run_id": "hotspot-156",
+          "t_cpu": 0.0002739,
+          "t_gpu": 0.000253788,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 14,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 13,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 13,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 12,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.21011673151750973,
+        "reason": "invalid_bracket",
+        "requested_ratio": 0.21011673151750973,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 129248,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 54,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 54,
+          "epoch": 0,
+          "iteration": 14,
+          "run_id": "hotspot-156",
+          "t_cpu": 0.000217723,
+          "t_gpu": 0.000256317,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 15,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 14,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 14,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 13,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.21011673151750973,
+        "reason": "invalid_bracket",
+        "requested_ratio": 0.21011673151750973,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 104356,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 54,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 54,
+          "epoch": 0,
+          "iteration": 15,
+          "run_id": "hotspot-156",
+          "t_cpu": 0.00013099,
+          "t_gpu": 0.000138589,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 16,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 15,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 15,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 14,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.21011673151750973,
+        "reason": "invalid_bracket",
+        "requested_ratio": 0.21011673151750973,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 100562,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 54,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 54,
+          "epoch": 0,
+          "iteration": 16,
+          "run_id": "hotspot-156",
+          "t_cpu": 0.000102641,
+          "t_gpu": 0.000123519,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 17,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 16,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 16,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 15,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.21011673151750973,
+        "reason": "invalid_bracket",
+        "requested_ratio": 0.21011673151750973,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 179204,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 54,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 54,
+          "epoch": 0,
+          "iteration": 17,
+          "run_id": "hotspot-156",
+          "t_cpu": 0.000174956,
+          "t_gpu": 0.000164704,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 18,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 17,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 17,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 16,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.21011673151750973,
+        "reason": "invalid_bracket",
+        "requested_ratio": 0.21011673151750973,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 526197,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 54,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 54,
+          "epoch": 0,
+          "iteration": 18,
+          "run_id": "hotspot-156",
+          "t_cpu": 0.000588633,
+          "t_gpu": 0.000306247,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 19,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 18,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 18,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 17,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.21011673151750973,
+        "reason": "invalid_bracket",
+        "requested_ratio": 0.21011673151750973,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 208810,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 54,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 54,
+          "epoch": 0,
+          "iteration": 19,
+          "run_id": "hotspot-156",
+          "t_cpu": 0.000466953,
+          "t_gpu": 0.000461271,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 20,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 19,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 19,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 18,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.21011673151750973,
+        "reason": "invalid_bracket",
+        "requested_ratio": 0.21011673151750973,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 560037,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 54,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 54,
+          "epoch": 0,
+          "iteration": 20,
+          "run_id": "hotspot-156",
+          "t_cpu": 0.000471218,
+          "t_gpu": 0.00034081,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 21,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 20,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 20,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 19,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.21011673151750973,
+        "reason": "invalid_bracket",
+        "requested_ratio": 0.21011673151750973,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 258803,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 54,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 54,
+          "epoch": 0,
+          "iteration": 21,
+          "run_id": "hotspot-156",
+          "t_cpu": 0.000618273,
+          "t_gpu": 0.000661272,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 22,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 21,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 21,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 20,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.21011673151750973,
+        "reason": "invalid_bracket",
+        "requested_ratio": 0.21011673151750973,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 307846,
+      "decision": {
+        "config_hash": "6f1f760e529bf6ec32d5c073a4514938a63d0d929791604e051bcb44e9676504",
+        "cpu_items": 54,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 54,
+          "epoch": 0,
+          "iteration": 22,
+          "run_id": "hotspot-156",
+          "t_cpu": 0.00023852,
+          "t_gpu": 0.000275518,
+          "valid": true
+        },
+        "policy": "bracketed_bisection",
+        "post_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 23,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 22,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": {
+            "dhi": 0.00014174100000000002,
+            "dlo": -6.470600000000001e-05,
+            "hi": 56,
+            "lo": 54,
+            "samples": [
+              [
+                1,
+                -9.468699999999998e-05
+              ],
+              [
+                256,
+                8.405900000000004e-05
+              ],
+              [
+                128,
+                5.643e-05
+              ],
+              [
+                64,
+                5.246399999999995e-05
+              ],
+              [
+                32,
+                -4.0090999999999966e-05
+              ],
+              [
+                48,
+                -2.8936999999999984e-05
+              ],
+              [
+                56,
+                0.00014174100000000002
+              ],
+              [
+                52,
+                -3.0669999999999894e-06
+              ],
+              [
+                54,
+                -6.470600000000001e-05
+              ]
+            ],
+            "updates": 7
+          },
+          "dwell": 0,
+          "eligible": 22,
+          "epoch": 0,
+          "filter": null,
+          "frozen": "invalid_bracket",
+          "last_iteration": 21,
+          "phase_hits": 0,
+          "previous_ratio": 0.21011673151750973,
+          "run_id": "hotspot-156",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.21011673151750973,
+        "reason": "invalid_bracket",
+        "requested_ratio": 0.21011673151750973,
+        "specification_version": "1.1"
+      }
+    }
+  ],
+  "elapsed_ns": 2042417244,
+  "failure": null,
+  "returncode": 0,
+  "status": "ok",
+  "stderr": "",
+  "stdout": "{\"kind\":\"configuration\",\"schema_version\":\"6.0\",\"clock\":\"CLOCK_MONOTONIC\",\"rows\":257,\"cols\":259,\"steps\":24,\"workers\":4,\"mode\":\"timing\",\"feedback\":true,\"atol\":1e-8,\"rtol\":1e-10,\"cap\":1.6826164686086868e-06,\"rx\":9.922779922779922,\"ry\":10.077821011673151,\"rz\":1300.05859375,\"dt\":1.4583333333333335e-07,\"nominal_dt\":1.4583333333333335e-07,\"stability_sum\":0.034735937500000001}\n{\"kind\":\"iteration\",\"index\":-1,\"warmup\":true,\"cpu_rows\":128,\"old_cpu_rows\":257,\"input_epoch\":0,\"output_epoch\":1,\"status\":\"completed\",\"validation\":\"checked\",\"errors\":0,\"max_error\":7.4107386893729199e-15,\"initial_h2d_bytes\":267288,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":267288,\"validation_d2h_bytes\":267288,\"power_begin_after\":128,\"control_ns\":0,\"release_ns\":245237022709,\"communication_end_ns\":245241445792,\"cpu_start_ns\":245241543016,\"cpu_end_ns\":245242136778,\"gpu_end_ns\":245258346202,\"end_ns\":245258346596,\"validation_end_ns\":245262818961}\n{\"kind\":\"iteration\",\"index\":0,\"warmup\":false,\"cpu_rows\":128,\"old_cpu_rows\":257,\"input_epoch\":0,\"output_epoch\":1,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":267288,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":267288,\"validation_d2h_bytes\":0,\"power_begin_after\":128,\"control_ns\":0,\"release_ns\":245264448676,\"communication_end_ns\":245265199227,\"cpu_start_ns\":245265503053,\"cpu_end_ns\":245266227109,\"gpu_end_ns\":245265844584,\"end_ns\":245266361819,\"validation_end_ns\":245266363431}\n{\"kind\":\"iteration\",\"index\":1,\"warmup\":false,\"cpu_rows\":1,\"old_cpu_rows\":128,\"input_epoch\":1,\"output_epoch\":2,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":263144,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":263144,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":2396313,\"release_ns\":245268760580,\"communication_end_ns\":245269164586,\"cpu_start_ns\":245269257575,\"cpu_end_ns\":245269294218,\"gpu_end_ns\":245269388905,\"end_ns\":245269389120,\"validation_end_ns\":245269389485}\n{\"kind\":\"iteration\",\"index\":2,\"warmup\":false,\"cpu_rows\":256,\"old_cpu_rows\":1,\"input_epoch\":2,\"output_epoch\":3,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":528360,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":586705,\"release_ns\":245269976896,\"communication_end_ns\":245270264428,\"cpu_start_ns\":245270334375,\"cpu_end_ns\":245270487881,\"gpu_end_ns\":245270403822,\"end_ns\":245270551175,\"validation_end_ns\":245270551377}\n{\"kind\":\"iteration\",\"index\":3,\"warmup\":false,\"cpu_rows\":128,\"old_cpu_rows\":256,\"input_epoch\":3,\"output_epoch\":4,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":265216,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":883664,\"release_ns\":245271435128,\"communication_end_ns\":245271848002,\"cpu_start_ns\":245271985913,\"cpu_end_ns\":245272257130,\"gpu_end_ns\":245272200700,\"end_ns\":245272313041,\"validation_end_ns\":245272313446}\n{\"kind\":\"iteration\",\"index\":4,\"warmup\":false,\"cpu_rows\":64,\"old_cpu_rows\":128,\"input_epoch\":4,\"output_epoch\":5,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":132608,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":530204,\"release_ns\":245272843750,\"communication_end_ns\":245273165468,\"cpu_start_ns\":245273236592,\"cpu_end_ns\":245273376434,\"gpu_end_ns\":245273323970,\"end_ns\":245273445444,\"validation_end_ns\":245273445779}\n{\"kind\":\"iteration\",\"index\":5,\"warmup\":false,\"cpu_rows\":32,\"old_cpu_rows\":64,\"input_epoch\":5,\"output_epoch\":6,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":66304,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":415989,\"release_ns\":245273861930,\"communication_end_ns\":245274021238,\"cpu_start_ns\":245274076981,\"cpu_end_ns\":245274105468,\"gpu_end_ns\":245274145559,\"end_ns\":245274145785,\"validation_end_ns\":245274145920}\n{\"kind\":\"iteration\",\"index\":6,\"warmup\":false,\"cpu_rows\":48,\"old_cpu_rows\":32,\"input_epoch\":6,\"output_epoch\":7,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":33152,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":321477,\"release_ns\":245274467731,\"communication_end_ns\":245274613508,\"cpu_start_ns\":245274660855,\"cpu_end_ns\":245274689305,\"gpu_end_ns\":245274718242,\"end_ns\":245274718431,\"validation_end_ns\":245274718648}\n{\"kind\":\"iteration\",\"index\":7,\"warmup\":false,\"cpu_rows\":56,\"old_cpu_rows\":48,\"input_epoch\":7,\"output_epoch\":8,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":16576,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":393152,\"release_ns\":245275112024,\"communication_end_ns\":245275226871,\"cpu_start_ns\":245275292612,\"cpu_end_ns\":245275683454,\"gpu_end_ns\":245275541713,\"end_ns\":245275758906,\"validation_end_ns\":245275759265}\n{\"kind\":\"iteration\",\"index\":8,\"warmup\":false,\"cpu_rows\":52,\"old_cpu_rows\":56,\"input_epoch\":8,\"output_epoch\":9,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":8288,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":633507,\"release_ns\":245276393004,\"communication_end_ns\":245276592817,\"cpu_start_ns\":245276674324,\"cpu_end_ns\":245276733778,\"gpu_end_ns\":245276736845,\"end_ns\":245276736981,\"validation_end_ns\":245276737089}\n{\"kind\":\"iteration\",\"index\":9,\"warmup\":false,\"cpu_rows\":54,\"old_cpu_rows\":52,\"input_epoch\":9,\"output_epoch\":10,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":4144,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":398183,\"release_ns\":245277136029,\"communication_end_ns\":245277266517,\"cpu_start_ns\":245277319318,\"cpu_end_ns\":245277342084,\"gpu_end_ns\":245277406790,\"end_ns\":245277406977,\"validation_end_ns\":245277407116}\n{\"kind\":\"iteration\",\"index\":10,\"warmup\":false,\"cpu_rows\":54,\"old_cpu_rows\":54,\"input_epoch\":10,\"output_epoch\":11,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":362079,\"release_ns\":245277770003,\"communication_end_ns\":245277871916,\"cpu_start_ns\":245277932302,\"cpu_end_ns\":245278041342,\"gpu_end_ns\":245277981122,\"end_ns\":245278096933,\"validation_end_ns\":245278097118}\n{\"kind\":\"iteration\",\"index\":11,\"warmup\":false,\"cpu_rows\":54,\"old_cpu_rows\":54,\"input_epoch\":11,\"output_epoch\":12,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":413379,\"release_ns\":245278511049,\"communication_end_ns\":245279066928,\"cpu_start_ns\":245279134492,\"cpu_end_ns\":245279577552,\"gpu_end_ns\":245279428069,\"end_ns\":245279651734,\"validation_end_ns\":245279651898}\n{\"kind\":\"iteration\",\"index\":12,\"warmup\":false,\"cpu_rows\":54,\"old_cpu_rows\":54,\"input_epoch\":12,\"output_epoch\":13,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":546294,\"release_ns\":245280198549,\"communication_end_ns\":245280332098,\"cpu_start_ns\":245280371040,\"cpu_end_ns\":245280400393,\"gpu_end_ns\":245280438383,\"end_ns\":245280438556,\"validation_end_ns\":245280438646}\n{\"kind\":\"iteration\",\"index\":13,\"warmup\":false,\"cpu_rows\":54,\"old_cpu_rows\":54,\"input_epoch\":13,\"output_epoch\":14,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":433188,\"release_ns\":245280872332,\"communication_end_ns\":245281006557,\"cpu_start_ns\":245281112995,\"cpu_end_ns\":245281146232,\"gpu_end_ns\":245281126120,\"end_ns\":245281186144,\"validation_end_ns\":245281186386}\n{\"kind\":\"iteration\",\"index\":14,\"warmup\":false,\"cpu_rows\":54,\"old_cpu_rows\":54,\"input_epoch\":14,\"output_epoch\":15,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":584571,\"release_ns\":245281771386,\"communication_end_ns\":245281897294,\"cpu_start_ns\":245281948102,\"cpu_end_ns\":245281989109,\"gpu_end_ns\":245282027703,\"end_ns\":245282027879,\"validation_end_ns\":245282028014}\n{\"kind\":\"iteration\",\"index\":15,\"warmup\":false,\"cpu_rows\":54,\"old_cpu_rows\":54,\"input_epoch\":15,\"output_epoch\":16,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":260073,\"release_ns\":245282288323,\"communication_end_ns\":245282347990,\"cpu_start_ns\":245282375504,\"cpu_end_ns\":245282419313,\"gpu_end_ns\":245282426912,\"end_ns\":245282427079,\"validation_end_ns\":245282427132}\n{\"kind\":\"iteration\",\"index\":16,\"warmup\":false,\"cpu_rows\":54,\"old_cpu_rows\":54,\"input_epoch\":16,\"output_epoch\":17,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":192062,\"release_ns\":245282619271,\"communication_end_ns\":245282669517,\"cpu_start_ns\":245282696402,\"cpu_end_ns\":245282721912,\"gpu_end_ns\":245282742790,\"end_ns\":245282742919,\"validation_end_ns\":245282742979}\n{\"kind\":\"iteration\",\"index\":17,\"warmup\":false,\"cpu_rows\":54,\"old_cpu_rows\":54,\"input_epoch\":17,\"output_epoch\":18,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":320221,\"release_ns\":245283063313,\"communication_end_ns\":245283118590,\"cpu_start_ns\":245283172843,\"cpu_end_ns\":245283238269,\"gpu_end_ns\":245283228017,\"end_ns\":245283275404,\"validation_end_ns\":245283275477}\n{\"kind\":\"iteration\",\"index\":18,\"warmup\":false,\"cpu_rows\":54,\"old_cpu_rows\":54,\"input_epoch\":18,\"output_epoch\":19,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":345681,\"release_ns\":245283621340,\"communication_end_ns\":245283792481,\"cpu_start_ns\":245283853584,\"cpu_end_ns\":245284209973,\"gpu_end_ns\":245283927587,\"end_ns\":245284266605,\"validation_end_ns\":245284267274}\n{\"kind\":\"iteration\",\"index\":19,\"warmup\":false,\"cpu_rows\":54,\"old_cpu_rows\":54,\"input_epoch\":19,\"output_epoch\":20,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":798585,\"release_ns\":245285066535,\"communication_end_ns\":245285344803,\"cpu_start_ns\":245285413894,\"cpu_end_ns\":245285533488,\"gpu_end_ns\":245285527806,\"end_ns\":245285544802,\"validation_end_ns\":245285545002}\n{\"kind\":\"iteration\",\"index\":20,\"warmup\":false,\"cpu_rows\":54,\"old_cpu_rows\":54,\"input_epoch\":20,\"output_epoch\":21,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":431241,\"release_ns\":245285977922,\"communication_end_ns\":245286191269,\"cpu_start_ns\":245286253049,\"cpu_end_ns\":245286449140,\"gpu_end_ns\":245286318732,\"end_ns\":245286497173,\"validation_end_ns\":245286497433}\n{\"kind\":\"iteration\",\"index\":21,\"warmup\":false,\"cpu_rows\":54,\"old_cpu_rows\":54,\"input_epoch\":21,\"output_epoch\":22,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":813687,\"release_ns\":245287311476,\"communication_end_ns\":245287653323,\"cpu_start_ns\":245287843263,\"cpu_end_ns\":245287929749,\"gpu_end_ns\":245287972748,\"end_ns\":245287972920,\"validation_end_ns\":245288075745}\n{\"kind\":\"iteration\",\"index\":22,\"warmup\":false,\"cpu_rows\":54,\"old_cpu_rows\":54,\"input_epoch\":22,\"output_epoch\":23,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":514606,\"release_ns\":245288590765,\"communication_end_ns\":245288740531,\"cpu_start_ns\":245288785308,\"cpu_end_ns\":245288829285,\"gpu_end_ns\":245288866283,\"end_ns\":245288866603,\"validation_end_ns\":245288908787}\n{\"kind\":\"iteration\",\"index\":23,\"warmup\":false,\"cpu_rows\":54,\"old_cpu_rows\":54,\"input_epoch\":23,\"output_epoch\":24,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":2072,\"halo_d2h_bytes\":2072,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1,\"control_ns\":782298,\"release_ns\":245289691319,\"communication_end_ns\":245289980652,\"cpu_start_ns\":245290148912,\"cpu_end_ns\":245290280745,\"gpu_end_ns\":245290307364,\"end_ns\":245290376005,\"validation_end_ns\":245290376107}\n{\"kind\":\"summary\",\"status\":\"passed\",\"steps\":24,\"errors\":0,\"max_error\":6.193656698627592e-14,\"active_ns\":12409104,\"control_ns\":13357159,\"gather_ns\":728042,\"gather_d2h_bytes\":420616,\"validation_d2h_bytes\":0,\"work_and_control_and_gather_ns\":26494305,\"loop_elapsed_ns\":25927329,\"simulated_seconds\":3.5000000000000004e-06}\n",
+  "timed_out": false
+}

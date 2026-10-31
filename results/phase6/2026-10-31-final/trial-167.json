@@ -1,0 +1,144 @@
+{
+  "argv": [
+    "nsys",
+    "profile",
+    "--trace=cuda,nvtx",
+    "--sample=none",
+    "--cpuctxsw=none",
+    "--export=sqlite",
+    "--output=results/phase6/2026-10-31-final/profile",
+    "/mnt/c/Users/saivi/Downloads/ATLAS/build/phase6/atlas_hotspot",
+    "/mnt/c/Users/saivi/Downloads/ATLAS/results/phase6/2026-10-31-final/datasets/profile.hsdat",
+    "1536",
+    "3",
+    "4",
+    "timing",
+    "/mnt/c/Users/saivi/Downloads/ATLAS/results/phase6/2026-10-31-final/fields/trial-167.hstemp",
+    "feedback"
+  ],
+  "configuration": {
+    "adaptive_step": 0.15,
+    "alpha": 0.25,
+    "budget": 200,
+    "damping": 0.5,
+    "deadband": 0.05,
+    "dwell": 3,
+    "legal_counts": null,
+    "max_move": 0.1,
+    "n": 2048,
+    "phase_factor": 2.0,
+    "phase_patience": 2,
+    "policy": "static",
+    "precision": 0.01,
+    "step": 0.05
+  },
+  "decisions": [
+    {
+      "controller_ns": 164868,
+      "decision": {
+        "config_hash": "0444ea85392fe0b4e91f4ebccc5e992ce9a3bcc01a6dfdcbff48b2478d531a78",
+        "cpu_items": 1536,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 1536,
+          "epoch": 0,
+          "iteration": 0,
+          "run_id": "hotspot-167",
+          "t_cpu": 0.007240293,
+          "t_gpu": 0.00254362,
+          "valid": true
+        },
+        "policy": "static",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 0,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 0,
+          "phase_hits": 0,
+          "previous_ratio": null,
+          "run_id": "hotspot-167",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 0,
+          "epoch": null,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": -1,
+          "phase_hits": 0,
+          "previous_ratio": null,
+          "run_id": "hotspot-167",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.75,
+        "reason": "hold_static",
+        "requested_ratio": 0.75,
+        "specification_version": "1.1"
+      }
+    },
+    {
+      "controller_ns": 170529,
+      "decision": {
+        "config_hash": "0444ea85392fe0b4e91f4ebccc5e992ce9a3bcc01a6dfdcbff48b2478d531a78",
+        "cpu_items": 1536,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 1536,
+          "epoch": 0,
+          "iteration": 1,
+          "run_id": "hotspot-167",
+          "t_cpu": 0.006774794,
+          "t_gpu": 0.000799504,
+          "valid": true
+        },
+        "policy": "static",
+        "post_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 0,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 1,
+          "phase_hits": 0,
+          "previous_ratio": null,
+          "run_id": "hotspot-167",
+          "sign": 0,
+          "step": null
+        },
+        "pre_state": {
+          "bracket": null,
+          "dwell": 0,
+          "eligible": 0,
+          "epoch": 0,
+          "filter": null,
+          "frozen": null,
+          "last_iteration": 0,
+          "phase_hits": 0,
+          "previous_ratio": null,
+          "run_id": "hotspot-167",
+          "sign": 0,
+          "step": null
+        },
+        "realized_ratio": 0.75,
+        "reason": "hold_static",
+        "requested_ratio": 0.75,
+        "specification_version": "1.1"
+      }
+    }
+  ],
+  "elapsed_ns": 6199024767,
+  "failure": null,
+  "returncode": 0,
+  "status": "ok",
+  "stderr": "",
+  "stdout": "{\"kind\":\"configuration\",\"schema_version\":\"6.0\",\"clock\":\"CLOCK_MONOTONIC\",\"rows\":2048,\"cols\":2048,\"steps\":3,\"workers\":4,\"mode\":\"timing\",\"feedback\":true,\"atol\":1e-8,\"rtol\":1e-10,\"cap\":2.6702880859375001e-08,\"rx\":10,\"ry\":10,\"rz\":81920,\"dt\":6.0079648448228514e-08,\"nominal_dt\":1.4583333333333335e-07,\"stability_sum\":0.90000000000000002}\n{\"kind\":\"iteration\",\"index\":-1,\"warmup\":true,\"cpu_rows\":1536,\"old_cpu_rows\":2048,\"input_epoch\":0,\"output_epoch\":1,\"status\":\"completed\",\"validation\":\"checked\",\"errors\":0,\"max_error\":1.9526047445594941e-14,\"initial_h2d_bytes\":8388608,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":16384,\"halo_d2h_bytes\":16384,\"power_h2d_bytes\":8388608,\"validation_d2h_bytes\":8388608,\"power_begin_after\":1536,\"control_ns\":0,\"release_ns\":285105892962,\"communication_end_ns\":285109278617,\"cpu_start_ns\":285109338941,\"cpu_end_ns\":285116202383,\"gpu_end_ns\":285112407358,\"end_ns\":285116365404,\"validation_end_ns\":285174094785}\n{\"kind\":\"iteration\",\"index\":0,\"warmup\":false,\"cpu_rows\":1536,\"old_cpu_rows\":2048,\"input_epoch\":0,\"output_epoch\":1,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":8388608,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":16384,\"halo_d2h_bytes\":16384,\"power_h2d_bytes\":8388608,\"validation_d2h_bytes\":0,\"power_begin_after\":1536,\"control_ns\":0,\"release_ns\":285193679501,\"communication_end_ns\":285195774665,\"cpu_start_ns\":285195825182,\"cpu_end_ns\":285200919794,\"gpu_end_ns\":285196223121,\"end_ns\":285200999316,\"validation_end_ns\":285201004968}\n{\"kind\":\"iteration\",\"index\":1,\"warmup\":false,\"cpu_rows\":1536,\"old_cpu_rows\":1536,\"input_epoch\":1,\"output_epoch\":2,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":16384,\"halo_d2h_bytes\":16384,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1536,\"control_ns\":546565,\"release_ns\":285201551955,\"communication_end_ns\":285201781347,\"cpu_start_ns\":285201851698,\"cpu_end_ns\":285208326749,\"gpu_end_ns\":285202351459,\"end_ns\":285208416594,\"validation_end_ns\":285208420121}\n{\"kind\":\"iteration\",\"index\":2,\"warmup\":false,\"cpu_rows\":1536,\"old_cpu_rows\":1536,\"input_epoch\":2,\"output_epoch\":3,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":16384,\"halo_d2h_bytes\":16384,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":1536,\"control_ns\":645530,\"release_ns\":285209066100,\"communication_end_ns\":285209350808,\"cpu_start_ns\":285209450825,\"cpu_end_ns\":285215170484,\"gpu_end_ns\":285209830296,\"end_ns\":285215328871,\"validation_end_ns\":285215333937}\n{\"kind\":\"summary\",\"status\":\"passed\",\"steps\":3,\"errors\":0,\"max_error\":2.6666169272715479e-14,\"active_ns\":20447225,\"control_ns\":1192095,\"gather_ns\":8228274,\"gather_d2h_bytes\":8388608,\"validation_d2h_bytes\":0,\"work_and_control_and_gather_ns\":29867594,\"loop_elapsed_ns\":21649370,\"simulated_seconds\":1.8023894534468554e-07}\nCollecting data...\nGenerating '/tmp/nsys-report-57b0.qdstrm'\n\n[1/2] [0%                          ] profile.nsys-rep\n[1/2] [0%                          ] profile.nsys-rep\n[1/2] [=17%                        ] profile.nsys-rep\n[1/2] [======33%                   ] profile.nsys-rep\n[1/2] [======34%                   ] profile.nsys-rep\n[1/2] [======35%                   ] profile.nsys-rep\n[1/2] [=======36%                  ] profile.nsys-rep\n[1/2] [=======37%                  ] profile.nsys-rep\n[1/2] [=======38%                  ] profile.nsys-rep\n[1/2] [=======39%                  ] profile.nsys-rep\n[1/2] [==================76%       ] profile.nsys-rep\n[1/2] [===================80%      ] profile.nsys-rep\n[1/2] [========================100%] profile.nsys-rep\n[1/2] [========================100%] profile.nsys-rep\n\n[2/2] [0%                          ] profile.sqlite\n\u001b[2KProcessing 189 events: \n\n[2/2] [1%                          ] profile.sqlite\n[2/2] [2%                          ] profile.sqlite\n[2/2] [3%                          ] profile.sqlite\n[2/2] [4%                          ] profile.sqlite\n[2/2] [5%                          ] profile.sqlite\n[2/2] [6%                          ] profile.sqlite\n[2/2] [7%                          ] profile.sqlite\n[2/2] [8%                          ] profile.sqlite\n[2/2] [9%                          ] profile.sqlite\n[2/2] [10%                         ] profile.sqlite\n[2/2] [11%                         ] profile.sqlite\n[2/2] [12%                         ] profile.sqlite\n[2/2] [13%                         ] profile.sqlite\n[2/2] [14%                         ] profile.sqlite\n[2/2] [=15%                        ] profile.sqlite\n[2/2] [=16%                        ] profile.sqlite\n[2/2] [=17%                        ] profile.sqlite\n[2/2] [==18%                       ] profile.sqlite\n[2/2] [==19%                       ] profile.sqlite\n[2/2] [==20%                       ] profile.sqlite\n[2/2] [==21%                       ] profile.sqlite\n[2/2] [===22%                      ] profile.sqlite\n[2/2] [===23%                      ] profile.sqlite\n[2/2] [===24%                      ] profile.sqlite\n[2/2] [====25%                     ] profile.sqlite\n[2/2] [====26%                     ] profile.sqlite\n[2/2] [====27%                     ] profile.sqlite\n[2/2] [====28%                     ] profile.sqlite\n[2/2] [=====29%                    ] profile.sqlite\n[2/2] [=====30%                    ] profile.sqlite\n[2/2] [=====31%                    ] profile.sqlite\n[2/2] [=====32%                    ] profile.sqlite\n[2/2] [======33%                   ] profile.sqlite\n[2/2] [======34%                   ] profile.sqlite\n[2/2] [======35%                   ] profile.sqlite\n[2/2] [=======36%                  ] profile.sqlite\n[2/2] [=======37%                  ] profile.sqlite\n[2/2] [=======38%                  ] profile.sqlite\n[2/2] [=======39%                  ] profile.sqlite\n[2/2] [========40%                 ] profile.sqlite\n[2/2] [========41%                 ] profile.sqlite\n[2/2] [========42%                 ] profile.sqlite\n[2/2] [=========43%                ] profile.sqlite\n[2/2] [=========44%                ] profile.sqlite\n[2/2] [=========45%                ] profile.sqlite\n[2/2] [=========46%                ] profile.sqlite\n[2/2] [==========47%               ] profile.sqlite\n[2/2] [==========48%               ] profile.sqlite\n[2/2] [==========49%               ] profile.sqlite\n[2/2] [===========50%              ] profile.sqlite\n[2/2] [===========51%              ] profile.sqlite\n[2/2] [===========52%              ] profile.sqlite\n[2/2] [===========53%              ] profile.sqlite\n[2/2] [============54%             ] profile.sqlite\n[2/2] [============55%             ] profile.sqlite\n[2/2] [============56%             ] profile.sqlite\n[2/2] [============57%             ] profile.sqlite\n[2/2] [=============58%            ] profile.sqlite\n[2/2] [=============59%            ] profile.sqlite\n[2/2] [=============60%            ] profile.sqlite\n[2/2] [==============61%           ] profile.sqlite\n[2/2] [==============62%           ] profile.sqlite\n[2/2] [==============63%           ] profile.sqlite\n[2/2] [==============64%           ] profile.sqlite\n[2/2] [===============65%          ] profile.sqlite\n[2/2] [===============66%          ] profile.sqlite\n[2/2] [===============67%          ] profile.sqlite\n[2/2] [================68%         ] profile.sqlite\n[2/2] [================69%         ] profile.sqlite\n[2/2] [================70%         ] profile.sqlite\n[2/2] [================71%         ] profile.sqlite\n[2/2] [=================72%        ] profile.sqlite\n[2/2] [=================73%        ] profile.sqlite\n[2/2] [=================74%        ] profile.sqlite\n[2/2] [==================75%       ] profile.sqlite\n[2/2] [==================76%       ] profile.sqlite\n[2/2] [==================77%       ] profile.sqlite\n[2/2] [==================78%       ] profile.sqlite\n[2/2] [===================79%      ] profile.sqlite\n[2/2] [===================80%      ] profile.sqlite\n[2/2] [===================81%      ] profile.sqlite\n[2/2] [===================82%      ] profile.sqlite\n[2/2] [====================83%     ] profile.sqlite\n[2/2] [====================84%     ] profile.sqlite\n[2/2] [====================85%     ] profile.sqlite\n[2/2] [=====================86%    ] profile.sqlite\n[2/2] [=====================87%    ] profile.sqlite\n[2/2] [=====================88%    ] profile.sqlite\n[2/2] [=====================89%    ] profile.sqlite\n[2/2] [======================90%   ] profile.sqlite\n[2/2] [======================91%   ] profile.sqlite\n[2/2] [======================92%   ] profile.sqlite\n[2/2] [=======================93%  ] profile.sqlite\n[2/2] [=======================94%  ] profile.sqlite\n[2/2] [=======================95%  ] profile.sqlite\n[2/2] [=======================96%  ] profile.sqlite\n[2/2] [========================97% ] profile.sqlite\n[2/2] [========================98% ] profile.sqlite\n[2/2] [========================99% ] profile.sqlite\n[2/2] [========================100%] profile.sqlite\n[2/2] [========================100%] profile.sqlite\nGenerated:\n\t/mnt/c/Users/saivi/Downloads/ATLAS/results/phase6/2026-10-31-final/profile.nsys-rep\n\t/mnt/c/Users/saivi/Downloads/ATLAS/results/phase6/2026-10-31-final/profile.sqlite\n",
+  "timed_out": false
+}

@@ -1,0 +1,50 @@
+#include "backend.hpp"
+#include <algorithm>
+#include <stdexcept>
+#include <time.h>
+#include <omp.h>
+#include <nvtx3/nvToolsExt.h>
+
+namespace hs {
+int64_t now(){timespec t{};if(clock_gettime(CLOCK_MONOTONIC,&t))throw std::runtime_error("Clock failure");return int64_t(t.tv_sec)*1000000000LL+t.tv_nsec;}
+Model model(unsigned rows,unsigned cols){
+    const double dy=.016/rows,dx=.016/cols;
+    Model m{};m.cap=.5*1.75e6*.0005*dx*dy;
+    m.rx=dx/(2*100*.0005*dy);m.ry=dy/(2*100*.0005*dx);m.rz=.0005/(100*dy*dx);
+    m.nominal=.001/(3e6/(.5*.0005*1.75e6));
+    m.dt=std::min(m.nominal,.9*m.cap/(2/m.rx+2/m.ry+1/m.rz));
+    m.stability=m.dt/m.cap*(2/m.rx+2/m.ry+1/m.rz);return m;
+}
+void cpu_step(const double* old,double* next,const double* power,unsigned rows,unsigned cols,
+              unsigned cut,unsigned workers,const Model& m,int64_t& begin,int64_t& end){
+    begin=now();omp_set_dynamic(0);
+    const double gain=m.dt/m.cap,wx=1/m.rx,wy=1/m.ry,wz=1/m.rz;
+    #pragma omp parallel num_threads(workers)
+    {
+        nvtxRangePushA("hotspot_cpu_compute");
+        #pragma omp for schedule(static)
+        for(unsigned r=0;r<cut;++r)for(unsigned c=0;c<cols;++c){
+            const size_t i=size_t(r)*cols+c;
+            const double t=old[i],north=old[(r?r-1:r)*cols+c],south=old[(r+1<rows?r+1:r)*cols+c];
+            const double west=old[size_t(r)*cols+(c?c-1:c)],east=old[size_t(r)*cols+(c+1<cols?c+1:c)];
+            next[i]=t+gain*(power[i]+(south+north-2*t)*wy+(east+west-2*t)*wx+(m.ambient-t)*wz);
+        }
+        nvtxRangePop();
+    }
+    end=now();
+}
+void reference_step(std::vector<long double>& old,std::vector<long double>& next,const double* power,
+                    unsigned rows,unsigned cols,const Model& m){
+    // Scalar flux accumulation and long-double evolving state are independent of the backend.
+    for(unsigned r=0;r<rows;++r)for(unsigned c=0;c<cols;++c){
+        const size_t i=size_t(r)*cols+c;const long double t=old[i];
+        long double flux=power[i]+(m.ambient-t)/m.rz;
+        if(r)flux+=(old[i-cols]-t)/m.ry;
+        if(r+1<rows)flux+=(old[i+cols]-t)/m.ry;
+        if(c)flux+=(old[i-1]-t)/m.rx;
+        if(c+1<cols)flux+=(old[i+1]-t)/m.rx;
+        next[i]=t+(static_cast<long double>(m.dt)/m.cap)*flux;
+    }
+    old.swap(next);
+}
+}
