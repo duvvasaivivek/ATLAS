@@ -6,6 +6,8 @@ Updated: 2026-10-31
 
 Status: Phases 0, 1, 3, and 6 workload validation complete; Phase 2 measurement infrastructure implemented. Kmeans, HotSpot, and Tier 1 workload allocation have independent correctness checks and exploratory timing evaluation. HotSpot includes real evolving-state migration and halo exchange. GPU energy, device-event timing, and fixed-capacity hardware qualification remain blocked, including the full Phase 4/5 research gates. Tier 2 policies are implemented and validated offline in Phase 7; Phase 8 adds tested transaction infrastructure and real loaded diagnostics, but live actuation is blocked by unavailable prior-policy readback.
 
+Phase 9 adds an integrated allocation/shadow coordinator, independent telemetry sampling, barrier-safe workload feedback, causal synthetic joint scenarios, and replay. The final strict concurrency gate remains incomplete and live joint control remains blocked; see [Phase 9 review](docs/phase9_review.md).
+
 ## Document authority and project state
 
 The [implementation plan](IMPLEMENTATION_PLAN.md) defines phase order and acceptance gates. The [controller specification](docs/algorithm_spec.md) defines policy behavior, and the [measurement specification](docs/measurement_spec.md) defines evidence and metrics. The [paper mapping](docs/paper_mapping.md) distinguishes published claims, mathematical deductions, and ATLAS decisions.
@@ -54,7 +56,7 @@ CPU and GPU completion times include their branch-specific transfer and dispatch
   `frequency_experiment.py` archives and replays decisions. No actuator is present.
 - **Telemetry and energy:** timestamped observations with physical domain, metric semantics, units, and quality information.
 - **Actuation:** Phase 8 implements transaction ownership, durable requests, restoration/failure handling, and generic sweep/Tier 2-only orchestration. The default NVML adapter blocks without authoritative prior-policy capture. Its hardware gate remains blocked on WSL; see [Phase 8 review](docs/phase8_review.md). Real CUDA diagnostic workloads characterize loaded telemetry without changing clocks.
-- **Runtime:** concurrency, barriers, controller cadence, invalid-observation handling, and experiment lifecycle.
+- **Runtime:** Phase 9 implements the pure coordinator in `integration.py`, independent sampling/native feedback in `integration_runner.py`, analytical scenarios in `integration_scenarios.py`, and retained hardware validation/replay in `phase9.py`. Real execution applies allocations and shadows frequency decisions. Live joint mode is explicitly gated.
 - **Analysis:** baselines, uncertainty, adaptation cost, and plots regenerated from retained records.
 
 Planned files and their staged creation are listed in the implementation plan. Do not create placeholders that imply an unfinished module is operational.

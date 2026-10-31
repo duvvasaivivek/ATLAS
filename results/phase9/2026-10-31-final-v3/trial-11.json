@@ -1,0 +1,2891 @@
+{
+  "argv": [
+    "nsys",
+    "profile",
+    "--trace=cuda,nvtx",
+    "--sample=none",
+    "--cpuctxsw=none",
+    "--export=sqlite",
+    "--output=results/phase9/2026-10-31-final-v3/profile-hotspot",
+    "/mnt/c/Users/saivi/Downloads/ATLAS/build/phase8/atlas_hotspot",
+    "/mnt/c/Users/saivi/Downloads/ATLAS/results/phase9/2026-10-31-final-v3/datasets/h-profile.hsdat",
+    "384",
+    "6",
+    "1",
+    "timing",
+    "/mnt/c/Users/saivi/Downloads/ATLAS/results/phase9/2026-10-31-final-v3/fields/trial-11.hstemp",
+    "feedback"
+  ],
+  "barriers": [
+    {
+      "controller_ns": 2460624,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "d1149d166b3ea5282febcffe7cbfa29756c8837138f5786a9da30d8d245aef8d",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 0,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 384,
+        "partition_epoch": 0,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "final": false,
+        "new_frames": [
+          {
+            "acquisition_end_ns": 91380542698,
+            "acquisition_start_ns": 90827033118,
+            "buffer_samples": {
+              "core": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463147794085
+                },
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463147993998
+                },
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463148193969
+                }
+              ],
+              "memory": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463147794085
+                },
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463147993998
+                },
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463148193969
+                }
+              ]
+            },
+            "errors": [],
+            "frame_id": 0,
+            "poll_cpu_ns": 1171410,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 91380535205,
+                "acquisition_start_ns": 91359786031,
+                "status": "ok",
+                "value": 1
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 91355024656,
+                "acquisition_start_ns": 91342613556,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 91359783239,
+                "acquisition_start_ns": 91359020385,
+                "status": "ok",
+                "value": 1415737240
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 91357307525,
+                "acquisition_start_ns": 91355035510,
+                "status": "ok",
+                "value": 8000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 91359016181,
+                "acquisition_start_ns": 91357423601,
+                "status": "ok",
+                "value": 1200
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 91357418377,
+                "acquisition_start_ns": 91357314002,
+                "status": "ok",
+                "value": 60
+              }
+            },
+            "wall_end_us": 1793463148173310,
+            "wall_us": 1793463147619799
+          },
+          {
+            "acquisition_end_ns": 91407719298,
+            "acquisition_start_ns": 91380584837,
+            "buffer_samples": {
+              "core": [],
+              "memory": []
+            },
+            "errors": [
+              {
+                "domain": "core",
+                "error": "Not Found"
+              },
+              {
+                "domain": "memory",
+                "error": "Not Found"
+              }
+            ],
+            "frame_id": 1,
+            "poll_cpu_ns": 974586,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 91407713785,
+                "acquisition_start_ns": 91392479271,
+                "status": "ok",
+                "value": 1
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 91383244287,
+                "acquisition_start_ns": 91381758946,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 91392473517,
+                "acquisition_start_ns": 91389970544,
+                "status": "ok",
+                "value": 1415737240
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 91384824395,
+                "acquisition_start_ns": 91383271343,
+                "status": "ok",
+                "value": 8000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 91389959985,
+                "acquisition_start_ns": 91384936594,
+                "status": "ok",
+                "value": 1200
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 91384934478,
+                "acquisition_start_ns": 91384830374,
+                "status": "ok",
+                "value": 60
+              }
+            },
+            "wall_end_us": 1793463148200486,
+            "wall_us": 1793463148173351
+          },
+          {
+            "acquisition_end_ns": 91490034268,
+            "acquisition_start_ns": 91481832140,
+            "buffer_samples": {
+              "core": [],
+              "memory": []
+            },
+            "errors": [
+              {
+                "domain": "core",
+                "error": "Not Found"
+              },
+              {
+                "domain": "memory",
+                "error": "Not Found"
+              }
+            ],
+            "frame_id": 2,
+            "poll_cpu_ns": 853773,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 91490027503,
+                "acquisition_start_ns": 91489217563,
+                "status": "ok",
+                "value": 36
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 91484413504,
+                "acquisition_start_ns": 91482847637,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 91489205816,
+                "acquisition_start_ns": 91488388273,
+                "status": "ok",
+                "value": 1415771325
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 91486927544,
+                "acquisition_start_ns": 91484418520,
+                "status": "ok",
+                "value": 7000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 91488382751,
+                "acquisition_start_ns": 91487047361,
+                "status": "ok",
+                "value": 13808
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 91487045098,
+                "acquisition_start_ns": 91486934337,
+                "status": "ok",
+                "value": 60
+              }
+            },
+            "wall_end_us": 1793463148282802,
+            "wall_us": 1793463148274598
+          },
+          {
+            "acquisition_end_ns": 91592233858,
+            "acquisition_start_ns": 91583376667,
+            "buffer_samples": {
+              "core": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463148931679
+                }
+              ],
+              "memory": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463148931679
+                }
+              ]
+            },
+            "errors": [],
+            "frame_id": 3,
+            "poll_cpu_ns": 1089819,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 91592228971,
+                "acquisition_start_ns": 91591431857,
+                "status": "ok",
+                "value": 36
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 91586333972,
+                "acquisition_start_ns": 91584475213,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 91591428110,
+                "acquisition_start_ns": 91590611287,
+                "status": "ok",
+                "value": 1415777967
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 91588438521,
+                "acquisition_start_ns": 91586343938,
+                "status": "ok",
+                "value": 7000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 91590605279,
+                "acquisition_start_ns": 91589278237,
+                "status": "ok",
+                "value": 12227
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 91589268249,
+                "acquisition_start_ns": 91588449162,
+                "status": "ok",
+                "value": 60
+              }
+            },
+            "wall_end_us": 1793463148385001,
+            "wall_us": 1793463148376143
+          },
+          {
+            "acquisition_end_ns": 91693603932,
+            "acquisition_start_ns": 91683667016,
+            "buffer_samples": {
+              "core": [],
+              "memory": []
+            },
+            "errors": [
+              {
+                "domain": "core",
+                "error": "Not Found"
+              },
+              {
+                "domain": "memory",
+                "error": "Not Found"
+              }
+            ],
+            "frame_id": 4,
+            "poll_cpu_ns": 1405655,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 91693597780,
+                "acquisition_start_ns": 91692573693,
+                "status": "ok",
+                "value": 36
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 91687480721,
+                "acquisition_start_ns": 91685565226,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 91692562971,
+                "acquisition_start_ns": 91691321438,
+                "status": "ok",
+                "value": 1415785125
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 91690308969,
+                "acquisition_start_ns": 91687489196,
+                "status": "ok",
+                "value": 7000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 91691314322,
+                "acquisition_start_ns": 91690563269,
+                "status": "ok",
+                "value": 12193
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 91690558538,
+                "acquisition_start_ns": 91690322477,
+                "status": "ok",
+                "value": 60
+              }
+            },
+            "wall_end_us": 1793463148486372,
+            "wall_us": 1793463148476434
+          },
+          {
+            "acquisition_end_ns": 91794283728,
+            "acquisition_start_ns": 91785159711,
+            "buffer_samples": {
+              "core": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463149131489
+                }
+              ],
+              "memory": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463149131489
+                }
+              ]
+            },
+            "errors": [],
+            "frame_id": 5,
+            "poll_cpu_ns": 1048771,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 91794275802,
+                "acquisition_start_ns": 91793400974,
+                "status": "ok",
+                "value": 36
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 91789701205,
+                "acquisition_start_ns": 91787383753,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 91793398044,
+                "acquisition_start_ns": 91792442646,
+                "status": "ok",
+                "value": 1415791997
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 91791771036,
+                "acquisition_start_ns": 91789711896,
+                "status": "ok",
+                "value": 7000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 91792438671,
+                "acquisition_start_ns": 91792093130,
+                "status": "ok",
+                "value": 12303
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 91792033610,
+                "acquisition_start_ns": 91791782891,
+                "status": "ok",
+                "value": 60
+              }
+            },
+            "wall_end_us": 1793463148587051,
+            "wall_us": 1793463148577926
+          },
+          {
+            "acquisition_end_ns": 91894756107,
+            "acquisition_start_ns": 91886632245,
+            "buffer_samples": {
+              "core": [],
+              "memory": []
+            },
+            "errors": [
+              {
+                "domain": "core",
+                "error": "Not Found"
+              },
+              {
+                "domain": "memory",
+                "error": "Not Found"
+              }
+            ],
+            "frame_id": 6,
+            "poll_cpu_ns": 1193382,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 91894746983,
+                "acquisition_start_ns": 91893659327,
+                "status": "ok",
+                "value": 36
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 91889677831,
+                "acquisition_start_ns": 91887788986,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 91893647467,
+                "acquisition_start_ns": 91892254621,
+                "status": "ok",
+                "value": 1415798666
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 91891474177,
+                "acquisition_start_ns": 91889686908,
+                "status": "ok",
+                "value": 7000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 91892245428,
+                "acquisition_start_ns": 91891733335,
+                "status": "ok",
+                "value": 12349
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 91891723545,
+                "acquisition_start_ns": 91891482860,
+                "status": "ok",
+                "value": 60
+              }
+            },
+            "wall_end_us": 1793463148687523,
+            "wall_us": 1793463148679398
+          },
+          {
+            "acquisition_end_ns": 91996539922,
+            "acquisition_start_ns": 91987164589,
+            "buffer_samples": {
+              "core": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463149331403
+                }
+              ],
+              "memory": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463149331403
+                }
+              ]
+            },
+            "errors": [],
+            "frame_id": 7,
+            "poll_cpu_ns": 1724088,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 91996498818,
+                "acquisition_start_ns": 91995020473,
+                "status": "ok",
+                "value": 36
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 91990651312,
+                "acquisition_start_ns": 91988645511,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 91995010131,
+                "acquisition_start_ns": 91993486337,
+                "status": "ok",
+                "value": 1415804505
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 91992627245,
+                "acquisition_start_ns": 91990664304,
+                "status": "ok",
+                "value": 7000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 91993477971,
+                "acquisition_start_ns": 91992933830,
+                "status": "ok",
+                "value": 12371
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 91992927865,
+                "acquisition_start_ns": 91992642200,
+                "status": "ok",
+                "value": 60
+              }
+            },
+            "wall_end_us": 1793463148789308,
+            "wall_us": 1793463148779931
+          },
+          {
+            "acquisition_end_ns": 92098480220,
+            "acquisition_start_ns": 92087913560,
+            "buffer_samples": {
+              "core": [],
+              "memory": []
+            },
+            "errors": [
+              {
+                "domain": "core",
+                "error": "Not Found"
+              },
+              {
+                "domain": "memory",
+                "error": "Not Found"
+              }
+            ],
+            "frame_id": 8,
+            "poll_cpu_ns": 1310945,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 92098472621,
+                "acquisition_start_ns": 92097718618,
+                "status": "ok",
+                "value": 36
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 92091523534,
+                "acquisition_start_ns": 92089431078,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 92097713717,
+                "acquisition_start_ns": 92096741560,
+                "status": "ok",
+                "value": 1415810337
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 92093534664,
+                "acquisition_start_ns": 92091537740,
+                "status": "ok",
+                "value": 7000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 92096737105,
+                "acquisition_start_ns": 92096392217,
+                "status": "ok",
+                "value": 12379
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 92096384293,
+                "acquisition_start_ns": 92093547936,
+                "status": "ok",
+                "value": 60
+              }
+            },
+            "wall_end_us": 1793463148891248,
+            "wall_us": 1793463148880680
+          },
+          {
+            "acquisition_end_ns": 92198336795,
+            "acquisition_start_ns": 92188277436,
+            "buffer_samples": {
+              "core": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463149531359
+                }
+              ],
+              "memory": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463149531359
+                }
+              ]
+            },
+            "errors": [],
+            "frame_id": 9,
+            "poll_cpu_ns": 1411293,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 92198326293,
+                "acquisition_start_ns": 92196780746,
+                "status": "ok",
+                "value": 36
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 92191375922,
+                "acquisition_start_ns": 92189805991,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 92196767022,
+                "acquisition_start_ns": 92193852356,
+                "status": "ok",
+                "value": 1415816964
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 92192958700,
+                "acquisition_start_ns": 92191386676,
+                "status": "ok",
+                "value": 7000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 92193840613,
+                "acquisition_start_ns": 92193183670,
+                "status": "ok",
+                "value": 12383
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 92193174141,
+                "acquisition_start_ns": 92192969010,
+                "status": "ok",
+                "value": 60
+              }
+            },
+            "wall_end_us": 1793463148991104,
+            "wall_us": 1793463148981044
+          },
+          {
+            "acquisition_end_ns": 92299596920,
+            "acquisition_start_ns": 92289805075,
+            "buffer_samples": {
+              "core": [],
+              "memory": []
+            },
+            "errors": [
+              {
+                "domain": "core",
+                "error": "Not Found"
+              },
+              {
+                "domain": "memory",
+                "error": "Not Found"
+              }
+            ],
+            "frame_id": 10,
+            "poll_cpu_ns": 939849,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 92299587910,
+                "acquisition_start_ns": 92298173809,
+                "status": "ok",
+                "value": 36
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 92292554856,
+                "acquisition_start_ns": 92290972522,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 92298161708,
+                "acquisition_start_ns": 92294759821,
+                "status": "ok",
+                "value": 1415821989
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 92294229196,
+                "acquisition_start_ns": 92292565801,
+                "status": "ok",
+                "value": 7000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 92294755285,
+                "acquisition_start_ns": 92294402506,
+                "status": "ok",
+                "value": 12395
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 92294398971,
+                "acquisition_start_ns": 92294233076,
+                "status": "ok",
+                "value": 60
+              }
+            },
+            "wall_end_us": 1793463149092365,
+            "wall_us": 1793463149082571
+          },
+          {
+            "acquisition_end_ns": 92404760124,
+            "acquisition_start_ns": 92391349576,
+            "buffer_samples": {
+              "core": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463149731291
+                }
+              ],
+              "memory": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463149731291
+                }
+              ]
+            },
+            "errors": [],
+            "frame_id": 11,
+            "poll_cpu_ns": 2221933,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 92404742463,
+                "acquisition_start_ns": 92402223359,
+                "status": "ok",
+                "value": 36
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 92396588945,
+                "acquisition_start_ns": 92393381313,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 92402211541,
+                "acquisition_start_ns": 92400801821,
+                "status": "ok",
+                "value": 1415826999
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 92399185472,
+                "acquisition_start_ns": 92396609609,
+                "status": "ok",
+                "value": 7000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 92400788972,
+                "acquisition_start_ns": 92399895145,
+                "status": "ok",
+                "value": 12397
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 92399878658,
+                "acquisition_start_ns": 92399193395,
+                "status": "ok",
+                "value": 60
+              }
+            },
+            "wall_end_us": 1793463149197530,
+            "wall_us": 1793463149184116
+          },
+          {
+            "acquisition_end_ns": 92504709518,
+            "acquisition_start_ns": 92492887360,
+            "buffer_samples": {
+              "core": [],
+              "memory": []
+            },
+            "errors": [
+              {
+                "domain": "core",
+                "error": "Not Found"
+              },
+              {
+                "domain": "memory",
+                "error": "Not Found"
+              }
+            ],
+            "frame_id": 12,
+            "poll_cpu_ns": 1839472,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 92504701979,
+                "acquisition_start_ns": 92503834781,
+                "status": "ok",
+                "value": 36
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 92499776823,
+                "acquisition_start_ns": 92495742914,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 92503828071,
+                "acquisition_start_ns": 92502458205,
+                "status": "ok",
+                "value": 1415833573
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 92501509922,
+                "acquisition_start_ns": 92499788636,
+                "status": "ok",
+                "value": 7000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 92502450367,
+                "acquisition_start_ns": 92501962350,
+                "status": "ok",
+                "value": 12399
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 92501948020,
+                "acquisition_start_ns": 92501523865,
+                "status": "ok",
+                "value": 60
+              }
+            },
+            "wall_end_us": 1793463149297477,
+            "wall_us": 1793463149285654
+          },
+          {
+            "acquisition_end_ns": 92605306667,
+            "acquisition_start_ns": 92593085333,
+            "buffer_samples": {
+              "core": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463149931131
+                }
+              ],
+              "memory": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463149931131
+                }
+              ]
+            },
+            "errors": [],
+            "frame_id": 13,
+            "poll_cpu_ns": 2094793,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 92605287734,
+                "acquisition_start_ns": 92604210013,
+                "status": "ok",
+                "value": 36
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 92595775022,
+                "acquisition_start_ns": 92594372426,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 92604191056,
+                "acquisition_start_ns": 92601710501,
+                "status": "ok",
+                "value": 1415840312
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 92599421675,
+                "acquisition_start_ns": 92595786448,
+                "status": "ok",
+                "value": 7000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 92601697765,
+                "acquisition_start_ns": 92601115462,
+                "status": "ok",
+                "value": 12399
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 92601084030,
+                "acquisition_start_ns": 92599463728,
+                "status": "ok",
+                "value": 60
+              }
+            },
+            "wall_end_us": 1793463149398076,
+            "wall_us": 1793463149385851
+          },
+          {
+            "acquisition_end_ns": 92704270594,
+            "acquisition_start_ns": 92693816500,
+            "buffer_samples": {
+              "core": [],
+              "memory": []
+            },
+            "errors": [
+              {
+                "domain": "core",
+                "error": "Not Found"
+              },
+              {
+                "domain": "memory",
+                "error": "Not Found"
+              }
+            ],
+            "frame_id": 14,
+            "poll_cpu_ns": 2057120,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 92704263059,
+                "acquisition_start_ns": 92703261064,
+                "status": "ok",
+                "value": 36
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 92696656803,
+                "acquisition_start_ns": 92695213887,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 92703251969,
+                "acquisition_start_ns": 92701135521,
+                "status": "ok",
+                "value": 1415845860
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 92699876280,
+                "acquisition_start_ns": 92696671968,
+                "status": "ok",
+                "value": 7000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 92701128078,
+                "acquisition_start_ns": 92700644797,
+                "status": "ok",
+                "value": 12414
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 92700635802,
+                "acquisition_start_ns": 92699929727,
+                "status": "ok",
+                "value": 60
+              }
+            },
+            "wall_end_us": 1793463149497038,
+            "wall_us": 1793463149486583
+          },
+          {
+            "acquisition_end_ns": 92807315842,
+            "acquisition_start_ns": 92794686294,
+            "buffer_samples": {
+              "core": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463150131248
+                }
+              ],
+              "memory": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463150131248
+                }
+              ]
+            },
+            "errors": [],
+            "frame_id": 15,
+            "poll_cpu_ns": 2955771,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 92807303889,
+                "acquisition_start_ns": 92804696475,
+                "status": "ok",
+                "value": 36
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 92797762792,
+                "acquisition_start_ns": 92796450131,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 92804684976,
+                "acquisition_start_ns": 92801967728,
+                "status": "ok",
+                "value": 1415850528
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 92799958227,
+                "acquisition_start_ns": 92797774476,
+                "status": "ok",
+                "value": 7000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 92801949243,
+                "acquisition_start_ns": 92800853363,
+                "status": "ok",
+                "value": 12450
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 92800837162,
+                "acquisition_start_ns": 92800023303,
+                "status": "ok",
+                "value": 60
+              }
+            },
+            "wall_end_us": 1793463149600083,
+            "wall_us": 1793463149587457
+          },
+          {
+            "acquisition_end_ns": 92906707321,
+            "acquisition_start_ns": 92895274312,
+            "buffer_samples": {
+              "core": [],
+              "memory": []
+            },
+            "errors": [
+              {
+                "domain": "core",
+                "error": "Not Found"
+              },
+              {
+                "domain": "memory",
+                "error": "Not Found"
+              }
+            ],
+            "frame_id": 16,
+            "poll_cpu_ns": 1815847,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 92906702153,
+                "acquisition_start_ns": 92905790797,
+                "status": "ok",
+                "value": 36
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 92898974466,
+                "acquisition_start_ns": 92897766600,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 92905783870,
+                "acquisition_start_ns": 92900887313,
+                "status": "ok",
+                "value": 1415855066
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 92900315046,
+                "acquisition_start_ns": 92898988489,
+                "status": "ok",
+                "value": 7000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 92900883597,
+                "acquisition_start_ns": 92900499220,
+                "status": "ok",
+                "value": 12468
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 92900492445,
+                "acquisition_start_ns": 92900325841,
+                "status": "ok",
+                "value": 60
+              }
+            },
+            "wall_end_us": 1793463149699474,
+            "wall_us": 1793463149688041
+          },
+          {
+            "acquisition_end_ns": 93007763466,
+            "acquisition_start_ns": 92995604080,
+            "buffer_samples": {
+              "core": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463150331000
+                }
+              ],
+              "memory": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463150331000
+                }
+              ]
+            },
+            "errors": [],
+            "frame_id": 17,
+            "poll_cpu_ns": 1075185,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 93007757696,
+                "acquisition_start_ns": 93006882710,
+                "status": "ok",
+                "value": 36
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 92999271227,
+                "acquisition_start_ns": 92997241750,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 93006873886,
+                "acquisition_start_ns": 93001242022,
+                "status": "ok",
+                "value": 1415859381
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 93000551359,
+                "acquisition_start_ns": 92999290761,
+                "status": "ok",
+                "value": 7000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 93001237054,
+                "acquisition_start_ns": 93000755807,
+                "status": "ok",
+                "value": 12487
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 93000751649,
+                "acquisition_start_ns": 93000563942,
+                "status": "ok",
+                "value": 60
+              }
+            },
+            "wall_end_us": 1793463149800530,
+            "wall_us": 1793463149788370
+          },
+          {
+            "acquisition_end_ns": 93109327963,
+            "acquisition_start_ns": 93096092378,
+            "buffer_samples": {
+              "core": [],
+              "memory": []
+            },
+            "errors": [
+              {
+                "domain": "core",
+                "error": "Not Found"
+              },
+              {
+                "domain": "memory",
+                "error": "Not Found"
+              }
+            ],
+            "frame_id": 18,
+            "poll_cpu_ns": 1508951,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 93109323185,
+                "acquisition_start_ns": 93108344733,
+                "status": "ok",
+                "value": 36
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 93100036271,
+                "acquisition_start_ns": 93098092413,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 93108338368,
+                "acquisition_start_ns": 93103678778,
+                "status": "ok",
+                "value": 1415863651
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 93101586278,
+                "acquisition_start_ns": 93100050924,
+                "status": "ok",
+                "value": 7000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 93103667007,
+                "acquisition_start_ns": 93102815169,
+                "status": "ok",
+                "value": 12495
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 93102802759,
+                "acquisition_start_ns": 93101599898,
+                "status": "ok",
+                "value": 60
+              }
+            },
+            "wall_end_us": 1793463149902095,
+            "wall_us": 1793463149888859
+          },
+          {
+            "acquisition_end_ns": 93212592665,
+            "acquisition_start_ns": 93196375126,
+            "buffer_samples": {
+              "core": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463150531106
+                }
+              ],
+              "memory": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463150531106
+                }
+              ]
+            },
+            "errors": [],
+            "frame_id": 19,
+            "poll_cpu_ns": 2155872,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 93212579698,
+                "acquisition_start_ns": 93209769330,
+                "status": "ok",
+                "value": 36
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 93200727916,
+                "acquisition_start_ns": 93198151448,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 93209750509,
+                "acquisition_start_ns": 93203219792,
+                "status": "ok",
+                "value": 1415867865
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 93202221515,
+                "acquisition_start_ns": 93200737933,
+                "status": "ok",
+                "value": 7000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 93203207536,
+                "acquisition_start_ns": 93202609934,
+                "status": "ok",
+                "value": 12494
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 93202594059,
+                "acquisition_start_ns": 93202237009,
+                "status": "ok",
+                "value": 60
+              }
+            },
+            "wall_end_us": 1793463150005360,
+            "wall_us": 1793463149989142
+          },
+          {
+            "acquisition_end_ns": 93303130614,
+            "acquisition_start_ns": 93297433003,
+            "buffer_samples": {
+              "core": [],
+              "memory": []
+            },
+            "errors": [
+              {
+                "domain": "core",
+                "error": "Not Found"
+              },
+              {
+                "domain": "memory",
+                "error": "Not Found"
+              }
+            ],
+            "frame_id": 20,
+            "poll_cpu_ns": 650050,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 93303124398,
+                "acquisition_start_ns": 93302405903,
+                "status": "ok",
+                "value": 36
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 93299646789,
+                "acquisition_start_ns": 93298526288,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 93302402196,
+                "acquisition_start_ns": 93301295977,
+                "status": "ok",
+                "value": 1415872054
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 93300655985,
+                "acquisition_start_ns": 93299652050,
+                "status": "ok",
+                "value": 7000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 93301292246,
+                "acquisition_start_ns": 93300937012,
+                "status": "ok",
+                "value": 12498
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 93300933228,
+                "acquisition_start_ns": 93300661056,
+                "status": "ok",
+                "value": 60
+              }
+            },
+            "wall_end_us": 1793463150095898,
+            "wall_us": 1793463150090199
+          },
+          {
+            "acquisition_end_ns": 93409680909,
+            "acquisition_start_ns": 93399195190,
+            "buffer_samples": {
+              "core": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463150731059
+                }
+              ],
+              "memory": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463150731059
+                }
+              ]
+            },
+            "errors": [],
+            "frame_id": 21,
+            "poll_cpu_ns": 1743354,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 93409668743,
+                "acquisition_start_ns": 93406871634,
+                "status": "ok",
+                "value": 36
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 93402727312,
+                "acquisition_start_ns": 93401009154,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 93406855709,
+                "acquisition_start_ns": 93405368075,
+                "status": "ok",
+                "value": 1415883068
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 93404289662,
+                "acquisition_start_ns": 93402742044,
+                "status": "ok",
+                "value": 7000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 93405361156,
+                "acquisition_start_ns": 93404689782,
+                "status": "ok",
+                "value": 12507
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 93404684246,
+                "acquisition_start_ns": 93404306897,
+                "status": "ok",
+                "value": 60
+              }
+            },
+            "wall_end_us": 1793463150202449,
+            "wall_us": 1793463150191962
+          },
+          {
+            "acquisition_end_ns": 93509789082,
+            "acquisition_start_ns": 93500647980,
+            "buffer_samples": {
+              "core": [],
+              "memory": []
+            },
+            "errors": [
+              {
+                "domain": "core",
+                "error": "Not Found"
+              },
+              {
+                "domain": "memory",
+                "error": "Not Found"
+              }
+            ],
+            "frame_id": 22,
+            "poll_cpu_ns": 1945731,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 93509782124,
+                "acquisition_start_ns": 93508530497,
+                "status": "ok",
+                "value": 36
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 93503396143,
+                "acquisition_start_ns": 93501855849,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 93508519123,
+                "acquisition_start_ns": 93507247929,
+                "status": "ok",
+                "value": 1415895720
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 93505775228,
+                "acquisition_start_ns": 93503413020,
+                "status": "ok",
+                "value": 7000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 93507238103,
+                "acquisition_start_ns": 93506457559,
+                "status": "ok",
+                "value": 12524
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 93506444290,
+                "acquisition_start_ns": 93505864871,
+                "status": "ok",
+                "value": 60
+              }
+            },
+            "wall_end_us": 1793463150302556,
+            "wall_us": 1793463150293414
+          },
+          {
+            "acquisition_end_ns": 93616547732,
+            "acquisition_start_ns": 93601981674,
+            "buffer_samples": {
+              "core": [
+                {
+                  "percent": 4,
+                  "timestamp_us": 1793463150930799
+                }
+              ],
+              "memory": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1793463150930799
+                }
+              ]
+            },
+            "errors": [],
+            "frame_id": 23,
+            "poll_cpu_ns": 2058973,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 93616542023,
+                "acquisition_start_ns": 93615707263,
+                "status": "ok",
+                "value": 36
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 93607220751,
+                "acquisition_start_ns": 93604992068,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 93615696667,
+                "acquisition_start_ns": 93610568491,
+                "status": "ok",
+                "value": 1415908495
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 93608637695,
+                "acquisition_start_ns": 93607233797,
+                "status": "ok",
+                "value": 7000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 93610561232,
+                "acquisition_start_ns": 93610083852,
+                "status": "ok",
+                "value": 12553
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 93610071417,
+                "acquisition_start_ns": 93608649766,
+                "status": "ok",
+                "value": 60
+              }
+            },
+            "wall_end_us": 1793463150409315,
+            "wall_us": 1793463150394748
+          }
+        ],
+        "now_ns": 93655247320,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 384,
+          "epoch": 0,
+          "iteration": 0,
+          "release_ns": 93651853324,
+          "run_id": "joint-11",
+          "t_cpu": 0.002755151,
+          "t_gpu": 0.001715193,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 204771,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "d1149d166b3ea5282febcffe7cbfa29756c8837138f5786a9da30d8d245aef8d",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 1,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 384,
+        "partition_epoch": 0,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "final": false,
+        "new_frames": [],
+        "now_ns": 93661015837,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 384,
+          "epoch": 0,
+          "iteration": 1,
+          "release_ns": 93657827087,
+          "run_id": "joint-11",
+          "t_cpu": 0.002093661,
+          "t_gpu": 0.000805904,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 178458,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "d1149d166b3ea5282febcffe7cbfa29756c8837138f5786a9da30d8d245aef8d",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 2,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 384,
+        "partition_epoch": 0,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "final": false,
+        "new_frames": [],
+        "now_ns": 93662771682,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 384,
+          "epoch": 0,
+          "iteration": 2,
+          "release_ns": 93661317316,
+          "run_id": "joint-11",
+          "t_cpu": 0.001221678,
+          "t_gpu": 0.00069503,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 163388,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "d1149d166b3ea5282febcffe7cbfa29756c8837138f5786a9da30d8d245aef8d",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 3,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 384,
+        "partition_epoch": 0,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "final": false,
+        "new_frames": [],
+        "now_ns": 93663988844,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 384,
+          "epoch": 0,
+          "iteration": 3,
+          "release_ns": 93663005532,
+          "run_id": "joint-11",
+          "t_cpu": 0.000739443,
+          "t_gpu": 0.000259071,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 278145,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "d1149d166b3ea5282febcffe7cbfa29756c8837138f5786a9da30d8d245aef8d",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 4,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 384,
+        "partition_epoch": 0,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "final": false,
+        "new_frames": [],
+        "now_ns": 93666392301,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 384,
+          "epoch": 0,
+          "iteration": 4,
+          "release_ns": 93664210689,
+          "run_id": "joint-11",
+          "t_cpu": 0.001562256,
+          "t_gpu": 0.000468703,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 240804,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "workload_complete",
+        "capacity_epoch": 0,
+        "config_hash": "d1149d166b3ea5282febcffe7cbfa29756c8837138f5786a9da30d8d245aef8d",
+        "events": [
+          "observe",
+          "finalize"
+        ],
+        "frequency": null,
+        "frequency_reason": "workload_complete",
+        "hardware_requested_pair": null,
+        "iteration": 5,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 384,
+        "partition_epoch": 0,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "final": true,
+        "new_frames": [],
+        "now_ns": 93669249115,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 384,
+          "epoch": 0,
+          "iteration": 5,
+          "release_ns": 93666820710,
+          "run_id": "joint-11",
+          "t_cpu": 0.001756571,
+          "t_gpu": 0.000670977,
+          "valid": true
+        },
+        "phase": 0
+      }
+    }
+  ],
+  "configuration": {
+    "allocation_interval_ns": 2000000000,
+    "allocation_iterations": 100,
+    "allocation_policy": "paper_proportional",
+    "cadence_profile": "observed_cadence_v1",
+    "frequency_guard_ns": 1000000000,
+    "frequency_interval_ns": 200000000,
+    "frequency_policy": "paper_additive",
+    "initial_cpu_items": 384,
+    "mode": "allocation_shadow",
+    "n": 513,
+    "pairs": [
+      [
+        930,
+        8001
+      ],
+      [
+        1665,
+        5501
+      ],
+      [
+        1665,
+        7001
+      ],
+      [
+        1665,
+        8001
+      ],
+      [
+        2385,
+        8001
+      ]
+    ],
+    "run_id": "joint-11",
+    "settle_iterations": 1
+  },
+  "elapsed_ns": 4691601073,
+  "failure": null,
+  "hardware_setter_calls": 0,
+  "lifecycle": [
+    "prepare",
+    "warmup",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "finalize",
+    "restore",
+    "complete"
+  ],
+  "polling": {
+    "error": null,
+    "frames": 42,
+    "query_thread_cpu_ns": 59486595,
+    "query_wall_ns": 941229552
+  },
+  "restoration": "not_needed_no_settings_changed",
+  "returncode": 0,
+  "status": "ok",
+  "stderr": "",
+  "stdout": "{\"kind\":\"configuration\",\"schema_version\":\"6.0\",\"clock\":\"CLOCK_MONOTONIC\",\"rows\":513,\"cols\":515,\"steps\":6,\"workers\":1,\"mode\":\"timing\",\"feedback\":true,\"atol\":1e-8,\"rtol\":1e-10,\"cap\":4.2392929464978517e-07,\"rx\":9.9611650485436893,\"ry\":10.038986354775826,\"rz\":5160.05859375,\"dt\":1.4583333333333335e-07,\"nominal_dt\":1.4583333333333335e-07,\"stability_sum\":0.13766927083333338}\n{\"kind\":\"iteration\",\"index\":-1,\"warmup\":true,\"cpu_rows\":384,\"old_cpu_rows\":513,\"input_epoch\":0,\"output_epoch\":1,\"status\":\"completed\",\"validation\":\"checked\",\"errors\":0,\"max_error\":8.5279006079019837e-15,\"initial_h2d_bytes\":531480,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":4120,\"halo_d2h_bytes\":4120,\"power_h2d_bytes\":531480,\"validation_d2h_bytes\":531480,\"power_begin_after\":384,\"control_ns\":0,\"release_ns\":93629722446,\"communication_end_ns\":93632594760,\"cpu_start_ns\":93632701733,\"cpu_end_ns\":93634768152,\"gpu_end_ns\":93637172450,\"end_ns\":93637173097,\"validation_end_ns\":93647277622}\n{\"kind\":\"iteration\",\"index\":0,\"warmup\":false,\"cpu_rows\":384,\"old_cpu_rows\":513,\"input_epoch\":0,\"output_epoch\":1,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":531480,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":4120,\"halo_d2h_bytes\":4120,\"power_h2d_bytes\":531480,\"validation_d2h_bytes\":0,\"power_begin_after\":384,\"control_ns\":0,\"release_ns\":93651853324,\"communication_end_ns\":93653104893,\"cpu_start_ns\":93653262641,\"cpu_end_ns\":93654608475,\"gpu_end_ns\":93653568517,\"end_ns\":93654806022,\"validation_end_ns\":93654812412}\n{\"kind\":\"iteration\",\"index\":1,\"warmup\":false,\"cpu_rows\":384,\"old_cpu_rows\":384,\"input_epoch\":1,\"output_epoch\":2,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":4120,\"halo_d2h_bytes\":4120,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":384,\"control_ns\":3014306,\"release_ns\":93657827087,\"communication_end_ns\":93658214852,\"cpu_start_ns\":93658337148,\"cpu_end_ns\":93659920748,\"gpu_end_ns\":93658632991,\"end_ns\":93660327907,\"validation_end_ns\":93660358426}\n{\"kind\":\"iteration\",\"index\":2,\"warmup\":false,\"cpu_rows\":384,\"old_cpu_rows\":384,\"input_epoch\":2,\"output_epoch\":3,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":4120,\"halo_d2h_bytes\":4120,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":384,\"control_ns\":958173,\"release_ns\":93661317316,\"communication_end_ns\":93661801159,\"cpu_start_ns\":93661925667,\"cpu_end_ns\":93662538994,\"gpu_end_ns\":93662012346,\"end_ns\":93662594469,\"validation_end_ns\":93662596385}\n{\"kind\":\"iteration\",\"index\":3,\"warmup\":false,\"cpu_rows\":384,\"old_cpu_rows\":384,\"input_epoch\":3,\"output_epoch\":4,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":4120,\"halo_d2h_bytes\":4120,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":384,\"control_ns\":408967,\"release_ns\":93663005532,\"communication_end_ns\":93663164565,\"cpu_start_ns\":93663228089,\"cpu_end_ns\":93663744975,\"gpu_end_ns\":93663264603,\"end_ns\":93663808780,\"validation_end_ns\":93663810674}\n{\"kind\":\"iteration\",\"index\":4,\"warmup\":false,\"cpu_rows\":384,\"old_cpu_rows\":384,\"input_epoch\":4,\"output_epoch\":5,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":4120,\"halo_d2h_bytes\":4120,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":384,\"control_ns\":399706,\"release_ns\":93664210689,\"communication_end_ns\":93664448275,\"cpu_start_ns\":93664697595,\"cpu_end_ns\":93665772945,\"gpu_end_ns\":93664679392,\"end_ns\":93665917597,\"validation_end_ns\":93665923064}\n{\"kind\":\"iteration\",\"index\":5,\"warmup\":false,\"cpu_rows\":384,\"old_cpu_rows\":384,\"input_epoch\":5,\"output_epoch\":6,\"status\":\"completed\",\"validation\":\"deferred\",\"errors\":0,\"max_error\":0,\"initial_h2d_bytes\":0,\"migration_h2d_bytes\":0,\"migration_d2h_bytes\":0,\"halo_h2d_bytes\":4120,\"halo_d2h_bytes\":4120,\"power_h2d_bytes\":0,\"validation_d2h_bytes\":0,\"power_begin_after\":384,\"control_ns\":897073,\"release_ns\":93666820710,\"communication_end_ns\":93667210122,\"cpu_start_ns\":93667358532,\"cpu_end_ns\":93668577281,\"gpu_end_ns\":93667491687,\"end_ns\":93668693274,\"validation_end_ns\":93668697230}\n{\"kind\":\"summary\",\"status\":\"passed\",\"steps\":6,\"errors\":0,\"max_error\":2.816497035595944e-14,\"active_ns\":11113391,\"control_ns\":5678225,\"gather_ns\":974899,\"gather_d2h_bytes\":531480,\"validation_d2h_bytes\":0,\"work_and_control_and_gather_ns\":17766515,\"loop_elapsed_ns\":16839950,\"simulated_seconds\":8.7500000000000009e-07}\nCollecting data...\nGenerating '/tmp/nsys-report-d2c1.qdstrm'\n\n[1/2] [0%                          ] profile-hotspot.nsys-rep\n[1/2] [0%                          ] profile-hotspot.nsys-rep\n[1/2] [8%                          ] profile-hotspot.nsys-rep\n[1/2] [==20%                       ] profile-hotspot.nsys-rep\n[1/2] [=====32%                    ] profile-hotspot.nsys-rep\n[1/2] [======33%                   ] profile-hotspot.nsys-rep\n[1/2] [======34%                   ] profile-hotspot.nsys-rep\n[1/2] [======35%                   ] profile-hotspot.nsys-rep\n[1/2] [=======36%                  ] profile-hotspot.nsys-rep\n[1/2] [==================77%       ] profile-hotspot.nsys-rep\n[1/2] [===================79%      ] profile-hotspot.nsys-rep\n[1/2] [===================80%      ] profile-hotspot.nsys-rep\n[1/2] [========================100%] profile-hotspot.nsys-rep\n[1/2] [========================100%] profile-hotspot.nsys-rep\n\n[2/2] [0%                          ] profile-hotspot.sqlite\n\u001b[2KProcessing 213 events: \n\n[2/2] [1%                          ] profile-hotspot.sqlite\n[2/2] [2%                          ] profile-hotspot.sqlite\n[2/2] [3%                          ] profile-hotspot.sqlite\n[2/2] [4%                          ] profile-hotspot.sqlite\n[2/2] [5%                          ] profile-hotspot.sqlite\n[2/2] [6%                          ] profile-hotspot.sqlite\n[2/2] [7%                          ] profile-hotspot.sqlite\n[2/2] [8%                          ] profile-hotspot.sqlite\n[2/2] [9%                          ] profile-hotspot.sqlite\n[2/2] [10%                         ] profile-hotspot.sqlite\n[2/2] [11%                         ] profile-hotspot.sqlite\n[2/2] [12%                         ] profile-hotspot.sqlite\n[2/2] [13%                         ] profile-hotspot.sqlite\n[2/2] [14%                         ] profile-hotspot.sqlite\n[2/2] [=15%                        ] profile-hotspot.sqlite\n[2/2] [=16%                        ] profile-hotspot.sqlite\n[2/2] [=17%                        ] profile-hotspot.sqlite\n[2/2] [==18%                       ] profile-hotspot.sqlite\n[2/2] [==19%                       ] profile-hotspot.sqlite\n[2/2] [==20%                       ] profile-hotspot.sqlite\n[2/2] [==21%                       ] profile-hotspot.sqlite\n[2/2] [===22%                      ] profile-hotspot.sqlite\n[2/2] [===23%                      ] profile-hotspot.sqlite\n[2/2] [===24%                      ] profile-hotspot.sqlite\n[2/2] [====25%                     ] profile-hotspot.sqlite\n[2/2] [====26%                     ] profile-hotspot.sqlite\n[2/2] [====27%                     ] profile-hotspot.sqlite\n[2/2] [====28%                     ] profile-hotspot.sqlite\n[2/2] [=====29%                    ] profile-hotspot.sqlite\n[2/2] [=====30%                    ] profile-hotspot.sqlite\n[2/2] [=====31%                    ] profile-hotspot.sqlite\n[2/2] [=====32%                    ] profile-hotspot.sqlite\n[2/2] [======33%                   ] profile-hotspot.sqlite\n[2/2] [======34%                   ] profile-hotspot.sqlite\n[2/2] [======35%                   ] profile-hotspot.sqlite\n[2/2] [=======36%                  ] profile-hotspot.sqlite\n[2/2] [=======37%                  ] profile-hotspot.sqlite\n[2/2] [=======38%                  ] profile-hotspot.sqlite\n[2/2] [=======39%                  ] profile-hotspot.sqlite\n[2/2] [========40%                 ] profile-hotspot.sqlite\n[2/2] [========41%                 ] profile-hotspot.sqlite\n[2/2] [========42%                 ] profile-hotspot.sqlite\n[2/2] [=========43%                ] profile-hotspot.sqlite\n[2/2] [=========44%                ] profile-hotspot.sqlite\n[2/2] [=========45%                ] profile-hotspot.sqlite\n[2/2] [=========46%                ] profile-hotspot.sqlite\n[2/2] [==========47%               ] profile-hotspot.sqlite\n[2/2] [==========48%               ] profile-hotspot.sqlite\n[2/2] [==========49%               ] profile-hotspot.sqlite\n[2/2] [===========50%              ] profile-hotspot.sqlite\n[2/2] [===========51%              ] profile-hotspot.sqlite\n[2/2] [===========52%              ] profile-hotspot.sqlite\n[2/2] [===========53%              ] profile-hotspot.sqlite\n[2/2] [============54%             ] profile-hotspot.sqlite\n[2/2] [============55%             ] profile-hotspot.sqlite\n[2/2] [============56%             ] profile-hotspot.sqlite\n[2/2] [============57%             ] profile-hotspot.sqlite\n[2/2] [=============58%            ] profile-hotspot.sqlite\n[2/2] [=============59%            ] profile-hotspot.sqlite\n[2/2] [=============60%            ] profile-hotspot.sqlite\n[2/2] [==============61%           ] profile-hotspot.sqlite\n[2/2] [==============62%           ] profile-hotspot.sqlite\n[2/2] [==============63%           ] profile-hotspot.sqlite\n[2/2] [==============64%           ] profile-hotspot.sqlite\n[2/2] [===============65%          ] profile-hotspot.sqlite\n[2/2] [===============66%          ] profile-hotspot.sqlite\n[2/2] [===============67%          ] profile-hotspot.sqlite\n[2/2] [================68%         ] profile-hotspot.sqlite\n[2/2] [================69%         ] profile-hotspot.sqlite\n[2/2] [================70%         ] profile-hotspot.sqlite\n[2/2] [================71%         ] profile-hotspot.sqlite\n[2/2] [=================72%        ] profile-hotspot.sqlite\n[2/2] [=================73%        ] profile-hotspot.sqlite\n[2/2] [=================74%        ] profile-hotspot.sqlite\n[2/2] [==================75%       ] profile-hotspot.sqlite\n[2/2] [==================76%       ] profile-hotspot.sqlite\n[2/2] [==================77%       ] profile-hotspot.sqlite\n[2/2] [==================78%       ] profile-hotspot.sqlite\n[2/2] [===================79%      ] profile-hotspot.sqlite\n[2/2] [===================80%      ] profile-hotspot.sqlite\n[2/2] [===================81%      ] profile-hotspot.sqlite\n[2/2] [===================82%      ] profile-hotspot.sqlite\n[2/2] [====================83%     ] profile-hotspot.sqlite\n[2/2] [====================84%     ] profile-hotspot.sqlite\n[2/2] [====================85%     ] profile-hotspot.sqlite\n[2/2] [=====================86%    ] profile-hotspot.sqlite\n[2/2] [=====================87%    ] profile-hotspot.sqlite\n[2/2] [=====================88%    ] profile-hotspot.sqlite\n[2/2] [=====================89%    ] profile-hotspot.sqlite\n[2/2] [======================90%   ] profile-hotspot.sqlite\n[2/2] [======================91%   ] profile-hotspot.sqlite\n[2/2] [======================92%   ] profile-hotspot.sqlite\n[2/2] [=======================93%  ] profile-hotspot.sqlite\n[2/2] [=======================94%  ] profile-hotspot.sqlite\n[2/2] [=======================95%  ] profile-hotspot.sqlite\n[2/2] [=======================96%  ] profile-hotspot.sqlite\n[2/2] [========================97% ] profile-hotspot.sqlite\n[2/2] [========================98% ] profile-hotspot.sqlite\n[2/2] [========================99% ] profile-hotspot.sqlite\n[2/2] [========================100%] profile-hotspot.sqlite\n[2/2] [========================100%] profile-hotspot.sqlite\nGenerated:\n\t/mnt/c/Users/saivi/Downloads/ATLAS/results/phase9/2026-10-31-final-v3/profile-hotspot.nsys-rep\n\t/mnt/c/Users/saivi/Downloads/ATLAS/results/phase9/2026-10-31-final-v3/profile-hotspot.sqlite\n",
+  "timed_out": false,
+  "trailing_frames": [
+    {
+      "acquisition_end_ns": 93710540161,
+      "acquisition_start_ns": 93703249042,
+      "buffer_samples": {
+        "core": [],
+        "memory": []
+      },
+      "errors": [
+        {
+          "domain": "core",
+          "error": "Not Found"
+        },
+        {
+          "domain": "memory",
+          "error": "Not Found"
+        }
+      ],
+      "frame_id": 24,
+      "poll_cpu_ns": 1432325,
+      "readings": {
+        "clock_event_reasons": {
+          "acquisition_end_ns": 93710531720,
+          "acquisition_start_ns": 93709280200,
+          "status": "ok",
+          "value": 36
+        },
+        "core_mhz": {
+          "acquisition_end_ns": 93705895166,
+          "acquisition_start_ns": 93704438984,
+          "status": "ok",
+          "value": 1605
+        },
+        "energy_mj": {
+          "acquisition_end_ns": 93709266212,
+          "acquisition_start_ns": 93707895966,
+          "status": "ok",
+          "value": 1415912721
+        },
+        "memory_mhz": {
+          "acquisition_end_ns": 93706989928,
+          "acquisition_start_ns": 93705906263,
+          "status": "ok",
+          "value": 7000
+        },
+        "power_mw": {
+          "acquisition_end_ns": 93707884762,
+          "acquisition_start_ns": 93707188942,
+          "status": "ok",
+          "value": 12552
+        },
+        "temperature_c": {
+          "acquisition_end_ns": 93707183994,
+          "acquisition_start_ns": 93706999277,
+          "status": "ok",
+          "value": 60
+        }
+      },
+      "wall_end_us": 1793463150503308,
+      "wall_us": 1793463150496016
+    },
+    {
+      "acquisition_end_ns": 93810937592,
+      "acquisition_start_ns": 93803586361,
+      "buffer_samples": {
+        "core": [
+          {
+            "percent": 0,
+            "timestamp_us": 1793463151130765
+          }
+        ],
+        "memory": [
+          {
+            "percent": 0,
+            "timestamp_us": 1793463151130765
+          }
+        ]
+      },
+      "errors": [],
+      "frame_id": 25,
+      "poll_cpu_ns": 1590734,
+      "readings": {
+        "clock_event_reasons": {
+          "acquisition_end_ns": 93810916960,
+          "acquisition_start_ns": 93809946960,
+          "status": "ok",
+          "value": 36
+        },
+        "core_mhz": {
+          "acquisition_end_ns": 93806035227,
+          "acquisition_start_ns": 93804860788,
+          "status": "ok",
+          "value": 1605
+        },
+        "energy_mj": {
+          "acquisition_end_ns": 93809934881,
+          "acquisition_start_ns": 93808479606,
+          "status": "ok",
+          "value": 1415924292
+        },
+        "memory_mhz": {
+          "acquisition_end_ns": 93807483034,
+          "acquisition_start_ns": 93806050323,
+          "status": "ok",
+          "value": 7000
+        },
+        "power_mw": {
+          "acquisition_end_ns": 93808461620,
+          "acquisition_start_ns": 93807845686,
+          "status": "ok",
+          "value": 12549
+        },
+        "temperature_c": {
+          "acquisition_end_ns": 93807832333,
+          "acquisition_start_ns": 93807511508,
+          "status": "ok",
+          "value": 60
+        }
+      },
+      "wall_end_us": 1793463150603708,
+      "wall_us": 1793463150596353
+    },
+    {
+      "acquisition_end_ns": 93909105151,
+      "acquisition_start_ns": 93903868243,
+      "buffer_samples": {
+        "core": [],
+        "memory": []
+      },
+      "errors": [
+        {
+          "domain": "core",
+          "error": "Not Found"
+        },
+        {
+          "domain": "memory",
+          "error": "Not Found"
+        }
+      ],
+      "frame_id": 26,
+      "poll_cpu_ns": 732438,
+      "readings": {
+        "clock_event_reasons": {
+          "acquisition_end_ns": 93909100459,
+          "acquisition_start_ns": 93908336617,
+          "status": "ok",
+          "value": 36
+        },
+        "core_mhz": {
+          "acquisition_end_ns": 93905947297,
+          "acquisition_start_ns": 93904840535,
+          "status": "ok",
+          "value": 1605
+        },
+        "energy_mj": {
+          "acquisition_end_ns": 93908333208,
+          "acquisition_start_ns": 93907406523,
+          "status": "ok",
+          "value": 1415935434
+        },
+        "memory_mhz": {
+          "acquisition_end_ns": 93906945624,
+          "acquisition_start_ns": 93905957551,
+          "status": "ok",
+          "value": 7000
+        },
+        "power_mw": {
+          "acquisition_end_ns": 93907404483,
+          "acquisition_start_ns": 93907102708,
+          "status": "ok",
+          "value": 12550
+        },
+        "temperature_c": {
+          "acquisition_end_ns": 93907100609,
+          "acquisition_start_ns": 93906948729,
+          "status": "ok",
+          "value": 60
+        }
+      },
+      "wall_end_us": 1793463150701872,
+      "wall_us": 1793463150696635
+    },
+    {
+      "acquisition_end_ns": 94009693576,
+      "acquisition_start_ns": 94005409579,
+      "buffer_samples": {
+        "core": [
+          {
+            "percent": 0,
+            "timestamp_us": 1793463151330663
+          }
+        ],
+        "memory": [
+          {
+            "percent": 0,
+            "timestamp_us": 1793463151330663
+          }
+        ]
+      },
+      "errors": [],
+      "frame_id": 27,
+      "poll_cpu_ns": 811075,
+      "readings": {
+        "clock_event_reasons": {
+          "acquisition_end_ns": 94009686495,
+          "acquisition_start_ns": 94008936707,
+          "status": "ok",
+          "value": 36
+        },
+        "core_mhz": {
+          "acquisition_end_ns": 94007012392,
+          "acquisition_start_ns": 94006111389,
+          "status": "ok",
+          "value": 1605
+        },
+        "energy_mj": {
+          "acquisition_end_ns": 94008927499,
+          "acquisition_start_ns": 94007972277,
+          "status": "ok",
+          "value": 1415944947
+        },
+        "memory_mhz": {
+          "acquisition_end_ns": 94007722128,
+          "acquisition_start_ns": 94007017730,
+          "status": "ok",
+          "value": 7000
+        },
+        "power_mw": {
+          "acquisition_end_ns": 94007969578,
+          "acquisition_start_ns": 94007787058,
+          "status": "ok",
+          "value": 12554
+        },
+        "temperature_c": {
+          "acquisition_end_ns": 94007784611,
+          "acquisition_start_ns": 94007729121,
+          "status": "ok",
+          "value": 60
+        }
+      },
+      "wall_end_us": 1793463150802461,
+      "wall_us": 1793463150798176
+    },
+    {
+      "acquisition_end_ns": 94113251947,
+      "acquisition_start_ns": 94105738081,
+      "buffer_samples": {
+        "core": [],
+        "memory": []
+      },
+      "errors": [
+        {
+          "domain": "core",
+          "error": "Not Found"
+        },
+        {
+          "domain": "memory",
+          "error": "Not Found"
+        }
+      ],
+      "frame_id": 28,
+      "poll_cpu_ns": 1288428,
+      "readings": {
+        "clock_event_reasons": {
+          "acquisition_end_ns": 94113246995,
+          "acquisition_start_ns": 94112511500,
+          "status": "ok",
+          "value": 36
+        },
+        "core_mhz": {
+          "acquisition_end_ns": 94108839172,
+          "acquisition_start_ns": 94107421550,
+          "status": "ok",
+          "value": 1605
+        },
+        "energy_mj": {
+          "acquisition_end_ns": 94112506431,
+          "acquisition_start_ns": 94111445646,
+          "status": "ok",
+          "value": 1415953943
+        },
+        "memory_mhz": {
+          "acquisition_end_ns": 94110016386,
+          "acquisition_start_ns": 94108848849,
+          "status": "ok",
+          "value": 7000
+        },
+        "power_mw": {
+          "acquisition_end_ns": 94111437862,
+          "acquisition_start_ns": 94110958555,
+          "status": "ok",
+          "value": 12546
+        },
+        "temperature_c": {
+          "acquisition_end_ns": 94110947097,
+          "acquisition_start_ns": 94110022808,
+          "status": "ok",
+          "value": 60
+        }
+      },
+      "wall_end_us": 1793463150906019,
+      "wall_us": 1793463150898504
+    },
+    {
+      "acquisition_end_ns": 94218274383,
+      "acquisition_start_ns": 94207235051,
+      "buffer_samples": {
+        "core": [
+          {
+            "percent": 0,
+            "timestamp_us": 1793463151530625
+          }
+        ],
+        "memory": [
+          {
+            "percent": 0,
+            "timestamp_us": 1793463151530625
+          }
+        ]
+      },
+      "errors": [],
+      "frame_id": 29,
+      "poll_cpu_ns": 2262893,
+      "readings": {
+        "clock_event_reasons": {
+          "acquisition_end_ns": 94218265710,
+          "acquisition_start_ns": 94216828817,
+          "status": "ok",
+          "value": 36
+        },
+        "core_mhz": {
+          "acquisition_end_ns": 94211554501,
+          "acquisition_start_ns": 94210021507,
+          "status": "ok",
+          "value": 1605
+        },
+        "energy_mj": {
+          "acquisition_end_ns": 94216801306,
+          "acquisition_start_ns": 94214575653,
+          "status": "ok",
+          "value": 1415964153
+        },
+        "memory_mhz": {
+          "acquisition_end_ns": 94213185699,
+          "acquisition_start_ns": 94211570110,
+          "status": "ok",
+          "value": 7000
+        },
+        "power_mw": {
+          "acquisition_end_ns": 94214562523,
+          "acquisition_start_ns": 94213681602,
+          "status": "ok",
+          "value": 12547
+        },
+        "temperature_c": {
+          "acquisition_end_ns": 94213672236,
+          "acquisition_start_ns": 94213201176,
+          "status": "ok",
+          "value": 60
+        }
+      },
+      "wall_end_us": 1793463151011042,
+      "wall_us": 1793463151000001
+    },
+    {
+      "acquisition_end_ns": 94317208797,
+      "acquisition_start_ns": 94308855294,
+      "buffer_samples": {
+        "core": [],
+        "memory": []
+      },
+      "errors": [
+        {
+          "domain": "core",
+          "error": "Not Found"
+        },
+        {
+          "domain": "memory",
+          "error": "Not Found"
+        }
+      ],
+      "frame_id": 30,
+      "poll_cpu_ns": 2118230,
+      "readings": {
+        "clock_event_reasons": {
+          "acquisition_end_ns": 94317186620,
+          "acquisition_start_ns": 94314989435,
+          "status": "ok",
+          "value": 36
+        },
+        "core_mhz": {
+          "acquisition_end_ns": 94311626701,
+          "acquisition_start_ns": 94310296013,
+          "status": "ok",
+          "value": 1605
+        },
+        "energy_mj": {
+          "acquisition_end_ns": 94314974138,
+          "acquisition_start_ns": 94313395456,
+          "status": "ok",
+          "value": 1415975513
+        },
+        "memory_mhz": {
+          "acquisition_end_ns": 94312742760,
+          "acquisition_start_ns": 94311636631,
+          "status": "ok",
+          "value": 7000
+        },
+        "power_mw": {
+          "acquisition_end_ns": 94313385388,
+          "acquisition_start_ns": 94312918260,
+          "status": "ok",
+          "value": 12542
+        },
+        "temperature_c": {
+          "acquisition_end_ns": 94312912254,
+          "acquisition_start_ns": 94312750643,
+          "status": "ok",
+          "value": 60
+        }
+      },
+      "wall_end_us": 1793463151109977,
+      "wall_us": 1793463151101622
+    },
+    {
+      "acquisition_end_ns": 94417411066,
+      "acquisition_start_ns": 94409970916,
+      "buffer_samples": {
+        "core": [
+          {
+            "percent": 0,
+            "timestamp_us": 1793463151730533
+          }
+        ],
+        "memory": [
+          {
+            "percent": 0,
+            "timestamp_us": 1793463151730533
+          }
+        ]
+      },
+      "errors": [],
+      "frame_id": 31,
+      "poll_cpu_ns": 1637241,
+      "readings": {
+        "clock_event_reasons": {
+          "acquisition_end_ns": 94417403367,
+          "acquisition_start_ns": 94416711372,
+          "status": "ok",
+          "value": 36
+        },
+        "core_mhz": {
+          "acquisition_end_ns": 94413507944,
+          "acquisition_start_ns": 94411447571,
+          "status": "ok",
+          "value": 1605
+        },
+        "energy_mj": {
+          "acquisition_end_ns": 94416703761,
+          "acquisition_start_ns": 94415461419,
+          "status": "ok",
+          "value": 1415985253
+        },
+        "memory_mhz": {
+          "acquisition_end_ns": 94414851805,
+          "acquisition_start_ns": 94413524156,
+          "status": "ok",
+          "value": 7000
+        },
+        "power_mw": {
+          "acquisition_end_ns": 94415454442,
+          "acquisition_start_ns": 94415043789,
+          "status": "ok",
+          "value": 12536
+        },
+        "temperature_c": {
+          "acquisition_end_ns": 94415037662,
+          "acquisition_start_ns": 94414862264,
+          "status": "ok",
+          "value": 60
+        }
+      },
+      "wall_end_us": 1793463151210178,
+      "wall_us": 1793463151202738
+    },
+    {
+      "acquisition_end_ns": 94516262366,
+      "acquisition_start_ns": 94511511315,
+      "buffer_samples": {
+        "core": [],
+        "memory": []
+      },
+      "errors": [
+        {
+          "domain": "core",
+          "error": "Not Found"
+        },
+        {
+          "domain": "memory",
+          "error": "Not Found"
+        }
+      ],
+      "frame_id": 32,
+      "poll_cpu_ns": 739544,
+      "readings": {
+        "clock_event_reasons": {
+          "acquisition_end_ns": 94516258166,
+          "acquisition_start_ns": 94515663715,
+          "status": "ok",
+          "value": 36
+        },
+        "core_mhz": {
+          "acquisition_end_ns": 94513342960,
+          "acquisition_start_ns": 94512405139,
+          "status": "ok",
+          "value": 1605
+        },
+        "energy_mj": {
+          "acquisition_end_ns": 94515659167,
+          "acquisition_start_ns": 94514621334,
+          "status": "ok",
+          "value": 1415995380
+        },
+        "memory_mhz": {
+          "acquisition_end_ns": 94514170989,
+          "acquisition_start_ns": 94513348095,
+          "status": "ok",
+          "value": 7000
+        },
+        "power_mw": {
+          "acquisition_end_ns": 94514618575,
+          "acquisition_start_ns": 94514364629,
+          "status": "ok",
+          "value": 12524
+        },
+        "temperature_c": {
+          "acquisition_end_ns": 94514356476,
+          "acquisition_start_ns": 94514177061,
+          "status": "ok",
+          "value": 60
+        }
+      },
+      "wall_end_us": 1793463151309029,
+      "wall_us": 1793463151304277
+    },
+    {
+      "acquisition_end_ns": 94618239141,
+      "acquisition_start_ns": 94613225672,
+      "buffer_samples": {
+        "core": [
+          {
+            "percent": 0,
+            "timestamp_us": 1793463151930455
+          }
+        ],
+        "memory": [
+          {
+            "percent": 0,
+            "timestamp_us": 1793463151930455
+          }
+        ]
+      },
+      "errors": [],
+      "frame_id": 33,
+      "poll_cpu_ns": 598253,
+      "readings": {
+        "clock_event_reasons": {
+          "acquisition_end_ns": 94618235798,
+          "acquisition_start_ns": 94617753825,
+          "status": "ok",
+          "value": 36
+        },
+        "core_mhz": {
+          "acquisition_end_ns": 94614934155,
+          "acquisition_start_ns": 94614011185,
+          "status": "ok",
+          "value": 1605
+        },
+        "energy_mj": {
+          "acquisition_end_ns": 94617749849,
+          "acquisition_start_ns": 94616688994,
+          "status": "ok",
+          "value": 1416004128
+        },
+        "memory_mhz": {
+          "acquisition_end_ns": 94615729571,
+          "acquisition_start_ns": 94614938330,
+          "status": "ok",
+          "value": 7000
+        },
+        "power_mw": {
+          "acquisition_end_ns": 94616686330,
+          "acquisition_start_ns": 94616435245,
+          "status": "ok",
+          "value": 12518
+        },
+        "temperature_c": {
+          "acquisition_end_ns": 94616431959,
+          "acquisition_start_ns": 94615733291,
+          "status": "ok",
+          "value": 60
+        }
+      },
+      "wall_end_us": 1793463151411006,
+      "wall_us": 1793463151405992
+    },
+    {
+      "acquisition_end_ns": 94719311601,
+      "acquisition_start_ns": 94714839271,
+      "buffer_samples": {
+        "core": [],
+        "memory": []
+      },
+      "errors": [
+        {
+          "domain": "core",
+          "error": "Not Found"
+        },
+        {
+          "domain": "memory",
+          "error": "Not Found"
+        }
+      ],
+      "frame_id": 34,
+      "poll_cpu_ns": 714028,
+      "readings": {
+        "clock_event_reasons": {
+          "acquisition_end_ns": 94719307583,
+          "acquisition_start_ns": 94718771441,
+          "status": "ok",
+          "value": 36
+        },
+        "core_mhz": {
+          "acquisition_end_ns": 94716358776,
+          "acquisition_start_ns": 94715494273,
+          "status": "ok",
+          "value": 1605
+        },
+        "energy_mj": {
+          "acquisition_end_ns": 94718767445,
+          "acquisition_start_ns": 94717679356,
+          "status": "ok",
+          "value": 1416013263
+        },
+        "memory_mhz": {
+          "acquisition_end_ns": 94717197046,
+          "acquisition_start_ns": 94716363670,
+          "status": "ok",
+          "value": 7000
+        },
+        "power_mw": {
+          "acquisition_end_ns": 94717675244,
+          "acquisition_start_ns": 94717342255,
+          "status": "ok",
+          "value": 12500
+        },
+        "temperature_c": {
+          "acquisition_end_ns": 94717337715,
+          "acquisition_start_ns": 94717201303,
+          "status": "ok",
+          "value": 60
+        }
+      },
+      "wall_end_us": 1793463151512078,
+      "wall_us": 1793463151507605
+    },
+    {
+      "acquisition_end_ns": 94820412206,
+      "acquisition_start_ns": 94816482219,
+      "buffer_samples": {
+        "core": [
+          {
+            "percent": 0,
+            "timestamp_us": 1793463152130468
+          }
+        ],
+        "memory": [
+          {
+            "percent": 0,
+            "timestamp_us": 1793463152130468
+          }
+        ]
+      },
+      "errors": [],
+      "frame_id": 35,
+      "poll_cpu_ns": 659003,
+      "readings": {
+        "clock_event_reasons": {
+          "acquisition_end_ns": 94820408682,
+          "acquisition_start_ns": 94819837407,
+          "status": "ok",
+          "value": 36
+        },
+        "core_mhz": {
+          "acquisition_end_ns": 94817960894,
+          "acquisition_start_ns": 94817119905,
+          "status": "ok",
+          "value": 1605
+        },
+        "energy_mj": {
+          "acquisition_end_ns": 94819833592,
+          "acquisition_start_ns": 94818880447,
+          "status": "ok",
+          "value": 1416022155
+        },
+        "memory_mhz": {
+          "acquisition_end_ns": 94818645113,
+          "acquisition_start_ns": 94817965257,
+          "status": "ok",
+          "value": 7000
+        },
+        "power_mw": {
+          "acquisition_end_ns": 94818877183,
+          "acquisition_start_ns": 94818712017,
+          "status": "ok",
+          "value": 12491
+        },
+        "temperature_c": {
+          "acquisition_end_ns": 94818709923,
+          "acquisition_start_ns": 94818648654,
+          "status": "ok",
+          "value": 60
+        }
+      },
+      "wall_end_us": 1793463151613179,
+      "wall_us": 1793463151609248
+    },
+    {
+      "acquisition_end_ns": 94923127805,
+      "acquisition_start_ns": 94918078614,
+      "buffer_samples": {
+        "core": [
+          {
+            "percent": 0,
+            "timestamp_us": 1793463152131346
+          }
+        ],
+        "memory": [
+          {
+            "percent": 0,
+            "timestamp_us": 1793463152131346
+          }
+        ]
+      },
+      "errors": [],
+      "frame_id": 36,
+      "poll_cpu_ns": 780135,
+      "readings": {
+        "clock_event_reasons": {
+          "acquisition_end_ns": 94923117591,
+          "acquisition_start_ns": 94922271670,
+          "status": "ok",
+          "value": 36
+        },
+        "core_mhz": {
+          "acquisition_end_ns": 94919774062,
+          "acquisition_start_ns": 94918812476,
+          "status": "ok",
+          "value": 1605
+        },
+        "energy_mj": {
+          "acquisition_end_ns": 94922268682,
+          "acquisition_start_ns": 94921343948,
+          "status": "ok",
+          "value": 1416030803
+        },
+        "memory_mhz": {
+          "acquisition_end_ns": 94920764082,
+          "acquisition_start_ns": 94919782917,
+          "status": "ok",
+          "value": 7000
+        },
+        "power_mw": {
+          "acquisition_end_ns": 94921339996,
+          "acquisition_start_ns": 94920970828,
+          "status": "ok",
+          "value": 12483
+        },
+        "temperature_c": {
+          "acquisition_end_ns": 94920966833,
+          "acquisition_start_ns": 94920769510,
+          "status": "ok",
+          "value": 60
+        }
+      },
+      "wall_end_us": 1793463151715895,
+      "wall_us": 1793463151710845
+    },
+    {
+      "acquisition_end_ns": 95026067021,
+      "acquisition_start_ns": 95019690122,
+      "buffer_samples": {
+        "core": [
+          {
+            "percent": 0,
+            "timestamp_us": 1793463152331239
+          }
+        ],
+        "memory": [
+          {
+            "percent": 0,
+            "timestamp_us": 1793463152331239
+          }
+        ]
+      },
+      "errors": [],
+      "frame_id": 37,
+      "poll_cpu_ns": 1384559,
+      "readings": {
+        "clock_event_reasons": {
+          "acquisition_end_ns": 95026058178,
+          "acquisition_start_ns": 95025091192,
+          "status": "ok",
+          "value": 36
+        },
+        "core_mhz": {
+          "acquisition_end_ns": 95022815431,
+          "acquisition_start_ns": 95021709707,
+          "status": "ok",
+          "value": 1605
+        },
+        "energy_mj": {
+          "acquisition_end_ns": 95025087082,
+          "acquisition_start_ns": 95023980733,
+          "status": "ok",
+          "value": 1416040063
+        },
+        "memory_mhz": {
+          "acquisition_end_ns": 95023607740,
+          "acquisition_start_ns": 95022821770,
+          "status": "ok",
+          "value": 7000
+        },
+        "power_mw": {
+          "acquisition_end_ns": 95023977326,
+          "acquisition_start_ns": 95023764875,
+          "status": "ok",
+          "value": 12468
+        },
+        "temperature_c": {
+          "acquisition_end_ns": 95023760862,
+          "acquisition_start_ns": 95023611548,
+          "status": "ok",
+          "value": 60
+        }
+      },
+      "wall_end_us": 1793463151818834,
+      "wall_us": 1793463151812456
+    },
+    {
+      "acquisition_end_ns": 95129289002,
+      "acquisition_start_ns": 95120123811,
+      "buffer_samples": {
+        "core": [],
+        "memory": []
+      },
+      "errors": [
+        {
+          "domain": "core",
+          "error": "Not Found"
+        },
+        {
+          "domain": "memory",
+          "error": "Not Found"
+        }
+      ],
+      "frame_id": 38,
+      "poll_cpu_ns": 1666794,
+      "readings": {
+        "clock_event_reasons": {
+          "acquisition_end_ns": 95129279173,
+          "acquisition_start_ns": 95127848853,
+          "status": "ok",
+          "value": 36
+        },
+        "core_mhz": {
+          "acquisition_end_ns": 95123342959,
+          "acquisition_start_ns": 95121718336,
+          "status": "ok",
+          "value": 1605
+        },
+        "energy_mj": {
+          "acquisition_end_ns": 95127835835,
+          "acquisition_start_ns": 95126393304,
+          "status": "ok",
+          "value": 1416050070
+        },
+        "memory_mhz": {
+          "acquisition_end_ns": 95124757508,
+          "acquisition_start_ns": 95123353858,
+          "status": "ok",
+          "value": 7000
+        },
+        "power_mw": {
+          "acquisition_end_ns": 95126380523,
+          "acquisition_start_ns": 95125559011,
+          "status": "ok",
+          "value": 12452
+        },
+        "temperature_c": {
+          "acquisition_end_ns": 95125549876,
+          "acquisition_start_ns": 95124767993,
+          "status": "ok",
+          "value": 60
+        }
+      },
+      "wall_end_us": 1793463151922057,
+      "wall_us": 1793463151912890
+    },
+    {
+      "acquisition_end_ns": 95233818717,
+      "acquisition_start_ns": 95221633546,
+      "buffer_samples": {
+        "core": [
+          {
+            "percent": 0,
+            "timestamp_us": 1793463152531176
+          }
+        ],
+        "memory": [
+          {
+            "percent": 0,
+            "timestamp_us": 1793463152531176
+          }
+        ]
+      },
+      "errors": [],
+      "frame_id": 39,
+      "poll_cpu_ns": 2140071,
+      "readings": {
+        "clock_event_reasons": {
+          "acquisition_end_ns": 95233808256,
+          "acquisition_start_ns": 95232508464,
+          "status": "ok",
+          "value": 36
+        },
+        "core_mhz": {
+          "acquisition_end_ns": 95225939163,
+          "acquisition_start_ns": 95223446202,
+          "status": "ok",
+          "value": 1605
+        },
+        "energy_mj": {
+          "acquisition_end_ns": 95232491902,
+          "acquisition_start_ns": 95230633013,
+          "status": "ok",
+          "value": 1416060677
+        },
+        "memory_mhz": {
+          "acquisition_end_ns": 95228529699,
+          "acquisition_start_ns": 95225969641,
+          "status": "ok",
+          "value": 7000
+        },
+        "power_mw": {
+          "acquisition_end_ns": 95230616867,
+          "acquisition_start_ns": 95229306574,
+          "status": "ok",
+          "value": 12451
+        },
+        "temperature_c": {
+          "acquisition_end_ns": 95229286265,
+          "acquisition_start_ns": 95228554382,
+          "status": "ok",
+          "value": 60
+        }
+      },
+      "wall_end_us": 1793463152026587,
+      "wall_us": 1793463152014400
+    },
+    {
+      "acquisition_end_ns": 95329491476,
+      "acquisition_start_ns": 95322009012,
+      "buffer_samples": {
+        "core": [],
+        "memory": []
+      },
+      "errors": [
+        {
+          "domain": "core",
+          "error": "Not Found"
+        },
+        {
+          "domain": "memory",
+          "error": "Not Found"
+        }
+      ],
+      "frame_id": 40,
+      "poll_cpu_ns": 1060435,
+      "readings": {
+        "clock_event_reasons": {
+          "acquisition_end_ns": 95329487539,
+          "acquisition_start_ns": 95328970282,
+          "status": "ok",
+          "value": 36
+        },
+        "core_mhz": {
+          "acquisition_end_ns": 95325728845,
+          "acquisition_start_ns": 95323256827,
+          "status": "ok",
+          "value": 1605
+        },
+        "energy_mj": {
+          "acquisition_end_ns": 95328965203,
+          "acquisition_start_ns": 95327785141,
+          "status": "ok",
+          "value": 1416072939
+        },
+        "memory_mhz": {
+          "acquisition_end_ns": 95327202540,
+          "acquisition_start_ns": 95325756341,
+          "status": "ok",
+          "value": 7000
+        },
+        "power_mw": {
+          "acquisition_end_ns": 95327776192,
+          "acquisition_start_ns": 95327379868,
+          "status": "ok",
+          "value": 12447
+        },
+        "temperature_c": {
+          "acquisition_end_ns": 95327376129,
+          "acquisition_start_ns": 95327211029,
+          "status": "ok",
+          "value": 60
+        }
+      },
+      "wall_end_us": 1793463152122258,
+      "wall_us": 1793463152114775
+    },
+    {
+      "acquisition_end_ns": 95427020650,
+      "acquisition_start_ns": 95422250557,
+      "buffer_samples": {
+        "core": [
+          {
+            "percent": 0,
+            "timestamp_us": 1793463152731100
+          }
+        ],
+        "memory": [
+          {
+            "percent": 0,
+            "timestamp_us": 1793463152731100
+          }
+        ]
+      },
+      "errors": [],
+      "frame_id": 41,
+      "poll_cpu_ns": 623786,
+      "readings": {
+        "clock_event_reasons": {
+          "acquisition_end_ns": 95427015312,
+          "acquisition_start_ns": 95426311368,
+          "status": "ok",
+          "value": 36
+        },
+        "core_mhz": {
+          "acquisition_end_ns": 95424420893,
+          "acquisition_start_ns": 95423236242,
+          "status": "ok",
+          "value": 1605
+        },
+        "energy_mj": {
+          "acquisition_end_ns": 95426308637,
+          "acquisition_start_ns": 95425409519,
+          "status": "ok",
+          "value": 1416082648
+        },
+        "memory_mhz": {
+          "acquisition_end_ns": 95425137851,
+          "acquisition_start_ns": 95424429812,
+          "status": "ok",
+          "value": 7000
+        },
+        "power_mw": {
+          "acquisition_end_ns": 95425407016,
+          "acquisition_start_ns": 95425236400,
+          "status": "ok",
+          "value": 12449
+        },
+        "temperature_c": {
+          "acquisition_end_ns": 95425232629,
+          "acquisition_start_ns": 95425140249,
+          "status": "ok",
+          "value": 60
+        }
+      },
+      "wall_end_us": 1793463152219788,
+      "wall_us": 1793463152215017
+    }
+  ]
+}

@@ -74,9 +74,26 @@ def main(argv=None) -> int:
     phase8.add_argument("--target-seconds",type=float,default=2.)
     phase8_replay = sub.add_parser("actuation-replay",help="Verify and regenerate Phase 8 hardware evidence")
     phase8_replay.add_argument("run",type=Path)
+    integration=sub.add_parser("integration-check",help="Real allocation/shadow integration and synthetic joint-control validation")
+    integration.add_argument("--output",type=Path,required=True)
+    integration.add_argument("--kmeans-binary",type=Path,required=True)
+    integration.add_argument("--hotspot-binary",type=Path,required=True)
+    integration.add_argument("--workers",type=int,default=4)
+    integration.add_argument("--mode",choices=("shadow-validation","live-joint"),default="shadow-validation")
+    integration_replay=sub.add_parser("integration-replay",help="Verify and regenerate integrated runtime evidence")
+    integration_replay.add_argument("run",type=Path)
     args = parser.parse_args(argv)
     if not Path("pyproject.toml").is_file() or not Path("src/greengpu").is_dir():
         parser.error("Run this command from the ATLAS repository root")
+    if args.command in ("integration-check","integration-replay"):
+        from .phase9 import run,replay
+        if args.command=="integration-check" and args.mode=="live-joint":
+            parser.exit(2,"Live joint control is blocked: authoritative prior-policy readback, verified actuation/restoration, and live telemetry qualification are unavailable. No fallback or workload launch.\n")
+        try:
+            result=run(args.output,args.kmeans_binary,args.hotspot_binary,args.workers) if args.command=="integration-check" else replay(args.run)
+            print(json.dumps({k:result[k] for k in ("software_gate","live_joint_hardware_gate","hardware_trials","iterations","shadow_frequency_updates","synthetic_cases")},indent=2))
+        except (ValueError,RuntimeError,OSError,ImportError) as error:parser.exit(1,f"Integration failed: {error}\n")
+        return 0 if result["software_gate"]=="passed" else 1
     if args.command in ("actuation-check","actuation-replay"):
         from .phase8 import run, replay
         try:

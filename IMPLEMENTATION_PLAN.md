@@ -2,7 +2,7 @@
 
 Date: 2026-10-31
 
-Status: Phases 0, 1, 3, and 6 workload validation complete. Phase 8 actuation infrastructure is implemented, with the hardware gate blocked by unavailable prior-policy readback; see [Phase 8 review](docs/phase8_review.md). Phase 7 offline frequency policy validation is complete; see [Phase 7 review](docs/phase7_review.md). Phase 4 kmeans and Phase 5 allocation implementations are complete, with correctness and exploratory timing evidence. Phase 6 adds validated thermal-state migration and allocation trials on HotSpot. Phase 2 physical GPU energy and device-event timing qualification remain blocked; automatic clock policy does not establish fixed capacity. The full Phase 4/5 research exit gates remain incomplete. See the [Phase 0 review](docs/phase0_review.md), [Phase 1 review](docs/phase1_review.md), [Phase 2 review](docs/phase2_review.md), [Phase 3 review](docs/phase3_review.md), [Phase 4 review](docs/phase4_review.md), [Phase 5 review](docs/phase5_review.md), and [Phase 6 review](docs/phase6_review.md).
+Status: Phases 0, 1, 3, and 6 workload validation complete. Phase 9 allocation/shadow integration is implemented; its strict concurrency gate remains incomplete and live joint control remains blocked. See [Phase 9 review](docs/phase9_review.md). Phase 8 actuation infrastructure is implemented, with the hardware gate blocked by unavailable prior-policy readback; see [Phase 8 review](docs/phase8_review.md). Phase 7 offline frequency policy validation is complete; see [Phase 7 review](docs/phase7_review.md). Phase 4 kmeans and Phase 5 allocation implementations are complete, with correctness and exploratory timing evidence. Phase 6 adds validated thermal-state migration and allocation trials on HotSpot. Phase 2 physical GPU energy and device-event timing qualification remain blocked; automatic clock policy does not establish fixed capacity. The full Phase 4/5 research exit gates remain incomplete. See the [Phase 0 review](docs/phase0_review.md), [Phase 1 review](docs/phase1_review.md), [Phase 2 review](docs/phase2_review.md), [Phase 3 review](docs/phase3_review.md), [Phase 4 review](docs/phase4_review.md), [Phase 5 review](docs/phase5_review.md), and [Phase 6 review](docs/phase6_review.md).
 
 Primary source: [GreenGPU research paper](GreenGPU.pdf), Kai Ma et al., *Energy conservation for GPU-CPU architectures with dynamic workload division and frequency scaling*, 2016, journal pages 21-33.
 
@@ -329,6 +329,14 @@ See the [Phase 8 review](docs/phase8_review.md) and [contract](docs/phase8_spec.
 **Exit gate:** Supported changes are verified and restored; blocked features have explicit outcomes; correctness is unchanged; reported energy savings and slowdowns use matching baseline and measurement domains. Without independent core/memory control, full Tier 2 hardware replication remains unavailable.
 
 ## 13. Phase 9 - Integrate the two control loops
+
+**Status:** Allocation/shadow runtime and synthetic joint-control integration
+implemented, 2026-10-31. All 135 Python tests and real workload/replay checks pass.
+The final strict concurrency gate remains incomplete (kmeans overlap 6/6,
+HotSpot 5/6); live joint control is blocked by Phase 8 and invalid host/driver
+timestamp mapping. See the [Phase 9 review](docs/phase9_review.md) and
+[runtime contract](docs/phase9_spec.md). These are not full hardware-replication
+exit-gate results.
 
 **Depends on:** Phases 5-8.
 

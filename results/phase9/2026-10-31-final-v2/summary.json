@@ -1,0 +1,1506 @@
+{
+  "allocation_decisions": 18,
+  "concurrency": {
+    "hotspot": {
+      "clock": "Nsight correlated timeline",
+      "energy_claim_eligible": false,
+      "iterations": [
+        {
+          "cpu_regions": [
+            {
+              "end": 1108823509,
+              "globalTid": 281488364929843,
+              "name": "hotspot_cpu_compute",
+              "start": 1108163566
+            }
+          ],
+          "demonstrated": true,
+          "iteration": 1,
+          "kernels": [
+            {
+              "correlationId": 152,
+              "deviceId": 0,
+              "end": 1108255553,
+              "globalPid": 281488364929024,
+              "globalTid": 281488364929822,
+              "launch_end": 1108228292,
+              "launch_start": 1108146815,
+              "name": "hotspot_step",
+              "start": 1108234858,
+              "streamId": 13
+            }
+          ],
+          "overlap_union_ns": 20695
+        },
+        {
+          "cpu_regions": [
+            {
+              "end": 1111249052,
+              "globalTid": 281488364929843,
+              "name": "hotspot_cpu_compute",
+              "start": 1110649764
+            }
+          ],
+          "demonstrated": true,
+          "iteration": 2,
+          "kernels": [
+            {
+              "correlationId": 159,
+              "deviceId": 0,
+              "end": 1110800302,
+              "globalPid": 281488364929024,
+              "globalTid": 281488364929822,
+              "launch_end": 1110662339,
+              "launch_start": 1110624531,
+              "name": "hotspot_step",
+              "start": 1110779641,
+              "streamId": 13
+            }
+          ],
+          "overlap_union_ns": 20661
+        },
+        {
+          "cpu_regions": [
+            {
+              "end": 1112474240,
+              "globalTid": 281488364929843,
+              "name": "hotspot_cpu_compute",
+              "start": 1112003374
+            }
+          ],
+          "demonstrated": true,
+          "iteration": 3,
+          "kernels": [
+            {
+              "correlationId": 166,
+              "deviceId": 0,
+              "end": 1112134123,
+              "globalPid": 281488364929024,
+              "globalTid": 281488364929822,
+              "launch_end": 1112031232,
+              "launch_start": 1111991289,
+              "name": "hotspot_step",
+              "start": 1112113392,
+              "streamId": 13
+            }
+          ],
+          "overlap_union_ns": 20731
+        },
+        {
+          "cpu_regions": [
+            {
+              "end": 1113508370,
+              "globalTid": 281488364929843,
+              "name": "hotspot_cpu_compute",
+              "start": 1113039862
+            }
+          ],
+          "demonstrated": true,
+          "iteration": 4,
+          "kernels": [
+            {
+              "correlationId": 173,
+              "deviceId": 0,
+              "end": 1113162429,
+              "globalPid": 281488364929024,
+              "globalTid": 281488364929822,
+              "launch_end": 1113060588,
+              "launch_start": 1113028659,
+              "name": "hotspot_step",
+              "start": 1113141768,
+              "streamId": 13
+            }
+          ],
+          "overlap_union_ns": 20661
+        },
+        {
+          "cpu_regions": [
+            {
+              "end": 1114434543,
+              "globalTid": 281488364929843,
+              "name": "hotspot_cpu_compute",
+              "start": 1113991654
+            }
+          ],
+          "demonstrated": true,
+          "iteration": 5,
+          "kernels": [
+            {
+              "correlationId": 180,
+              "deviceId": 0,
+              "end": 1114098280,
+              "globalPid": 281488364929024,
+              "globalTid": 281488364929822,
+              "launch_end": 1114007928,
+              "launch_start": 1113981177,
+              "name": "hotspot_step",
+              "start": 1114077584,
+              "streamId": 13
+            }
+          ],
+          "overlap_union_ns": 20696
+        },
+        {
+          "cpu_regions": [
+            {
+              "end": 1115302625,
+              "globalTid": 281488364929843,
+              "name": "hotspot_cpu_compute",
+              "start": 1114860847
+            }
+          ],
+          "demonstrated": true,
+          "iteration": 6,
+          "kernels": [
+            {
+              "correlationId": 187,
+              "deviceId": 0,
+              "end": 1114974159,
+              "globalPid": 281488364929024,
+              "globalTid": 281488364929822,
+              "launch_end": 1114878865,
+              "launch_start": 1114851653,
+              "name": "hotspot_step",
+              "start": 1114953463,
+              "streamId": 13
+            }
+          ],
+          "overlap_union_ns": 20696
+        }
+      ],
+      "limitation": "Qualitative profiler-observed overlap of kernel activity and CPU compute regions; OS scheduling and absolute clock rates are not independently calibrated",
+      "status": "demonstrated",
+      "timeline": {
+        "displayTimeUnit": "ms",
+        "traceEvents": [
+          {
+            "args": {
+              "iteration": 1,
+              "source": "Nsight correlated timeline"
+            },
+            "cat": "CPU",
+            "dur": 659.943,
+            "name": "hotspot_cpu_compute",
+            "ph": "X",
+            "pid": 1,
+            "tid": 819,
+            "ts": 630.654
+          },
+          {
+            "args": {
+              "iteration": 1,
+              "source": "Nsight correlated timeline"
+            },
+            "cat": "GPU",
+            "dur": 20.695,
+            "name": "hotspot_step",
+            "ph": "X",
+            "pid": 2,
+            "tid": 13,
+            "ts": 701.946
+          },
+          {
+            "args": {
+              "iteration": 2,
+              "source": "Nsight correlated timeline"
+            },
+            "cat": "CPU",
+            "dur": 599.288,
+            "name": "hotspot_cpu_compute",
+            "ph": "X",
+            "pid": 1,
+            "tid": 819,
+            "ts": 3116.852
+          },
+          {
+            "args": {
+              "iteration": 2,
+              "source": "Nsight correlated timeline"
+            },
+            "cat": "GPU",
+            "dur": 20.661,
+            "name": "hotspot_step",
+            "ph": "X",
+            "pid": 2,
+            "tid": 13,
+            "ts": 3246.729
+          },
+          {
+            "args": {
+              "iteration": 3,
+              "source": "Nsight correlated timeline"
+            },
+            "cat": "CPU",
+            "dur": 470.866,
+            "name": "hotspot_cpu_compute",
+            "ph": "X",
+            "pid": 1,
+            "tid": 819,
+            "ts": 4470.462
+          },
+          {
+            "args": {
+              "iteration": 3,
+              "source": "Nsight correlated timeline"
+            },
+            "cat": "GPU",
+            "dur": 20.731,
+            "name": "hotspot_step",
+            "ph": "X",
+            "pid": 2,
+            "tid": 13,
+            "ts": 4580.48
+          },
+          {
+            "args": {
+              "iteration": 4,
+              "source": "Nsight correlated timeline"
+            },
+            "cat": "CPU",
+            "dur": 468.508,
+            "name": "hotspot_cpu_compute",
+            "ph": "X",
+            "pid": 1,
+            "tid": 819,
+            "ts": 5506.95
+          },
+          {
+            "args": {
+              "iteration": 4,
+              "source": "Nsight correlated timeline"
+            },
+            "cat": "GPU",
+            "dur": 20.661,
+            "name": "hotspot_step",
+            "ph": "X",
+            "pid": 2,
+            "tid": 13,
+            "ts": 5608.856
+          },
+          {
+            "args": {
+              "iteration": 5,
+              "source": "Nsight correlated timeline"
+            },
+            "cat": "CPU",
+            "dur": 442.889,
+            "name": "hotspot_cpu_compute",
+            "ph": "X",
+            "pid": 1,
+            "tid": 819,
+            "ts": 6458.742
+          },
+          {
+            "args": {
+              "iteration": 5,
+              "source": "Nsight correlated timeline"
+            },
+            "cat": "GPU",
+            "dur": 20.696,
+            "name": "hotspot_step",
+            "ph": "X",
+            "pid": 2,
+            "tid": 13,
+            "ts": 6544.672
+          },
+          {
+            "args": {
+              "iteration": 6,
+              "source": "Nsight correlated timeline"
+            },
+            "cat": "CPU",
+            "dur": 441.778,
+            "name": "hotspot_cpu_compute",
+            "ph": "X",
+            "pid": 1,
+            "tid": 819,
+            "ts": 7327.935
+          },
+          {
+            "args": {
+              "iteration": 6,
+              "source": "Nsight correlated timeline"
+            },
+            "cat": "GPU",
+            "dur": 20.696,
+            "name": "hotspot_step",
+            "ph": "X",
+            "pid": 2,
+            "tid": 13,
+            "ts": 7420.551
+          }
+        ]
+      }
+    },
+    "kmeans": {
+      "clock": "Nsight correlated timeline",
+      "energy_claim_eligible": false,
+      "iterations": [
+        {
+          "cpu_regions": [
+            {
+              "end": 1048053027,
+              "globalTid": 281486167114416,
+              "name": "kmeans_cpu_compute",
+              "start": 1045451318
+            }
+          ],
+          "demonstrated": true,
+          "iteration": 1,
+          "kernels": [
+            {
+              "correlationId": 154,
+              "deviceId": 0,
+              "end": 1046236057,
+              "globalPid": 281486167113728,
+              "globalTid": 281486167114395,
+              "launch_end": 1045991777,
+              "launch_start": 1045966557,
+              "name": "kmeans_assign",
+              "start": 1046180274,
+              "streamId": 13
+            }
+          ],
+          "overlap_union_ns": 55783
+        },
+        {
+          "cpu_regions": [
+            {
+              "end": 1061098057,
+              "globalTid": 281486167114416,
+              "name": "kmeans_cpu_compute",
+              "start": 1057888299
+            }
+          ],
+          "demonstrated": true,
+          "iteration": 2,
+          "kernels": [
+            {
+              "correlationId": 169,
+              "deviceId": 0,
+              "end": 1058390086,
+              "globalPid": 281486167113728,
+              "globalTid": 281486167114395,
+              "launch_end": 1058224320,
+              "launch_start": 1058171952,
+              "name": "kmeans_assign",
+              "start": 1058333357,
+              "streamId": 13
+            }
+          ],
+          "overlap_union_ns": 56729
+        },
+        {
+          "cpu_regions": [
+            {
+              "end": 1075490209,
+              "globalTid": 281486167114416,
+              "name": "kmeans_cpu_compute",
+              "start": 1072355676
+            }
+          ],
+          "demonstrated": true,
+          "iteration": 3,
+          "kernels": [
+            {
+              "correlationId": 184,
+              "deviceId": 0,
+              "end": 1073053997,
+              "globalPid": 281486167113728,
+              "globalTid": 281486167114395,
+              "launch_end": 1072783592,
+              "launch_start": 1072750206,
+              "name": "kmeans_assign",
+              "start": 1072998116,
+              "streamId": 13
+            }
+          ],
+          "overlap_union_ns": 55881
+        },
+        {
+          "cpu_regions": [
+            {
+              "end": 1090500438,
+              "globalTid": 281486167114416,
+              "name": "kmeans_cpu_compute",
+              "start": 1087175785
+            }
+          ],
+          "demonstrated": true,
+          "iteration": 4,
+          "kernels": [
+            {
+              "correlationId": 199,
+              "deviceId": 0,
+              "end": 1087774865,
+              "globalPid": 281486167113728,
+              "globalTid": 281486167114395,
+              "launch_end": 1087642541,
+              "launch_start": 1087611464,
+              "name": "kmeans_assign",
+              "start": 1087718429,
+              "streamId": 13
+            }
+          ],
+          "overlap_union_ns": 56436
+        },
+        {
+          "cpu_regions": [
+            {
+              "end": 1104468014,
+              "globalTid": 281486167114416,
+              "name": "kmeans_cpu_compute",
+              "start": 1101241488
+            }
+          ],
+          "demonstrated": true,
+          "iteration": 5,
+          "kernels": [
+            {
+              "correlationId": 214,
+              "deviceId": 0,
+              "end": 1102254347,
+              "globalPid": 281486167113728,
+              "globalTid": 281486167114395,
+              "launch_end": 1102092573,
+              "launch_start": 1101922545,
+              "name": "kmeans_assign",
+              "start": 1102198271,
+              "streamId": 13
+            }
+          ],
+          "overlap_union_ns": 56076
+        },
+        {
+          "cpu_regions": [
+            {
+              "end": 1113010572,
+              "globalTid": 281486167114416,
+              "name": "kmeans_cpu_compute",
+              "start": 1111368196
+            }
+          ],
+          "demonstrated": true,
+          "iteration": 6,
+          "kernels": [
+            {
+              "correlationId": 229,
+              "deviceId": 0,
+              "end": 1111880141,
+              "globalPid": 281486167113728,
+              "globalTid": 281486167114395,
+              "launch_end": 1111674604,
+              "launch_start": 1111656991,
+              "name": "kmeans_assign",
+              "start": 1111824097,
+              "streamId": 13
+            }
+          ],
+          "overlap_union_ns": 56044
+        }
+      ],
+      "limitation": "Qualitative profiler-observed overlap of kernel activity and CPU compute regions; OS scheduling and absolute clock rates are not independently calibrated",
+      "status": "demonstrated",
+      "timeline": {
+        "displayTimeUnit": "ms",
+        "traceEvents": [
+          {
+            "args": {
+              "iteration": 1,
+              "source": "Nsight correlated timeline"
+            },
+            "cat": "CPU",
+            "dur": 2601.709,
+            "name": "kmeans_cpu_compute",
+            "ph": "X",
+            "pid": 1,
+            "tid": 688,
+            "ts": 92.581
+          },
+          {
+            "args": {
+              "iteration": 1,
+              "source": "Nsight correlated timeline"
+            },
+            "cat": "GPU",
+            "dur": 55.783,
+            "name": "kmeans_assign",
+            "ph": "X",
+            "pid": 2,
+            "tid": 13,
+            "ts": 821.537
+          },
+          {
+            "args": {
+              "iteration": 2,
+              "source": "Nsight correlated timeline"
+            },
+            "cat": "CPU",
+            "dur": 3209.758,
+            "name": "kmeans_cpu_compute",
+            "ph": "X",
+            "pid": 1,
+            "tid": 688,
+            "ts": 12529.562
+          },
+          {
+            "args": {
+              "iteration": 2,
+              "source": "Nsight correlated timeline"
+            },
+            "cat": "GPU",
+            "dur": 56.729,
+            "name": "kmeans_assign",
+            "ph": "X",
+            "pid": 2,
+            "tid": 13,
+            "ts": 12974.62
+          },
+          {
+            "args": {
+              "iteration": 3,
+              "source": "Nsight correlated timeline"
+            },
+            "cat": "CPU",
+            "dur": 3134.533,
+            "name": "kmeans_cpu_compute",
+            "ph": "X",
+            "pid": 1,
+            "tid": 688,
+            "ts": 26996.939
+          },
+          {
+            "args": {
+              "iteration": 3,
+              "source": "Nsight correlated timeline"
+            },
+            "cat": "GPU",
+            "dur": 55.881,
+            "name": "kmeans_assign",
+            "ph": "X",
+            "pid": 2,
+            "tid": 13,
+            "ts": 27639.379
+          },
+          {
+            "args": {
+              "iteration": 4,
+              "source": "Nsight correlated timeline"
+            },
+            "cat": "CPU",
+            "dur": 3324.653,
+            "name": "kmeans_cpu_compute",
+            "ph": "X",
+            "pid": 1,
+            "tid": 688,
+            "ts": 41817.048
+          },
+          {
+            "args": {
+              "iteration": 4,
+              "source": "Nsight correlated timeline"
+            },
+            "cat": "GPU",
+            "dur": 56.436,
+            "name": "kmeans_assign",
+            "ph": "X",
+            "pid": 2,
+            "tid": 13,
+            "ts": 42359.692
+          },
+          {
+            "args": {
+              "iteration": 5,
+              "source": "Nsight correlated timeline"
+            },
+            "cat": "CPU",
+            "dur": 3226.526,
+            "name": "kmeans_cpu_compute",
+            "ph": "X",
+            "pid": 1,
+            "tid": 688,
+            "ts": 55882.751
+          },
+          {
+            "args": {
+              "iteration": 5,
+              "source": "Nsight correlated timeline"
+            },
+            "cat": "GPU",
+            "dur": 56.076,
+            "name": "kmeans_assign",
+            "ph": "X",
+            "pid": 2,
+            "tid": 13,
+            "ts": 56839.534
+          },
+          {
+            "args": {
+              "iteration": 6,
+              "source": "Nsight correlated timeline"
+            },
+            "cat": "CPU",
+            "dur": 1642.376,
+            "name": "kmeans_cpu_compute",
+            "ph": "X",
+            "pid": 1,
+            "tid": 688,
+            "ts": 66009.459
+          },
+          {
+            "args": {
+              "iteration": 6,
+              "source": "Nsight correlated timeline"
+            },
+            "cat": "GPU",
+            "dur": 56.044,
+            "name": "kmeans_assign",
+            "ph": "X",
+            "pid": 2,
+            "tid": 13,
+            "ts": 66465.36
+          }
+        ]
+      }
+    }
+  },
+  "energy_savings": null,
+  "hardware_effect_of_shadow_recommendations": "none_applied_no_counterfactual_claim",
+  "hardware_setter_calls": 0,
+  "hardware_trials": 13,
+  "iterations": 2211,
+  "live_joint_hardware_gate": "blocked_phase8_prior_policy_and_measurement_qualification",
+  "overhead_scope": "controller compute nests in feedback gaps; polling is concurrent and not added to job time",
+  "ownership_changes": 12,
+  "shadow_frequency_updates": 0,
+  "software_gate": "passed",
+  "spec_version": "integration-1.0",
+  "synthetic_barriers": 1344,
+  "synthetic_cases": 32,
+  "synthetic_expected_failures": 12,
+  "trials": [
+    {
+      "active_s": 0.024037718,
+      "actuation_overhead_s": 0.0,
+      "allocation_decisions": 4,
+      "clock_policy": "unchanged_automatic_not_fixed_capacity",
+      "command_s": 0.925701951,
+      "communication_s": 0.02034384,
+      "control_gap_s": 0.027762811,
+      "controller_compute_s": 0.016971475,
+      "dataset": "datasets/k-small.kmdat",
+      "driver_clock_event_masks": {
+        "1": 1,
+        "36": 9
+      },
+      "energy_j": null,
+      "final": {
+        "centroids": [
+          23.906951782046036,
+          24.44160788202321,
+          24.719435216120775,
+          11.985823595963824,
+          12.243805594634962,
+          12.654401836460654,
+          0.07077242003288844,
+          0.3513884190444625,
+          0.7335233567381197,
+          36.127747323969594,
+          36.263923542079766,
+          36.71094265117716
+        ],
+        "label_hash": "bdeb1cc7d73d3f57"
+      },
+      "frequency_decisions": 0,
+      "frequency_updates": 0,
+      "future_driver_timestamp_records": 8,
+      "hardware_setter_calls": 0,
+      "insufficient_frequency_windows": 0,
+      "iterations": 24,
+      "migration_or_residency_bytes": 3096,
+      "migration_time_s": null,
+      "migration_timing_scope": "not_isolated_from_other_transfer_work",
+      "minimum_driver_sample_age_us": -707589,
+      "mode": "allocation_only",
+      "observed_clock_changes": 1,
+      "ownership_changes": 4,
+      "poll_frames": 10,
+      "poll_query_wall_s": 0.108288239,
+      "poll_thread_cpu_s": 0.016567528,
+      "run_id": "joint-00",
+      "settling_work_s": 0.003697272,
+      "stage": "fixture",
+      "status": "passed",
+      "workload": "kmeans"
+    },
+    {
+      "active_s": 0.025437177,
+      "actuation_overhead_s": 0.0,
+      "allocation_decisions": 4,
+      "clock_policy": "unchanged_automatic_not_fixed_capacity",
+      "command_s": 0.524743412,
+      "communication_s": 0.020711682,
+      "control_gap_s": 0.018147724,
+      "controller_compute_s": 0.004990171,
+      "dataset": "datasets/k-small.kmdat",
+      "driver_clock_event_masks": {
+        "36": 6
+      },
+      "energy_j": null,
+      "final": {
+        "centroids": [
+          23.906951782046036,
+          24.44160788202321,
+          24.719435216120775,
+          11.985823595963824,
+          12.243805594634962,
+          12.654401836460654,
+          0.07077242003288844,
+          0.3513884190444625,
+          0.7335233567381197,
+          36.127747323969594,
+          36.263923542079766,
+          36.71094265117716
+        ],
+        "label_hash": "bdeb1cc7d73d3f57"
+      },
+      "frequency_decisions": 0,
+      "frequency_updates": 0,
+      "future_driver_timestamp_records": 12,
+      "hardware_setter_calls": 0,
+      "insufficient_frequency_windows": 0,
+      "iterations": 24,
+      "migration_or_residency_bytes": 3096,
+      "migration_time_s": null,
+      "migration_timing_scope": "not_isolated_from_other_transfer_work",
+      "minimum_driver_sample_age_us": -684979,
+      "mode": "allocation_shadow",
+      "observed_clock_changes": 0,
+      "ownership_changes": 4,
+      "poll_frames": 6,
+      "poll_query_wall_s": 0.040880099,
+      "poll_thread_cpu_s": 0.007751892,
+      "run_id": "joint-01",
+      "settling_work_s": 0.003030903,
+      "stage": "fixture",
+      "status": "passed",
+      "workload": "kmeans"
+    },
+    {
+      "active_s": 0.137006954,
+      "actuation_overhead_s": 0.0,
+      "allocation_decisions": 0,
+      "clock_policy": "unchanged_automatic_not_fixed_capacity",
+      "command_s": 1.433391505,
+      "communication_s": 0.067541757,
+      "control_gap_s": 0.095265497,
+      "controller_compute_s": 0.01442334,
+      "dataset": "datasets/k-large.kmdat",
+      "driver_clock_event_masks": {
+        "1": 7,
+        "36": 8
+      },
+      "energy_j": null,
+      "final": {
+        "centroids": [
+          0.09542642082004535,
+          0.1712055698147205,
+          0.5374173868155954,
+          0.7394784881265762,
+          1.1591299579317045,
+          0.4328895585344492,
+          1.0214767816617143,
+          2.1243314283528143,
+          48.00404475946027,
+          48.285424776509466,
+          48.58169913941511,
+          48.892890876740694,
+          49.184986272151136,
+          49.50906771226937,
+          49.80573514451128,
+          50.10327478735555,
+          35.98946969270338,
+          36.30642506993492,
+          36.60074032210139,
+          36.87685058556393,
+          37.22993609498134,
+          37.517059919162975,
+          37.79915394512928,
+          38.101856295793155,
+          -0.10192780306227497,
+          0.3877086855113719,
+          0.6198534717526896,
+          0.8583842593075663,
+          1.2789742487376698,
+          1.4660426869355796,
+          2.99438998472718,
+          2.118711327390915,
+          77.99645981292205,
+          78.29266701353612,
+          78.59959008256595,
+          78.9075991234397,
+          79.19700180490392,
+          79.48434099191164,
+          79.8050513875406,
+          80.11072989060105,
+          60.010354943430286,
+          60.3141112882736,
+          60.58343507722965,
+          60.89072954060032,
+          61.1828166104756,
+          61.52023544242407,
+          61.79197471897285,
+          62.09642288833369,
+          17.995922725465356,
+          18.316718512949866,
+          18.597716327899082,
+          18.899388618486256,
+          19.20769421357003,
+          19.498866577438065,
+          19.79595774761904,
+          20.098652936373814,
+          0.016014281175410417,
+          0.2792824514222808,
+          0.6215228901116496,
+          1.083045196382346,
+          1.1509399039480377,
+          2.5618927029312575,
+          1.0730158650987576,
+          2.0709755245860957
+        ],
+        "label_hash": "476723598bd97035"
+      },
+      "frequency_decisions": 0,
+      "frequency_updates": 0,
+      "future_driver_timestamp_records": 22,
+      "hardware_setter_calls": 0,
+      "insufficient_frequency_windows": 0,
+      "iterations": 100,
+      "migration_or_residency_bytes": 2097280,
+      "migration_time_s": null,
+      "migration_timing_scope": "not_isolated_from_other_transfer_work",
+      "minimum_driver_sample_age_us": -697959,
+      "mode": "allocation_only",
+      "observed_clock_changes": 1,
+      "ownership_changes": 0,
+      "poll_frames": 15,
+      "poll_query_wall_s": 0.200381708,
+      "poll_thread_cpu_s": 0.022324116,
+      "run_id": "joint-02",
+      "settling_work_s": 0.0,
+      "stage": "integration",
+      "status": "passed",
+      "workload": "kmeans"
+    },
+    {
+      "active_s": 0.128523718,
+      "actuation_overhead_s": 0.0,
+      "allocation_decisions": 0,
+      "clock_policy": "unchanged_automatic_not_fixed_capacity",
+      "command_s": 1.589837016,
+      "communication_s": 0.069918198,
+      "control_gap_s": 0.086384149,
+      "controller_compute_s": 0.013456973,
+      "dataset": "datasets/k-large.kmdat",
+      "driver_clock_event_masks": {
+        "1": 10,
+        "36": 6
+      },
+      "energy_j": null,
+      "final": {
+        "centroids": [
+          0.09542642082004535,
+          0.17120556981472038,
+          0.5374173868155954,
+          0.7394784881265762,
+          1.159129957931704,
+          0.43288955853444944,
+          1.021476781661714,
+          2.1243314283528134,
+          48.00404475946026,
+          48.285424776509444,
+          48.58169913941509,
+          48.892890876740694,
+          49.184986272151136,
+          49.50906771226937,
+          49.805735144511296,
+          50.103274787355545,
+          35.989469692703366,
+          36.30642506993491,
+          36.60074032210139,
+          36.876850585563915,
+          37.22993609498134,
+          37.517059919163,
+          37.7991539451293,
+          38.101856295793155,
+          -0.10192780306227497,
+          0.3877086855113719,
+          0.6198534717526896,
+          0.8583842593075668,
+          1.2789742487376698,
+          1.466042686935578,
+          2.9943899847271793,
+          2.118711327390915,
+          77.99645981292193,
+          78.29266701353603,
+          78.59959008256587,
+          78.90759912343961,
+          79.19700180490396,
+          79.48434099191152,
+          79.80505138754063,
+          80.11072989060094,
+          60.01035494343027,
+          60.31411128827361,
+          60.58343507722968,
+          60.890729540600304,
+          61.18281661047558,
+          61.52023544242405,
+          61.79197471897282,
+          62.096422888333706,
+          17.99592272546537,
+          18.316718512949834,
+          18.59771632789908,
+          18.899388618486256,
+          19.20769421357001,
+          19.498866577438076,
+          19.795957747619028,
+          20.098652936373814,
+          0.01601428117541043,
+          0.2792824514222807,
+          0.6215228901116496,
+          1.0830451963823455,
+          1.1509399039480375,
+          2.561892702931257,
+          1.0730158650987578,
+          2.0709755245860952
+        ],
+        "label_hash": "476723598bd97035"
+      },
+      "frequency_decisions": 0,
+      "frequency_updates": 0,
+      "future_driver_timestamp_records": 24,
+      "hardware_setter_calls": 0,
+      "insufficient_frequency_windows": 4,
+      "iterations": 100,
+      "migration_or_residency_bytes": 2097280,
+      "migration_time_s": null,
+      "migration_timing_scope": "not_isolated_from_other_transfer_work",
+      "minimum_driver_sample_age_us": -726005,
+      "mode": "allocation_shadow",
+      "observed_clock_changes": 2,
+      "ownership_changes": 0,
+      "poll_frames": 16,
+      "poll_query_wall_s": 0.262898571,
+      "poll_thread_cpu_s": 0.017039191,
+      "run_id": "joint-03",
+      "settling_work_s": 0.0,
+      "stage": "integration",
+      "status": "passed",
+      "workload": "kmeans"
+    },
+    {
+      "active_s": 0.130595506,
+      "actuation_overhead_s": 0.0,
+      "allocation_decisions": 0,
+      "clock_policy": "unchanged_automatic_not_fixed_capacity",
+      "command_s": 1.509539311,
+      "communication_s": 0.065720171,
+      "control_gap_s": 0.095584073,
+      "controller_compute_s": 0.014724479,
+      "dataset": "datasets/k-large.kmdat",
+      "driver_clock_event_masks": {
+        "1": 11,
+        "36": 4
+      },
+      "energy_j": null,
+      "final": {
+        "centroids": [
+          0.09542642082004535,
+          0.17120556981472046,
+          0.5374173868155953,
+          0.7394784881265763,
+          1.1591299579317045,
+          0.4328895585344492,
+          1.0214767816617143,
+          2.124331428352815,
+          48.004044759460264,
+          48.28542477650943,
+          48.58169913941509,
+          48.892890876740694,
+          49.184986272151136,
+          49.509067712269356,
+          49.8057351445113,
+          50.10327478735555,
+          35.9894696927034,
+          36.30642506993493,
+          36.600740322101394,
+          36.876850585563915,
+          37.229936094981355,
+          37.517059919162946,
+          37.79915394512932,
+          38.10185629579317,
+          -0.10192780306227492,
+          0.38770868551137194,
+          0.6198534717526893,
+          0.8583842593075668,
+          1.2789742487376694,
+          1.466042686935579,
+          2.9943899847271793,
+          2.1187113273909146,
+          77.99645981292201,
+          78.29266701353609,
+          78.59959008256587,
+          78.90759912343965,
+          79.19700180490388,
+          79.48434099191158,
+          79.8050513875406,
+          80.11072989060096,
+          60.01035494343031,
+          60.31411128827362,
+          60.583435077229645,
+          60.89072954060032,
+          61.18281661047558,
+          61.52023544242407,
+          61.791974718972824,
+          62.09642288833369,
+          17.99592272546535,
+          18.316718512949866,
+          18.597716327899086,
+          18.899388618486235,
+          19.20769421357003,
+          19.49886657743807,
+          19.795957747619028,
+          20.098652936373814,
+          0.016014281175410417,
+          0.27928245142228075,
+          0.6215228901116494,
+          1.0830451963823464,
+          1.150939903948037,
+          2.561892702931257,
+          1.073015865098758,
+          2.0709755245860966
+        ],
+        "label_hash": "476723598bd97035"
+      },
+      "frequency_decisions": 0,
+      "frequency_updates": 0,
+      "future_driver_timestamp_records": 22,
+      "hardware_setter_calls": 0,
+      "insufficient_frequency_windows": 4,
+      "iterations": 100,
+      "migration_or_residency_bytes": 2097280,
+      "migration_time_s": null,
+      "migration_timing_scope": "not_isolated_from_other_transfer_work",
+      "minimum_driver_sample_age_us": -630547,
+      "mode": "allocation_shadow",
+      "observed_clock_changes": 2,
+      "ownership_changes": 0,
+      "poll_frames": 15,
+      "poll_query_wall_s": 0.31956895,
+      "poll_thread_cpu_s": 0.019122587,
+      "run_id": "joint-04",
+      "settling_work_s": 0.0,
+      "stage": "integration",
+      "status": "passed",
+      "workload": "kmeans"
+    },
+    {
+      "active_s": 0.019265888,
+      "actuation_overhead_s": 0.0,
+      "allocation_decisions": 0,
+      "clock_policy": "unchanged_automatic_not_fixed_capacity",
+      "command_s": 5.276941986,
+      "communication_s": 0.007621832,
+      "control_gap_s": 0.008973266,
+      "controller_compute_s": 0.00297076,
+      "dataset": "datasets/k-profile.kmdat",
+      "driver_clock_event_masks": {
+        "1": 3,
+        "36": 49
+      },
+      "energy_j": null,
+      "final": {
+        "centroids": [
+          24.01900219370653,
+          24.26742217576195,
+          24.634741001114566,
+          24.90007440301146,
+          25.220877427876644,
+          25.49701381257515,
+          25.828684232869144,
+          26.092507981913386,
+          59.98952450382373,
+          60.28523861935523,
+          60.621203663258264,
+          60.915614787696704,
+          61.23861783544336,
+          61.499235598441125,
+          61.80706004169354,
+          62.12336400278182,
+          71.98717263527544,
+          72.28781179166832,
+          72.59675897270874,
+          72.89005918868128,
+          73.19971421647232,
+          73.48111430778896,
+          73.78677579562789,
+          74.10144207078878,
+          36.003620301636154,
+          36.313587533403,
+          36.593290844661006,
+          36.9093553779561,
+          37.20889239937073,
+          37.49898977669126,
+          37.80522392219466,
+          38.08803868128976,
+          83.9932472591124,
+          84.28442744911864,
+          84.58282891080498,
+          84.90368302052006,
+          85.23165981371771,
+          85.513121938895,
+          85.78791116473894,
+          86.07750672201736,
+          12.008657472445636,
+          12.29224304576522,
+          12.618938024568278,
+          12.897154992753423,
+          13.233724775793062,
+          13.51361271019927,
+          13.815265337547748,
+          14.10379599694634,
+          -0.004813335049842424,
+          0.3086183212521729,
+          0.6059819590033096,
+          0.9333049804855481,
+          1.207251402450911,
+          1.502552974395777,
+          1.801544655571938,
+          2.084390504844089,
+          48.02836649331257,
+          48.28971776981756,
+          48.57400077823626,
+          48.89297346890973,
+          49.185348184720254,
+          49.49214653498487,
+          49.79644433679431,
+          50.14191227108503
+        ],
+        "label_hash": "3cb01ca74f52f8c6"
+      },
+      "frequency_decisions": 0,
+      "frequency_updates": 0,
+      "future_driver_timestamp_records": 58,
+      "hardware_setter_calls": 0,
+      "insufficient_frequency_windows": 0,
+      "iterations": 6,
+      "migration_or_residency_bytes": 524352,
+      "migration_time_s": null,
+      "migration_timing_scope": "not_isolated_from_other_transfer_work",
+      "minimum_driver_sample_age_us": -602905,
+      "mode": "allocation_shadow",
+      "observed_clock_changes": 1,
+      "ownership_changes": 0,
+      "poll_frames": 52,
+      "poll_query_wall_s": 0.443637247,
+      "poll_thread_cpu_s": 0.06044183,
+      "run_id": "joint-05",
+      "settling_work_s": 0.0,
+      "stage": "profile",
+      "status": "passed",
+      "workload": "kmeans"
+    },
+    {
+      "active_s": 0.008284273,
+      "actuation_overhead_s": 0.0,
+      "allocation_decisions": 5,
+      "clock_policy": "unchanged_automatic_not_fixed_capacity",
+      "command_s": 0.72072735,
+      "communication_s": 0.004326763,
+      "control_gap_s": 0.021059773,
+      "controller_compute_s": 0.00414297,
+      "dataset": "datasets/h-small.hsdat",
+      "driver_clock_event_masks": {
+        "36": 8
+      },
+      "energy_j": null,
+      "final": {
+        "field_sha256": "b0d48c304ec73537e79eb1e20c4c89538d47fb9cfa702a4fbe5430f2c5184da6"
+      },
+      "frequency_decisions": 0,
+      "frequency_updates": 0,
+      "future_driver_timestamp_records": 14,
+      "hardware_setter_calls": 0,
+      "insufficient_frequency_windows": 0,
+      "iterations": 24,
+      "migration_or_residency_bytes": 184,
+      "migration_time_s": null,
+      "migration_timing_scope": "not_isolated_from_other_transfer_work",
+      "minimum_driver_sample_age_us": -554336,
+      "mode": "allocation_only",
+      "observed_clock_changes": 0,
+      "ownership_changes": 1,
+      "poll_frames": 8,
+      "poll_query_wall_s": 0.073660019,
+      "poll_thread_cpu_s": 0.009843782,
+      "run_id": "joint-06",
+      "settling_work_s": 0.000405725,
+      "stage": "fixture",
+      "status": "passed",
+      "workload": "hotspot"
+    },
+    {
+      "active_s": 0.01002752,
+      "actuation_overhead_s": 0.0,
+      "allocation_decisions": 5,
+      "clock_policy": "unchanged_automatic_not_fixed_capacity",
+      "command_s": 0.547779422,
+      "communication_s": 0.003425347,
+      "control_gap_s": 0.016593281,
+      "controller_compute_s": 0.002807104,
+      "dataset": "datasets/h-small.hsdat",
+      "driver_clock_event_masks": {
+        "36": 6
+      },
+      "energy_j": null,
+      "final": {
+        "field_sha256": "b0d48c304ec73537e79eb1e20c4c89538d47fb9cfa702a4fbe5430f2c5184da6"
+      },
+      "frequency_decisions": 0,
+      "frequency_updates": 0,
+      "future_driver_timestamp_records": 10,
+      "hardware_setter_calls": 0,
+      "insufficient_frequency_windows": 0,
+      "iterations": 24,
+      "migration_or_residency_bytes": 1472,
+      "migration_time_s": null,
+      "migration_timing_scope": "not_isolated_from_other_transfer_work",
+      "minimum_driver_sample_age_us": -528911,
+      "mode": "allocation_shadow",
+      "observed_clock_changes": 0,
+      "ownership_changes": 3,
+      "poll_frames": 6,
+      "poll_query_wall_s": 0.034443574,
+      "poll_thread_cpu_s": 0.004467719,
+      "run_id": "joint-07",
+      "settling_work_s": 0.001184626,
+      "stage": "fixture",
+      "status": "passed",
+      "workload": "hotspot"
+    },
+    {
+      "active_s": 0.131654787,
+      "actuation_overhead_s": 0.0,
+      "allocation_decisions": 0,
+      "clock_policy": "unchanged_automatic_not_fixed_capacity",
+      "command_s": 1.079187403,
+      "communication_s": 0.047317363,
+      "control_gap_s": 0.119117167,
+      "controller_compute_s": 0.043011436,
+      "dataset": "datasets/h-large.hsdat",
+      "driver_clock_event_masks": {
+        "1": 4,
+        "36": 7
+      },
+      "energy_j": null,
+      "final": {
+        "field_sha256": "dbd6a097081c9689794da38371020c4566228dcad6f317252c8d947118dce018"
+      },
+      "frequency_decisions": 0,
+      "frequency_updates": 0,
+      "future_driver_timestamp_records": 14,
+      "hardware_setter_calls": 0,
+      "insufficient_frequency_windows": 0,
+      "iterations": 600,
+      "migration_or_residency_bytes": 0,
+      "migration_time_s": null,
+      "migration_timing_scope": "not_isolated_from_other_transfer_work",
+      "minimum_driver_sample_age_us": -468883,
+      "mode": "allocation_only",
+      "observed_clock_changes": 1,
+      "ownership_changes": 0,
+      "poll_frames": 11,
+      "poll_query_wall_s": 0.190839512,
+      "poll_thread_cpu_s": 0.013074822,
+      "run_id": "joint-08",
+      "settling_work_s": 0.0,
+      "stage": "integration",
+      "status": "passed",
+      "workload": "hotspot"
+    },
+    {
+      "active_s": 0.155784333,
+      "actuation_overhead_s": 0.0,
+      "allocation_decisions": 0,
+      "clock_policy": "unchanged_automatic_not_fixed_capacity",
+      "command_s": 1.987622553,
+      "communication_s": 0.062959908,
+      "control_gap_s": 0.165710613,
+      "controller_compute_s": 0.057818716,
+      "dataset": "datasets/h-large.hsdat",
+      "driver_clock_event_masks": {
+        "1": 8,
+        "36": 7
+      },
+      "energy_j": null,
+      "final": {
+        "field_sha256": "dbd6a097081c9689794da38371020c4566228dcad6f317252c8d947118dce018"
+      },
+      "frequency_decisions": 0,
+      "frequency_updates": 0,
+      "future_driver_timestamp_records": 12,
+      "hardware_setter_calls": 0,
+      "insufficient_frequency_windows": 1,
+      "iterations": 600,
+      "migration_or_residency_bytes": 0,
+      "migration_time_s": null,
+      "migration_timing_scope": "not_isolated_from_other_transfer_work",
+      "minimum_driver_sample_age_us": -466999,
+      "mode": "allocation_shadow",
+      "observed_clock_changes": 2,
+      "ownership_changes": 0,
+      "poll_frames": 15,
+      "poll_query_wall_s": 0.842846077,
+      "poll_thread_cpu_s": 0.021029007,
+      "run_id": "joint-09",
+      "settling_work_s": 0.0,
+      "stage": "integration",
+      "status": "passed",
+      "workload": "hotspot"
+    },
+    {
+      "active_s": 0.170863205,
+      "actuation_overhead_s": 0.0,
+      "allocation_decisions": 0,
+      "clock_policy": "unchanged_automatic_not_fixed_capacity",
+      "command_s": 1.830167569,
+      "communication_s": 0.064292263,
+      "control_gap_s": 0.148281909,
+      "controller_compute_s": 0.051567009,
+      "dataset": "datasets/h-large.hsdat",
+      "driver_clock_event_masks": {
+        "1": 8,
+        "36": 7
+      },
+      "energy_j": null,
+      "final": {
+        "field_sha256": "dbd6a097081c9689794da38371020c4566228dcad6f317252c8d947118dce018"
+      },
+      "frequency_decisions": 0,
+      "frequency_updates": 0,
+      "future_driver_timestamp_records": 12,
+      "hardware_setter_calls": 0,
+      "insufficient_frequency_windows": 1,
+      "iterations": 600,
+      "migration_or_residency_bytes": 0,
+      "migration_time_s": null,
+      "migration_timing_scope": "not_isolated_from_other_transfer_work",
+      "minimum_driver_sample_age_us": -441972,
+      "mode": "allocation_shadow",
+      "observed_clock_changes": 2,
+      "ownership_changes": 0,
+      "poll_frames": 15,
+      "poll_query_wall_s": 0.690557973,
+      "poll_thread_cpu_s": 0.022841928,
+      "run_id": "joint-10",
+      "settling_work_s": 0.0,
+      "stage": "integration",
+      "status": "passed",
+      "workload": "hotspot"
+    },
+    {
+      "active_s": 0.005063251,
+      "actuation_overhead_s": 0.0,
+      "allocation_decisions": 0,
+      "clock_policy": "unchanged_automatic_not_fixed_capacity",
+      "command_s": 4.697255294,
+      "communication_s": 0.001349837,
+      "control_gap_s": 0.002767572,
+      "controller_compute_s": 0.001686455,
+      "dataset": "datasets/h-profile.hsdat",
+      "driver_clock_event_masks": {
+        "1": 2,
+        "36": 39
+      },
+      "energy_j": null,
+      "final": {
+        "field_sha256": "9734cf3d9e9c77d9e9830b51104ea6f8789ec21dae829e2359925bcff34a4c7b"
+      },
+      "frequency_decisions": 0,
+      "frequency_updates": 0,
+      "future_driver_timestamp_records": 40,
+      "hardware_setter_calls": 0,
+      "insufficient_frequency_windows": 0,
+      "iterations": 6,
+      "migration_or_residency_bytes": 0,
+      "migration_time_s": null,
+      "migration_timing_scope": "not_isolated_from_other_transfer_work",
+      "minimum_driver_sample_age_us": -780253,
+      "mode": "allocation_shadow",
+      "observed_clock_changes": 1,
+      "ownership_changes": 0,
+      "poll_frames": 41,
+      "poll_query_wall_s": 0.922628378,
+      "poll_thread_cpu_s": 0.045164548,
+      "run_id": "joint-11",
+      "settling_work_s": 0.0,
+      "stage": "profile",
+      "status": "passed",
+      "workload": "hotspot"
+    },
+    {
+      "active_s": 0.001984987,
+      "actuation_overhead_s": 0.0,
+      "allocation_decisions": 0,
+      "clock_policy": "unchanged_automatic_not_fixed_capacity",
+      "command_s": 1.152535157,
+      "communication_s": 0.001635841,
+      "control_gap_s": 0.001378797,
+      "controller_compute_s": 0.000780762,
+      "dataset": "datasets/k-small.kmdat",
+      "driver_clock_event_masks": {
+        "1": 2,
+        "36": 5
+      },
+      "energy_j": null,
+      "final": {
+        "centroids": [
+          23.90695178204603,
+          24.441607882023206,
+          24.71943521612078,
+          11.985823595963824,
+          12.243805594634964,
+          12.654401836460654,
+          0.07077242003288847,
+          0.3513884190444625,
+          0.7335233567381199,
+          36.1277473239696,
+          36.263923542079766,
+          36.71094265117717
+        ],
+        "label_hash": "bdeb1cc7d73d3f57"
+      },
+      "frequency_decisions": 0,
+      "frequency_updates": 0,
+      "future_driver_timestamp_records": 4,
+      "hardware_setter_calls": 0,
+      "insufficient_frequency_windows": 0,
+      "iterations": 3,
+      "migration_or_residency_bytes": 3096,
+      "migration_time_s": null,
+      "migration_timing_scope": "not_isolated_from_other_transfer_work",
+      "minimum_driver_sample_age_us": -506303,
+      "mode": "allocation_shadow",
+      "observed_clock_changes": 1,
+      "ownership_changes": 0,
+      "poll_frames": 7,
+      "poll_query_wall_s": 0.676498939,
+      "poll_thread_cpu_s": 0.008010199,
+      "run_id": "joint-12",
+      "settling_work_s": 0.0,
+      "stage": "convergence",
+      "status": "passed",
+      "workload": "kmeans"
+    }
+  ]
+}

@@ -329,3 +329,37 @@ Replay needs no GPU. Accepted energy savings remain unavailable.
 See the [Phase 8 review](docs/phase8_review.md),
 [control and diagnostic contract](docs/phase8_spec.md), and
 [authoritative results](results/phase8/2026-10-31-final-v2/summary.json).
+
+## Phase 9: integrated allocation and frequency shadowing
+
+The integrated runner applies real allocation decisions to persistent kmeans and
+HotSpot, samples telemetry independently, and evaluates eligible frequency inputs
+in shadow mode. Separate analytical scenarios exercise both control loops. Native
+workload kernels remain unchanged; reuse the Phase 8 build and existing WSL venv.
+
+```bash
+export PYTHONPATH="$PWD/src"
+python -m unittest discover -s tests -v
+python -m greengpu integration-check \
+  --kmeans-binary build/phase8/atlas_kmeans \
+  --hotspot-binary build/phase8/atlas_hotspot \
+  --output results/phase9/local-check --workers 4
+python -m greengpu integration-replay results/phase9/local-check
+```
+
+`nsys` must be on PATH. Use a fresh output directory. The matrix retains
+independent references, raw telemetry, full decisions, final fields, and profiler
+activity. Replay requires no GPU. An exit code of 1 with a generated summary can
+mean the strict concurrency gate remains incomplete; it does not by itself mean
+checksum or decision replay failed. Read `software_gate` and the concurrency
+details. Integrity failures instead report an explicit replay error.
+
+`--mode live-joint` exits with code 2 before launching work because the hardware
+prerequisites remain unmet. No fallback or clock-setting override is provided.
+The final retained run passed 135 tests and workload/replay checks, observed
+overlap in 6/6 kmeans and 5/6 HotSpot profile iterations, and rejected hardware
+frequency inputs whose timestamps failed the host/driver mapping.
+
+See [Phase 9 review](docs/phase9_review.md),
+[runtime contract](docs/phase9_spec.md), and
+[final repeat](results/phase9/2026-10-31-final-v3/summary.json).

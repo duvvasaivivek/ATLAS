@@ -1,0 +1,47 @@
+{
+  "dataset": "datasets/h-profile.hsdat",
+  "field": "fields/trial-11.hstemp",
+  "golden": null,
+  "integration": {
+    "allocation_interval_ns": 2000000000,
+    "allocation_iterations": 100,
+    "allocation_policy": "paper_proportional",
+    "cadence_profile": "observed_cadence_v1",
+    "frequency_guard_ns": 1000000000,
+    "frequency_interval_ns": 200000000,
+    "frequency_policy": "paper_additive",
+    "initial_cpu_items": 384,
+    "mode": "allocation_shadow",
+    "n": 513,
+    "pairs": [
+      [
+        930,
+        8001
+      ],
+      [
+        1665,
+        5501
+      ],
+      [
+        1665,
+        7001
+      ],
+      [
+        1665,
+        8001
+      ],
+      [
+        2385,
+        8001
+      ]
+    ],
+    "run_id": "joint-11",
+    "settle_iterations": 1
+  },
+  "native_mode": "timing",
+  "record": "trial-11.json",
+  "stage": "profile",
+  "steps": 6,
+  "workers": 1,
+  "workload": "hotspot"
+}
