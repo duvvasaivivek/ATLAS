@@ -296,3 +296,36 @@ limitation. See the [policy contract](docs/frequency_spec.md) and
 [diagnostic figure](results/phase7/figures/frequency-diagnostics.png).
 This phase does not request or acknowledge GPU clock changes. Live actuation
 and measured effects are Phase 8 work; energy qualification remains blocked.
+
+## Phase 8: actuation qualification and loaded diagnostics
+
+Phase 8 adds transactional clock-control infrastructure, restoration/failure
+tests, loaded-setting verification, and two independently checked CUDA diagnostics.
+On the current WSL setup, the prior locked-clock policy cannot be read back;
+the hardware gate blocks all setters. The real diagnostics run under the unchanged
+platform policy. Static frequency sweeps and live Tier 2 experiments remain blocked.
+
+```bash
+# WSL, repository root, existing .venv-wsl activated
+export PYTHONPATH="$PWD/src"
+cmake -S . -B build/phase8 -G Ninja \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_CUDA_COMPILER=/usr/local/cuda-13.1/bin/nvcc
+cmake --build build/phase8 --parallel 2
+python -m unittest discover -s tests -v
+OMP_NUM_THREADS=4 ctest --test-dir build/phase8 --output-on-failure
+
+python -m greengpu actuation-check \
+  --binary build/phase8/atlas_frequency_probe \
+  --output results/phase8/local-check --blocks 3 --target-seconds 3
+python -m greengpu actuation-replay results/phase8/local-check
+```
+
+Use a fresh output directory. A successful command exit means diagnostic
+collection/replay completed; inspect `hardware_exit_gate`, which is `blocked`
+on the retained machine. No baseline-override or force-actuation flag is provided.
+Replay needs no GPU. Accepted energy savings remain unavailable.
+
+See the [Phase 8 review](docs/phase8_review.md),
+[control and diagnostic contract](docs/phase8_spec.md), and
+[authoritative results](results/phase8/2026-10-31-final-v2/summary.json).

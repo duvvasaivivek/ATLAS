@@ -4,7 +4,7 @@ Specification version: 1.0
 
 Updated: 2026-10-31
 
-Status: Phases 0, 1, 3, and 6 workload validation complete; Phase 2 measurement infrastructure implemented. Kmeans, HotSpot, and Tier 1 workload allocation have independent correctness checks and exploratory timing evaluation. HotSpot includes real evolving-state migration and halo exchange. GPU energy, device-event timing, and fixed-capacity hardware qualification remain blocked, including the full Phase 4/5 research gates. Tier 2 policies are implemented and validated offline in Phase 7; live actuation remains Phase 8 work.
+Status: Phases 0, 1, 3, and 6 workload validation complete; Phase 2 measurement infrastructure implemented. Kmeans, HotSpot, and Tier 1 workload allocation have independent correctness checks and exploratory timing evaluation. HotSpot includes real evolving-state migration and halo exchange. GPU energy, device-event timing, and fixed-capacity hardware qualification remain blocked, including the full Phase 4/5 research gates. Tier 2 policies are implemented and validated offline in Phase 7; Phase 8 adds tested transaction infrastructure and real loaded diagnostics, but live actuation is blocked by unavailable prior-policy readback.
 
 ## Document authority and project state
 
@@ -53,7 +53,7 @@ CPU and GPU completion times include their branch-specific transfer and dispatch
   `frequency_trace.py` captures and joins read-only NVML samples;
   `frequency_experiment.py` archives and replays decisions. No actuator is present.
 - **Telemetry and energy:** timestamped observations with physical domain, metric semantics, units, and quality information.
-- **Actuation:** support discovery, requested-versus-observed setting verification, and prior-policy restoration.
+- **Actuation:** Phase 8 implements transaction ownership, durable requests, restoration/failure handling, and generic sweep/Tier 2-only orchestration. The default NVML adapter blocks without authoritative prior-policy capture. Its hardware gate remains blocked on WSL; see [Phase 8 review](docs/phase8_review.md). Real CUDA diagnostic workloads characterize loaded telemetry without changing clocks.
 - **Runtime:** concurrency, barriers, controller cadence, invalid-observation handling, and experiment lifecycle.
 - **Analysis:** baselines, uncertainty, adaptation cost, and plots regenerated from retained records.
 

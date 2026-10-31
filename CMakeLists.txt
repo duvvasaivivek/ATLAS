@@ -47,3 +47,8 @@ add_test(NAME hotspot_verify_migration COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOU
 add_test(NAME hotspot_deferred_migration COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/tests/native_hotspot.py
   $<TARGET_FILE:atlas_hotspot> ${CMAKE_SOURCE_DIR}/tests/data/hotspot_edge.hsdat timing)
 set_tests_properties(hotspot_verify_migration hotspot_deferred_migration PROPERTIES TIMEOUT 90)
+
+add_executable(atlas_frequency_probe native/frequency/main.cu)
+set_target_properties(atlas_frequency_probe PROPERTIES CUDA_STANDARD 17 CUDA_STANDARD_REQUIRED YES)
+add_test(NAME frequency_diagnostics COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/tests/native_frequency.py $<TARGET_FILE:atlas_frequency_probe>)
+set_tests_properties(frequency_diagnostics PROPERTIES TIMEOUT 60)

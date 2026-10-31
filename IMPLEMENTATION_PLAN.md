@@ -2,7 +2,7 @@
 
 Date: 2026-10-31
 
-Status: Phases 0, 1, 3, and 6 workload validation complete. Phase 7 offline frequency policy validation is complete; see [Phase 7 review](docs/phase7_review.md). Phase 4 kmeans and Phase 5 allocation implementations are complete, with correctness and exploratory timing evidence. Phase 6 adds validated thermal-state migration and allocation trials on HotSpot. Phase 2 physical GPU energy and device-event timing qualification remain blocked; automatic clock policy does not establish fixed capacity. The full Phase 4/5 research exit gates remain incomplete. See the [Phase 0 review](docs/phase0_review.md), [Phase 1 review](docs/phase1_review.md), [Phase 2 review](docs/phase2_review.md), [Phase 3 review](docs/phase3_review.md), [Phase 4 review](docs/phase4_review.md), [Phase 5 review](docs/phase5_review.md), and [Phase 6 review](docs/phase6_review.md).
+Status: Phases 0, 1, 3, and 6 workload validation complete. Phase 8 actuation infrastructure is implemented, with the hardware gate blocked by unavailable prior-policy readback; see [Phase 8 review](docs/phase8_review.md). Phase 7 offline frequency policy validation is complete; see [Phase 7 review](docs/phase7_review.md). Phase 4 kmeans and Phase 5 allocation implementations are complete, with correctness and exploratory timing evidence. Phase 6 adds validated thermal-state migration and allocation trials on HotSpot. Phase 2 physical GPU energy and device-event timing qualification remain blocked; automatic clock policy does not establish fixed capacity. The full Phase 4/5 research exit gates remain incomplete. See the [Phase 0 review](docs/phase0_review.md), [Phase 1 review](docs/phase1_review.md), [Phase 2 review](docs/phase2_review.md), [Phase 3 review](docs/phase3_review.md), [Phase 4 review](docs/phase4_review.md), [Phase 5 review](docs/phase5_review.md), and [Phase 6 review](docs/phase6_review.md).
 
 Primary source: [GreenGPU research paper](GreenGPU.pdf), Kai Ma et al., *Energy conservation for GPU-CPU architectures with dynamic workload division and frequency scaling*, 2016, journal pages 21-33.
 
@@ -302,6 +302,13 @@ is established by this gate.
 **Exit gate:** Published equations match independent hand calculations; the beta limitation is demonstrated; missing memory telemetry disables or explicitly changes the policy; replay output contains no counterfactual hardware energy claim.
 
 ## 12. Phase 8 - Validate live actuation and frequency-only behavior
+
+**Status:** Transaction/control infrastructure and real diagnostic workloads
+implemented and tested, 2026-10-31. The hardware gate is **blocked** because the
+prior locked-clock policy cannot be captured for verified restoration on the
+current WSL setup. No setters were called. Static frequency sweeps and live Tier 2
+experiments remain unavailable; software tests are not physical-control evidence.
+See the [Phase 8 review](docs/phase8_review.md) and [contract](docs/phase8_spec.md).
 
 **Depends on:** Phases 1-2, 4, 6, and 7.
 

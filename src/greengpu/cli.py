@@ -67,9 +67,24 @@ def main(argv=None) -> int:
     frequency_plot = sub.add_parser("frequency-plot",help="Plot verified offline frequency diagnostics")
     frequency_plot.add_argument("run",type=Path)
     frequency_plot.add_argument("--output",type=Path,required=True)
+    phase8 = sub.add_parser("actuation-check",help="Check restoration capability and characterize real GPU diagnostics")
+    phase8.add_argument("--output",type=Path,required=True)
+    phase8.add_argument("--binary",type=Path,required=True)
+    phase8.add_argument("--blocks",type=int,default=3)
+    phase8.add_argument("--target-seconds",type=float,default=2.)
+    phase8_replay = sub.add_parser("actuation-replay",help="Verify and regenerate Phase 8 hardware evidence")
+    phase8_replay.add_argument("run",type=Path)
     args = parser.parse_args(argv)
     if not Path("pyproject.toml").is_file() or not Path("src/greengpu").is_dir():
         parser.error("Run this command from the ATLAS repository root")
+    if args.command in ("actuation-check","actuation-replay"):
+        from .phase8 import run, replay
+        try:
+            result=run(args.output,args.binary,args.blocks,args.target_seconds) if args.command=="actuation-check" else replay(args.run)
+            print(json.dumps({k:result[k] for k in ("diagnostic_status","hardware_exit_gate","reason","clock_setter_calls","measured_trials","matched_loaded_samples")},indent=2))
+        except (ValueError,RuntimeError,OSError,ImportError) as error:
+            parser.exit(1,f"Actuation validation failed: {error}\n")
+        return 0
     if args.command in ("frequency-check", "frequency-replay", "frequency-plot"):
         from .frequency_experiment import run, replay
         try:
