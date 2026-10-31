@@ -2,7 +2,7 @@
 
 Date: 2026-10-31
 
-Status: Phases 0, 1, 3, and 6 workload validation complete. Phase 4 kmeans and Phase 5 allocation implementations are complete, with correctness and exploratory timing evidence. Phase 6 adds validated thermal-state migration and allocation trials on HotSpot. Phase 2 physical GPU energy and device-event timing qualification remain blocked; automatic clock policy does not establish fixed capacity. The full Phase 4/5 research exit gates remain incomplete. See the [Phase 0 review](docs/phase0_review.md), [Phase 1 review](docs/phase1_review.md), [Phase 2 review](docs/phase2_review.md), [Phase 3 review](docs/phase3_review.md), [Phase 4 review](docs/phase4_review.md), [Phase 5 review](docs/phase5_review.md), and [Phase 6 review](docs/phase6_review.md).
+Status: Phases 0, 1, 3, and 6 workload validation complete. Phase 7 offline frequency policy validation is complete; see [Phase 7 review](docs/phase7_review.md). Phase 4 kmeans and Phase 5 allocation implementations are complete, with correctness and exploratory timing evidence. Phase 6 adds validated thermal-state migration and allocation trials on HotSpot. Phase 2 physical GPU energy and device-event timing qualification remain blocked; automatic clock policy does not establish fixed capacity. The full Phase 4/5 research exit gates remain incomplete. See the [Phase 0 review](docs/phase0_review.md), [Phase 1 review](docs/phase1_review.md), [Phase 2 review](docs/phase2_review.md), [Phase 3 review](docs/phase3_review.md), [Phase 4 review](docs/phase4_review.md), [Phase 5 review](docs/phase5_review.md), and [Phase 6 review](docs/phase6_review.md).
 
 Primary source: [GreenGPU research paper](GreenGPU.pdf), Kai Ma et al., *Energy conservation for GPU-CPU architectures with dynamic workload division and frequency scaling*, 2016, journal pages 21-33.
 
@@ -275,6 +275,13 @@ Prefer existing supported telemetry bindings over a handwritten native interface
 **Exit gate:** Dynamic splits preserve the reference solution within declared tolerances; every boundary exchange is timed; adaptation never changes the total grid or timestep count.
 
 ## 11. Phase 7 - Implement the frequency controller offline
+
+**Status:** Offline implementation and validation complete, 2026-10-31. The
+literal policy, separate discounted-loss extension, 23 deterministic scenarios,
+strict decision replay, and timestamp-paired read-only hardware trace are retained.
+See the [Phase 7 review](docs/phase7_review.md) and
+[frequency contract](docs/frequency_spec.md). No live actuation or energy benefit
+is established by this gate.
 
 **Depends on:** Phases 0-2; complete before live frequency experiments.
 

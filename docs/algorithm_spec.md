@@ -1,10 +1,11 @@
-# Controller specification v1.1
+# Controller specification v1.2
 
 Status: Tier 1 allocation is implemented in Phase 5, 2026-10-31. The original
 literal allocation rules below are retained. Version 1.1 adds the explicitly
 specified robust extension and persistent runtime contract in
-[Phase 5 implementation specification](phase5_spec.md). Tier 2 frequency policies
-remain specifications for later phases.
+[Phase 5 implementation specification](phase5_spec.md). Version 1.2 implements
+Tier 2 offline in Phase 7, with observation eligibility, logging, and a separately
+named forgetting extension defined in [the frequency contract](frequency_spec.md).
 
 Traceability: [paper mapping](paper_mapping.md). Every default or edge-case choice identified as **ATLAS** is an implementation decision, not an experimental result from the paper.
 
@@ -127,7 +128,11 @@ Parameters: `alpha_core=0.15`, `alpha_memory=0.02`, `gamma=0.3`, `beta=0.2`. Req
 - Record requested, acknowledged, and observed frequencies separately. No feasible setting or successful API call alone proves the hardware ran at that setting.
 - Keep full history across allocation updates and phase changes within the same run. A new independent run resets history.
 
-Reserve `discounted_loss_v1` for a later explicit forgetting rule; do not describe beta in the printed additive rule as a forgetting coefficient.
+`discounted_loss_v1` is implemented in Phase 7 as `score_next=discount*score-L`,
+with default `discount=0.95`; its complete contract is in
+[the frequency specification](frequency_spec.md). Beta in the printed additive
+rule is not a forgetting coefficient. Offline initialization makes a logical
+recommendation only; the live initialization described above remains Phase 8 work.
 
 ## 8. Observation and decision identity
 
@@ -137,7 +142,9 @@ The runtime owns actuation, hardware restoration, and workload dispatch. Control
 
 ## 9. Reference calculations for later tests
 
-Machine-readable numbers are in [specification fixtures](spec_fixtures.json). They are specification examples, not implemented-controller test results.
+Machine-readable numbers are in [specification fixtures](spec_fixtures.json).
+These specification examples now have implementation checks in the Phase 5
+allocation and Phase 7 frequency tests; hardware validation is a separate gate.
 
 - **A01:** At `r=0.1`, times 1 and 1.4, step 0.05, the proposed 0.15 predicts CPU 1.5 and GPU 1.322222... . The sign reverses, so `paper_simple` holds 0.1.
 - **A02:** At `r=0.3`, times 6 and 3, `paper_proportional` gives `3/17 = 0.17647058823529413`.

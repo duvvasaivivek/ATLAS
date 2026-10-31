@@ -4,13 +4,13 @@ Specification version: 1.0
 
 Updated: 2026-10-31
 
-Status: Phases 0, 1, 3, and 6 workload validation complete; Phase 2 measurement infrastructure implemented. Kmeans, HotSpot, and Tier 1 workload allocation have independent correctness checks and exploratory timing evaluation. HotSpot includes real evolving-state migration and halo exchange. GPU energy, device-event timing, and fixed-capacity hardware qualification remain blocked, including the full Phase 4/5 research gates. Tier 2 frequency control remains planned.
+Status: Phases 0, 1, 3, and 6 workload validation complete; Phase 2 measurement infrastructure implemented. Kmeans, HotSpot, and Tier 1 workload allocation have independent correctness checks and exploratory timing evaluation. HotSpot includes real evolving-state migration and halo exchange. GPU energy, device-event timing, and fixed-capacity hardware qualification remain blocked, including the full Phase 4/5 research gates. Tier 2 policies are implemented and validated offline in Phase 7; live actuation remains Phase 8 work.
 
 ## Document authority and project state
 
 The [implementation plan](IMPLEMENTATION_PLAN.md) defines phase order and acceptance gates. The [controller specification](docs/algorithm_spec.md) defines policy behavior, and the [measurement specification](docs/measurement_spec.md) defines evidence and metrics. The [paper mapping](docs/paper_mapping.md) distinguishes published claims, mathematical deductions, and ATLAS decisions.
 
-The earlier implementation was deliberately removed. The virtual environment, source paper, and Git history remain. The replacement includes capability discovery, CPU/CUDA correctness fixtures, measurement infrastructure, and native partitioned execution. Kmeans provides persistent point residency, cluster reduction/merge, and memberships. HotSpot provides evolving temperature buffers, current-state migration, and halo exchange. Independent references validate both workloads, while pure Tier 1 policies drive persistent feedback execution. Python runs reproducible split sweeps and held-out comparisons; Nsight checks actual kernel overlap. Tier 2 frequency controllers remain planned. See the [Phase 6 review](docs/phase6_review.md), [workload contract](docs/hotspot_spec.md), and [run instructions](README.md).
+The earlier implementation was deliberately removed. The virtual environment, source paper, and Git history remain. The replacement includes capability discovery, CPU/CUDA correctness fixtures, measurement infrastructure, and native partitioned execution. Kmeans provides persistent point residency, cluster reduction/merge, and memberships. HotSpot provides evolving temperature buffers, current-state migration, and halo exchange. Independent references validate both workloads, while pure Tier 1 policies drive persistent feedback execution. Python runs reproducible split sweeps and held-out comparisons; Nsight checks actual kernel overlap. Tier 2 offline policies, synthetic diagnostics, and read-only sample replay are implemented; see the [Phase 7 review](docs/phase7_review.md) and [frequency contract](docs/frequency_spec.md). See the [Phase 6 review](docs/phase6_review.md), [workload contract](docs/hotspot_spec.md), and [run instructions](README.md).
 
 The previous architecture is retained in Git history at revision `ce1e09a942dad5b9b9900b30ce873736d9c46d28`. Its unsupported assumptions and their resolutions are recorded in the [Phase 0 review](docs/phase0_review.md).
 
@@ -46,7 +46,12 @@ CPU and GPU completion times include their branch-specific transfer and dispatch
 - **Configuration and contracts:** versioned policy parameters, workload definitions, capability reports, observations, decisions, and run records.
 - **Workload backend:** independent CPU reference plus native CPU/OpenMP and CUDA execution implementations, exposed through a narrow Python interface after toolchain validation.
 - **Partitioning:** `paper_simple`, `paper_adaptive`, `paper_binary_literal`, `paper_proportional`, and corrected `bracketed_bisection`.
-- **Frequency selection:** `paper_additive`, using the printed loss/update equations and documented initialization/tie choices.
+- **Frequency selection:** implemented offline in Phase 7 as `paper_additive`,
+  using the printed loss/update equations and documented initialization/tie
+  choices; `discounted_loss_v1` is a separately defined extension. Pure transitions
+  are in `frequency.py`; `frequency_scenarios.py` declares synthetic assumptions;
+  `frequency_trace.py` captures and joins read-only NVML samples;
+  `frequency_experiment.py` archives and replays decisions. No actuator is present.
 - **Telemetry and energy:** timestamped observations with physical domain, metric semantics, units, and quality information.
 - **Actuation:** support discovery, requested-versus-observed setting verification, and prior-policy restoration.
 - **Runtime:** concurrency, barriers, controller cadence, invalid-observation handling, and experiment lifecycle.

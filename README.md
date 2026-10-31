@@ -263,3 +263,36 @@ Pure Phase 5 policies are reused with rows as their work units.
 See the [model and execution contract](docs/hotspot_spec.md) and
 [Phase 6 review](docs/phase6_review.md). Energy remains unavailable, and an unchanged
 automatic clock policy does not establish fixed hardware capacity.
+
+## Phase 7: offline Tier 2 frequency policies
+
+`paper_additive` implements the paper's asymmetric losses and additive score
+updates. `discounted_loss_v1` provides a separately specified forgetting
+extension. Both are pure offline policies with explicit candidate pairs, input
+validation, history, deterministic ties, and complete decision logs.
+
+```bash
+# WSL, repository root, existing .venv-wsl activated
+export PYTHONPATH="$PWD/src"
+python -m unittest discover -s tests -v
+python -m greengpu frequency-check --output results/phase7/local-check
+# Optional: also retain timestamp-paired read-only NVML observations
+python -m greengpu frequency-check \
+  --output results/phase7/local-hardware-check --hardware-trace
+python -m greengpu frequency-replay results/phase7/local-hardware-check
+python -m greengpu frequency-plot results/phase7/local-hardware-check \
+  --output results/phase7/local-figures
+```
+
+Use a new directory for each collection and figure export. Replay requires no
+GPU. The 23 synthetic diagnostics are assumptions for checking controller
+behavior; their runtime/power units are not hardware measurements. Optional
+hardware replay uses matching NVML driver timestamps as an explicit offline
+eligibility assumption; sensor integration boundaries remain unqualified.
+
+The retained [Phase 7 review](docs/phase7_review.md) covers 92 passing tests,
+4,144 synthetic observations, six idle hardware observations, and the beta
+limitation. See the [policy contract](docs/frequency_spec.md) and
+[diagnostic figure](results/phase7/figures/frequency-diagnostics.png).
+This phase does not request or acknowledge GPU clock changes. Live actuation
+and measured effects are Phase 8 work; energy qualification remains blocked.

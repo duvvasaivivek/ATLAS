@@ -59,9 +59,29 @@ def main(argv=None) -> int:
     hotspot_plot = sub.add_parser("hotspot-plot",help="Plot verified Phase 6 thermal/timing evidence")
     hotspot_plot.add_argument("run",type=Path)
     hotspot_plot.add_argument("--output",type=Path,required=True)
+    frequency = sub.add_parser("frequency-check",help="Validate offline Tier 2 policies; never change clocks")
+    frequency.add_argument("--output",type=Path,required=True)
+    frequency.add_argument("--hardware-trace",action="store_true",help="Also capture a read-only NVML trace")
+    frequency_replay = sub.add_parser("frequency-replay",help="Verify and replay every Phase 7 decision")
+    frequency_replay.add_argument("run",type=Path)
+    frequency_plot = sub.add_parser("frequency-plot",help="Plot verified offline frequency diagnostics")
+    frequency_plot.add_argument("run",type=Path)
+    frequency_plot.add_argument("--output",type=Path,required=True)
     args = parser.parse_args(argv)
     if not Path("pyproject.toml").is_file() or not Path("src/greengpu").is_dir():
         parser.error("Run this command from the ATLAS repository root")
+    if args.command in ("frequency-check", "frequency-replay", "frequency-plot"):
+        from .frequency_experiment import run, replay
+        try:
+            if args.command == "frequency-plot":
+                from .frequency_plot import render
+                print(render(args.run,args.output))
+            else:
+                result = run(args.output,args.hardware_trace) if args.command == "frequency-check" else replay(args.run)
+                print(json.dumps({k:result[k] for k in ("implementation_status","synthetic_observations","hardware","offline_gate","live_actuation")},indent=2))
+        except (ValueError, OSError, ImportError, ArithmeticError) as error:
+            parser.exit(1,f"Frequency validation failed: {error}\n")
+        return 0
     if args.command == "replay":
         from .runner import replay
         print(json.dumps(replay(args.run), indent=2, allow_nan=False))
