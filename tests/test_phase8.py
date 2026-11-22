@@ -72,6 +72,17 @@ class TransactionTests(unittest.TestCase):
             self.assertEqual(backend.policy,backend.original)
             self.assertEqual(tx.events[-1]["status"],"verified")
 
+    def test_clock_request_without_durable_intent_never_calls_a_setter(self):
+        backend = FakeBackend()
+        with tempfile.TemporaryDirectory() as tmp:
+            with ClockTransaction(backend, Path(tmp)/'tx', PAIRS) as tx:
+                with patch('greengpu.actuation.os.fsync', side_effect=OSError('injected sync failure')):
+                    with self.assertRaisesRegex(OSError, 'sync failure'):
+                        tx.apply(PAIRS[0])
+            self.assertEqual(backend.calls, [])
+            self.assertEqual(tx.events[-1]['status'], 'not_needed')
+            self.assertEqual([event['sequence'] for event in tx.events], [0, 1, 2])
+
     def test_first_setter_failure_also_restores(self):
         backend=FakeBackend();backend.fail_at={1}
         with tempfile.TemporaryDirectory() as tmp:

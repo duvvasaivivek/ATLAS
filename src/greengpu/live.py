@@ -11,12 +11,14 @@ import time
 
 from . import frequency as f
 from .actuation import ActuationBlocked, ClockTransaction, valid_policy
+from .energy import finite_nonnegative, integrate_power
 from .experiment import save_new
 from .frequency_experiment import sha
 from .frequency_hardware import verify_setting
 from .integration import Coordinator
 
 SCHEMA = 'live-joint-1.0'
+ENERGY_DOMAINS = ('gpu_board', 'cpu_package', 'system_wall')
 
 
 class DefaultProvider:
@@ -77,7 +79,7 @@ def preflight(provider, config, now_ns):
 
 class LiveController:
     """Deterministic control transitions; setters remain in the transaction owner."""
-    def __init__(self, config, qualification, settling_timeout_ns=10_000_000_000):
+    def __init__(self, config, qualification, settling_timeout_ns=10_000_000_000, *, frequency_control=True):
         if type(settling_timeout_ns) is not int or settling_timeout_ns <= 0:
             raise ValueError('Positive settling deadline required')
         self.config = config
@@ -94,6 +96,7 @@ class LiveController:
         self.last_verified_ns = None
         self.last_frequency_ns = 0
         self.timeout_ns = settling_timeout_ns
+        self.frequency_control = frequency_control
 
     def applied(self, pair, end_ns):
         if tuple(pair) not in self.config.pairs or type(end_ns) is not int or end_ns < 0:
@@ -160,7 +163,7 @@ class LiveController:
             result['reason'] = ('incomplete_settling' if self.pending else
                                 'workload_complete' if verified else 'incomplete_verification')
             return result
-        if (verified and not was_pending and old_since is not None and
+        if (self.frequency_control and verified and not was_pending and old_since is not None and
                 now_ns-self.last_frequency_ns >= self.config.frequency_interval_ns):
             sample = self.frames[-1]
             if sample['sample_monotonic_estimate_ns'] >= old_since+self.config.frequency_guard_ns:
@@ -180,7 +183,43 @@ class LiveController:
         return result
 
 
-def run_live(provider, workload, config, output, clock=time.monotonic_ns):
+def meter_spec(qualification):
+    return dict(domain=qualification.get('energy_domain'), evidence_id=qualification.get('energy_evidence_id'),
+                max_gap_ns=qualification.get('energy_max_gap_ns'), accuracy_w=qualification.get('energy_accuracy_w'),
+                accuracy_relative=qualification.get('energy_accuracy_relative'))
+
+
+def valid_meter(spec):
+    return (spec['domain'] in ENERGY_DOMAINS and isinstance(spec['evidence_id'], str) and bool(spec['evidence_id'].strip()) and
+            type(spec['max_gap_ns']) is int and spec['max_gap_ns'] > 0 and
+            finite_nonnegative(spec['accuracy_w']) and f.fraction(spec['accuracy_relative']) and spec['accuracy_relative'] < 1)
+
+
+def energy_contract(provider, qualification):
+    spec = meter_spec(qualification)
+    if (not callable(getattr(provider, 'energy_samples', None)) or not valid_meter(spec) or
+            spec['evidence_id'] == qualification.get('evidence_id')):
+        raise ActuationBlocked('Energy requires an independent calibrated power sampler, domain, gap limit and accuracy bounds')
+    return spec
+
+
+def measure_energy(contract, frames, start, end):
+    if not valid_meter(contract):
+        raise ValueError('Invalid energy measurement contract')
+    if any(frame.get('domain') != contract['domain'] or frame.get('evidence_id') != contract['evidence_id']
+           for frame in frames):
+        raise ValueError('Power samples differ from the calibrated energy domain or source')
+    value = integrate_power(frames, start, end, contract['max_gap_ns'])
+    uncertainty_j = None
+    if value['status'] == 'ok':
+        uncertainty_j = (contract['accuracy_w']*(end-start)/1e9 + contract['accuracy_relative']*value['joules'])
+        if not finite_nonnegative(uncertainty_j):
+            raise ValueError('Nonfinite energy uncertainty')
+    return dict(value, domain=contract['domain'], evidence_id=contract['evidence_id'], meter_accuracy_j=uncertainty_j)
+
+
+def run_live(provider, workload, config, output, clock=time.monotonic_ns, *, initial_pair=None,
+             frequency_control=True, measure=False):
     """Execute a qualified provider and barrier workload, restoring on every exit.
 
     Workload interface: start(config, qualification), release(cpu_items),
@@ -190,6 +229,12 @@ def run_live(provider, workload, config, output, clock=time.monotonic_ns):
     have a bounded implementation. No actuation proceeds from a user assertion.
     """
     qualification = preflight(provider, config, clock())
+    if type(frequency_control) is not bool or type(measure) is not bool:
+        raise ValueError('Expected boolean frequency control and measurement options')
+    pair = config.pairs[0] if initial_pair is None else tuple(initial_pair)
+    if pair not in config.pairs:
+        raise ActuationBlocked('Initial pair must be among the qualified settings')
+    measurement = energy_contract(provider, qualification) if measure else None
     root = Path(output)
     from .live_native import NativeWorkload
     if isinstance(workload, NativeWorkload) and workload.directory.resolve() != (root/'native').resolve():
@@ -197,9 +242,11 @@ def run_live(provider, workload, config, output, clock=time.monotonic_ns):
     if qualification['evidence_kind']=='hardware' and not isinstance(workload, NativeWorkload):
         raise ActuationBlocked('Hardware claims require the native workload verifier')
     root.mkdir(parents=True, exist_ok=False)
-    save_new(root/'configuration.json', dict(schema_version=SCHEMA, config=asdict(config),
-                                            qualification=qualification))
-    controller = LiveController(config, qualification)
+    manifest = dict(schema_version=SCHEMA, config=asdict(config), qualification=qualification)
+    if not frequency_control or initial_pair is not None or measurement is not None:
+        manifest.update(initial_pair=list(pair), frequency_control=frequency_control, measurement=measurement)
+    save_new(root/'configuration.json', manifest)
+    controller = LiveController(config, qualification, frequency_control=frequency_control)
     records = []
     result = None
     tx = None
@@ -208,9 +255,14 @@ def run_live(provider, workload, config, output, clock=time.monotonic_ns):
         with ClockTransaction(provider.backend, root/'clocks', config.pairs) as tx:
             try:
                 workload.start(config, qualification)
-                end = tx.apply(config.pairs[0])
-                controller.applied(config.pairs[0], end)
-                tx.record('live_initial_setting', pair=list(config.pairs[0]), request_end_ns=end)
+                if clock() >= qualification['valid_until_ns']:
+                    raise ActuationBlocked('Live qualification expired before clock actuation')
+                end = tx.apply(pair)
+                controller.applied(pair, end)
+                tx.record('live_initial_setting', pair=list(pair), request_end_ns=end)
+                release_ns = clock()
+                if measurement is not None:
+                    tx.record('live_measurement_start', durable=False, boundary_ns=release_ns)
                 workload.release(config.initial_cpu_items)
                 while True:
                     obs, final, phase = workload.observe(config.run_id)
@@ -220,13 +272,19 @@ def run_live(provider, workload, config, output, clock=time.monotonic_ns):
                     entry = dict(observation=obs, now_ns=now, frames=frames, final=final, phase=phase,
                                  decision=decision, applied_end_ns=None)
                     records.append(entry)
-                    tx.record('live_barrier', entry=deepcopy(entry))
+                    # The next durable clock request or restoration flushes observations.
+                    tx.record('live_barrier', durable=False, entry=dict(entry))
                     if final:
                         result = workload.finish()
                         if result.get('status') != 'passed':
                             raise RuntimeError('Final independent workload validation failed')
+                        if measurement is not None:
+                            completion_ns = clock()
+                            tx.record('live_measurement_end', durable=False, boundary_ns=completion_ns)
                         break
                     if decision['requested_pair'] is not None:
+                        if clock() >= qualification['valid_until_ns']:
+                            raise ActuationBlocked('Live qualification expired before clock actuation')
                         end = tx.apply(decision['requested_pair'])
                         controller.applied(decision['requested_pair'], end)
                         entry['applied_end_ns'] = end
@@ -240,6 +298,12 @@ def run_live(provider, workload, config, output, clock=time.monotonic_ns):
                       physical_control_evidence=qualification['evidence_kind']=='hardware' and status=='passed',
                       correctness=result, records=records, initial_request_end_ns=next(e['request_end_ns'] for e in tx.events if e['kind']=='live_initial_setting'),
                       restoration='verified', elapsed_ns=clock()-started, energy_savings=None)
+        if measurement is not None:
+            # The calibrated sampler starts before the run and brackets the full released workload.
+            frames = list(provider.energy_samples(release_ns, completion_ns))
+            value = measure_energy(measurement, frames, release_ns, completion_ns)
+            save_new(root/'power.json', dict(samples=frames, start_ns=release_ns, end_ns=completion_ns))
+            result['energy'] = dict(value, physical_measurement=qualification['evidence_kind']=='hardware' and value['status']=='ok')
         save_new(root/'result.json', result)
     except BaseException as error:
         save_new(root/'failure.json', dict(error=f'{type(error).__name__}: {error}', records=records,
@@ -259,8 +323,13 @@ def replay(root):
         raise ValueError('Live archive integrity failure')
     manifest=json.loads((root/'configuration.json').read_text())
     result=json.loads((root/'result.json').read_text())
-    controller=LiveController(Config(**manifest['config']),manifest['qualification'])
-    controller.applied(controller.config.pairs[0],result['initial_request_end_ns'])
+    cfg=Config(**manifest['config'])
+    frequency_control=manifest.get('frequency_control',True)
+    if type(frequency_control) is not bool:
+        raise ValueError('Invalid live frequency control setting')
+    controller=LiveController(cfg,manifest['qualification'],frequency_control=frequency_control)
+    pair=tuple(manifest.get('initial_pair',cfg.pairs[0]))
+    controller.applied(pair,result['initial_request_end_ns'])
     if not result['records'] or any(r['final'] != (i==len(result['records'])-1) for i,r in enumerate(result['records'])):
         raise ValueError('Invalid live final boundary')
     for row in result['records']:
@@ -279,11 +348,11 @@ def replay(root):
     entries=[e['entry'] for e in events if e['kind']=='live_barrier']
     if entries!=[dict(r,applied_end_ns=None) for r in result['records']]:raise ValueError('Live journal/barrier mismatch')
     requests=[e['pair'] for e in events if e['kind']=='request']
-    if requests!=[list(controller.config.pairs[0])]+[r['decision']['requested_pair'] for r in result['records'] if r['decision']['requested_pair']]:
+    if requests!=[list(pair)]+[r['decision']['requested_pair'] for r in result['records'] if r['decision']['requested_pair']]:
         raise ValueError('Live journal/request mismatch')
     initial=[e for e in events if e['kind']=='live_initial_setting']
     applied=[e for e in events if e['kind']=='live_applied']
-    if len(initial)!=1 or initial[0]['request_end_ns']!=result['initial_request_end_ns']:
+    if len(initial)!=1 or initial[0]['request_end_ns']!=result['initial_request_end_ns'] or initial[0]['pair']!=list(pair):
         raise ValueError('Initial live acknowledgement mismatch')
     if [(e['iteration'],e['pair'],e['request_end_ns']) for e in applied]!=[(r['observation']['iteration'],r['decision']['requested_pair'],r['applied_end_ns']) for r in result['records'] if r['applied_end_ns'] is not None]:
         raise ValueError('Live acknowledgement journal mismatch')
@@ -292,6 +361,24 @@ def replay(root):
         raise ValueError('Live summary mismatch')
     if result['physical_control_evidence']!=(result['evidence_kind']=='hardware' and expected_status=='passed'):
         raise ValueError('Invalid physical-control evidence claim')
+    measurement=manifest.get('measurement')
+    if measurement is not None:
+        power=json.loads((root/'power.json').read_text())
+        qualification=manifest['qualification']
+        expected_meter=meter_spec(qualification)
+        boundaries=[(e['kind'],e['boundary_ns'],e['monotonic_ns']) for e in events
+                    if e['kind'] in ('live_measurement_start','live_measurement_end')]
+        if (not result['initial_request_end_ns'] <= power['start_ns'] <= result['records'][0]['observation']['release_ns'] or
+                not result['records'][-1]['now_ns'] <= power['end_ns'] <= events[-1]['monotonic_ns'] or
+                [(kind, ns) for kind,ns,_ in boundaries] !=
+                [('live_measurement_start',power['start_ns']),('live_measurement_end',power['end_ns'])] or
+                any(ns > recorded for _,ns,recorded in boundaries) or measurement != expected_meter):
+            raise ValueError('Energy window or calibration is not bound to the live trial')
+        value=measure_energy(measurement,power['samples'],power['start_ns'],power['end_ns'])
+        if result.get('energy')!=dict(value,physical_measurement=result['evidence_kind']=='hardware' and value['status']=='ok'):
+            raise ValueError('Live energy replay mismatch')
+    elif 'energy' in result or 'power.json' in files:
+        raise ValueError('Unexpected live energy evidence')
     if result['correctness'].get('native_archive')=='native':
         from .live_native import validate
         from .integration_runner import runtime_observation

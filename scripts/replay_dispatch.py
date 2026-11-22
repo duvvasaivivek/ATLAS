@@ -21,7 +21,8 @@ def replay(root):
     for case in plan['cases']:
         workload=case['workload'];name=Path(case['record']).stem
         checked=assess(root,case,plan['datasets'][case['dataset']])
-        profile=analyze_profile(root/case['profile'],256,'kmeans_assign' if workload=='kmeans' else 'hotspot_step',
+        kernel=('kmeans_assign_reduced' if case.get('reduction')=='hierarchical' else 'kmeans_assign') if workload=='kmeans' else 'hotspot_step'
+        profile=analyze_profile(root/case['profile'],256,kernel,
                                 workload+'_iteration',workload+'_cpu_compute')
         if profile!=json.loads((root/(name+'.profile.json')).read_text()):
             raise ValueError('Dispatch profile replay mismatch')
@@ -29,7 +30,8 @@ def replay(root):
                             correct=checked['status'],overlap=sum(r['demonstrated'] for r in profile['iterations']),
                             iterations=256,profile_status=profile['status'],active_s=checked['active_s'],
                             command_s=checked['command_s'],ownership_changes=checked['ownership_changes']))
-    summary=dict(results=results,hardware_setter_calls=0,strict_gate_passed=all(r['overlap']==256 for r in results))
+        if 'build' in case:results[-1]['build']=case['build']
+    summary=dict(results=results,hardware_setter_calls=0,strict_gate_passed=all(r['overlap']==256 for r in results if r.get('build')!='baseline'))
     if summary!=json.loads((root/'summary.json').read_text()):raise ValueError('Dispatch summary replay mismatch')
     return summary
 

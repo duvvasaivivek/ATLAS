@@ -143,9 +143,11 @@ int main(int argc,char** argv){try{
         if(init_h2d||migrate_h2d)check(cudaMemcpyAsync(device+size_t(cut)*cols,host+size_t(cut)*cols,init_h2d+migrate_h2d,cudaMemcpyHostToDevice,storage.stream));
         if(migrate_d2h)check(cudaMemcpyAsync(host+size_t(old_cut)*cols,device+size_t(old_cut)*cols,migrate_d2h,cudaMemcpyDeviceToHost,storage.stream));
         if(power_bytes)check(cudaMemcpyAsync(storage.dp+size_t(cut)*cols,storage.power+size_t(cut)*cols,power_bytes,cudaMemcpyHostToDevice,storage.stream));
-        // Migration must finish before a newly acquired host boundary is used for H2D.
-        if(init_h2d||migrate_h2d||migrate_d2h||power_bytes)check(cudaStreamSynchronize(storage.stream));
         const bool split_boundary=overlap&&halo;
+        // The pinned D2H migration and halo H2D are ordered in one stream.
+        // Fence here only when there is no halo fence, or the CPU will read migrated rows early.
+        if((!halo&&(init_h2d||migrate_h2d||migrate_d2h||power_bytes))||(split_boundary&&migrate_d2h))
+            check(cudaStreamSynchronize(storage.stream));
         interior_cut=split_boundary?cut-1:cut;
         const int64_t migration_end=hs::now();
         if(split_boundary&&interior_cut)worker.release();

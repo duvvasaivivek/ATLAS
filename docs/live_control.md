@@ -13,9 +13,10 @@ protocol reports its CUDA PCI identity and waits for `start`. The runner compare
 that identity with the qualified device before requesting clocks or releasing
 work. Every later iteration ends at a feedback barrier.
 
-The transaction journals intent before each setter, owns an exclusive device
-lock, and restores both prior clock domains after stopping the workload. Handled
-termination, native errors, telemetry errors, failed setters and failed final
+The transaction durably journals intent before each setter, owns an exclusive
+device lock, and restores both prior clock domains after stopping the workload.
+Observation records flush with the next clock request or final restoration.
+Handled termination, native errors, telemetry errors, failed setters and failed final
 correctness checks follow the same cleanup path. Restoration readback failure is
 an error, with the prior policy and recovery commands retained. An uncatchable
 process or machine failure still requires recovery from that journal.
@@ -65,8 +66,25 @@ without independent evidence does not establish hardware qualification.
 Software tests use `evidence_kind="software_test"` and a dictionary-backed
 actuator. That qualification is rejected with a physical NVML actuator. These
 archives always report `physical_control_evidence=false`, even if real CUDA
-workloads ran successfully. Neither evidence kind establishes energy savings;
-the live runner reports `energy_savings=null`.
+workloads ran successfully. The live runner reports a single trial's energy
+when a calibrated meter is available. The controlled evaluation computes
+paired savings against a baseline.
+
+### Calibrated power capture
+
+`--measure-energy` requires `energy_domain` (`gpu_board`, `cpu_package`, or
+`system_wall`), `energy_evidence_id` (separate from the telemetry evidence),
+and `energy_max_gap_ns` in the provider's qualification. Provide the calibrated
+absolute accuracy bound `energy_accuracy_w` and fractional bound
+`energy_accuracy_relative`. The provider must
+collect power throughout execution and expose `energy_samples(start_ns, end_ns)`
+after the device policy has been restored. Each sample supplies `time_ns` in
+host `CLOCK_MONOTONIC`, `value` in watts, `status`, `domain`, and `evidence_id`.
+The trace must bracket the interval with a gap within the declared limit.
+Replay binds both interval endpoints to the journal and reintegrates the trace.
+The interval includes native warmup, feedback, clock changes, output gathering,
+and final verification. The run records the meter's energy accuracy bound and
+the broader transaction duration.
 
 ## Commands
 
@@ -89,6 +107,36 @@ run passed its checks, 1 means execution/validation failed, and 2 means blocked
 or incomplete. Inspect `evidence_kind` before interpreting any successful run.
 The historical `integration-check --mode live-joint` remains blocked; use the
 separate interface above for provider-based execution.
+
+Use `--initial-clock CORE_MHZ MEMORY_MHZ --fixed-clock` to hold a qualified
+pair. Leaving frequency control enabled with `--cpu-fraction 0` and
+`--allocation-policy static` exercises GPU-only frequency control.
+
+## Controlled evaluation
+
+Run `controlled-check` separately for each workload, input shape, and initial
+CPU fraction. Provide different inputs of the same shape for static tuning
+and held-out evaluation. Supply the designated high-clock pair and one or more
+other qualified pairs. The sweep tests up to eight pairs at 0%, 25%, 50%, and
+75% CPU ownership and selects the lowest mean measured energy from two blocks.
+The held-out run randomizes B0, B2, B3, B4, B5, and B6 within each block and
+reports same-block differences and paired bootstrap intervals. All k-means
+arms use hierarchical reduction and streamed transfers. The
+automatic-clock GPU-only and CPU-only references use `performance-check`.
+
+```bash
+PYTHONPATH=src python -m greengpu controlled-check \
+  --provider qualified_platform:make_provider --workload kmeans \
+  --binary build/live-development/atlas_kmeans \
+  --tuning tuning.kmdat --held-out held-out.kmdat \
+  --high-clock 1800 6000 --clock 1200 5000 \
+  --steps 10000 --blocks 10 --output results/live/controlled-kmeans
+PYTHONPATH=src python -m greengpu controlled-replay results/live/controlled-kmeans
+```
+
+The example clock values are placeholders for pairs verified on the test GPU.
+An incomplete tuning sweep blocks selection. Failed held-out trials are
+retained, and their unavailable pairs are excluded from estimates.
 
 The `guarded_live_protocol` CTest runs real CPU/CUDA work with the test actuator.
 For retained test archives:

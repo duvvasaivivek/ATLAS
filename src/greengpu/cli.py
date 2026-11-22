@@ -101,7 +101,7 @@ def main(argv=None) -> int:
     report.add_argument("--qualification",type=Path,required=True)
     report.add_argument("--output",type=Path,required=True)
     report.add_argument("--require-full",action="store_true",help="Return exit code 2 if full-project acceptance is incomplete")
-    live=sub.add_parser('live-run',help='Run guarded joint control using an independently qualified platform provider')
+    live=sub.add_parser('live-run',help='Run guarded clock control using an independently qualified platform provider')
     live.add_argument('--workload',choices=('kmeans','hotspot'),required=True)
     live.add_argument('--binary',type=Path,required=True)
     live.add_argument('--dataset',type=Path,required=True)
@@ -112,8 +112,27 @@ def main(argv=None) -> int:
     live.add_argument('--cpu-fraction',type=float,default=.5)
     live.add_argument('--allocation-policy',default='paper_simple')
     live.add_argument('--frequency-policy',choices=('paper_additive','discounted_loss_v1'),default='paper_additive')
+    live.add_argument('--initial-clock',nargs=2,type=int,metavar=('CORE_MHZ','MEMORY_MHZ'),
+                      help='Select an initial pair from the verified settings')
+    live.add_argument('--fixed-clock',action='store_true',help='Verify and hold the selected clock pair throughout the run')
+    live.add_argument('--measure-energy',action='store_true',help='Use the provider’s independently calibrated power trace')
     live_replay=sub.add_parser('live-replay',help='Verify joint-control decisions, native correctness and restoration journals')
     live_replay.add_argument('run',type=Path)
+    controlled=sub.add_parser('controlled-check',help='Run matched fixed-clock, frequency-only and joint energy trials')
+    controlled.add_argument('--provider',required=True,help='Trusted qualified provider module:factory')
+    controlled.add_argument('--output',type=Path,required=True)
+    controlled.add_argument('--binary',type=Path,required=True)
+    controlled.add_argument('--workload',choices=('kmeans','hotspot'),required=True)
+    controlled.add_argument('--tuning',type=Path,required=True)
+    controlled.add_argument('--held-out',type=Path,required=True)
+    controlled.add_argument('--high-clock',nargs=2,type=int,metavar=('CORE_MHZ','MEMORY_MHZ'),required=True)
+    controlled.add_argument('--clock',nargs=2,type=int,action='append',metavar=('CORE_MHZ','MEMORY_MHZ'),required=True)
+    controlled.add_argument('--steps',type=int,default=10000)
+    controlled.add_argument('--workers',type=int,default=4)
+    controlled.add_argument('--blocks',type=int,default=10)
+    controlled.add_argument('--initial-fraction',type=float,choices=(.15,.5,.9),default=.5)
+    controlled_replay=sub.add_parser('controlled-replay',help='Regenerate matched energy and timing results from a retained archive')
+    controlled_replay.add_argument('run',type=Path)
     args = parser.parse_args(argv)
     if not Path("pyproject.toml").is_file() or not Path("src/greengpu").is_dir():
         parser.error("Run this command from the ATLAS repository root")
@@ -136,12 +155,35 @@ def main(argv=None) -> int:
                 cfg=Config(args.output.name,n,int(n*args.cpu_fraction),tuple(map(tuple,qualification.get('verified_pairs',()))),
                            mode='allocation_shadow',allocation_policy=args.allocation_policy,frequency_policy=args.frequency_policy)
                 workload=NativeWorkload(args.binary,args.dataset,args.workload,args.steps,args.workers,args.output/'native')
-                result=run_live(provider,workload,cfg,args.output)
+                result=run_live(provider,workload,cfg,args.output,initial_pair=args.initial_clock,
+                                frequency_control=not args.fixed_clock,measure=args.measure_energy)
                 replay(args.output)
-            print(json.dumps({k:result[k] for k in ('status','evidence_kind','physical_control_evidence','restoration','energy_savings')},indent=2))
-            return 0 if result['status']=='passed' else 2
+            keys=('status','evidence_kind','physical_control_evidence','restoration','energy_savings','energy')
+            print(json.dumps({k:result[k] for k in keys if k in result},indent=2))
+            return 0 if result['status']=='passed' and result.get('energy',{}).get('status','ok')=='ok' else 2
         except ActuationBlocked as error:parser.exit(2,f'Live control blocked: {error}\n')
         except (ValueError,RuntimeError,OSError,ImportError,AttributeError,TypeError,KeyError) as error:parser.exit(1,f'Live execution failed: {error}\n')
+        finally:
+            if provider is not None:provider.close()
+    if args.command in ('controlled-check','controlled-replay'):
+        from .actuation import ActuationBlocked
+        from .controlled_evaluation import replay, run
+        from .live import load_provider
+        provider=None
+        try:
+            if args.command=='controlled-replay':
+                result=replay(args.run)
+            else:
+                provider=load_provider(args.provider)
+                result=run(provider,args.output,args.binary,args.workload,args.tuning,args.held_out,
+                           args.high_clock,args.clock,steps=args.steps,workers=args.workers,blocks=args.blocks,
+                           initial_fraction=args.initial_fraction)
+            keys=('status','domain','scope','failed_trials','selection','comparisons')
+            print(json.dumps({key:result[key] for key in keys},indent=2))
+            return 0 if result['status']=='passed' else 2
+        except ActuationBlocked as error:parser.exit(2,f'Controlled evaluation blocked: {error}\n')
+        except (ValueError,RuntimeError,OSError,ImportError,AttributeError,TypeError,KeyError) as error:
+            parser.exit(1,f'Controlled evaluation failed: {error}\n')
         finally:
             if provider is not None:provider.close()
     if args.command=="research-report":

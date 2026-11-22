@@ -77,10 +77,13 @@ class ClockTransaction:
     def unlock(self):
         if self.lock_file is not None:self.lock_file.close();self.lock_file=None
 
-    def record(self, kind, **fields):
+    def record(self, kind, *, durable=True, **fields):
         event = dict(sequence=len(self.events),kind=kind,monotonic_ns=time.monotonic_ns(),**fields)
-        self.stream.write(encode(event)+"\n"); self.stream.flush(); os.fsync(self.stream.fileno())
+        self.stream.write(encode(event)+"\n")
         self.events.append(event)
+        if durable:
+            self.stream.flush()
+            os.fsync(self.stream.fileno())
 
     def __enter__(self):
         self.directory.mkdir(parents=True,exist_ok=False)
@@ -120,8 +123,8 @@ class ClockTransaction:
         pair=tuple(pair)
         if pair not in self.pairs:
             raise ActuationBlocked("Unlisted frequency pair")
-        self.dirty=True  # Before any setter: even a failing call may have side effects.
         self.record("request",pair=list(pair),requested_pair=list(pair))
+        self.dirty=True  # Setters may have side effects even when they report failure.
         for domain,value in (("memory",pair[1]),("core",pair[0])):
             try:
                 self.backend.set_domain(domain,[value,value])

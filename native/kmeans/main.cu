@@ -100,18 +100,24 @@ struct Device {
     double *partial=nullptr,*transfer=nullptr;
     uint32_t *host_labels=nullptr;
     cudaStream_t stream=nullptr;
+    size_t aggregate_bytes=0;
     ~Device() {
         if(stream)cudaStreamDestroy(stream);
         if(points)cudaFree(points); if(centers)cudaFree(centers); if(sums)cudaFree(sums);
-        if(objective)cudaFree(objective); if(labels)cudaFree(labels); if(counts)cudaFree(counts);
+        if(labels)cudaFree(labels);
         if(partial)cudaFree(partial);if(transfer)cudaFreeHost(transfer);if(host_labels)cudaFreeHost(host_labels);
     }
     void allocate(unsigned n,unsigned k,unsigned d) {
-        check(cudaMalloc(&points,size_t(n)*d*8));check(cudaMalloc(&centers,k*d*8));check(cudaMalloc(&sums,k*d*8));
-        check(cudaMalloc(&objective,8));check(cudaMalloc(&labels,n*4));check(cudaMalloc(&counts,k*4));
+        check(cudaMalloc(&points,size_t(n)*d*8));check(cudaMalloc(&centers,k*d*sizeof(double)));
+        const size_t value_count=k*d+1;  // Sums, objective, then integer counts with no padding.
+        aggregate_bytes=value_count*sizeof(double)+k*sizeof(uint32_t);
+        check(cudaMalloc(&sums,aggregate_bytes));
+        objective=sums+k*d;
+        counts=reinterpret_cast<uint32_t*>(sums+value_count);
+        check(cudaMalloc(&labels,n*4));
         check(cudaStreamCreateWithFlags(&stream,cudaStreamNonBlocking));
         check(cudaMalloc(&partial,size_t((n+255)/256)*(k*d+k+1)*8));
-        check(cudaMallocHost(&transfer,(2*k*d+k+1)*8));check(cudaMallocHost(&host_labels,n*4));
+        check(cudaMallocHost(&transfer,k*d*sizeof(double)+aggregate_bytes));check(cudaMallocHost(&host_labels,n*4));
     }
 };
 struct PinnedPoints {
@@ -210,8 +216,9 @@ int main(int argc,char** argv) {
                 }
                 std::copy(centers.begin(),centers.end(),device.transfer);
                 check(cudaMemcpyAsync(device.centers,device.transfer,k*d*8,cudaMemcpyHostToDevice,device.stream));
-                check(cudaMemsetAsync(device.sums,0,k*d*8,device.stream));check(cudaMemsetAsync(device.counts,0,k*4,device.stream));
-                check(cudaMemsetAsync(device.objective,0,8,device.stream));check(cudaMemsetAsync(device.labels+cpu_items,0xff,gpu_items*4,device.stream));
+                // The hierarchical finalizer overwrites every aggregate, including empty clusters.
+                if(!reduced)check(cudaMemsetAsync(device.sums,0,device.aggregate_bytes,device.stream));
+                check(cudaMemsetAsync(device.labels+cpu_items,0xff,gpu_items*4,device.stream));
                 if(!streamed){check(cudaStreamSynchronize(device.stream));h2d_end=km::now();}
                 const unsigned blocks=(gpu_items+255)/256;
                 if(reduced){
@@ -224,12 +231,10 @@ int main(int argc,char** argv) {
                 if(cpu_items&&gpu_first)worker.release();
                 check(cudaGetLastError());if(!streamed){check(cudaStreamSynchronize(device.stream));compute_end=km::now();}
                 double* host_sums=device.transfer+k*d;
-                auto* host_counts=reinterpret_cast<uint32_t*>(device.transfer+2*k*d);
-                double* host_objective=device.transfer+2*k*d+k;
+                double* host_objective=host_sums+k*d;
+                auto* host_counts=reinterpret_cast<uint32_t*>(host_objective+1);
                 check(cudaMemcpyAsync(device.host_labels+cpu_items,device.labels+cpu_items,gpu_items*4,cudaMemcpyDeviceToHost,device.stream));
-                check(cudaMemcpyAsync(host_sums,device.sums,k*d*8,cudaMemcpyDeviceToHost,device.stream));
-                check(cudaMemcpyAsync(host_counts,device.counts,k*4,cudaMemcpyDeviceToHost,device.stream));
-                check(cudaMemcpyAsync(host_objective,device.objective,8,cudaMemcpyDeviceToHost,device.stream));
+                check(cudaMemcpyAsync(host_sums,device.sums,device.aggregate_bytes,cudaMemcpyDeviceToHost,device.stream));
                 check(cudaStreamSynchronize(device.stream));
                 std::copy(device.host_labels+cpu_items,device.host_labels+n,labels.begin()+cpu_items);
                 std::copy(host_sums,host_sums+k*d,gpu_sums.begin());std::copy(host_counts,host_counts+k,gpu_counts.begin());gpu_objective=*host_objective;

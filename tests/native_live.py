@@ -48,7 +48,7 @@ def main():
                 hr.write_input(dataset,33,35,t,p,provenance);n=33
             output=root/workload;provider=TestProvider(pci)
             cfg=Config('native-'+workload,n,n//2,PAIRS,allocation_policy='paper_simple',allocation_interval_ns=50_000_000)
-            work=NativeWorkload(binary,dataset,workload,1200,4,output/'native',timeout=120)
+            work=NativeWorkload(binary,dataset,workload,1200,4,output/'native',timeout=120,optimized_kmeans=True)
             result=run_live(provider,work,cfg,output)
             assert result['status'] in ('passed','incomplete_settling','incomplete_verification')
             assert result['correctness']['status']=='passed' and result['correctness']['iterations']==1200

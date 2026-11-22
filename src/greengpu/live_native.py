@@ -48,7 +48,8 @@ def validate(directory):
 
 
 class NativeWorkload:
-    def __init__(self, binary, dataset, workload, steps, workers, directory, dispatch_order='cpu_first', timeout=120):
+    def __init__(self, binary, dataset, workload, steps, workers, directory, dispatch_order='cpu_first', timeout=120,
+                 *, optimized_kmeans=False):
         if workload not in ('kmeans','hotspot') or type(steps) is not int or not 1<=steps<=100000:
             raise ValueError('Invalid workload/budget')
         if type(workers) is not int or not 1<=workers<=8 or dispatch_order not in ('cpu_first','gpu_first'):
@@ -56,6 +57,8 @@ class NativeWorkload:
         self.binary=Path(binary).resolve(strict=True);self.dataset=Path(dataset).resolve(strict=True)
         self.directory=Path(directory);self.timeout=timeout
         self.case=dict(workload=workload,steps=steps,workers=workers,dispatch_order=dispatch_order,feedback_batch=1)
+        if workload=='kmeans' and optimized_kmeans:
+            self.case.update(reduction='hierarchical', transfer_mode='streamed')
         self.supervisor=None;self.errors=None;self.lines=[];self.counts=[];self.finished=False;self.released=False
 
     def start(self, config, qualification):
@@ -67,6 +70,7 @@ class NativeWorkload:
             self.metadata=dict(n=len(points),d=len(points[0]),k=len(centers),initial_centroids=[v for row in centers for v in row],sha256=sha(root/'input.data'))
             if config.n!=len(points):raise ValueError('Controller work size differs from input')
             args=[str(config.initial_cpu_items),str(self.case['steps']),str(self.case['workers']),'fixed','timing','feedback','armed']
+            if self.case.get('reduction')=='hierarchical':args.extend(('reduced','streamed'))
         else:
             raw=(root/'input.data').read_bytes();magic,rows,cols=struct.unpack_from('<8sII',raw)
             if magic!=b'ATLSHS01' or len(raw)!=16+rows*cols*16 or config.n!=rows:raise ValueError('Thermal input/work size mismatch')

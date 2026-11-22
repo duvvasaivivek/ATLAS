@@ -104,6 +104,64 @@ class LiveTests(unittest.TestCase):
                 self.assertTrue(work.closed);self.assertEqual(provider.backend.policy,provider.backend.original)
                 self.assertTrue((root/'failure.json').exists());self.assertTrue((root/'checksums.json').exists())
 
+    def test_qualification_expiring_while_native_arms_blocks_first_setter(self):
+        clock = Clock()
+        provider = Provider(clock)
+        work = Workload(clock)
+        work.start = lambda cfg, qualification: setattr(clock, 'now', qualification['valid_until_ns'])
+        with tempfile.TemporaryDirectory() as folder, patch('greengpu.actuation.time.monotonic_ns', clock):
+            root = Path(folder)/'expired'
+            with self.assertRaisesRegex(ActuationBlocked, 'expired before clock actuation'):
+                run_live(provider, work, config(), root, clock)
+            self.assertEqual(provider.backend.calls, [])
+            self.assertTrue(work.closed)
+
+    def test_fixed_pair_and_calibrated_power_trace_replay(self):
+        clock = Clock()
+        provider = Provider(clock)
+        provider.q.update(energy_domain='gpu_board', energy_evidence_id='separate-meter', energy_max_gap_ns=2_000_000_000,
+                          energy_accuracy_w=.125, energy_accuracy_relative=.01)
+        def power(start, end):
+            return [dict(time_ns=time_ns, value=12.5, status='ok', domain='gpu_board', evidence_id='separate-meter')
+                    for time_ns in range(start, end+1, 1_000_000_000)]
+        provider.energy_samples = power
+        with tempfile.TemporaryDirectory() as folder, patch('greengpu.actuation.time.monotonic_ns', clock):
+            root = Path(folder)/'fixed'
+            result = run_live(provider, Workload(clock), config(), root, clock,
+                              initial_pair=PAIRS[1], frequency_control=False, measure=True)
+            self.assertEqual(result['status'], 'passed')
+            self.assertEqual(result['energy']['joules'], 100)
+            self.assertEqual(result['energy']['meter_accuracy_j'], 2)
+            self.assertFalse(result['energy']['physical_measurement'])
+            self.assertTrue(all(row['decision']['frequency'] is None for row in result['records']))
+            self.assertEqual(len(provider.backend.calls), 4)
+            self.assertEqual(replay(root), result)
+            trace = json.loads((root/'power.json').read_text())
+            trace['end_ns'] -= 1
+            (root/'power.json').write_text(json.dumps(trace))
+            checksums = json.loads((root/'checksums.json').read_text())
+            checksums['power.json'] = sha(root/'power.json')
+            (root/'checksums.json').write_text(json.dumps(checksums))
+            with self.assertRaisesRegex(ValueError, 'Energy window'):
+                replay(root)
+
+    def test_unbracketed_power_yields_no_energy_and_missing_meter_blocks_clock_writes(self):
+        clock = Clock()
+        provider = Provider(clock)
+        with tempfile.TemporaryDirectory() as folder, patch('greengpu.actuation.time.monotonic_ns', clock):
+            root = Path(folder)/'energy'
+            with self.assertRaises(ActuationBlocked):
+                run_live(provider, Workload(clock), config(), root, clock, measure=True)
+            self.assertFalse(root.exists())
+            self.assertEqual(provider.backend.calls, [])
+            provider.q.update(energy_domain='gpu_board', energy_evidence_id='separate-meter', energy_max_gap_ns=2_000_000_000,
+                              energy_accuracy_w=.125, energy_accuracy_relative=.01)
+            provider.energy_samples = lambda start, end: []
+            result = run_live(provider, Workload(clock), config(), root, clock, measure=True)
+            self.assertEqual(result['energy']['status'], 'invalid')
+            self.assertIsNone(result['energy']['joules'])
+            self.assertEqual(replay(root), result)
+
     def test_settling_timeout_and_bad_frames_stop_control(self):
         clock=Clock();provider=Provider(clock);cfg=config()
         def ready():
