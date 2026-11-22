@@ -139,5 +139,13 @@ class ProfilerTests(unittest.TestCase):
             self.database(path)
             self.assertEqual(analyze_profile(path,2)["status"],"unavailable")
 
+    def test_waiting_range_cannot_prove_compute_overlap(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path=Path(directory)/"profile.sqlite"
+            self.database(path)
+            with sqlite3.connect(path) as db:
+                db.execute("UPDATE NVTX_EVENTS SET text='hotspot_cpu_wait' WHERE text='atlas_cpu_compute'")
+            self.assertEqual(analyze_profile(path,1)["status"],"not_demonstrated")
+
 
 if __name__=="__main__": unittest.main()

@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-10",
+  "full_project_complete": false,
+  "status": "capability_limited",
+  "validation": {
+    "python_tests_passed": 163,
+    "fresh_installed_package_tests_passed": 163,
+    "native_tests_passed": 9,
+    "cuda_sanitizer_checks_passed": 8,
+    "performance_trials_passed": 400,
+    "performance_trials_failed": 0,
+    "tuning_trials": 40,
+    "held_out_trials": 360,
+    "historical_phases_replayed": [2, 3, 4, 5, 6, 7, 8, 9],
+    "packaged_validation_entrypoint": "passed",
+    "report_checksums": "verified",
+    "package_artifact_checksums": "verified"
+  },
+  "integration": {
+    "correct_trials": 13,
+    "measured_iterations": 21611,
+    "allocation_decisions": 326,
+    "ownership_changes": 102,
+    "kmeans_overlapping_profile_iterations": 235,
+    "hotspot_overlapping_profile_iterations": 140,
+    "profile_iterations_per_workload": 256,
+    "strict_concurrency_gate": "incomplete"
+  },
+  "remaining": [
+    "Strict all-iteration CPU/GPU compute overlap",
+    "Authoritative prior GPU clock-policy readback and verified restoration",
+    "Qualified loaded telemetry timestamps and device timing",
+    "Independently qualified physical energy measurements",
+    "Validated live joint-control runner and remaining fixed-clock/frequency baselines"
+  ],
+  "report": "report/report.html",
+  "acceptance_record": "acceptance.json",
+  "package_validation": "package-validation/summary.json",
+  "package_failure_retained": "package-attempt-1/failure.json",
+  "historical_replay": "historical-replay.txt",
+  "distributions": "../../../build/package-release-final/distributions"
+}

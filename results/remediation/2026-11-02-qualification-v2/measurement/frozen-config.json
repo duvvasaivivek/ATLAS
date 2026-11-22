@@ -1,0 +1,64 @@
+{
+  "config_hash": "a1a56f31b021ffa52994ac5740100c22b9e2ebd35e532d2230840edd3cb11aac",
+  "gap_rule": "max(5 requested periods, 3 maximum pilot gaps)",
+  "order": [
+    {
+      "block": 0,
+      "monitored": true
+    },
+    {
+      "block": 0,
+      "monitored": false
+    },
+    {
+      "block": 1,
+      "monitored": false
+    },
+    {
+      "block": 1,
+      "monitored": true
+    },
+    {
+      "block": 2,
+      "monitored": false
+    },
+    {
+      "block": 2,
+      "monitored": true
+    }
+  ],
+  "sensor_cadence": "unknown; observed change intervals retained; power averaged over 1 second on Ada",
+  "settings": {
+    "actuation": "none",
+    "allocation": "GPU only",
+    "averaging_window_ns": 1000000000,
+    "buffer_s": 1.1,
+    "controller": "none",
+    "counter_power_crosscheck": {
+      "min_duration_s": 5.0,
+      "purpose": "exploratory consistency screen, not an accuracy guarantee",
+      "relative_allowance": 0.1,
+      "rule": "abs(counter-power) <= 10% of larger energy + averaging_seconds * observed power span"
+    },
+    "cpu_policy": "unchanged",
+    "elements": 65539,
+    "generator": "index_xor_seed_v1",
+    "gpu_clock_policy": "unchanged platform automatic policy",
+    "gpu_event_crosscheck": {
+      "absolute_allowance_s": 0.001,
+      "relative_allowance": 0.01
+    },
+    "input_sha256": "6b8f5d533ebe3a5b22f8ca01540ed36a2c3b28a53397afcfc6d73db9e28e86dc",
+    "max_gap_ns": 500000000,
+    "period_s": 0.1,
+    "policy": "B0-default",
+    "precision": "uint32_modulo_2^32",
+    "repetitions": 231018,
+    "rounds": 256,
+    "seed": 1729,
+    "timeout_s": 120,
+    "workload": "measurement_xorshift_v1"
+  },
+  "stage": "exploratory_validation_after_tuning_pilot",
+  "target_s": 10.0
+}

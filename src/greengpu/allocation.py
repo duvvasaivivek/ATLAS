@@ -9,6 +9,7 @@ from .experiment import digest
 
 POLICIES = ("paper_simple", "paper_adaptive", "paper_binary_literal",
             "bracketed_bisection", "paper_proportional", "robust_proportional_v1")
+EXTENSIONS = ("robust_proportional_epoch_v1", "cost_aware_v1")
 
 
 @dataclass(frozen=True)
@@ -29,7 +30,7 @@ class Config:
     phase_patience: int = 2
 
     def __post_init__(self):
-        if self.policy not in (*POLICIES, "static") or type(self.n) is not int or self.n < 1:
+        if self.policy not in (*POLICIES, *EXTENSIONS, "static") or type(self.n) is not int or self.n < 1:
             raise ValueError("Invalid policy or work size")
         if self.legal_counts is not None:
             if (not self.legal_counts or tuple(sorted(set(self.legal_counts))) != self.legal_counts
@@ -97,6 +98,9 @@ def transition(config, state, observation):
     if ((count and not positive(a)) or (count < config.n and not positive(b))
             or (not count and a is not None) or (count == config.n and b is not None)):
         return emit("hold_invalid_observation")
+    if config.policy=="cost_aware_v1":
+        from .cost_allocation import decide
+        return decide(config,before,o)
     if config.policy == "static":
         after.update(epoch=o["epoch"], last_iteration=o["iteration"])
         return emit("hold_static")
@@ -104,11 +108,13 @@ def transition(config, state, observation):
         if not config.counts(True):
             return emit("unsupported_partition")
         return emit("needs_interior_probe", .5, config.nearest(.5, True))
-    if state["eligible"] >= config.budget:
+    if config.policy=="robust_proportional_epoch_v1" and state["epoch"] is not None and state["epoch"]!=o["epoch"]:
+        after.update(eligible=0,bracket=None,frozen=None,filter=None,dwell=0,phase_hits=0)
+    if after["eligible"] >= config.budget:
         return emit("budget_exhausted")
     phase_change = state["epoch"] is not None and state["epoch"] != o["epoch"]
-    after.update(epoch=o["epoch"], last_iteration=o["iteration"], eligible=state["eligible"]+1)
-    if phase_change and config.policy in ("bracketed_bisection", "robust_proportional_v1"):
+    after.update(epoch=o["epoch"], last_iteration=o["iteration"], eligible=after["eligible"]+1)
+    if phase_change and config.policy in ("bracketed_bisection", "robust_proportional_v1", "robust_proportional_epoch_v1"):
         after.update(bracket=None, frozen=None, filter=None, dwell=0, phase_hits=0)
     difference = a-b
     sign = (difference > 0) - (difference < 0)
@@ -180,7 +186,7 @@ def transition(config, state, observation):
     if config.policy == "paper_binary_literal" and previous is not None and 0 < abs(ratio-previous) < config.precision:
         after["frozen"] = "stop_small_change"
         return emit("stop_small_change")
-    if config.policy == "robust_proportional_v1":
+    if config.policy in ("robust_proportional_v1", "robust_proportional_epoch_v1"):
         capacity = [a/ratio, b/(1-ratio)]  # Full-work time estimates, not raw times across changing shares.
         if not all(math.isfinite(v) for v in capacity):
             after = deepcopy(before)

@@ -1,0 +1,150 @@
+{
+  "blockers": [
+    "Integrated software acceptance: incomplete_concurrency_evidence.",
+    "Authoritative GPU clock-policy readback and verified actuation/restoration are unavailable.",
+    "Driver telemetry timestamps are not qualified for live feedback.",
+    "CUDA device-event timing requires independent qualification.",
+    "Physical energy measurement is unqualified; energy savings are unavailable.",
+    "Fixed-clock allocation, frequency-only, live joint-control and joint static-sweep baselines have not been evaluated."
+  ],
+  "full_project_complete": false,
+  "stages": [
+    {
+      "argv": [
+        "/mnt/c/Users/saivi/Projects/ATLAS/.venv-wsl/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "elapsed_s": 39.140360876,
+      "log": "unit-tests.txt",
+      "returncode": 0,
+      "stage": "unit-tests"
+    },
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        ".",
+        "-B",
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/release-validation",
+        "-G",
+        "Ninja",
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DCMAKE_CUDA_COMPILER=/usr/local/cuda-13.1/bin/nvcc",
+        "-DPython3_EXECUTABLE=/mnt/c/Users/saivi/Projects/ATLAS/.venv-wsl/bin/python"
+      ],
+      "elapsed_s": 61.83069324,
+      "log": "configure.txt",
+      "returncode": 0,
+      "stage": "configure"
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/release-validation",
+        "--parallel",
+        "2"
+      ],
+      "elapsed_s": 37.66288328900001,
+      "log": "build.txt",
+      "returncode": 0,
+      "stage": "build"
+    },
+    {
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/release-validation",
+        "--output-on-failure"
+      ],
+      "elapsed_s": 70.29483344900001,
+      "log": "native-tests.txt",
+      "returncode": 0,
+      "stage": "native-tests"
+    },
+    {
+      "argv": [
+        "/mnt/c/Users/saivi/Projects/ATLAS/.venv-wsl/bin/python",
+        "tests/native_sanitizers.py",
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/release-validation",
+        "/mnt/c/Users/saivi/Projects/ATLAS/results/completion/2026-11-10-release/sanitizers"
+      ],
+      "elapsed_s": 17.013907008000018,
+      "log": "sanitizers.txt",
+      "returncode": 0,
+      "stage": "sanitizers"
+    },
+    {
+      "argv": [
+        "/mnt/c/Users/saivi/Projects/ATLAS/.venv-wsl/bin/python",
+        "-m",
+        "greengpu",
+        "frequency-check",
+        "--output",
+        "/mnt/c/Users/saivi/Projects/ATLAS/results/completion/2026-11-10-release/frequency"
+      ],
+      "elapsed_s": 12.390203229999997,
+      "log": "offline-frequency.txt",
+      "returncode": 0,
+      "stage": "offline-frequency"
+    },
+    {
+      "argv": [
+        "/mnt/c/Users/saivi/Projects/ATLAS/.venv-wsl/bin/python",
+        "-m",
+        "greengpu",
+        "qualification-check",
+        "--build",
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/release-validation",
+        "--output",
+        "/mnt/c/Users/saivi/Projects/ATLAS/results/completion/2026-11-10-release/qualification"
+      ],
+      "elapsed_s": 190.34849661200002,
+      "log": "qualification.txt",
+      "returncode": 0,
+      "stage": "qualification"
+    },
+    {
+      "argv": [
+        "/mnt/c/Users/saivi/Projects/ATLAS/.venv-wsl/bin/python",
+        "-m",
+        "greengpu",
+        "integration-check",
+        "--kmeans-binary",
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/release-validation/atlas_kmeans",
+        "--hotspot-binary",
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/release-validation/atlas_hotspot",
+        "--output",
+        "/mnt/c/Users/saivi/Projects/ATLAS/results/completion/2026-11-10-release/integration"
+      ],
+      "elapsed_s": 165.95346296399998,
+      "log": "integration.txt",
+      "returncode": 1,
+      "stage": "integration"
+    },
+    {
+      "argv": [
+        "/mnt/c/Users/saivi/Projects/ATLAS/.venv-wsl/bin/python",
+        "-m",
+        "greengpu",
+        "performance-check",
+        "--build",
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/release-validation",
+        "--blocks",
+        "10",
+        "--output",
+        "/mnt/c/Users/saivi/Projects/ATLAS/results/completion/2026-11-10-release/performance"
+      ],
+      "elapsed_s": 819.1349164279999,
+      "log": "performance.txt",
+      "returncode": 0,
+      "stage": "performance"
+    }
+  ],
+  "status": "capability_limited"
+}

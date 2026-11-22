@@ -88,4 +88,35 @@ void Reference::step(const double* points,unsigned n,unsigned k,unsigned d) {
     }
     objective=static_cast<double>(cost);
 }
+void Reference::step_parallel(const double* points,unsigned n,unsigned k,unsigned d,unsigned workers) {
+    if(workers==1||n<1024){step(points,n,k,d);return;}
+    // Only independent assignments are parallel. Aggregate in original point order
+    // with long double, preserving the scalar oracle's reduction and tie semantics.
+    #pragma omp parallel for schedule(static) num_threads(workers)
+    for(unsigned i=0;i<n;++i) {
+        unsigned selected=0;
+        double minimum=std::numeric_limits<double>::infinity();
+        for(unsigned c=0;c<k;++c) {
+            double square_sum=0;
+            for(unsigned j=0;j<d;++j) {
+                double difference=points[size_t(i)*d+j]-centers[c*d+j];
+                square_sum=square_sum+difference*difference;
+            }
+            if(square_sum<minimum){minimum=square_sum;selected=c;}
+        }
+        labels[i]=selected;distances[i]=minimum;
+    }
+    std::vector<long double> totals(k*d,0);
+    long double cost=0;
+    std::fill(counts.begin(),counts.end(),0);
+    for(unsigned i=0;i<n;++i) {
+        const unsigned selected=labels[i];++counts[selected];cost+=distances[i];
+        for(unsigned j=0;j<d;++j)totals[selected*d+j]+=points[size_t(i)*d+j];
+    }
+    for(unsigned c=0;c<k;++c)for(unsigned j=0;j<d;++j) {
+        sums[c*d+j]=static_cast<double>(totals[c*d+j]);
+        if(counts[c])centers[c*d+j]=static_cast<double>(totals[c*d+j]/counts[c]);
+    }
+    objective=static_cast<double>(cost);
+}
 }

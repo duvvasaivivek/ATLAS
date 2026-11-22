@@ -1,0 +1,50 @@
+{
+  "argv": [
+    "/mnt/c/Users/saivi/Downloads/ATLAS/build/remediation/atlas_kmeans",
+    "/mnt/c/Users/saivi/Downloads/ATLAS/results/remediation/2026-11-02-performance/datasets/kmeans-0-evaluation.data",
+    "16386",
+    "100",
+    "4",
+    "fixed",
+    "feedback",
+    "timing"
+  ],
+  "barriers": [],
+  "configuration": {
+    "allocation_interval_ns": 0,
+    "allocation_iterations": 4,
+    "allocation_policy": "static",
+    "cadence_profile": "batched_epochs_v1",
+    "frequency_guard_ns": 1000000000,
+    "frequency_interval_ns": 200000000,
+    "frequency_policy": "paper_additive",
+    "initial_cpu_items": 16386,
+    "mode": "allocation_only",
+    "n": 32771,
+    "pairs": [],
+    "run_id": "eval-0117",
+    "settle_iterations": 1
+  },
+  "elapsed_ns": 236437787,
+  "failure": "RuntimeError: Incomplete/failed native workload",
+  "hardware_setter_calls": 0,
+  "lifecycle": [
+    "prepare",
+    "failed",
+    "restore",
+    "stopped"
+  ],
+  "polling": {
+    "error": null,
+    "frames": 0,
+    "query_thread_cpu_ns": 0,
+    "query_wall_ns": 0
+  },
+  "restoration": "not_needed_no_settings_changed",
+  "returncode": 1,
+  "status": "failed",
+  "stderr": "invalid argument\n",
+  "stdout": "",
+  "timed_out": false,
+  "trailing_frames": []
+}

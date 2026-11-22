@@ -16,6 +16,8 @@ from pathlib import Path
 from .capabilities import collect, utc_now
 from .experiment import Recorder, SCHEMA_VERSION, digest, read_records, save_new, summarize_run, summarize_trial
 from .telemetry import NvmlTelemetry, RaplTelemetry, WALL_METER
+from .supervision import Supervisor
+from .sampling import IsolatedSampler, telemetry_factory
 
 
 class Sampler:
@@ -38,16 +40,16 @@ class Sampler:
 
     def stop(self):
         self.stop_event.set()
-        self.thread.join(timeout=30)
+        self.thread.join(timeout=4)
         if self.thread.is_alive():
             # Do not close NVML/recorder beneath a live worker.
             self.adapter.worker_stuck = True
-            raise RuntimeError("NVML sampler did not stop within 30 seconds")
+            raise RuntimeError("NVML sampler did not stop within 4 seconds")
 
 
 def trial(path, binary, adapter, rapl, settings, trial_id, block, monitored):
     recorder = Recorder(path)
-    proc, sampler = None, None
+    proc, sampler, supervisor, isolated = None, None, None, None
     start = time.monotonic_ns()
     recorder.write(dict(kind="trial_config", trial_id=trial_id, block=block, monitored=monitored,
                         settings=settings, lifecycle_start_ns=start, utc=utc_now()))
@@ -57,24 +59,15 @@ def trial(path, binary, adapter, rapl, settings, trial_id, block, monitored):
     stderr_path = Path(path).with_suffix(".stderr.txt")
     try:
         with stderr_path.open("x", encoding="utf-8") as stderr:
-            proc = subprocess.Popen([str(binary), *[str(settings[k]) for k in ("elements", "repetitions", "rounds", "seed")]],
-                                    stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=stderr, text=True, bufsize=1)
-
-            def reader():
-                try:
-                    for line in proc.stdout:
-                        lines.put(line)
-                finally:
-                    lines.put(None)
-
-            reader_thread = threading.Thread(target=reader, daemon=True)
-            reader_thread.start()
+            supervisor = Supervisor([str(binary), *[str(settings[k]) for k in ("elements", "repetitions", "rounds", "seed")]],
+                                    stderr, settings["timeout_s"]*3,
+                                    failure=lambda: sampler.error if sampler else None)
+            proc = supervisor.process
+            isolated = IsolatedSampler(telemetry_factory) if isinstance(adapter,NvmlTelemetry) else None
+            reader = isolated or adapter
 
             def receive(kind):
-                try:
-                    line = lines.get(timeout=settings["timeout_s"])
-                except queue.Empty:
-                    raise TimeoutError(f"Native worker timed out waiting for {kind}")
+                line = supervisor.receive(settings["timeout_s"])
                 recorder.write(dict(kind="native_stdout", line=line, received_ns=time.monotonic_ns()))
                 if line is None:
                     raise RuntimeError(f"Native worker exited before {kind}")
@@ -96,39 +89,34 @@ def trial(path, binary, adapter, rapl, settings, trial_id, block, monitored):
             if pci.lower().lstrip("0") != ready["pci_bus_id"].lower().lstrip("0"):
                 raise RuntimeError("CUDA and NVML identify different GPUs")
             if monitored:
-                sampler = Sampler(adapter, recorder, settings["period_s"], lock)
+                sampler = Sampler(reader, recorder, settings["period_s"], lock)
                 sampler.thread.start()
             # Equal settling buffers in both arms; outside primary time/energy.
             time.sleep(settings["buffer_s"])
             recorder.write(dict(kind="rapl_before", readings=rapl.sample()))
             with lock:
-                before = adapter.counter()
+                before = reader.counter()
             recorder.write(dict(kind="counter_before", reading=before))
             send("run")
             receive("complete")
             with lock:
-                after = adapter.counter()
+                after = reader.counter()
             recorder.write(dict(kind="counter_after", reading=after))
             recorder.write(dict(kind="rapl_after", readings=rapl.sample()))
             send("validate")
             receive("validation")
             proc.wait(timeout=settings["timeout_s"])
             time.sleep(settings["buffer_s"])
-            reader_thread.join(timeout=1)
     except (Exception, KeyboardInterrupt) as error:
         errors.append(f"{type(error).__name__}: {error}")
         recorder.write(dict(kind="failure", reason=errors[-1]))
     finally:
-        if proc is not None:
-            if proc.poll() is None:
-                proc.kill()
-                proc.wait(timeout=10)
-            if proc.stdin:
-                proc.stdin.close()
-            if proc.stdout:
-                proc.stdout.close()
+        if supervisor is not None:
+            supervisor.close()
         if sampler is not None:
             sampler.stop()
+        if isolated is not None:
+            isolated.close()
         recorder.write(dict(kind="finish", returncode=proc.returncode if proc else None,
                             sampler_error=sampler.error if sampler else None,
                             failures=errors, time_ns=time.monotonic_ns(), hardware_settings_changed=False))

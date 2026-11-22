@@ -1,0 +1,13 @@
+usage: validate_release.py [-h] --output OUTPUT --build BUILD
+                           [--cuda-compiler CUDA_COMPILER] [--blocks BLOCKS]
+
+Run the reproducible acceptance workflow on Linux/WSL with a CUDA GPU. Exit 0:
+full acceptance. Exit 2: evidence generated, capability gates incomplete. Exit
+1: execution/validation failed. Every invocation requires a new output path.
+
+options:
+  -h, --help            show this help message and exit
+  --output OUTPUT
+  --build BUILD         Fresh CMake build directory
+  --cuda-compiler CUDA_COMPILER
+  --blocks BLOCKS

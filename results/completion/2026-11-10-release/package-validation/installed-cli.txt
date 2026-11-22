@@ -1,0 +1,47 @@
+usage: atlas [-h]
+             {discover,calibrate,replay,static-check,static-replay,kmeans-check,kmeans-replay,kmeans-plot,allocation-check,allocation-replay,allocation-plot,hotspot-check,hotspot-replay,hotspot-plot,frequency-check,frequency-replay,frequency-plot,actuation-check,actuation-replay,integration-check,integration-replay,qualification-check,qualification-replay,performance-check,performance-replay,research-report}
+             ...
+
+positional arguments:
+  {discover,calibrate,replay,static-check,static-replay,kmeans-check,kmeans-replay,kmeans-plot,allocation-check,allocation-replay,allocation-plot,hotspot-check,hotspot-replay,hotspot-plot,frequency-check,frequency-replay,frequency-plot,actuation-check,actuation-replay,integration-check,integration-replay,qualification-check,qualification-replay,performance-check,performance-replay,research-report}
+    discover            Read-only hardware and environment snapshot
+    calibrate           Record a pilot and paired fixed-work GPU measurement
+                        trials
+    replay              Verify evidence checksums and regenerate a Phase 2
+                        summary on stdout
+    static-check        Validate static CPU/GPU partitions and capture
+                        concurrency evidence
+    static-replay       Verify and replay a Phase 3 validation archive
+    kmeans-check        Validate kmeans, migration, and a held-out static
+                        split sweep
+    kmeans-replay       Verify and regenerate a Phase 4 archive
+    kmeans-plot         Plot verified timing curves outside the raw archive
+    allocation-check    Validate Tier 1 policies and persistent kmeans
+                        feedback
+    allocation-replay   Verify Phase 5 evidence and replay every decision
+    allocation-plot     Plot verified Phase 5 timing and allocation traces
+    hotspot-check       Validate thermal state migration and allocation
+                        policies
+    hotspot-replay      Verify and replay Phase 6 evidence
+    hotspot-plot        Plot verified Phase 6 thermal/timing evidence
+    frequency-check     Validate offline Tier 2 policies; never change clocks
+    frequency-replay    Verify and replay every Phase 7 decision
+    frequency-plot      Plot verified offline frequency diagnostics
+    actuation-check     Check restoration capability and characterize real GPU
+                        diagnostics
+    actuation-replay    Verify and regenerate Phase 8 hardware evidence
+    integration-check   Real allocation/shadow integration and synthetic
+                        joint-control validation
+    integration-replay  Verify and regenerate integrated runtime evidence
+    qualification-check
+                        Fresh read-only loaded telemetry and energy
+                        qualification
+    qualification-replay
+                        Verify and regenerate read-only hardware qualification
+    performance-check   Randomized matched remediation evaluation
+    performance-replay  Verify and regenerate a matched evaluation archive
+    research-report     Verify archives and generate the final capability-
+                        limited research report
+
+options:
+  -h, --help            show this help message and exit

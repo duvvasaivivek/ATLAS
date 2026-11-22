@@ -20,6 +20,7 @@ import subprocess
 import sys
 import time
 import xml.etree.ElementTree as ET
+from .supervision import capture_command
 
 
 def utc_now() -> str:
@@ -30,8 +31,7 @@ def command(argv: list[str], timeout: float = 30) -> dict:
     started = utc_now()
     begin = time.monotonic()
     try:
-        result = subprocess.run(argv, capture_output=True, text=True, timeout=timeout,
-                                encoding="utf-8", errors="replace", check=False)
+        result = capture_command(argv,timeout)
         status = "ok" if result.returncode == 0 else "command_failed"
         record = dict(status=status, returncode=result.returncode,
                       stdout=result.stdout, stderr=result.stderr)

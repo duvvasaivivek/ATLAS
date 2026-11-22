@@ -1,0 +1,166 @@
+[
+  {
+    "workload": "kmeans",
+    "tool": "memcheck",
+    "returncode": 0,
+    "argv": [
+      "/usr/local/cuda-13.1/bin/compute-sanitizer",
+      "--tool",
+      "memcheck",
+      "--error-exitcode",
+      "1",
+      "/mnt/c/Users/saivi/Projects/ATLAS/build/release-validation/atlas_kmeans",
+      "/mnt/c/Users/saivi/Projects/ATLAS/results/completion/2026-11-10-release/sanitizers/input.kmdat",
+      "1025,512,0,1,1024,0",
+      "6",
+      "4",
+      "fixed",
+      "timing",
+      "reduced",
+      "streamed"
+    ]
+  },
+  {
+    "workload": "hotspot",
+    "tool": "memcheck",
+    "returncode": 0,
+    "argv": [
+      "/usr/local/cuda-13.1/bin/compute-sanitizer",
+      "--tool",
+      "memcheck",
+      "--error-exitcode",
+      "1",
+      "/mnt/c/Users/saivi/Projects/ATLAS/build/release-validation/atlas_hotspot",
+      "/mnt/c/Users/saivi/Projects/ATLAS/results/completion/2026-11-10-release/sanitizers/input.hsdat",
+      "33,16,0,1,32,0",
+      "6",
+      "4",
+      "timing",
+      "/mnt/c/Users/saivi/Projects/ATLAS/results/completion/2026-11-10-release/sanitizers/memcheck.hstemp",
+      "overlap"
+    ]
+  },
+  {
+    "workload": "kmeans",
+    "tool": "racecheck",
+    "returncode": 0,
+    "argv": [
+      "/usr/local/cuda-13.1/bin/compute-sanitizer",
+      "--tool",
+      "racecheck",
+      "--error-exitcode",
+      "1",
+      "/mnt/c/Users/saivi/Projects/ATLAS/build/release-validation/atlas_kmeans",
+      "/mnt/c/Users/saivi/Projects/ATLAS/results/completion/2026-11-10-release/sanitizers/input.kmdat",
+      "1025,512,0,1,1024,0",
+      "6",
+      "4",
+      "fixed",
+      "timing",
+      "reduced",
+      "streamed"
+    ]
+  },
+  {
+    "workload": "hotspot",
+    "tool": "racecheck",
+    "returncode": 0,
+    "argv": [
+      "/usr/local/cuda-13.1/bin/compute-sanitizer",
+      "--tool",
+      "racecheck",
+      "--error-exitcode",
+      "1",
+      "/mnt/c/Users/saivi/Projects/ATLAS/build/release-validation/atlas_hotspot",
+      "/mnt/c/Users/saivi/Projects/ATLAS/results/completion/2026-11-10-release/sanitizers/input.hsdat",
+      "33,16,0,1,32,0",
+      "6",
+      "4",
+      "timing",
+      "/mnt/c/Users/saivi/Projects/ATLAS/results/completion/2026-11-10-release/sanitizers/racecheck.hstemp",
+      "overlap"
+    ]
+  },
+  {
+    "workload": "kmeans",
+    "tool": "synccheck",
+    "returncode": 0,
+    "argv": [
+      "/usr/local/cuda-13.1/bin/compute-sanitizer",
+      "--tool",
+      "synccheck",
+      "--error-exitcode",
+      "1",
+      "/mnt/c/Users/saivi/Projects/ATLAS/build/release-validation/atlas_kmeans",
+      "/mnt/c/Users/saivi/Projects/ATLAS/results/completion/2026-11-10-release/sanitizers/input.kmdat",
+      "1025,512,0,1,1024,0",
+      "6",
+      "4",
+      "fixed",
+      "timing",
+      "reduced",
+      "streamed"
+    ]
+  },
+  {
+    "workload": "hotspot",
+    "tool": "synccheck",
+    "returncode": 0,
+    "argv": [
+      "/usr/local/cuda-13.1/bin/compute-sanitizer",
+      "--tool",
+      "synccheck",
+      "--error-exitcode",
+      "1",
+      "/mnt/c/Users/saivi/Projects/ATLAS/build/release-validation/atlas_hotspot",
+      "/mnt/c/Users/saivi/Projects/ATLAS/results/completion/2026-11-10-release/sanitizers/input.hsdat",
+      "33,16,0,1,32,0",
+      "6",
+      "4",
+      "timing",
+      "/mnt/c/Users/saivi/Projects/ATLAS/results/completion/2026-11-10-release/sanitizers/synccheck.hstemp",
+      "overlap"
+    ]
+  },
+  {
+    "workload": "kmeans",
+    "tool": "initcheck",
+    "returncode": 0,
+    "argv": [
+      "/usr/local/cuda-13.1/bin/compute-sanitizer",
+      "--tool",
+      "initcheck",
+      "--error-exitcode",
+      "1",
+      "/mnt/c/Users/saivi/Projects/ATLAS/build/release-validation/atlas_kmeans",
+      "/mnt/c/Users/saivi/Projects/ATLAS/results/completion/2026-11-10-release/sanitizers/input.kmdat",
+      "1025,512,0,1,1024,0",
+      "6",
+      "4",
+      "fixed",
+      "timing",
+      "reduced",
+      "streamed"
+    ]
+  },
+  {
+    "workload": "hotspot",
+    "tool": "initcheck",
+    "returncode": 0,
+    "argv": [
+      "/usr/local/cuda-13.1/bin/compute-sanitizer",
+      "--tool",
+      "initcheck",
+      "--error-exitcode",
+      "1",
+      "/mnt/c/Users/saivi/Projects/ATLAS/build/release-validation/atlas_hotspot",
+      "/mnt/c/Users/saivi/Projects/ATLAS/results/completion/2026-11-10-release/sanitizers/input.hsdat",
+      "33,16,0,1,32,0",
+      "6",
+      "4",
+      "timing",
+      "/mnt/c/Users/saivi/Projects/ATLAS/results/completion/2026-11-10-release/sanitizers/initcheck.hstemp",
+      "overlap"
+    ]
+  }
+]

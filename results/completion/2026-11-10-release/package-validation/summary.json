@@ -1,0 +1,75 @@
+{
+  "status": "passed",
+  "artifacts": {
+    "atlas_greengpu-0.1.0.tar.gz": "114f464f334128da9a7d2be155248e23c9f44f6e927e3ff8934b8da62d4cb71f",
+    "atlas_greengpu-0.1.0-py3-none-any.whl": "556a522c966430cca021afeee84d6018e450224be3bf11973676d4f3b1dc69bc"
+  },
+  "commands": [
+    {
+      "name": "dependencies",
+      "argv": [
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/package-release-final/environment/bin/python",
+        "-m",
+        "pip",
+        "install",
+        "setuptools==80.9.0",
+        "nvidia-ml-py==13.615.71"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "build-distributions",
+      "argv": [
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/package-release-final/environment/bin/python",
+        "-c",
+        "from setuptools.build_meta import build_sdist, build_wheel; build_sdist('/mnt/c/Users/saivi/Projects/ATLAS/build/package-release-final/distributions'); build_wheel('/mnt/c/Users/saivi/Projects/ATLAS/build/package-release-final/distributions')"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "install-wheel",
+      "argv": [
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/package-release-final/environment/bin/python",
+        "-m",
+        "pip",
+        "install",
+        "--no-deps",
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/package-release-final/distributions/atlas_greengpu-0.1.0-py3-none-any.whl"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "installed-import",
+      "argv": [
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/package-release-final/environment/bin/python",
+        "-c",
+        "import greengpu; from pathlib import Path; assert Path(greengpu.__file__).resolve().is_relative_to(Path('/mnt/c/Users/saivi/Projects/ATLAS/build/package-release-final/environment')); print(greengpu.__file__)"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "installed-cli",
+      "argv": [
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/package-release-final/environment/bin/python",
+        "-m",
+        "greengpu",
+        "--help"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "installed-tests",
+      "argv": [
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/package-release-final/environment/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "returncode": 0
+    }
+  ],
+  "scope": "fresh installed Python package and source inventory; native validation is separate"
+}

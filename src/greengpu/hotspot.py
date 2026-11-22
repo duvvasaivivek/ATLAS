@@ -18,6 +18,7 @@ from .capabilities import collect,command
 from .concurrency import analyze_profile
 from .experiment import save_new,distribution
 from .hotspot_reference import model,generated,write_input,read_grid,trajectory,communication,close,ATOL,RTOL
+from .supervision import Supervisor
 
 
 def observe(row,run_id):
@@ -34,14 +35,10 @@ def execute(binary,dataset,output,case,prefix=()):
           str(case['steps']),str(case['workers']),case['mode'],str(Path(output).resolve()),'feedback']
     started=time.monotonic_ns();expired=threading.Event();failure=None
     with tempfile.TemporaryFile(mode='w+t') as errors:
-        proc=subprocess.Popen(argv,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=errors,text=True,encoding='utf-8',bufsize=1)
-        def kill():
-            expired.set()
-            try:proc.kill()
-            except ProcessLookupError:pass
-        timer=threading.Timer(case.get('timeout_s',120),kill);timer.daemon=True;timer.start()
+        supervisor=Supervisor(argv,errors,case.get('timeout_s',120))
+        proc=supervisor.process;expired=supervisor.expired
         try:
-            for line in proc.stdout:
+            for line in supervisor.lines():
                 lines.append(line)
                 if not line.startswith('{'):continue
                 row=json.loads(line)
@@ -59,9 +56,7 @@ def execute(binary,dataset,output,case,prefix=()):
             proc.wait(timeout=5)
         except (ValueError,OSError,subprocess.TimeoutExpired) as error:failure=str(error)
         finally:
-            timer.cancel()
-            if proc.poll() is None:proc.kill()
-            proc.wait();proc.stdin.close();proc.stdout.close()
+            supervisor.close()
         errors.seek(0);stderr=errors.read()
     return dict(argv=argv,status='ok' if proc.returncode==0 and not failure and not expired.is_set() else 'failed',
         returncode=proc.returncode,stdout=''.join(lines),stderr=stderr,failure=failure,timed_out=expired.is_set(),
@@ -73,7 +68,14 @@ def assess(case,meta,record,output,golden=None):
     raw=[json.loads(line) for line in record['stdout'].splitlines() if line.startswith('{')]
     if len(raw)!=case['steps']+3 or raw[0]['kind']!='configuration' or raw[-1]['kind']!='summary':raise ValueError('Missing configuration/steps/summary')
     cfg,end=raw[0],raw[-1];steps=raw[1:-1];rows,cols=meta['rows'],meta['cols']
-    if cfg['schema_version']!='6.0' or cfg['clock']!='CLOCK_MONOTONIC' or cfg['feedback'] is not True:raise ValueError('Invalid clock/schema/protocol')
+    if 'final_reference_workers_requested' in end:
+        expected=case['workers'] if case['mode']=='timing' and rows*cols>=1024 else 1
+        if type(end['final_reference_workers_requested']) is not int or end['final_reference_workers_requested']!=expected:
+            raise ValueError('Final reference worker contract mismatch')
+    if cfg['schema_version'] not in ('6.0','6.1','6.2') or cfg['clock']!='CLOCK_MONOTONIC' or cfg['feedback'] is not True:raise ValueError('Invalid clock/schema/protocol')
+    if cfg.get('dispatch_order','cpu_first')!=case.get('dispatch_order','cpu_first'):raise ValueError('Dispatch order changed')
+    if cfg.get('feedback_batch',1)!=case.get('feedback_batch',1):raise ValueError('Feedback batch mismatch')
+    if cfg.get('communication_mode','serial')!=case.get('communication_mode','serial'):raise ValueError('Communication mode mismatch')
     if any(cfg[k]!=case[k] for k in ('rows','cols','steps','workers','mode')) or (cfg['rows'],cfg['cols'])!=(rows,cols):raise ValueError('Work budget mismatch')
     if cfg['atol']!=ATOL or cfg['rtol']!=RTOL:raise ValueError('Tolerance changed')
     if any(not math.isclose(cfg[k],v,rel_tol=2e-15,abs_tol=0) for k,v in meta['model'].items() if k not in ('ambient','limited')):raise ValueError('Thermal model mismatch')
@@ -92,10 +94,12 @@ def assess(case,meta,record,output,golden=None):
         if r['validation_d2h_bytes']!=((rows-cut)*cols*8 if checked else 0):raise ValueError('Validation traffic mixed with required traffic')
         stamps=[r[k] for k in ('release_ns','communication_end_ns','end_ns','validation_end_ns')]
         if any(type(t) is not int or t<0 for t in stamps) or stamps!=sorted(stamps) or stamps[0]<last_validation:raise ValueError('Invalid common-clock timing')
+        compute_release=r.get('compute_release_ns',stamps[1])
+        if type(compute_release) is not int or not stamps[0]<=compute_release<=stamps[1]:raise ValueError('Invalid shared-prefix timing')
         for active,names in ((cut,('cpu_start_ns','cpu_end_ns')),(rows-cut,('gpu_end_ns',))):
             values=[r[k] for k in names]
             if active:
-                if any(type(v) is not int for v in values) or values!=sorted(values) or not stamps[1]<=values[0]<=values[-1]<=stamps[2]:raise ValueError('Invalid branch timing')
+                if any(type(v) is not int for v in values) or values!=sorted(values) or not compute_release<=values[0]<=values[-1]<=stamps[2]:raise ValueError('Invalid branch timing')
             elif any(v is not None for v in values):raise ValueError('Empty branch has a fake timing')
         if type(r['control_ns']) is not int or r['control_ns']<0 or (i<=0 and r['control_ns']!=0):raise ValueError('Invalid control time')
         if i>0 and r['control_ns']>r['release_ns']-last_validation:raise ValueError('Control exceeds inter-step gap')

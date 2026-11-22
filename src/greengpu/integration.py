@@ -34,7 +34,7 @@ class Config:
             if type(getattr(self,key)) is not int or getattr(self,key)<1:raise ValueError("Invalid cadence")
         for key in ("allocation_interval_ns","frequency_guard_ns","settle_iterations"):
             if type(getattr(self,key)) is not int or getattr(self,key)<0:raise ValueError("Invalid guard")
-        if self.cadence_profile not in ("observed_cadence_v1","paper_ratio_40_v1"):raise ValueError("Unknown cadence profile")
+        if self.cadence_profile not in ("observed_cadence_v1","paper_ratio_40_v1","batched_epochs_v1"):raise ValueError("Unknown cadence profile")
         if self.mode!="synthetic_joint" and self.allocation_policy=="bracketed_bisection":
             raise ValueError("Hardware automatic clocks do not establish stationary capacity for a bracket")
         a.Config(self.allocation_policy,self.n)
@@ -49,12 +49,15 @@ class Config:
         return max(self.allocation_interval_ns,40*self.frequency_interval_ns) if self.cadence_profile=="paper_ratio_40_v1" else self.allocation_interval_ns
 
 
-def sample_for_window(frames, since_ns, now_ns, last_timestamp):
+def sample_for_window(frames, since_ns, now_ns, last_timestamp,require_stable_clock=False):
     """Join exact driver stamps, with immutable source refs and a conservative guard.
 
     This is shadow eligibility only. Query clocks are context, not synchronized
     settings acknowledged by a controller. No live qualification is inferred.
     """
+    if require_stable_clock:
+        offsets=[frame["wall_end_us"]-frame["acquisition_end_ns"]/1000 for frame in frames if frame["acquisition_end_ns"]<=now_ns]
+        if len(offsets)<2 or max(offsets)-min(offsets)>1000:return None
     indexes={d:{} for d in ("core","memory")};conflicts={d:set() for d in indexes}
     for frame in frames:
         if frame["acquisition_end_ns"]>now_ns:continue
@@ -90,7 +93,8 @@ class Coordinator:
         self.last_barrier_ns=-1
         self.window=[];self.frames=[];self.frame_id=-1;self.logical_pair=config.pairs[0] if config.pairs else None
 
-    def barrier(self,observation,now_ns,new_frames=(),final=False,phase=0,synthetic_utilization=None):
+    def barrier(self,observation,now_ns,new_frames=(),final=False,phase=0,synthetic_utilization=None,action_boundary=True):
+        if type(action_boundary) is not bool or type(final) is not bool:raise ValueError("Invalid barrier action flags")
         c=self.config;o=deepcopy(observation)
         if (o.get("run_id")!=c.run_id or type(o.get("iteration")) is not int or o["iteration"]!=self.iteration+1 or
                 o.get("cpu_items")!=self.cut or o.get("valid") is not True or o.get("common_origin") is not True or
@@ -121,6 +125,10 @@ class Coordinator:
         if final:
             result.update(allocation_reason="workload_complete",frequency_reason="workload_complete",events=["observe","finalize"])
             return result
+        if not action_boundary:
+            result.update(allocation_reason="collect_native_batch",frequency_reason="await_native_boundary")
+            result["events"].append("execute")
+            return result
         # Frequency observes the old partition, before any allocation recommendation is applied.
         if c.mode=="allocation_only":result["frequency_reason"]="disabled_allocation_only"
         elif now_ns-self.last_frequency_ns>=c.frequency_interval_ns:
@@ -133,7 +141,8 @@ class Coordinator:
                                 semantics="synthetic_busy_fraction",source_ref=f"synthetic:{c.run_id}:{self.iteration}")
             else:
                 joined=sample_for_window(self.frames,self.since_ns+c.frequency_guard_ns,now_ns,
-                                         self.fstate["last_window"]["end"] if self.fstate["last_window"] else -1)
+                                         self.fstate["last_window"]["end"] if self.fstate["last_window"] else -1,
+                                         require_stable_clock=c.cadence_profile=="batched_epochs_v1")
                 if joined:
                     window=dict(kind="nvml_buffer_timestamp_us",start=None,end=joined["timestamp_us"])
                     sample=dict(core=joined["core"],memory=joined["memory"],core_window=window,memory_window=dict(window),
@@ -152,6 +161,10 @@ class Coordinator:
                             t_cpu=sum(x["t_cpu"] for x in self.window) if self.cut else None,
                             t_gpu=sum(x["t_gpu"] for x in self.window) if self.cut<c.n else None,
                             valid=True,common_origin=True,source_iterations=[x["iteration"] for x in self.window])
+            if c.allocation_policy=="cost_aware_v1":
+                aggregated.update(work_s=sum(x["work_s"] for x in self.window),
+                                  migration_s=max(x["migration_s"] for x in self.window),
+                                  remaining_iterations=self.window[-1]["remaining_iterations"])
             decision=a.transition(self.allocation,self.astate,aggregated);self.astate=decision["post_state"]
             self.last_allocation_ns=now_ns;self.window=[]
             result.update(allocation=decision,allocation_reason=decision["reason"],next_cpu_items=decision["cpu_items"])

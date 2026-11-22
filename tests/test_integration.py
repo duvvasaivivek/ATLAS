@@ -26,6 +26,19 @@ def frame(i=0,stamp=2_000_000,value=60):
 
 
 class CoordinationTests(unittest.TestCase):
+    def test_native_batch_interior_never_dispatches(self):
+        engine=Coordinator(Config("t",100,50,mode="allocation_only",allocation_iterations=1,allocation_interval_ns=0))
+        result=engine.barrier(obs(engine,0),100,action_boundary=False)
+        self.assertIsNone(result['allocation']);self.assertEqual(result['next_cpu_items'],50)
+        result=engine.barrier(obs(engine,1),200,action_boundary=True)
+        self.assertIsNotNone(result['allocation'])
+
+    def test_new_clock_guard_rejects_wall_clock_motion(self):
+        a=frame();b=frame(1,stamp=2_010_000)
+        self.assertIsNotNone(sample_for_window([a,b],0,2_100_000_000,-1,require_stable_clock=True))
+        b['wall_end_us']+=2000
+        self.assertIsNone(sample_for_window([a,b],0,2_100_000_000,-1,require_stable_clock=True))
+
     def test_modes_and_live_gate(self):
         with self.assertRaises(ValueError):Config("t",10,5,mode="live_joint")
         with self.assertRaises(ValueError):Config("t",10,5,allocation_policy="bracketed_bisection")

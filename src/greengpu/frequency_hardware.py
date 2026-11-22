@@ -6,15 +6,17 @@ from .frequency import Config, finite, fraction, initial_state, transition
 SPEC_VERSION="frequency-hardware-1.0"
 
 
-def verify_setting(frames, pair, request_end_ns, minimum_span_ns=400_000_000):
+def verify_setting(frames, pair, request_end_ns, minimum_span_ns=400_000_000, require_latest=False):
     """Require three fresh paired samples under load after a conservative 1 s guard.
 
     Each frame supplies acquisition bounds and an exact NVML buffer timestamp
     join. A 15 MHz core / 2 MHz memory tolerance accommodates clock reporting
     granularity; these tolerances are fixed before examining experimental results.
+    Live control sets require_latest so a later bad sample invalidates an earlier
+    streak. The default preserves historical one-time qualification replay.
     """
     streak=[]; last_stamp=-1
-    for f in frames:
+    for index,f in enumerate(frames):
         stamp=f.get("sample_timestamp_us")
         good=(type(stamp) is int and f.get("sample_valid") is True and
               type(f.get("acquisition_start_ns")) is int and type(f.get("acquisition_end_ns")) is int and
@@ -34,7 +36,8 @@ def verify_setting(frames, pair, request_end_ns, minimum_span_ns=400_000_000):
         else:
             streak.append(f)
         if type(stamp) is int: last_stamp=max(last_stamp,stamp)
-        if len(streak)>=3 and streak[-1]["acquisition_start_ns"]-streak[0]["acquisition_start_ns"]>=minimum_span_ns:
+        if (len(streak)>=3 and streak[-1]["acquisition_start_ns"]-streak[0]["acquisition_start_ns"]>=minimum_span_ns
+                and (not require_latest or index==len(frames)-1)):
             return dict(status="verified_under_load",pair=list(pair),samples=len(streak),
                         first_sample_ns=streak[0]["acquisition_start_ns"],verified_ns=streak[-1]["acquisition_end_ns"],
                         settling_ns=streak[-1]["acquisition_end_ns"]-request_end_ns,

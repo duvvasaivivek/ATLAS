@@ -82,9 +82,93 @@ def main(argv=None) -> int:
     integration.add_argument("--mode",choices=("shadow-validation","live-joint"),default="shadow-validation")
     integration_replay=sub.add_parser("integration-replay",help="Verify and regenerate integrated runtime evidence")
     integration_replay.add_argument("run",type=Path)
+    qualification=sub.add_parser("qualification-check",help="Fresh read-only loaded telemetry and energy qualification")
+    qualification.add_argument("--output",type=Path,required=True)
+    qualification.add_argument("--build",type=Path,required=True)
+    qualification.add_argument("--blocks",type=int,default=3)
+    qualification_replay=sub.add_parser("qualification-replay",help="Verify and regenerate read-only hardware qualification")
+    qualification_replay.add_argument("run",type=Path)
+    performance=sub.add_parser("performance-check",help="Randomized matched remediation evaluation")
+    performance.add_argument("--output",type=Path,required=True)
+    performance.add_argument("--build",type=Path,required=True)
+    performance.add_argument("--baseline-build",type=Path)
+    performance.add_argument("--blocks",type=int,default=10)
+    performance_replay=sub.add_parser("performance-replay",help="Verify and regenerate a matched evaluation archive")
+    performance_replay.add_argument("run",type=Path)
+    report=sub.add_parser("research-report",help="Verify archives and generate the final capability-limited research report")
+    report.add_argument("--performance",type=Path,required=True)
+    report.add_argument("--integration",type=Path,required=True)
+    report.add_argument("--qualification",type=Path,required=True)
+    report.add_argument("--output",type=Path,required=True)
+    report.add_argument("--require-full",action="store_true",help="Return exit code 2 if full-project acceptance is incomplete")
+    live=sub.add_parser('live-run',help='Run guarded joint control using an independently qualified platform provider')
+    live.add_argument('--workload',choices=('kmeans','hotspot'),required=True)
+    live.add_argument('--binary',type=Path,required=True)
+    live.add_argument('--dataset',type=Path,required=True)
+    live.add_argument('--output',type=Path,required=True)
+    live.add_argument('--provider',help='Trusted installed Python module:factory; default NVML provider remains blocked')
+    live.add_argument('--steps',type=int,default=1000)
+    live.add_argument('--workers',type=int,default=4)
+    live.add_argument('--cpu-fraction',type=float,default=.5)
+    live.add_argument('--allocation-policy',default='paper_simple')
+    live.add_argument('--frequency-policy',choices=('paper_additive','discounted_loss_v1'),default='paper_additive')
+    live_replay=sub.add_parser('live-replay',help='Verify joint-control decisions, native correctness and restoration journals')
+    live_replay.add_argument('run',type=Path)
     args = parser.parse_args(argv)
     if not Path("pyproject.toml").is_file() or not Path("src/greengpu").is_dir():
         parser.error("Run this command from the ATLAS repository root")
+    if args.command in ('live-run','live-replay'):
+        from .live import load_provider,run_live,replay
+        from .actuation import ActuationBlocked
+        provider=None
+        try:
+            if args.command=='live-replay':result=replay(args.run)
+            else:
+                import math,struct
+                from .integration import Config
+                from .live_native import NativeWorkload
+                if not math.isfinite(args.cpu_fraction) or not 0<=args.cpu_fraction<1:raise ValueError('CPU fraction must be in [0,1)')
+                provider=load_provider(args.provider)
+                qualification=provider.qualification()
+                raw=args.dataset.read_bytes()
+                if len(raw)<16 or raw[:8]!=(b'ATLSKM01' if args.workload=='kmeans' else b'ATLSHS01'):raise ValueError('Wrong or truncated input format')
+                n=struct.unpack_from('<I',raw,8)[0]
+                cfg=Config(args.output.name,n,int(n*args.cpu_fraction),tuple(map(tuple,qualification.get('verified_pairs',()))),
+                           mode='allocation_shadow',allocation_policy=args.allocation_policy,frequency_policy=args.frequency_policy)
+                workload=NativeWorkload(args.binary,args.dataset,args.workload,args.steps,args.workers,args.output/'native')
+                result=run_live(provider,workload,cfg,args.output)
+                replay(args.output)
+            print(json.dumps({k:result[k] for k in ('status','evidence_kind','physical_control_evidence','restoration','energy_savings')},indent=2))
+            return 0 if result['status']=='passed' else 2
+        except ActuationBlocked as error:parser.exit(2,f'Live control blocked: {error}\n')
+        except (ValueError,RuntimeError,OSError,ImportError,AttributeError,TypeError,KeyError) as error:parser.exit(1,f'Live execution failed: {error}\n')
+        finally:
+            if provider is not None:provider.close()
+    if args.command=="research-report":
+        from .research_report import run
+        try:
+            result=run(args.output,args.performance,args.integration,args.qualification)
+            print(json.dumps(dict(status=result['status'],full_project_complete=result['full_project_complete'],
+                                  report=str(args.output/'report.html'),blockers=result['blockers']),indent=2))
+            return 2 if args.require_full and not result['full_project_complete'] else 0
+        except (ValueError,RuntimeError,OSError,KeyError,ImportError) as error:
+            parser.exit(1,f"Research report failed: {error}\n")
+    if args.command in ("qualification-check","qualification-replay","performance-check","performance-replay"):
+        try:
+            if args.command=="performance-replay":
+                from .performance import replay
+                result=replay(args.run);result.pop('results',None)
+            elif args.command=="qualification-check":
+                from .qualification import run
+                result=run(args.output,args.build,args.blocks)
+            elif args.command=="qualification-replay":
+                from .qualification import replay
+                result=replay(args.run)
+            else:
+                from .performance import run
+                result=run(args.output,args.build,args.baseline_build,args.blocks)
+            print(json.dumps(result,indent=2));return 1 if result.get('status')=='incomplete_failed_trials' else 0
+        except (ValueError,RuntimeError,OSError,ImportError) as error:parser.exit(1,f"Evaluation failed: {error}\n")
     if args.command in ("integration-check","integration-replay"):
         from .phase9 import run,replay
         if args.command=="integration-check" and args.mode=="live-joint":

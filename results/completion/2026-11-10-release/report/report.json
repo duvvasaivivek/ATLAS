@@ -1,0 +1,1893 @@
+{
+  "blockers": [
+    "Integrated software acceptance: incomplete_concurrency_evidence.",
+    "Authoritative GPU clock-policy readback and verified actuation/restoration are unavailable.",
+    "Driver telemetry timestamps are not qualified for live feedback.",
+    "CUDA device-event timing requires independent qualification.",
+    "Physical energy measurement is unqualified; energy savings are unavailable.",
+    "Fixed-clock allocation, frequency-only, live joint-control and joint static-sweep baselines have not been evaluated."
+  ],
+  "energy_savings_percent": null,
+  "evaluation": {
+    "baseline": "matched optimized GPU-only under unchanged automatic clocks",
+    "blocks": 10,
+    "command_comparisons": [
+      {
+        "bootstrap_95_percent": [
+          -11.185212925771888,
+          76.57976733473673
+        ],
+        "change_percent": 33.881808436312504,
+        "name": "cost_aware",
+        "pairs": 10,
+        "size": 0,
+        "unpaired": 0,
+        "workload": "hotspot"
+      },
+      {
+        "bootstrap_95_percent": [
+          -7.3592734980632795,
+          57.548196695032395
+        ],
+        "change_percent": 21.416404623485068,
+        "name": "cpu_only",
+        "pairs": 10,
+        "size": 0,
+        "unpaired": 0,
+        "workload": "hotspot"
+      },
+      {
+        "bootstrap_95_percent": [
+          -9.131676012473324,
+          14.734622722124712
+        ],
+        "change_percent": 5.036399681200578,
+        "name": "feedback_every_step",
+        "pairs": 10,
+        "size": 0,
+        "unpaired": 0,
+        "workload": "hotspot"
+      },
+      {
+        "bootstrap_95_percent": [
+          0.0,
+          0.0
+        ],
+        "change_percent": 0.0,
+        "name": "gpu_only",
+        "pairs": 10,
+        "size": 0,
+        "unpaired": 0,
+        "workload": "hotspot"
+      },
+      {
+        "bootstrap_95_percent": [
+          -19.58914822746456,
+          40.74354364539086
+        ],
+        "change_percent": 6.1324639426123015,
+        "name": "overlap50",
+        "pairs": 10,
+        "size": 0,
+        "unpaired": 0,
+        "workload": "hotspot"
+      },
+      {
+        "bootstrap_95_percent": [
+          -17.745585714747712,
+          31.759148143216223
+        ],
+        "change_percent": 5.66014599790752,
+        "name": "static50",
+        "pairs": 10,
+        "size": 0,
+        "unpaired": 0,
+        "workload": "hotspot"
+      },
+      {
+        "bootstrap_95_percent": [
+          -22.318807988824837,
+          20.115317469976837
+        ],
+        "change_percent": -1.8209664977930664,
+        "name": "tuned_static",
+        "pairs": 10,
+        "size": 0,
+        "unpaired": 0,
+        "workload": "hotspot"
+      },
+      {
+        "bootstrap_95_percent": [
+          -13.25167393648872,
+          5.906475182758446
+        ],
+        "change_percent": -2.6144952150433918,
+        "name": "cost_aware",
+        "pairs": 10,
+        "size": 1,
+        "unpaired": 0,
+        "workload": "hotspot"
+      },
+      {
+        "bootstrap_95_percent": [
+          -9.595087854744827,
+          90.6465135877738
+        ],
+        "change_percent": 28.91057554130829,
+        "name": "cpu_only",
+        "pairs": 10,
+        "size": 1,
+        "unpaired": 0,
+        "workload": "hotspot"
+      },
+      {
+        "bootstrap_95_percent": [
+          -2.5414596602854194,
+          86.64256978216889
+        ],
+        "change_percent": 36.37188784915344,
+        "name": "feedback_every_step",
+        "pairs": 10,
+        "size": 1,
+        "unpaired": 0,
+        "workload": "hotspot"
+      },
+      {
+        "bootstrap_95_percent": [
+          0.0,
+          0.0
+        ],
+        "change_percent": 0.0,
+        "name": "gpu_only",
+        "pairs": 10,
+        "size": 1,
+        "unpaired": 0,
+        "workload": "hotspot"
+      },
+      {
+        "bootstrap_95_percent": [
+          -9.455621157075058,
+          34.84337451532518
+        ],
+        "change_percent": 9.5380670756116,
+        "name": "overlap50",
+        "pairs": 10,
+        "size": 1,
+        "unpaired": 0,
+        "workload": "hotspot"
+      },
+      {
+        "bootstrap_95_percent": [
+          -13.046304513775688,
+          7.477266485572922
+        ],
+        "change_percent": -0.9118818558053323,
+        "name": "static50",
+        "pairs": 10,
+        "size": 1,
+        "unpaired": 0,
+        "workload": "hotspot"
+      },
+      {
+        "bootstrap_95_percent": [
+          -16.42691041672753,
+          26.19210281161695
+        ],
+        "change_percent": 1.3780962374194317,
+        "name": "tuned_static",
+        "pairs": 10,
+        "size": 1,
+        "unpaired": 0,
+        "workload": "hotspot"
+      },
+      {
+        "bootstrap_95_percent": [
+          6.879680017577102,
+          49.38245323621712
+        ],
+        "change_percent": 27.01111153602562,
+        "name": "atomic_timing",
+        "pairs": 10,
+        "size": 0,
+        "unpaired": 0,
+        "workload": "kmeans"
+      },
+      {
+        "bootstrap_95_percent": [
+          8.179850978771748,
+          75.0226573049418
+        ],
+        "change_percent": 37.226472132012326,
+        "name": "atomic_verified",
+        "pairs": 10,
+        "size": 0,
+        "unpaired": 0,
+        "workload": "kmeans"
+      },
+      {
+        "bootstrap_95_percent": [
+          -9.67473579385415,
+          27.101288853584403
+        ],
+        "change_percent": 5.690802397572499,
+        "name": "batched_atomic",
+        "pairs": 10,
+        "size": 0,
+        "unpaired": 0,
+        "workload": "kmeans"
+      },
+      {
+        "bootstrap_95_percent": [
+          -5.952878533654398,
+          57.218549273736194
+        ],
+        "change_percent": 23.49913042404423,
+        "name": "cost_aware",
+        "pairs": 10,
+        "size": 0,
+        "unpaired": 0,
+        "workload": "kmeans"
+      },
+      {
+        "bootstrap_95_percent": [
+          6.124372851734967,
+          54.08781158645239
+        ],
+        "change_percent": 28.16654273737186,
+        "name": "cpu_only",
+        "pairs": 10,
+        "size": 0,
+        "unpaired": 0,
+        "workload": "kmeans"
+      },
+      {
+        "bootstrap_95_percent": [
+          -7.099512884852933,
+          56.204722917367924
+        ],
+        "change_percent": 21.442689633100233,
+        "name": "feedback_every_step",
+        "pairs": 10,
+        "size": 0,
+        "unpaired": 0,
+        "workload": "kmeans"
+      },
+      {
+        "bootstrap_95_percent": [
+          0.0,
+          0.0
+        ],
+        "change_percent": 0.0,
+        "name": "gpu_only",
+        "pairs": 10,
+        "size": 0,
+        "unpaired": 0,
+        "workload": "kmeans"
+      },
+      {
+        "bootstrap_95_percent": [
+          0.08041455709112184,
+          27.431487002395766
+        ],
+        "change_percent": 11.01591339751036,
+        "name": "hierarchical_diagnostic",
+        "pairs": 10,
+        "size": 0,
+        "unpaired": 0,
+        "workload": "kmeans"
+      },
+      {
+        "bootstrap_95_percent": [
+          2.466913442775654,
+          49.227677986833356
+        ],
+        "change_percent": 24.667485272034604,
+        "name": "static50",
+        "pairs": 10,
+        "size": 0,
+        "unpaired": 0,
+        "workload": "kmeans"
+      },
+      {
+        "bootstrap_95_percent": [
+          -10.703225879468917,
+          24.068466696271834
+        ],
+        "change_percent": 4.861868125607707,
+        "name": "streamed_atomic",
+        "pairs": 10,
+        "size": 0,
+        "unpaired": 0,
+        "workload": "kmeans"
+      },
+      {
+        "bootstrap_95_percent": [
+          -11.426637137743807,
+          42.359712405740254
+        ],
+        "change_percent": 14.805158221378989,
+        "name": "tuned_static",
+        "pairs": 10,
+        "size": 0,
+        "unpaired": 0,
+        "workload": "kmeans"
+      },
+      {
+        "bootstrap_95_percent": [
+          -10.47965740706276,
+          17.13809556765586
+        ],
+        "change_percent": 2.067845816386159,
+        "name": "atomic_timing",
+        "pairs": 10,
+        "size": 1,
+        "unpaired": 0,
+        "workload": "kmeans"
+      },
+      {
+        "bootstrap_95_percent": [
+          -2.7972080010302935,
+          29.77925437376408
+        ],
+        "change_percent": 12.608413981257174,
+        "name": "atomic_verified",
+        "pairs": 10,
+        "size": 1,
+        "unpaired": 0,
+        "workload": "kmeans"
+      },
+      {
+        "bootstrap_95_percent": [
+          -14.219927017700456,
+          13.862578909235577
+        ],
+        "change_percent": -0.7483191151064054,
+        "name": "batched_atomic",
+        "pairs": 10,
+        "size": 1,
+        "unpaired": 0,
+        "workload": "kmeans"
+      },
+      {
+        "bootstrap_95_percent": [
+          -8.474531398329889,
+          1.6986027986783925
+        ],
+        "change_percent": -3.165266992377367,
+        "name": "cost_aware",
+        "pairs": 10,
+        "size": 1,
+        "unpaired": 0,
+        "workload": "kmeans"
+      },
+      {
+        "bootstrap_95_percent": [
+          -11.151156887655626,
+          16.373460232666055
+        ],
+        "change_percent": 2.357888193592142,
+        "name": "cpu_only",
+        "pairs": 10,
+        "size": 1,
+        "unpaired": 0,
+        "workload": "kmeans"
+      },
+      {
+        "bootstrap_95_percent": [
+          -6.740579863522287,
+          27.769455461177458
+        ],
+        "change_percent": 7.4048387343184,
+        "name": "feedback_every_step",
+        "pairs": 10,
+        "size": 1,
+        "unpaired": 0,
+        "workload": "kmeans"
+      },
+      {
+        "bootstrap_95_percent": [
+          0.0,
+          0.0
+        ],
+        "change_percent": 0.0,
+        "name": "gpu_only",
+        "pairs": 10,
+        "size": 1,
+        "unpaired": 0,
+        "workload": "kmeans"
+      },
+      {
+        "bootstrap_95_percent": [
+          -10.169796115082397,
+          17.410049123804168
+        ],
+        "change_percent": 3.121036511557955,
+        "name": "hierarchical_diagnostic",
+        "pairs": 10,
+        "size": 1,
+        "unpaired": 0,
+        "workload": "kmeans"
+      },
+      {
+        "bootstrap_95_percent": [
+          -14.115609932126954,
+          10.529752472223995
+        ],
+        "change_percent": -3.0728472170214447,
+        "name": "static50",
+        "pairs": 10,
+        "size": 1,
+        "unpaired": 0,
+        "workload": "kmeans"
+      },
+      {
+        "bootstrap_95_percent": [
+          -11.28430507905079,
+          16.63722813295862
+        ],
+        "change_percent": 2.1345008481196857,
+        "name": "streamed_atomic",
+        "pairs": 10,
+        "size": 1,
+        "unpaired": 0,
+        "workload": "kmeans"
+      },
+      {
+        "bootstrap_95_percent": [
+          -20.798539156695142,
+          3.4338707312188306
+        ],
+        "change_percent": -9.553962038525388,
+        "name": "tuned_static",
+        "pairs": 10,
+        "size": 1,
+        "unpaired": 0,
+        "workload": "kmeans"
+      }
+    ],
+    "failed_trials": 0,
+    "primary_matrix_complete": true,
+    "primary_scope": "contiguous first release to last completion plus final gather; final independent validation excluded and command time retained",
+    "selections": [
+      {
+        "cpu_fraction": 0.0,
+        "cpu_items": 0,
+        "size": 0,
+        "total_items": 257,
+        "workload": "hotspot"
+      },
+      {
+        "cpu_fraction": 0.0,
+        "cpu_items": 0,
+        "size": 1,
+        "total_items": 513,
+        "workload": "hotspot"
+      },
+      {
+        "cpu_fraction": 0.25000762869610327,
+        "cpu_items": 8193,
+        "size": 0,
+        "total_items": 32771,
+        "workload": "kmeans"
+      },
+      {
+        "cpu_fraction": 0.25000381452265064,
+        "cpu_items": 16385,
+        "size": 1,
+        "total_items": 65539,
+        "workload": "kmeans"
+      }
+    ],
+    "status": "passed",
+    "trials": 400,
+    "workload_comparisons": [
+      {
+        "command_s": {
+          "max": 1.291081349,
+          "mean": 0.8149781792999999,
+          "min": 0.555396353,
+          "n": 10,
+          "stdev": 0.32504329128276976
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.03772828,
+          "mean": 0.0249926111,
+          "min": 0.019384933,
+          "n": 10,
+          "stdev": 0.005461084443382783
+        },
+        "name": "cost_aware",
+        "paired_bootstrap_95_percent": [
+          131.75574424616457,
+          230.87804430609464
+        ],
+        "paired_runtime_change_percent": 176.2142357828061,
+        "primary_s": {
+          "max": 0.082918934,
+          "mean": 0.0538343014,
+          "min": 0.040158023,
+          "n": 10,
+          "stdev": 0.012438348890509912
+        },
+        "requested_trials": 10,
+        "size": 0,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "hotspot"
+      },
+      {
+        "command_s": {
+          "max": 1.510274607,
+          "mean": 0.8005434671,
+          "min": 0.530941355,
+          "n": 10,
+          "stdev": 0.36863742734191335
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.026283842,
+          "mean": 0.0084015109,
+          "min": 0.004633826,
+          "n": 10,
+          "stdev": 0.007072310393414674
+        },
+        "name": "cpu_only",
+        "paired_bootstrap_95_percent": [
+          39.78332815781351,
+          164.18944601428308
+        ],
+        "paired_runtime_change_percent": 89.92765866152736,
+        "primary_s": {
+          "max": 0.073467016,
+          "mean": 0.0366361481,
+          "min": 0.02289499,
+          "n": 10,
+          "stdev": 0.016470209231074714
+        },
+        "requested_trials": 10,
+        "size": 0,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "hotspot"
+      },
+      {
+        "command_s": {
+          "max": 1.258529806,
+          "mean": 0.6975371506,
+          "min": 0.58150015,
+          "n": 10,
+          "stdev": 0.19862602592328432
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.042998745,
+          "mean": 0.038417447800000004,
+          "min": 0.032254439,
+          "n": 10,
+          "stdev": 0.0036021597812043813
+        },
+        "name": "feedback_every_step",
+        "paired_bootstrap_95_percent": [
+          296.1550515978029,
+          407.1473643105063
+        ],
+        "paired_runtime_change_percent": 353.61163516234893,
+        "primary_s": {
+          "max": 0.109628347,
+          "mean": 0.0890677815,
+          "min": 0.069495571,
+          "n": 10,
+          "stdev": 0.014409727259677747
+        },
+        "requested_trials": 10,
+        "size": 0,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "hotspot"
+      },
+      {
+        "command_s": {
+          "max": 1.268931234,
+          "mean": 0.7016452899,
+          "min": 0.522302074,
+          "n": 10,
+          "stdev": 0.28527624571935056
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.008686206,
+          "mean": 0.0068252808,
+          "min": 0.005765269,
+          "n": 10,
+          "stdev": 0.0008272622486977149
+        },
+        "name": "gpu_only",
+        "paired_bootstrap_95_percent": [
+          0.0,
+          0.0
+        ],
+        "paired_runtime_change_percent": 0.0,
+        "primary_s": {
+          "max": 0.024890119,
+          "mean": 0.0199882435,
+          "min": 0.01532028,
+          "n": 10,
+          "stdev": 0.002693428769100384
+        },
+        "requested_trials": 10,
+        "size": 0,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "hotspot"
+      },
+      {
+        "command_s": {
+          "max": 1.256981286,
+          "mean": 0.6612533751,
+          "min": 0.546051654,
+          "n": 10,
+          "stdev": 0.21191112962829187
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.010402423,
+          "mean": 0.0071509563,
+          "min": 0.006152556,
+          "n": 10,
+          "stdev": 0.0012237842761127875
+        },
+        "name": "overlap50",
+        "paired_bootstrap_95_percent": [
+          91.6538245010134,
+          173.9697951008283
+        ],
+        "paired_runtime_change_percent": 128.76900606957955,
+        "primary_s": {
+          "max": 0.086603329,
+          "mean": 0.0454731155,
+          "min": 0.033168932,
+          "n": 10,
+          "stdev": 0.01588868385823486
+        },
+        "requested_trials": 10,
+        "size": 0,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "hotspot"
+      },
+      {
+        "command_s": {
+          "max": 1.22921997,
+          "mean": 0.6729899966,
+          "min": 0.561618169,
+          "n": 10,
+          "stdev": 0.2042884262721851
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.009150214,
+          "mean": 0.0069968839000000005,
+          "min": 0.005467511,
+          "n": 10,
+          "stdev": 0.0011466213676070182
+        },
+        "name": "static50",
+        "paired_bootstrap_95_percent": [
+          109.56526034566431,
+          217.06120978564846
+        ],
+        "paired_runtime_change_percent": 154.29921013199117,
+        "primary_s": {
+          "max": 0.089299178,
+          "mean": 0.0503234217,
+          "min": 0.036264902,
+          "n": 10,
+          "stdev": 0.01759433513242924
+        },
+        "requested_trials": 10,
+        "size": 0,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "hotspot"
+      },
+      {
+        "command_s": {
+          "max": 1.085799107,
+          "mean": 0.6233641192,
+          "min": 0.528383138,
+          "n": 10,
+          "stdev": 0.16544255017455028
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.009883435,
+          "mean": 0.0071192713000000005,
+          "min": 0.004486276,
+          "n": 10,
+          "stdev": 0.0015725439181611324
+        },
+        "name": "tuned_static",
+        "paired_bootstrap_95_percent": [
+          -7.101973735199488,
+          27.401949754096066
+        ],
+        "paired_runtime_change_percent": 8.978845208316802,
+        "primary_s": {
+          "max": 0.027204915,
+          "mean": 0.0213286098,
+          "min": 0.015170144,
+          "n": 10,
+          "stdev": 0.004188180770460363
+        },
+        "requested_trials": 10,
+        "size": 0,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "hotspot"
+      },
+      {
+        "command_s": {
+          "max": 1.468149842,
+          "mean": 1.1979575374,
+          "min": 0.858575752,
+          "n": 10,
+          "stdev": 0.20548264320547482
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.035834319,
+          "mean": 0.0245091588,
+          "min": 0.01670584,
+          "n": 10,
+          "stdev": 0.005008298772903249
+        },
+        "name": "cost_aware",
+        "paired_bootstrap_95_percent": [
+          124.61883830119568,
+          176.29096297700977
+        ],
+        "paired_runtime_change_percent": 150.09975652755028,
+        "primary_s": {
+          "max": 0.088707692,
+          "mean": 0.063948693,
+          "min": 0.047546878,
+          "n": 10,
+          "stdev": 0.013952651435270209
+        },
+        "requested_trials": 10,
+        "size": 1,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "hotspot"
+      },
+      {
+        "command_s": {
+          "max": 5.848040419,
+          "mean": 1.6799006724,
+          "min": 0.708528072,
+          "n": 10,
+          "stdev": 1.4910100558258987
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.010544929,
+          "mean": 0.007294058,
+          "min": 0.004928694,
+          "n": 10,
+          "stdev": 0.0016476135572657806
+        },
+        "name": "cpu_only",
+        "paired_bootstrap_95_percent": [
+          121.86494831163026,
+          192.90321079711896
+        ],
+        "paired_runtime_change_percent": 153.56254909841337,
+        "primary_s": {
+          "max": 0.087017818,
+          "mean": 0.0638160899,
+          "min": 0.044680443,
+          "n": 10,
+          "stdev": 0.01133954964565704
+        },
+        "requested_trials": 10,
+        "size": 1,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "hotspot"
+      },
+      {
+        "command_s": {
+          "max": 5.033165313,
+          "mean": 1.7032629572,
+          "min": 0.776219395,
+          "n": 10,
+          "stdev": 1.1895657629431633
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.054146926,
+          "mean": 0.0386437018,
+          "min": 0.033753286,
+          "n": 10,
+          "stdev": 0.0058089982982625
+        },
+        "name": "feedback_every_step",
+        "paired_bootstrap_95_percent": [
+          226.5873332953483,
+          301.2231172648472
+        ],
+        "paired_runtime_change_percent": 263.55160647455494,
+        "primary_s": {
+          "max": 0.120404162,
+          "mean": 0.0914704574,
+          "min": 0.081778735,
+          "n": 10,
+          "stdev": 0.010717357078685855
+        },
+        "requested_trials": 10,
+        "size": 1,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "hotspot"
+      },
+      {
+        "command_s": {
+          "max": 1.509222899,
+          "mean": 1.2538973607,
+          "min": 0.736273334,
+          "n": 10,
+          "stdev": 0.23213021864138977
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.010822786,
+          "mean": 0.0060902374,
+          "min": 0.004394033,
+          "n": 10,
+          "stdev": 0.0018624474774783253
+        },
+        "name": "gpu_only",
+        "paired_bootstrap_95_percent": [
+          0.0,
+          0.0
+        ],
+        "paired_runtime_change_percent": 0.0,
+        "primary_s": {
+          "max": 0.034744777,
+          "mean": 0.0259288292,
+          "min": 0.020345348,
+          "n": 10,
+          "stdev": 0.005619952260607574
+        },
+        "requested_trials": 10,
+        "size": 1,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "hotspot"
+      },
+      {
+        "command_s": {
+          "max": 1.55680619,
+          "mean": 1.3065017735,
+          "min": 0.747489311,
+          "n": 10,
+          "stdev": 0.21747047613392317
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.007566005,
+          "mean": 0.0062089063,
+          "min": 0.005477102,
+          "n": 10,
+          "stdev": 0.0005913900655034993
+        },
+        "name": "overlap50",
+        "paired_bootstrap_95_percent": [
+          66.6244536962048,
+          116.37317089814482
+        ],
+        "paired_runtime_change_percent": 90.57427572602528,
+        "primary_s": {
+          "max": 0.055818452,
+          "mean": 0.047496178,
+          "min": 0.041595084,
+          "n": 10,
+          "stdev": 0.004247739577387353
+        },
+        "requested_trials": 10,
+        "size": 1,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "hotspot"
+      },
+      {
+        "command_s": {
+          "max": 1.593205331,
+          "mean": 1.2278003603,
+          "min": 0.740377259,
+          "n": 10,
+          "stdev": 0.27769615582630713
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.009070057,
+          "mean": 0.006707898,
+          "min": 0.005382059,
+          "n": 10,
+          "stdev": 0.0011831947567323346
+        },
+        "name": "static50",
+        "paired_bootstrap_95_percent": [
+          109.18787992792608,
+          169.14029366282819
+        ],
+        "paired_runtime_change_percent": 136.23204162886145,
+        "primary_s": {
+          "max": 0.077072032,
+          "mean": 0.0595883063,
+          "min": 0.049767363,
+          "n": 10,
+          "stdev": 0.009954422306306445
+        },
+        "requested_trials": 10,
+        "size": 1,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "hotspot"
+      },
+      {
+        "command_s": {
+          "max": 1.42316709,
+          "mean": 1.2089352070000001,
+          "min": 0.718056503,
+          "n": 10,
+          "stdev": 0.2016352867007661
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.007590133,
+          "mean": 0.0063728461,
+          "min": 0.004875848,
+          "n": 10,
+          "stdev": 0.0009593687489994483
+        },
+        "name": "tuned_static",
+        "paired_bootstrap_95_percent": [
+          -10.46088911958603,
+          10.138831594906936
+        ],
+        "paired_runtime_change_percent": -0.6477858185426144,
+        "primary_s": {
+          "max": 0.02912523,
+          "mean": 0.0250152862,
+          "min": 0.020884336,
+          "n": 10,
+          "stdev": 0.00292875331113594
+        },
+        "requested_trials": 10,
+        "size": 1,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "hotspot"
+      },
+      {
+        "command_s": {
+          "max": 2.339453997,
+          "mean": 1.5167216137,
+          "min": 0.984791319,
+          "n": 10,
+          "stdev": 0.4670432708798972
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.103881855,
+          "mean": 0.0801743239,
+          "min": 0.069418679,
+          "n": 10,
+          "stdev": 0.00946058685577916
+        },
+        "name": "atomic_timing",
+        "paired_bootstrap_95_percent": [
+          3.959955013115176,
+          19.101914413272016
+        ],
+        "paired_runtime_change_percent": 11.812211837287387,
+        "primary_s": {
+          "max": 0.332982018,
+          "mean": 0.3062354723,
+          "min": 0.290709859,
+          "n": 10,
+          "stdev": 0.012743131005265156
+        },
+        "requested_trials": 10,
+        "size": 0,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "kmeans"
+      },
+      {
+        "command_s": {
+          "max": 2.859105581,
+          "mean": 1.5886830171,
+          "min": 1.092388755,
+          "n": 10,
+          "stdev": 0.5600436624870053
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.098310663,
+          "mean": 0.0845743495,
+          "min": 0.076832732,
+          "n": 10,
+          "stdev": 0.006381823380136089
+        },
+        "name": "atomic_verified",
+        "paired_bootstrap_95_percent": [
+          120.47353605388088,
+          152.10015930123566
+        ],
+        "paired_runtime_change_percent": 135.43017895710847,
+        "primary_s": {
+          "max": 0.715610116,
+          "mean": 0.6457011273,
+          "min": 0.594462176,
+          "n": 10,
+          "stdev": 0.03701749865845393
+        },
+        "requested_trials": 10,
+        "size": 0,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "kmeans"
+      },
+      {
+        "command_s": {
+          "max": 1.938920113,
+          "mean": 1.257524817,
+          "min": 0.965202455,
+          "n": 10,
+          "stdev": 0.3981257903251982
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.047957111,
+          "mean": 0.041210957,
+          "min": 0.036863607,
+          "n": 10,
+          "stdev": 0.0032980770886595575
+        },
+        "name": "batched_atomic",
+        "paired_bootstrap_95_percent": [
+          -4.2734971022924295,
+          5.047970465958497
+        ],
+        "paired_runtime_change_percent": 0.33499145556411547,
+        "primary_s": {
+          "max": 0.317992609,
+          "mean": 0.2761825739,
+          "min": 0.254045199,
+          "n": 10,
+          "stdev": 0.019460047283437983
+        },
+        "requested_trials": 10,
+        "size": 0,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "kmeans"
+      },
+      {
+        "command_s": {
+          "max": 2.266664537,
+          "mean": 1.4255100481,
+          "min": 0.948245138,
+          "n": 10,
+          "stdev": 0.46337561054867343
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.080639249,
+          "mean": 0.0556053615,
+          "min": 0.048295959,
+          "n": 10,
+          "stdev": 0.009684667675865073
+        },
+        "name": "cost_aware",
+        "paired_bootstrap_95_percent": [
+          -7.540396567983674,
+          9.601770088701713
+        ],
+        "paired_runtime_change_percent": 1.042416278788757,
+        "primary_s": {
+          "max": 0.31492153,
+          "mean": 0.2762972019,
+          "min": 0.253147174,
+          "n": 10,
+          "stdev": 0.022246828135591295
+        },
+        "requested_trials": 10,
+        "size": 0,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "kmeans"
+      },
+      {
+        "command_s": {
+          "max": 1.926930444,
+          "mean": 1.5146893328,
+          "min": 0.976145319,
+          "n": 10,
+          "stdev": 0.4354325397523871
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.049160573,
+          "mean": 0.0408717761,
+          "min": 0.036780086,
+          "n": 10,
+          "stdev": 0.0037466315621504146
+        },
+        "name": "cpu_only",
+        "paired_bootstrap_95_percent": [
+          5.1215850214344245,
+          27.187956097601514
+        ],
+        "paired_runtime_change_percent": 15.685774210079943,
+        "primary_s": {
+          "max": 0.369015934,
+          "mean": 0.3157221178,
+          "min": 0.2884804,
+          "n": 10,
+          "stdev": 0.02252235985867782
+        },
+        "requested_trials": 10,
+        "size": 0,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "kmeans"
+      },
+      {
+        "command_s": {
+          "max": 2.278242507,
+          "mean": 1.3839741042,
+          "min": 0.94112315,
+          "n": 10,
+          "stdev": 0.47326727892687914
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.09626399,
+          "mean": 0.0822091968,
+          "min": 0.068533487,
+          "n": 10,
+          "stdev": 0.008456905259165235
+        },
+        "name": "feedback_every_step",
+        "paired_bootstrap_95_percent": [
+          4.470865378274554,
+          24.910012090716926
+        ],
+        "paired_runtime_change_percent": 14.715538526003135,
+        "primary_s": {
+          "max": 0.386752565,
+          "mean": 0.3142591188,
+          "min": 0.267253215,
+          "n": 10,
+          "stdev": 0.03312621261924302
+        },
+        "requested_trials": 10,
+        "size": 0,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "kmeans"
+      },
+      {
+        "command_s": {
+          "max": 2.086530546,
+          "mean": 1.2335355433,
+          "min": 0.935742586,
+          "n": 10,
+          "stdev": 0.40660678662466215
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.059673704,
+          "mean": 0.0457598128,
+          "min": 0.039236956,
+          "n": 10,
+          "stdev": 0.005762266740075718
+        },
+        "name": "gpu_only",
+        "paired_bootstrap_95_percent": [
+          0.0,
+          0.0
+        ],
+        "paired_runtime_change_percent": 0.0,
+        "primary_s": {
+          "max": 0.342131997,
+          "mean": 0.2768438395,
+          "min": 0.239203429,
+          "n": 10,
+          "stdev": 0.030316960682230137
+        },
+        "requested_trials": 10,
+        "size": 0,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "kmeans"
+      },
+      {
+        "command_s": {
+          "max": 1.98408524,
+          "mean": 1.3421494204,
+          "min": 0.979611378,
+          "n": 10,
+          "stdev": 0.40684109497098914
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.096768749,
+          "mean": 0.0835085159,
+          "min": 0.073956194,
+          "n": 10,
+          "stdev": 0.007403282320050756
+        },
+        "name": "hierarchical_diagnostic",
+        "paired_bootstrap_95_percent": [
+          8.654055784425745,
+          20.255362868091225
+        ],
+        "paired_runtime_change_percent": 14.42666808782804,
+        "primary_s": {
+          "max": 0.351607224,
+          "mean": 0.3145724355,
+          "min": 0.291600569,
+          "n": 10,
+          "stdev": 0.01952598484558083
+        },
+        "requested_trials": 10,
+        "size": 0,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "kmeans"
+      },
+      {
+        "command_s": {
+          "max": 2.270683164,
+          "mean": 1.4889281237,
+          "min": 0.980175467,
+          "n": 10,
+          "stdev": 0.5208703182045521
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.049879694,
+          "mean": 0.0415817578,
+          "min": 0.038937024,
+          "n": 10,
+          "stdev": 0.003220721942000714
+        },
+        "name": "static50",
+        "paired_bootstrap_95_percent": [
+          -8.448162200879935,
+          8.067302896145623
+        ],
+        "paired_runtime_change_percent": -0.43328233669874183,
+        "primary_s": {
+          "max": 0.317880391,
+          "mean": 0.2723109887,
+          "min": 0.25951315,
+          "n": 10,
+          "stdev": 0.01658688985511125
+        },
+        "requested_trials": 10,
+        "size": 0,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "kmeans"
+      },
+      {
+        "command_s": {
+          "max": 1.860029289,
+          "mean": 1.2545652693,
+          "min": 0.969741828,
+          "n": 10,
+          "stdev": 0.40827536584017365
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.049925486,
+          "mean": 0.042455299599999996,
+          "min": 0.039301255,
+          "n": 10,
+          "stdev": 0.0036827019018537094
+        },
+        "name": "streamed_atomic",
+        "paired_bootstrap_95_percent": [
+          -5.549575743637926,
+          11.70241279930829
+        ],
+        "paired_runtime_change_percent": 2.870693701878199,
+        "primary_s": {
+          "max": 0.334240721,
+          "mean": 0.2818132089,
+          "min": 0.257969189,
+          "n": 10,
+          "stdev": 0.028038913846122917
+        },
+        "requested_trials": 10,
+        "size": 0,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "kmeans"
+      },
+      {
+        "command_s": {
+          "max": 1.661880369,
+          "mean": 1.3008587163,
+          "min": 0.907336143,
+          "n": 10,
+          "stdev": 0.3367661577481559
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.041568823,
+          "mean": 0.0388818618,
+          "min": 0.035274844,
+          "n": 10,
+          "stdev": 0.0016579726981147656
+        },
+        "name": "tuned_static",
+        "paired_bootstrap_95_percent": [
+          -19.160482573594336,
+          -8.342273359316431
+        ],
+        "paired_runtime_change_percent": -13.545434467023815,
+        "primary_s": {
+          "max": 0.253130113,
+          "mean": 0.237175821,
+          "min": 0.214055337,
+          "n": 10,
+          "stdev": 0.011086269945462336
+        },
+        "requested_trials": 10,
+        "size": 0,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "kmeans"
+      },
+      {
+        "command_s": {
+          "max": 2.352640875,
+          "mean": 2.1335413287000002,
+          "min": 1.468155511,
+          "n": 10,
+          "stdev": 0.25400971009921475
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.119832222,
+          "mean": 0.1098762069,
+          "min": 0.100062323,
+          "n": 10,
+          "stdev": 0.005559648697792105
+        },
+        "name": "atomic_timing",
+        "paired_bootstrap_95_percent": [
+          -2.0492056146530624,
+          10.20303802953928
+        ],
+        "paired_runtime_change_percent": 4.556601139495734,
+        "primary_s": {
+          "max": 0.569574088,
+          "mean": 0.5333351979,
+          "min": 0.487796946,
+          "n": 10,
+          "stdev": 0.023797173269816976
+        },
+        "requested_trials": 10,
+        "size": 1,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "kmeans"
+      },
+      {
+        "command_s": {
+          "max": 3.090752306,
+          "mean": 2.3586278024,
+          "min": 1.636885788,
+          "n": 10,
+          "stdev": 0.4185273827462355
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.125548913,
+          "mean": 0.1145007889,
+          "min": 0.10242898,
+          "n": 10,
+          "stdev": 0.006840465746549453
+        },
+        "name": "atomic_verified",
+        "paired_bootstrap_95_percent": [
+          119.35273475219094,
+          146.33465741203497
+        ],
+        "paired_runtime_change_percent": 134.05230985372168,
+        "primary_s": {
+          "max": 1.258500841,
+          "mean": 1.1935284037,
+          "min": 1.101989296,
+          "n": 10,
+          "stdev": 0.042035315273581335
+        },
+        "requested_trials": 10,
+        "size": 1,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "kmeans"
+      },
+      {
+        "command_s": {
+          "max": 2.5748608,
+          "mean": 2.0723403845,
+          "min": 1.391104577,
+          "n": 10,
+          "stdev": 0.292008406288883
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.069180815,
+          "mean": 0.0641741058,
+          "min": 0.061170637,
+          "n": 10,
+          "stdev": 0.002868260742731959
+        },
+        "name": "batched_atomic",
+        "paired_bootstrap_95_percent": [
+          -9.961926873884822,
+          1.607833491318914
+        ],
+        "paired_runtime_change_percent": -3.6827537490242936,
+        "primary_s": {
+          "max": 0.533467819,
+          "mean": 0.491260387,
+          "min": 0.465460112,
+          "n": 10,
+          "stdev": 0.022080622922134537
+        },
+        "requested_trials": 10,
+        "size": 1,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "kmeans"
+      },
+      {
+        "command_s": {
+          "max": 2.288401613,
+          "mean": 2.0616909034999997,
+          "min": 1.384124235,
+          "n": 10,
+          "stdev": 0.2550391707275689
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.091923509,
+          "mean": 0.0794990189,
+          "min": 0.07108609,
+          "n": 10,
+          "stdev": 0.0058809489548177765
+        },
+        "name": "cost_aware",
+        "paired_bootstrap_95_percent": [
+          -9.422103986994243,
+          1.5846886578140276
+        ],
+        "paired_runtime_change_percent": -3.7004879519106035,
+        "primary_s": {
+          "max": 0.553240068,
+          "mean": 0.4919425961,
+          "min": 0.452164455,
+          "n": 10,
+          "stdev": 0.029045597441929923
+        },
+        "requested_trials": 10,
+        "size": 1,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "kmeans"
+      },
+      {
+        "command_s": {
+          "max": 2.321338094,
+          "mean": 2.1382105749,
+          "min": 1.46265531,
+          "n": 10,
+          "stdev": 0.25010169003620164
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.071570737,
+          "mean": 0.0630063888,
+          "min": 0.059391839,
+          "n": 10,
+          "stdev": 0.0035745924704815957
+        },
+        "name": "cpu_only",
+        "paired_bootstrap_95_percent": [
+          6.524021012028248,
+          19.883841413092206
+        ],
+        "paired_runtime_change_percent": 13.426092633354372,
+        "primary_s": {
+          "max": 0.627931234,
+          "mean": 0.5786856669,
+          "min": 0.539128944,
+          "n": 10,
+          "stdev": 0.023261377731663424
+        },
+        "requested_trials": 10,
+        "size": 1,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "kmeans"
+      },
+      {
+        "command_s": {
+          "max": 2.782307086,
+          "mean": 2.2207171549,
+          "min": 2.037213068,
+          "n": 10,
+          "stdev": 0.21260537135711913
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.11438357,
+          "mean": 0.10769627479999999,
+          "min": 0.102669199,
+          "n": 10,
+          "stdev": 0.0036538800966160415
+        },
+        "name": "feedback_every_step",
+        "paired_bootstrap_95_percent": [
+          -1.777525154591274,
+          9.690814282553037
+        ],
+        "paired_runtime_change_percent": 4.281211522979026,
+        "primary_s": {
+          "max": 0.560241401,
+          "mean": 0.5320440594,
+          "min": 0.510267964,
+          "n": 10,
+          "stdev": 0.01663761736071101
+        },
+        "requested_trials": 10,
+        "size": 1,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "kmeans"
+      },
+      {
+        "command_s": {
+          "max": 2.814958655,
+          "mean": 2.1428932353,
+          "min": 1.460396709,
+          "n": 10,
+          "stdev": 0.32734503774061724
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.107004466,
+          "mean": 0.0766020548,
+          "min": 0.06809352,
+          "n": 10,
+          "stdev": 0.012006182580712886
+        },
+        "name": "gpu_only",
+        "paired_bootstrap_95_percent": [
+          0.0,
+          0.0
+        ],
+        "paired_runtime_change_percent": 0.0,
+        "primary_s": {
+          "max": 0.651589976,
+          "mean": 0.5150596577,
+          "min": 0.464520513,
+          "n": 10,
+          "stdev": 0.05992531098561031
+        },
+        "requested_trials": 10,
+        "size": 1,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "kmeans"
+      },
+      {
+        "command_s": {
+          "max": 3.947361362,
+          "mean": 2.2042493208,
+          "min": 1.50602706,
+          "n": 10,
+          "stdev": 0.6612903559544905
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.124290303,
+          "mean": 0.1109933448,
+          "min": 0.100944721,
+          "n": 10,
+          "stdev": 0.008144460512684254
+        },
+        "name": "hierarchical_diagnostic",
+        "paired_bootstrap_95_percent": [
+          -1.355760557081418,
+          8.691014879091401
+        ],
+        "paired_runtime_change_percent": 4.080638641349061,
+        "primary_s": {
+          "max": 0.570264951,
+          "mean": 0.531736865,
+          "min": 0.500164205,
+          "n": 10,
+          "stdev": 0.021167842293249927
+        },
+        "requested_trials": 10,
+        "size": 1,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "kmeans"
+      },
+      {
+        "command_s": {
+          "max": 2.192076488,
+          "mean": 2.0252869539,
+          "min": 1.441174546,
+          "n": 10,
+          "stdev": 0.21167423899600699
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.068845127,
+          "mean": 0.0622482469,
+          "min": 0.057761845,
+          "n": 10,
+          "stdev": 0.002950577063672894
+        },
+        "name": "static50",
+        "paired_bootstrap_95_percent": [
+          -12.309477281897603,
+          -1.522774375865823
+        ],
+        "paired_runtime_change_percent": -6.4112727328753385,
+        "primary_s": {
+          "max": 0.520991125,
+          "mean": 0.4773726919,
+          "min": 0.449171321,
+          "n": 10,
+          "stdev": 0.01904550550895332
+        },
+        "requested_trials": 10,
+        "size": 1,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "kmeans"
+      },
+      {
+        "command_s": {
+          "max": 2.837915103,
+          "mean": 2.1402993802,
+          "min": 1.422459855,
+          "n": 10,
+          "stdev": 0.34113279624329784
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.071295093,
+          "mean": 0.06470043,
+          "min": 0.059178895,
+          "n": 10,
+          "stdev": 0.004622510462342804
+        },
+        "name": "streamed_atomic",
+        "paired_bootstrap_95_percent": [
+          -9.494289286319058,
+          1.1761174772846363
+        ],
+        "paired_runtime_change_percent": -3.815444050574983,
+        "primary_s": {
+          "max": 0.536016134,
+          "mean": 0.4911884349,
+          "min": 0.45296689,
+          "n": 10,
+          "stdev": 0.027606244316822112
+        },
+        "requested_trials": 10,
+        "size": 1,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "kmeans"
+      },
+      {
+        "command_s": {
+          "max": 2.35969469,
+          "mean": 1.9032376384,
+          "min": 1.407280538,
+          "n": 10,
+          "stdev": 0.3444225931487774
+        },
+        "failed_trials": 0,
+        "feedback_s": {
+          "max": 0.081866833,
+          "mean": 0.0652097592,
+          "min": 0.060154836,
+          "n": 10,
+          "stdev": 0.006223298663051984
+        },
+        "name": "tuned_static",
+        "paired_bootstrap_95_percent": [
+          -14.052273798069626,
+          -8.960294380882017
+        ],
+        "paired_runtime_change_percent": -11.521400726411091,
+        "primary_s": {
+          "max": 0.543819031,
+          "mean": 0.4541730969,
+          "min": 0.418846321,
+          "n": 10,
+          "stdev": 0.04006820203576566
+        },
+        "requested_trials": 10,
+        "size": 1,
+        "trials": 10,
+        "unpaired_trials": 0,
+        "workload": "kmeans"
+      }
+    ]
+  },
+  "full_project_complete": false,
+  "integration": {
+    "allocation_decisions": 326,
+    "concurrency": {
+      "hotspot": {
+        "measured_iterations": 256,
+        "overlapping_iterations": 140,
+        "status": "not_demonstrated"
+      },
+      "kmeans": {
+        "measured_iterations": 256,
+        "overlapping_iterations": 235,
+        "status": "not_demonstrated"
+      }
+    },
+    "hardware_trials": 13,
+    "live_hardware_gate": "blocked_phase8_prior_policy_and_measurement_qualification",
+    "ownership_changes": 102,
+    "software_gate": "incomplete_concurrency_evidence"
+  },
+  "limitations": [
+    "Automatic GPU clocks; fixed hardware capacity is not established.",
+    "No thermal isolation or exclusive host scheduling is established.",
+    "Generated inputs are not the original paper datasets.",
+    "Workload timing excludes final validation; full command timing includes it.",
+    "Tuning selects a static partition on separate inputs; no learned model is trained.",
+    "Positive, negative and inconclusive outcomes are retained."
+  ],
+  "qualification": {
+    "actuation_gate": "blocked",
+    "clock_mapping": {
+      "future_samples": 2,
+      "host_wall_monotonic_offset_span_us": 674923.75,
+      "live_qualified": false,
+      "maximum_age_us": 716240,
+      "minimum_age_us": -5827,
+      "offset_fitted": false,
+      "samples": 102,
+      "status": "rejected_future_driver_time"
+    },
+    "cpu_interfaces": {
+      "governors": {
+        "policies": [],
+        "status": "not_exposed",
+        "writes_attempted": false
+      },
+      "package_energy": {
+        "reason": "Only Linux powercap interfaces checked; absence is not a claim about Windows sensors",
+        "status": "not_exposed",
+        "zones": []
+      },
+      "whole_system_energy": {
+        "reason": "No external meter adapter configured",
+        "status": "not_configured"
+      }
+    },
+    "device_timing_qualification": "blocked",
+    "energy_qualification": "blocked",
+    "live_joint_ready": false,
+    "next_requirements": [
+      "authoritative restorable prior clock policy",
+      "qualified host/driver sample timing",
+      "independently qualified energy domain before savings claims"
+    ],
+    "prior_policy": {
+      "application_core": {
+        "acquisition_end_ns": 251827689833,
+        "acquisition_start_ns": 251827429047,
+        "error": "Not Supported",
+        "error_code": 3,
+        "status": "unavailable",
+        "value": null
+      },
+      "application_memory": {
+        "acquisition_end_ns": 251827712594,
+        "acquisition_start_ns": 251827692980,
+        "error": "Not Supported",
+        "error_code": 3,
+        "status": "unavailable",
+        "value": null
+      },
+      "application_permission": {
+        "acquisition_end_ns": 251827763223,
+        "acquisition_start_ns": 251827754044,
+        "error": "Not Supported",
+        "error_code": 3,
+        "status": "unavailable",
+        "value": null
+      },
+      "default_application_core": {
+        "acquisition_end_ns": 251827737811,
+        "acquisition_start_ns": 251827714660,
+        "error": "Not Supported",
+        "error_code": 3,
+        "status": "unavailable",
+        "value": null
+      },
+      "default_application_memory": {
+        "acquisition_end_ns": 251827752601,
+        "acquisition_start_ns": 251827748439,
+        "error": "Not Supported",
+        "error_code": 3,
+        "status": "unavailable",
+        "value": null
+      },
+      "device_uuid": "GPU-d61f5e2c-c351-778f-1199-ff836cc40632",
+      "observed_core": {
+        "acquisition_end_ns": 251826538463,
+        "acquisition_start_ns": 251823424559,
+        "status": "ok",
+        "value": 1605
+      },
+      "observed_memory": {
+        "acquisition_end_ns": 251827425690,
+        "acquisition_start_ns": 251826544806,
+        "status": "ok",
+        "value": 5500
+      },
+      "policy": null,
+      "policy_source": "unavailable",
+      "reason": "locked_clock_policy_getters_not_exposed",
+      "restorable": false
+    },
+    "settings_changed": false,
+    "wall_energy": "unavailable_no_external_meter"
+  },
+  "schema_version": "research-report-1.0",
+  "scope": "allocation-only hardware evaluation and frequency shadow/simulation",
+  "sources": {
+    "integration": {
+      "checksums_sha256": "70937d565d73baf68ed2e38707b39a43a869f05b6e9326e4b3152f40afc32e14",
+      "path": "/mnt/c/Users/saivi/Projects/ATLAS/results/completion/2026-11-10-release/integration",
+      "summary_sha256": "ca9c990f820ab0e8875fe0d43eaab0df57c6034746af1913a6676914606b32a9"
+    },
+    "performance": {
+      "checksums_sha256": "354a9453c82169316affc4e11732644f5487fd0bd3beed74c99d8ae132b22ff9",
+      "path": "/mnt/c/Users/saivi/Projects/ATLAS/results/completion/2026-11-10-release/performance",
+      "summary_sha256": "b80cc2c017ddaaac0e0a163f52f7069de403670e5a6f9c18747130c05eb9c6db"
+    },
+    "qualification": {
+      "checksums_sha256": "d683df27f751317f2f54851d52f98661fcf51849ec42e095327c4ca44d35c267",
+      "path": "/mnt/c/Users/saivi/Projects/ATLAS/results/completion/2026-11-10-release/qualification",
+      "summary_sha256": "a219fba79dec244b7473db6585e397c9b29a1f25158ce84c200e1149107c5146"
+    }
+  },
+  "statistical_scope": "Pointwise exploratory 95% paired bootstrap intervals; 2000 fixed-seed resamples; no multiple-comparison adjustment.",
+  "status": "capability_limited"
+}

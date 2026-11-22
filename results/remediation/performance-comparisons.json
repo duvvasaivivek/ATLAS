@@ -1,0 +1,422 @@
+{
+  "archive": "results/remediation/2026-11-02-performance-final",
+  "scope": "paired mean percentage; negative is faster; pointwise exploratory bootstrap, 2000 resamples",
+  "comparisons": [
+    {
+      "workload": "kmeans",
+      "size": 0,
+      "candidate": "static50",
+      "baseline": "legacy_static50",
+      "metric": "primary_s",
+      "pairs": 10,
+      "mean_percent": -57.456948215619796,
+      "bootstrap_95_percent": [
+        -58.30376069068041,
+        -56.56079252064476
+      ]
+    },
+    {
+      "workload": "kmeans",
+      "size": 0,
+      "candidate": "static50",
+      "baseline": "legacy_static50",
+      "metric": "command_s",
+      "pairs": 10,
+      "mean_percent": -13.045889598458725,
+      "bootstrap_95_percent": [
+        -25.224394883196993,
+        0.6555127378691541
+      ]
+    },
+    {
+      "workload": "kmeans",
+      "size": 0,
+      "candidate": "batched_atomic",
+      "baseline": "legacy_static50",
+      "metric": "primary_s",
+      "pairs": 10,
+      "mean_percent": -52.40188303206346,
+      "bootstrap_95_percent": [
+        -58.85669850349776,
+        -42.02412209257558
+      ]
+    },
+    {
+      "workload": "kmeans",
+      "size": 0,
+      "candidate": "batched_atomic",
+      "baseline": "legacy_static50",
+      "metric": "command_s",
+      "pairs": 10,
+      "mean_percent": 5.504941585856934,
+      "bootstrap_95_percent": [
+        -17.38932228918017,
+        25.013341423352173
+      ]
+    },
+    {
+      "workload": "kmeans",
+      "size": 0,
+      "candidate": "tuned_static",
+      "baseline": "gpu_only",
+      "metric": "primary_s",
+      "pairs": 10,
+      "mean_percent": -8.80916778992109,
+      "bootstrap_95_percent": [
+        -18.15559671259531,
+        -1.5185051052324314
+      ]
+    },
+    {
+      "workload": "kmeans",
+      "size": 0,
+      "candidate": "tuned_static",
+      "baseline": "gpu_only",
+      "metric": "command_s",
+      "pairs": 10,
+      "mean_percent": 0.3374391736860579,
+      "bootstrap_95_percent": [
+        -20.920164744421648,
+        21.638246806957504
+      ]
+    },
+    {
+      "workload": "kmeans",
+      "size": 0,
+      "candidate": "cost_aware",
+      "baseline": "gpu_only",
+      "metric": "primary_s",
+      "pairs": 10,
+      "mean_percent": 7.645225465911245,
+      "bootstrap_95_percent": [
+        -5.136953747782591,
+        17.915245046938715
+      ]
+    },
+    {
+      "workload": "kmeans",
+      "size": 0,
+      "candidate": "cost_aware",
+      "baseline": "gpu_only",
+      "metric": "command_s",
+      "pairs": 10,
+      "mean_percent": 13.410272324058738,
+      "bootstrap_95_percent": [
+        -13.111441313403596,
+        40.1725416474878
+      ]
+    },
+    {
+      "workload": "kmeans",
+      "size": 1,
+      "candidate": "static50",
+      "baseline": "legacy_static50",
+      "metric": "primary_s",
+      "pairs": 10,
+      "mean_percent": -55.4295616652194,
+      "bootstrap_95_percent": [
+        -59.18965804198229,
+        -50.459543368799146
+      ]
+    },
+    {
+      "workload": "kmeans",
+      "size": 1,
+      "candidate": "static50",
+      "baseline": "legacy_static50",
+      "metric": "command_s",
+      "pairs": 10,
+      "mean_percent": -12.102344513615588,
+      "bootstrap_95_percent": [
+        -24.23327875991844,
+        0.767584022395727
+      ]
+    },
+    {
+      "workload": "kmeans",
+      "size": 1,
+      "candidate": "batched_atomic",
+      "baseline": "legacy_static50",
+      "metric": "primary_s",
+      "pairs": 10,
+      "mean_percent": -56.29245975589393,
+      "bootstrap_95_percent": [
+        -59.12703668255037,
+        -52.22731762699411
+      ]
+    },
+    {
+      "workload": "kmeans",
+      "size": 1,
+      "candidate": "batched_atomic",
+      "baseline": "legacy_static50",
+      "metric": "command_s",
+      "pairs": 10,
+      "mean_percent": -10.465383170862214,
+      "bootstrap_95_percent": [
+        -21.064547979642818,
+        1.588822225713984
+      ]
+    },
+    {
+      "workload": "kmeans",
+      "size": 1,
+      "candidate": "tuned_static",
+      "baseline": "gpu_only",
+      "metric": "primary_s",
+      "pairs": 10,
+      "mean_percent": -19.53440443675232,
+      "bootstrap_95_percent": [
+        -24.222220329011076,
+        -15.231087994272253
+      ]
+    },
+    {
+      "workload": "kmeans",
+      "size": 1,
+      "candidate": "tuned_static",
+      "baseline": "gpu_only",
+      "metric": "command_s",
+      "pairs": 10,
+      "mean_percent": -7.654316490239713,
+      "bootstrap_95_percent": [
+        -16.34717076286731,
+        1.1566784943473414
+      ]
+    },
+    {
+      "workload": "kmeans",
+      "size": 1,
+      "candidate": "cost_aware",
+      "baseline": "gpu_only",
+      "metric": "primary_s",
+      "pairs": 10,
+      "mean_percent": -7.036731603844226,
+      "bootstrap_95_percent": [
+        -15.364213276077916,
+        0.5769557113756644
+      ]
+    },
+    {
+      "workload": "kmeans",
+      "size": 1,
+      "candidate": "cost_aware",
+      "baseline": "gpu_only",
+      "metric": "command_s",
+      "pairs": 10,
+      "mean_percent": -9.16655940825625,
+      "bootstrap_95_percent": [
+        -17.388477618393907,
+        -1.934088388049638
+      ]
+    },
+    {
+      "workload": "hotspot",
+      "size": 0,
+      "candidate": "static50",
+      "baseline": "legacy_static50",
+      "metric": "primary_s",
+      "pairs": 10,
+      "mean_percent": -40.333193979820784,
+      "bootstrap_95_percent": [
+        -48.61921230135004,
+        -30.313768739270373
+      ]
+    },
+    {
+      "workload": "hotspot",
+      "size": 0,
+      "candidate": "static50",
+      "baseline": "legacy_static50",
+      "metric": "command_s",
+      "pairs": 10,
+      "mean_percent": -5.466176811688396,
+      "bootstrap_95_percent": [
+        -26.950939736422374,
+        19.99754934132638
+      ]
+    },
+    {
+      "workload": "hotspot",
+      "size": 0,
+      "candidate": "tuned_static",
+      "baseline": "gpu_only",
+      "metric": "primary_s",
+      "pairs": 10,
+      "mean_percent": 2.906731131060638,
+      "bootstrap_95_percent": [
+        -17.556784143130866,
+        25.20970612257933
+      ]
+    },
+    {
+      "workload": "hotspot",
+      "size": 0,
+      "candidate": "tuned_static",
+      "baseline": "gpu_only",
+      "metric": "command_s",
+      "pairs": 10,
+      "mean_percent": -2.4577656583464997,
+      "bootstrap_95_percent": [
+        -23.831805597122766,
+        17.32712317754555
+      ]
+    },
+    {
+      "workload": "hotspot",
+      "size": 0,
+      "candidate": "cost_aware",
+      "baseline": "gpu_only",
+      "metric": "primary_s",
+      "pairs": 10,
+      "mean_percent": 188.57057676154577,
+      "bootstrap_95_percent": [
+        128.12697279972042,
+        282.7768628966624
+      ]
+    },
+    {
+      "workload": "hotspot",
+      "size": 0,
+      "candidate": "cost_aware",
+      "baseline": "gpu_only",
+      "metric": "command_s",
+      "pairs": 10,
+      "mean_percent": 39.68100437573509,
+      "bootstrap_95_percent": [
+        -11.96792698463857,
+        99.46677691780882
+      ]
+    },
+    {
+      "workload": "hotspot",
+      "size": 0,
+      "candidate": "overlap50",
+      "baseline": "static50",
+      "metric": "primary_s",
+      "pairs": 10,
+      "mean_percent": -18.84289268228634,
+      "bootstrap_95_percent": [
+        -35.75238584588832,
+        1.1271435277345367
+      ]
+    },
+    {
+      "workload": "hotspot",
+      "size": 0,
+      "candidate": "overlap50",
+      "baseline": "static50",
+      "metric": "command_s",
+      "pairs": 10,
+      "mean_percent": 17.407536638794145,
+      "bootstrap_95_percent": [
+        -14.081289560949887,
+        52.76868059234662
+      ]
+    },
+    {
+      "workload": "hotspot",
+      "size": 1,
+      "candidate": "static50",
+      "baseline": "legacy_static50",
+      "metric": "primary_s",
+      "pairs": 10,
+      "mean_percent": -29.992512154636483,
+      "bootstrap_95_percent": [
+        -42.25957926838813,
+        -16.98479394222071
+      ]
+    },
+    {
+      "workload": "hotspot",
+      "size": 1,
+      "candidate": "static50",
+      "baseline": "legacy_static50",
+      "metric": "command_s",
+      "pairs": 10,
+      "mean_percent": -25.826079243904452,
+      "bootstrap_95_percent": [
+        -39.9805362671779,
+        -10.910687369470361
+      ]
+    },
+    {
+      "workload": "hotspot",
+      "size": 1,
+      "candidate": "tuned_static",
+      "baseline": "gpu_only",
+      "metric": "primary_s",
+      "pairs": 10,
+      "mean_percent": -4.643196751674429,
+      "bootstrap_95_percent": [
+        -16.742948890131114,
+        10.56377338186216
+      ]
+    },
+    {
+      "workload": "hotspot",
+      "size": 1,
+      "candidate": "tuned_static",
+      "baseline": "gpu_only",
+      "metric": "command_s",
+      "pairs": 10,
+      "mean_percent": -1.6088112016068732,
+      "bootstrap_95_percent": [
+        -20.289643826699805,
+        21.108602601823
+      ]
+    },
+    {
+      "workload": "hotspot",
+      "size": 1,
+      "candidate": "cost_aware",
+      "baseline": "gpu_only",
+      "metric": "primary_s",
+      "pairs": 10,
+      "mean_percent": 148.95331828753132,
+      "bootstrap_95_percent": [
+        98.74786995437758,
+        208.6799109943954
+      ]
+    },
+    {
+      "workload": "hotspot",
+      "size": 1,
+      "candidate": "cost_aware",
+      "baseline": "gpu_only",
+      "metric": "command_s",
+      "pairs": 10,
+      "mean_percent": 0.752726076025922,
+      "bootstrap_95_percent": [
+        -22.635765921504717,
+        26.137123677342526
+      ]
+    },
+    {
+      "workload": "hotspot",
+      "size": 1,
+      "candidate": "overlap50",
+      "baseline": "static50",
+      "metric": "primary_s",
+      "pairs": 10,
+      "mean_percent": -6.613562675226151,
+      "bootstrap_95_percent": [
+        -23.714691499260038,
+        12.63483941840072
+      ]
+    },
+    {
+      "workload": "hotspot",
+      "size": 1,
+      "candidate": "overlap50",
+      "baseline": "static50",
+      "metric": "command_s",
+      "pairs": 10,
+      "mean_percent": 4.591307331953248,
+      "bootstrap_95_percent": [
+        -24.32591292020195,
+        37.99779131926134
+      ]
+    }
+  ]
+}

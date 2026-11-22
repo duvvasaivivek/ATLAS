@@ -19,6 +19,7 @@ from .capabilities import collect
 from .experiment import distribution, save_new
 from .kmeans import assess, replay as replay_kmeans
 from .kmeans_reference import fixtures, clustered, write_dataset, trajectory, close
+from .supervision import Supervisor
 
 
 def observation(row, run_id):
@@ -39,18 +40,12 @@ def feedback(binary, dataset, case, timeout=120):
     lines, decisions = [], []
     started = time.monotonic_ns()
     with tempfile.TemporaryFile(mode='w+t') as errors:
-        process = subprocess.Popen(argv,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=errors,
-                                   text=True,encoding='utf-8',bufsize=1)
-        expired = threading.Event()
-        def expire():
-            expired.set()
-            if process.poll() is None:
-                process.kill()
-        timer = threading.Timer(timeout,expire)
-        timer.daemon = True;timer.start()
+        supervisor = Supervisor(argv, errors, timeout)
+        process = supervisor.process
+        expired = supervisor.expired
         failure = None
         try:
-            for line in process.stdout:
+            for line in supervisor.lines():
                 lines.append(line)
                 row = json.loads(line)
                 if row.get('kind') != 'iteration' or row['warmup']:
@@ -69,11 +64,7 @@ def feedback(binary, dataset, case, timeout=120):
         except (ValueError,OSError,subprocess.TimeoutExpired) as error:
             failure = str(error)
         finally:
-            timer.cancel()
-            if process.poll() is None:
-                process.kill()
-            process.wait()
-            process.stdin.close();process.stdout.close()
+            supervisor.close()
         errors.seek(0);stderr=errors.read()
     return dict(argv=argv,returncode=process.returncode,
                 status='ok' if process.returncode==0 and not failure and not expired.is_set() else 'failed',

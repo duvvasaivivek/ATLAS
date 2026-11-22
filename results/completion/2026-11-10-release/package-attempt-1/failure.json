@@ -1,0 +1,70 @@
+{
+  "error": "installed-tests failed; inspect /mnt/c/Users/saivi/Projects/ATLAS/build/package-release/installed-tests.txt",
+  "commands": [
+    {
+      "name": "dependencies",
+      "argv": [
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/package-release/environment/bin/python",
+        "-m",
+        "pip",
+        "install",
+        "setuptools==80.9.0",
+        "nvidia-ml-py==13.615.71"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "build-distributions",
+      "argv": [
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/package-release/environment/bin/python",
+        "-c",
+        "from setuptools.build_meta import build_sdist, build_wheel; build_sdist('/mnt/c/Users/saivi/Projects/ATLAS/build/package-release/distributions'); build_wheel('/mnt/c/Users/saivi/Projects/ATLAS/build/package-release/distributions')"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "install-wheel",
+      "argv": [
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/package-release/environment/bin/python",
+        "-m",
+        "pip",
+        "install",
+        "--no-deps",
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/package-release/distributions/atlas_greengpu-0.1.0-py3-none-any.whl"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "installed-import",
+      "argv": [
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/package-release/environment/bin/python",
+        "-c",
+        "import greengpu; from pathlib import Path; assert Path(greengpu.__file__).resolve().is_relative_to(Path('/mnt/c/Users/saivi/Projects/ATLAS/build/package-release/environment')); print(greengpu.__file__)"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "installed-cli",
+      "argv": [
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/package-release/environment/bin/python",
+        "-m",
+        "greengpu",
+        "--help"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "installed-tests",
+      "argv": [
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/package-release/environment/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "returncode": 1
+    }
+  ]
+}

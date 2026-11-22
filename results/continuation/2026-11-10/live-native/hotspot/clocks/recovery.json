@@ -1,0 +1,26 @@
+{
+  "device_uuid": "software-test-device",
+  "prior_policy": {
+    "core": null,
+    "memory": [
+      1500,
+      1500
+    ]
+  },
+  "recovery_argv": [
+    [
+      "nvidia-smi",
+      "-i",
+      "software-test-device",
+      "-lmc",
+      "1500,1500"
+    ],
+    [
+      "nvidia-smi",
+      "-i",
+      "software-test-device",
+      "-rgc"
+    ]
+  ],
+  "instructions": "Restore both recorded domains on this UUID, then verify policy readback. Never infer policy from observed clocks."
+}

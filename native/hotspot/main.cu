@@ -75,9 +75,21 @@ static void output(const char* path,unsigned rows,unsigned cols,const std::vecto
 }
 
 int main(int argc,char** argv){try{
-    if(argc!=7&&argc!=8)throw std::runtime_error("Usage: atlas_hotspot INPUT CPU_ROWS_COMMA STEPS WORKERS verify|timing OUTPUT [feedback]");
-    const bool feedback=argc==8;if(feedback&&std::string(argv[7])!="feedback")throw std::runtime_error("Unknown feedback option");
-    const unsigned steps=number(argv[3],1,2000),workers=number(argv[4],1,8);
+    if(argc<7)throw std::runtime_error("Usage: atlas_hotspot INPUT CPU_ROWS_COMMA STEPS WORKERS verify|timing OUTPUT [feedback] [batch=N] [phase=ITER:WORKERS]");
+    bool feedback=false,overlap=false,gpu_first=false,armed=false;unsigned batch=1,phase_at=100001,phase_workers=1;
+    for(int i=7;i<argc;++i){const std::string option=argv[i];
+        if(option=="feedback")feedback=true;
+        else if(option=="overlap")overlap=true;
+        else if(option=="gpu-first")gpu_first=true;
+        else if(option=="armed")armed=true;
+        else if(option.rfind("batch=",0)==0)batch=number(option.substr(6),1,1000);
+        else if(option.rfind("phase=",0)==0){auto colon=option.find(':');if(colon==std::string::npos)throw std::runtime_error("phase=ITER:WORKERS required");
+            phase_at=number(option.substr(6,colon-6),1,100000);phase_workers=number(option.substr(colon+1),1,8);}
+        else throw std::runtime_error("Unknown feedback option");}
+    const unsigned steps=number(argv[3],1,100000),initial_workers=number(argv[4],1,8);
+    if(gpu_first&&overlap)throw std::runtime_error("gpu-first and halo-overlap are separate dispatch experiments");
+    unsigned workers=initial_workers;
+    if(phase_workers>workers||(!feedback&&batch!=1))throw std::runtime_error("Invalid phase workers or batch without feedback");
     const std::string mode=argv[5];if(mode!="verify"&&mode!="timing")throw std::runtime_error("Unknown validation mode");
     std::ifstream input(argv[1],std::ios::binary);char magic[8];uint32_t rows=0,cols=0;
     input.read(magic,8);input.read(reinterpret_cast<char*>(&rows),4);input.read(reinterpret_cast<char*>(&cols),4);
@@ -86,6 +98,8 @@ int main(int argc,char** argv){try{
     while(std::getline(parts,part,','))schedule.push_back(number(part,0,rows));
     if((schedule.size()!=1&&schedule.size()!=steps)||(feedback&&schedule.size()!=1))throw std::runtime_error("Invalid partition schedule");
     int gpu_count=0;check(cudaGetDeviceCount(&gpu_count));if(gpu_count!=1)throw std::runtime_error("Exactly one GPU required");
+    char pci[32];check(cudaDeviceGetPCIBusId(pci,sizeof(pci),0));
+    if(armed&&!feedback)throw std::runtime_error("Armed execution requires barrier feedback");
     const size_t n=size_t(rows)*cols,bytes=n*8,row_bytes=cols*8;
     Storage storage;storage.allocate(bytes);std::vector<double> initial(n),snapshot(n);
     input.read(reinterpret_cast<char*>(initial.data()),bytes);input.read(reinterpret_cast<char*>(storage.power),bytes);
@@ -100,19 +114,24 @@ int main(int argc,char** argv){try{
         check(cudaMemsetAsync(device,0xff,bytes,storage.stream));check(cudaMemsetAsync(next_device,0xff,bytes,storage.stream));check(cudaStreamSynchronize(storage.stream));
         reference.assign(initial.begin(),initial.end());};
     reset();unsigned cut=schedule[0],old_cut=rows,power_begin=rows;
-    int64_t cpu_begin=0,cpu_end=0;
-    Worker worker([&]{hs::cpu_step(host,next_host,storage.power,rows,cols,cut,workers,m,cpu_begin,cpu_end);});
+    int64_t cpu_begin=0,cpu_end=0;unsigned interior_cut=cut;
+    Worker worker([&]{hs::cpu_step(host,next_host,storage.power,rows,cols,interior_cut,workers,m,cpu_begin,cpu_end);});
     int64_t active=0,control_total=0,control_begin=0,first_release=0,last_end=0;
     uint64_t validation_bytes=0;double final_error=0;
     std::cout<<std::setprecision(17);
-    std::cout<<"{\"kind\":\"configuration\",\"schema_version\":\"6.0\",\"clock\":\"CLOCK_MONOTONIC\",\"rows\":"<<rows<<",\"cols\":"<<cols
+    std::cout<<"{\"kind\":\"configuration\",\"schema_version\":\"6.2\",\"communication_mode\":\""<<(overlap?"overlap":"serial")<<"\",\"feedback_batch\":"<<batch<<",\"clock\":\"CLOCK_MONOTONIC\",\"rows\":"<<rows<<",\"cols\":"<<cols
+        <<",\"pci_bus_id\":\""<<pci<<"\",\"armed\":"<<(armed?"true":"false")
+        <<",\"dispatch_order\":\""<<(gpu_first?"gpu_first":"cpu_first")<<"\""
         <<",\"steps\":"<<steps<<",\"workers\":"<<workers<<",\"mode\":\""<<mode<<"\",\"feedback\":"<<(feedback?"true":"false")
         <<",\"atol\":1e-8,\"rtol\":1e-10,\"cap\":"<<m.cap<<",\"rx\":"<<m.rx<<",\"ry\":"<<m.ry<<",\"rz\":"<<m.rz<<",\"dt\":"<<m.dt
         <<",\"nominal_dt\":"<<m.nominal<<",\"stability_sum\":"<<m.stability<<"}"<<std::endl;
+    if(armed){std::string ready;if(!std::getline(std::cin,ready)||ready!="start")throw std::runtime_error("Missing armed start acknowledgement");}
     for(int iteration=-1;iteration<int(steps);++iteration){
         bool warmup=iteration<0;int64_t control=0;
-        if(feedback&&iteration>0){std::string request;if(!std::getline(std::cin,request))throw std::runtime_error("Feedback input closed");
-            cut=number(request,0,rows);control=hs::now()-control_begin;control_total+=control;
+        workers=!warmup&&unsigned(iteration)>=phase_at?phase_workers:initial_workers;
+        if(feedback&&iteration>0){
+            if(unsigned(iteration)%batch==0){std::string request;if(!std::getline(std::cin,request))throw std::runtime_error("Feedback input closed");cut=number(request,0,rows);}
+            control=hs::now()-control_begin;control_total+=control;
         }else cut=schedule[schedule.size()==1||warmup?0:iteration];
         const bool initial_step=warmup||iteration==0;
         uint64_t init_h2d=initial_step?(rows-cut)*row_bytes:0;
@@ -126,19 +145,29 @@ int main(int argc,char** argv){try{
         if(power_bytes)check(cudaMemcpyAsync(storage.dp+size_t(cut)*cols,storage.power+size_t(cut)*cols,power_bytes,cudaMemcpyHostToDevice,storage.stream));
         // Migration must finish before a newly acquired host boundary is used for H2D.
         if(init_h2d||migrate_h2d||migrate_d2h||power_bytes)check(cudaStreamSynchronize(storage.stream));
+        const bool split_boundary=overlap&&halo;
+        interior_cut=split_boundary?cut-1:cut;
+        const int64_t migration_end=hs::now();
+        if(split_boundary&&interior_cut)worker.release();
         if(halo){
             check(cudaMemcpyAsync(device+size_t(cut-1)*cols,host+size_t(cut-1)*cols,halo,cudaMemcpyHostToDevice,storage.stream));
             check(cudaMemcpyAsync(host+size_t(cut)*cols,device+size_t(cut)*cols,halo,cudaMemcpyDeviceToHost,storage.stream));
             check(cudaStreamSynchronize(storage.stream));
         }
         const int64_t communication_end=hs::now();
-        if(cut)worker.release();
+        if(!split_boundary&&interior_cut&&!gpu_first)worker.release();
+        const int64_t compute_release=split_boundary?migration_end:communication_end;
         int64_t gpu_end=0;
         if(cut<rows){
             hotspot_step<<<((rows-cut)*cols+255)/256,256,0,storage.stream>>>(device,next_device,storage.dp,rows,cols,cut,m.dt/m.cap,1/m.rx,1/m.ry,1/m.rz);
-            check(cudaGetLastError());check(cudaStreamSynchronize(storage.stream));gpu_end=hs::now();
+            check(cudaGetLastError());
         }
-        if(cut)worker.wait();
+        if(gpu_first&&interior_cut)worker.release();
+        int64_t boundary_begin=0,boundary_end=0;
+        if(split_boundary)hs::cpu_step(host,next_host,storage.power,rows,cols,cut,1,m,boundary_begin,boundary_end,cut-1);
+        if(cut<rows){check(cudaStreamSynchronize(storage.stream));gpu_end=hs::now();}
+        if(interior_cut)worker.wait();
+        if(split_boundary){cpu_begin=interior_cut?std::min(cpu_begin,boundary_begin):boundary_begin;cpu_end=std::max(interior_cut?cpu_end:boundary_end,boundary_end);}
         std::swap(host,next_host);std::swap(device,next_device);
         const int64_t end=hs::now();nvtxRangePop();
         unsigned errors=0;double max_error=0;uint64_t checked_bytes=0;
@@ -151,17 +180,19 @@ int main(int argc,char** argv){try{
         }
         const int64_t validation_end=hs::now();
         if(feedback&&!warmup)control_begin=validation_end;
-        std::cout<<"{\"kind\":\"iteration\",\"index\":"<<iteration<<",\"warmup\":"<<(warmup?"true":"false")<<",\"cpu_rows\":"<<cut
+        const bool final=!warmup&&iteration+1==int(steps),due=!warmup&&!final&&(unsigned(iteration+1)%batch==0);
+        std::cout<<"{\"kind\":\"iteration\",\"index\":"<<iteration<<",\"phase\":"<<(!warmup&&unsigned(iteration)>=phase_at?1:0)
+            <<",\"workers_used\":"<<workers<<",\"feedback_due\":"<<(due?"true":"false")<<",\"warmup\":"<<(warmup?"true":"false")<<",\"cpu_rows\":"<<cut
             <<",\"old_cpu_rows\":"<<old_cut<<",\"input_epoch\":"<<(warmup?0:iteration)<<",\"output_epoch\":"<<(warmup?1:iteration+1)
             <<",\"status\":\""<<(errors?"failed":"completed")<<"\",\"validation\":\""<<(mode=="verify"||warmup?"checked":"deferred")
             <<"\",\"errors\":"<<errors<<",\"max_error\":"<<max_error<<",\"initial_h2d_bytes\":"<<init_h2d<<",\"migration_h2d_bytes\":"<<migrate_h2d
             <<",\"migration_d2h_bytes\":"<<migrate_d2h<<",\"halo_h2d_bytes\":"<<halo<<",\"halo_d2h_bytes\":"<<halo<<",\"power_h2d_bytes\":"<<power_bytes
             <<",\"validation_d2h_bytes\":"<<checked_bytes<<",\"power_begin_after\":"<<std::min(power_begin,cut)<<",\"control_ns\":"<<control
-            <<",\"release_ns\":"<<release<<",\"communication_end_ns\":"<<communication_end<<",\"cpu_start_ns\":"<<(cut?std::to_string(cpu_begin):"null")
+            <<",\"release_ns\":"<<release<<",\"compute_release_ns\":"<<compute_release<<",\"communication_end_ns\":"<<communication_end<<",\"cpu_start_ns\":"<<(cut?std::to_string(cpu_begin):"null")
             <<",\"cpu_end_ns\":"<<(cut?std::to_string(cpu_end):"null")<<",\"gpu_end_ns\":"<<(cut<rows?std::to_string(gpu_end):"null")
             <<",\"end_ns\":"<<end<<",\"validation_end_ns\":"<<validation_end;
         if((mode=="verify"||warmup)&&n<=1024){std::cout<<",\"temperatures\":";array_json(snapshot);}
-        std::cout<<"}"<<std::endl;
+        std::cout<<"}\n";if(warmup||due||final)std::cout.flush();
         if(errors)return 1;
         if(warmup){reset();old_cut=rows;power_begin=rows;}
         else{active+=end-release;last_end=end;old_cut=cut;power_begin=std::min(power_begin,cut);final_error=max_error;}
@@ -172,11 +203,12 @@ int main(int argc,char** argv){try{
         if(cut<rows){gather_bytes=(rows-cut)*row_bytes;check(cudaMemcpy(snapshot.data()+size_t(cut)*cols,device+size_t(cut)*cols,gather_bytes,cudaMemcpyDeviceToHost));}
     }
     const int64_t gather_end=hs::now();
-    if(mode=="timing")for(unsigned i=0;i<steps;++i)hs::reference_step(reference,reference_next,storage.power,rows,cols,m);
+    if(mode=="timing")for(unsigned i=0;i<steps;++i)hs::reference_step(reference,reference_next,storage.power,rows,cols,m,n>=1024?initial_workers:1);
     unsigned errors=validate(snapshot,reference,final_error);
     if(errors)throw std::runtime_error("Final independent reference validation failed");
     output(argv[6],rows,cols,snapshot);
     std::cout<<"{\"kind\":\"summary\",\"status\":\"passed\",\"steps\":"<<steps<<",\"errors\":0,\"max_error\":"<<final_error
+        <<",\"final_reference_workers_requested\":"<<(mode=="timing"&&n>=1024?initial_workers:1)
         <<",\"active_ns\":"<<active<<",\"control_ns\":"<<control_total<<",\"gather_ns\":"<<gather_end-gather_begin<<",\"gather_d2h_bytes\":"<<gather_bytes
         <<",\"validation_d2h_bytes\":"<<validation_bytes<<",\"work_and_control_and_gather_ns\":"<<active+control_total+gather_end-gather_begin
         <<",\"loop_elapsed_ns\":"<<last_end-first_release<<",\"simulated_seconds\":"<<steps*m.dt<<"}"<<std::endl;

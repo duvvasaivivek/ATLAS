@@ -5,6 +5,7 @@ import queue
 import subprocess
 import threading
 import time
+from .supervision import Supervisor, terminate_group
 
 
 class Probe:
@@ -13,20 +14,14 @@ class Probe:
         self.process=None
         self.queue=queue.Queue()
         try:
-            self.process=subprocess.Popen([str(binary),mode,str(elements),str(rounds),"1729"],
-                                          stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=self.stderr,text=True,bufsize=1)
-            def read():
-                try:
-                    for line in self.process.stdout: self.queue.put(line)
-                finally: self.queue.put(None)
-            self.reader=threading.Thread(target=read,daemon=True);self.reader.start()
+            self.supervisor=Supervisor([str(binary),mode,str(elements),str(rounds),"1729"],self.stderr,3600)
+            self.process=self.supervisor.process
             self.ready=self.receive("ready")
         except BaseException:
             self.close();raise
 
     def receive(self,kind,timeout=40):
-        try: line=self.queue.get(timeout=timeout)
-        except queue.Empty: raise TimeoutError("Diagnostic worker timeout") from None
+        line=self.supervisor.receive(timeout)
         if line is None: raise RuntimeError("Diagnostic worker terminated unexpectedly")
         result=json.loads(line)
         if result.get("kind")!=kind: raise ValueError("Unexpected native protocol record")
@@ -37,12 +32,7 @@ class Probe:
 
     def close(self):
         if self.process is not None:
-            if self.process.poll() is None:
-                self.process.terminate()
-                try:self.process.wait(timeout=5)
-                except subprocess.TimeoutExpired:self.process.kill();self.process.wait(timeout=5)
-            if hasattr(self,"reader"): self.reader.join(timeout=2)
-            self.process.stdin.close();self.process.stdout.close()
+            self.supervisor.close()
         self.stderr.close()
 
     def finish(self):
@@ -83,17 +73,20 @@ class LoadedSampler:
 
 
 def run_batch(probe,repetitions,sampler,period=.1):
+    from .sampling import IsolatedSampler
+    isolated=IsolatedSampler()
     records=[];errors=[];stop=threading.Event()
     def sample():
         try:
             while not stop.is_set():
                 before=time.monotonic()
-                frame=sampler.sample();records.append(frame)
+                frame=isolated.sample();records.append(frame)
                 temp=frame["readings"]["temperature_c"]
                 if temp["status"]=="ok" and temp["value"]>=85:
-                    errors.append("temperature_limit_85C");probe.process.terminate();return
+                    errors.append("temperature_limit_85C");terminate_group(probe.process);return
                 stop.wait(max(0,period-(time.monotonic()-before)))
-        except Exception as error:errors.append(f"{type(error).__name__}: {error}")
+        except Exception as error:
+            errors.append(f"{type(error).__name__}: {error}");terminate_group(probe.process)
     host_start=time.monotonic_ns()
     thread=threading.Thread(target=sample,daemon=True);thread.start()
     try:
@@ -102,11 +95,11 @@ def run_batch(probe,repetitions,sampler,period=.1):
         host_end=time.monotonic_ns()
     except BaseException as error:
         stop.set()
-        thread.join(timeout=30)
+        thread.join(timeout=4)
         error.evidence=dict(host_start_ns=host_start,frames=list(records),errors=list(errors),complete=False)
         raise
     finally:
-        stop.set();thread.join(timeout=30)
+        stop.set();thread.join(timeout=4);isolated.close()
         if thread.is_alive():
             sampler.backend.worker_stuck=True
             raise RuntimeError("NVML sampling thread did not stop")

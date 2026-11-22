@@ -20,12 +20,13 @@ struct Cpu {
     void assign(const double* points,const double* centers,uint32_t* labels,unsigned count);
 };
 struct Reference {
-    std::vector<double> centers,sums;
+    std::vector<double> centers,sums,distances;
     std::vector<uint32_t> counts,labels;
     double objective=0;
     Reference(unsigned n,unsigned k,unsigned d,const std::vector<double>& initial)
-      :centers(initial),sums(k*d),counts(k),labels(n) {}
+      :centers(initial),sums(k*d),distances(n),counts(k),labels(n) {}
     void step(const double* points,unsigned n,unsigned k,unsigned d);
+    void step_parallel(const double* points,unsigned n,unsigned k,unsigned d,unsigned workers);
 };
 bool close(double a,double b);
 }

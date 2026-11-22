@@ -1,0 +1,162 @@
+Start testing: Nov 02 08:58 UTC
+----------------------------------------------------------
+1/9 Testing: cpu_cuda_correctness
+1/9 Test: cpu_cuda_correctness
+Command: "/mnt/c/Users/saivi/Downloads/ATLAS/build/remediation/atlas_smoke"
+Directory: /mnt/c/Users/saivi/Downloads/ATLAS/build/remediation
+"cpu_cuda_correctness" start time: Nov 02 08:58 UTC
+Output:
+----------------------------------------------------------
+{"status":"passed","device_name":"NVIDIA GeForce RTX 4050 Laptop GPU","compute_capability":"8.9","cuda_driver_api_version":13010,"cuda_runtime_version":13010,"device_memory_bytes":6438780928,"openmp_workers":12,"sizes":[1,255,256,257,4099,1048579],"elements_verified_per_backend":1053447,"max_absolute_error":0,"comparison":"exact_against_integer_oracle","cpu_gpu_concurrency_tested":false,"energy_measured":false}
+<end of output>
+Test time =   0.60 sec
+----------------------------------------------------------
+Test Passed.
+"cpu_cuda_correctness" end time: Nov 02 08:58 UTC
+"cpu_cuda_correctness" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/9 Testing: static_split_partial_block
+2/9 Test: static_split_partial_block
+Command: "/mnt/c/Users/saivi/Downloads/ATLAS/build/remediation/atlas_static" "4099" "2049" "64" "3" "4" "1729"
+Directory: /mnt/c/Users/saivi/Downloads/ATLAS/build/remediation
+"static_split_partial_block" start time: Nov 02 08:58 UTC
+Output:
+----------------------------------------------------------
+{"kind":"configuration","schema_version":"3.0","clock":"CLOCK_MONOTONIC","elements":4099,"cpu_items":2049,"gpu_items":2050,"rounds":64,"iterations":3,"workers_requested":4,"seed":1729,"preparation_start_ns":248645954757,"reference_sum":8806928398904,"oracle":"masked_uint64_xorshift","tolerance":0,"buffer_capacity_items":4099,"allocation_policy":"allocate_once_reuse"}
+{"kind":"iteration","iteration":0,"warmup":true,"status":"passed","reset_start_ns":249044694754,"reset_end_ns":249045853840,"release_ns":249045861096,"cpu_start_ns":249046019553,"cpu_end_ns":249046315687,"gpu_dispatch_ns":249045880210,"h2d_end_ns":249048695600,"compute_end_ns":249054572451,"gpu_end_ns":249054888490,"barrier_end_ns":249054890510,"merge_end_ns":249054893342,"validation_end_ns":249054896145,"cpu_sum":4400463348437,"gpu_sum":4406465050467,"combined_sum":8806928398904,"mismatches":0,"coverage_errors":0,"elements_verified":4099,"workers_used":4,"worker_spans":[{"worker":0,"start_ns":249046256838,"end_ns":249046305788,"items":512},{"worker":1,"start_ns":249046256546,"end_ns":249046315161,"items":512},{"worker":2,"start_ns":249046256446,"end_ns":249046314877,"items":512},{"worker":3,"start_ns":249046256457,"end_ns":249046309015,"items":513}]}
+{"kind":"iteration","iteration":1,"warmup":false,"status":"passed","reset_start_ns":249055277506,"reset_end_ns":249055782978,"release_ns":249055783191,"cpu_start_ns":249055849634,"cpu_end_ns":249055930392,"gpu_dispatch_ns":249055943079,"h2d_end_ns":249056028469,"compute_end_ns":249056121193,"gpu_end_ns":249056350941,"barrier_end_ns":249056351825,"merge_end_ns":249056353614,"validation_end_ns":249056355657,"cpu_sum":4400463348437,"gpu_sum":4406465050467,"combined_sum":8806928398904,"mismatches":0,"coverage_errors":0,"elements_verified":4099,"workers_used":4,"worker_spans":[{"worker":0,"start_ns":249055853818,"end_ns":249055914177,"items":512},{"worker":1,"start_ns":249055854242,"end_ns":249055925760,"items":512},{"worker":2,"start_ns":249055854258,"end_ns":249055919512,"items":512},{"worker":3,"start_ns":249055856257,"end_ns":249055929831,"items":513}]}
+{"kind":"iteration","iteration":2,"warmup":false,"status":"passed","reset_start_ns":249056386980,"reset_end_ns":249056458698,"release_ns":249056458750,"cpu_start_ns":249056498418,"cpu_end_ns":249056573988,"gpu_dispatch_ns":249056583207,"h2d_end_ns":249056643160,"compute_end_ns":249056700134,"gpu_end_ns":249057497598,"barrier_end_ns":249057498246,"merge_end_ns":249057499987,"validation_end_ns":249057502063,"cpu_sum":4400463348437,"gpu_sum":4406465050467,"combined_sum":8806928398904,"mismatches":0,"coverage_errors":0,"elements_verified":4099,"workers_used":4,"worker_spans":[{"worker":0,"start_ns":249056500190,"end_ns":249056549369,"items":512},{"worker":1,"start_ns":249056500210,"end_ns":249056571213,"items":512},{"worker":2,"start_ns":249056501393,"end_ns":249056561543,"items":512},{"worker":3,"start_ns":249056500241,"end_ns":249056573601,"items":513}]}
+{"kind":"iteration","iteration":3,"warmup":false,"status":"passed","reset_start_ns":249057512529,"reset_end_ns":249057611034,"release_ns":249057611122,"cpu_start_ns":249057716450,"cpu_end_ns":249058057553,"gpu_dispatch_ns":249057703366,"h2d_end_ns":249057769914,"compute_end_ns":249057821715,"gpu_end_ns":249057878323,"barrier_end_ns":249058089893,"merge_end_ns":249058091370,"validation_end_ns":249058093245,"cpu_sum":4400463348437,"gpu_sum":4406465050467,"combined_sum":8806928398904,"mismatches":0,"coverage_errors":0,"elements_verified":4099,"workers_used":4,"worker_spans":[{"worker":0,"start_ns":249057974973,"end_ns":249058023903,"items":512},{"worker":1,"start_ns":249057976332,"end_ns":249058041205,"items":512},{"worker":2,"start_ns":249057975492,"end_ns":249058057008,"items":512},{"worker":3,"start_ns":249057974985,"end_ns":249058048355,"items":513}]}
+<end of output>
+Test time =   0.45 sec
+----------------------------------------------------------
+Test Passed.
+"static_split_partial_block" end time: Nov 02 08:58 UTC
+"static_split_partial_block" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/9 Testing: kmeans_migration
+3/9 Test: kmeans_migration
+Command: "/mnt/c/Users/saivi/Downloads/ATLAS/build/remediation/atlas_kmeans" "/mnt/c/Users/saivi/Downloads/ATLAS/tests/data/kmeans_ties.kmdat" "3,1,0,3,0" "5" "4" "fixed"
+Directory: /mnt/c/Users/saivi/Downloads/ATLAS/build/remediation
+"kmeans_migration" start time: Nov 02 08:58 UTC
+Output:
+----------------------------------------------------------
+{"kind":"configuration","schema_version":"4.1","validation_mode":"verify","clock":"CLOCK_MONOTONIC","n":3,"d":1,"k":2,"max_iterations":5,"workers_requested":4,"mode":"fixed","atol":1e-8,"rtol":1e-10,"shift_tolerance":1e-6,"preparation_start_ns":249126396702,"feedback":false,"feedback_batch":1,"reduction":"atomic","transfer_mode":"diagnostic","initial_centroids":[-2,2]}
+{"kind":"iteration","index":-1,"phase":0,"feedback_due":false,"warmup":true,"status":"passed","validation":"checked","cpu_items":3,"gpu_items":0,"resident_before":3,"resident_after":3,"ownership_changed_points":0,"h2d_point_bytes":0,"h2d_centroid_bytes":0,"d2h_label_bytes":0,"d2h_aggregate_bytes":0,"release_ns":249571307402,"cpu_start_ns":249571343261,"cpu_end_ns":249571653131,"gpu_dispatch_ns":null,"h2d_end_ns":null,"compute_end_ns":null,"gpu_end_ns":null,"barrier_end_ns":249571693101,"end_ns":249571693492,"validation_end_ns":249571695440,"control_ns":0,"workers_used":4,"objective_before_update":4,"objective_after_update":2,"max_centroid_shift":1,"changed_labels":3,"empty_clusters":0,"converged":false,"label_errors":0,"count_errors":0,"numeric_errors":0,"label_hash":"b46d04d1c6daa804","counts":[2,1],"sums":[-2,2],"centroids":[-1,2],"labels":[0,0,1]}
+{"kind":"iteration","index":0,"phase":0,"feedback_due":true,"warmup":false,"status":"passed","validation":"checked","cpu_items":3,"gpu_items":0,"resident_before":3,"resident_after":3,"ownership_changed_points":0,"h2d_point_bytes":0,"h2d_centroid_bytes":0,"d2h_label_bytes":0,"d2h_aggregate_bytes":0,"release_ns":249571748875,"cpu_start_ns":249571942640,"cpu_end_ns":249571948074,"gpu_dispatch_ns":null,"h2d_end_ns":null,"compute_end_ns":null,"gpu_end_ns":null,"barrier_end_ns":249572002144,"end_ns":249572002442,"validation_end_ns":249572003544,"control_ns":0,"workers_used":4,"objective_before_update":4,"objective_after_update":2,"max_centroid_shift":1,"changed_labels":3,"empty_clusters":0,"converged":false,"label_errors":0,"count_errors":0,"numeric_errors":0,"label_hash":"b46d04d1c6daa804","counts":[2,1],"sums":[-2,2],"centroids":[-1,2],"labels":[0,0,1]}
+{"kind":"iteration","index":1,"phase":0,"feedback_due":true,"warmup":false,"status":"passed","validation":"checked","cpu_items":1,"gpu_items":2,"resident_before":3,"resident_after":1,"ownership_changed_points":2,"h2d_point_bytes":16,"h2d_centroid_bytes":16,"d2h_label_bytes":8,"d2h_aggregate_bytes":32,"release_ns":249572040201,"cpu_start_ns":249572169415,"cpu_end_ns":249572173180,"gpu_dispatch_ns":249572067773,"h2d_end_ns":249576735842,"compute_end_ns":249579534228,"gpu_end_ns":249579652251,"barrier_end_ns":249579652667,"end_ns":249579652957,"validation_end_ns":249579655710,"control_ns":0,"workers_used":4,"objective_before_update":2,"objective_after_update":2,"max_centroid_shift":0,"changed_labels":0,"empty_clusters":0,"converged":true,"label_errors":0,"count_errors":0,"numeric_errors":0,"label_hash":"b46d04d1c6daa804","counts":[2,1],"sums":[-2,2],"centroids":[-1,2],"labels":[0,0,1]}
+{"kind":"iteration","index":2,"phase":0,"feedback_due":true,"warmup":false,"status":"passed","validation":"checked","cpu_items":0,"gpu_items":3,"resident_before":1,"resident_after":0,"ownership_changed_points":1,"h2d_point_bytes":8,"h2d_centroid_bytes":16,"d2h_label_bytes":12,"d2h_aggregate_bytes":32,"release_ns":249579737825,"cpu_start_ns":null,"cpu_end_ns":null,"gpu_dispatch_ns":249579737981,"h2d_end_ns":249580131409,"compute_end_ns":249580357395,"gpu_end_ns":249580458034,"barrier_end_ns":249580458163,"end_ns":249580458522,"validation_end_ns":249580460498,"control_ns":0,"workers_used":0,"objective_before_update":2,"objective_after_update":2,"max_centroid_shift":0,"changed_labels":0,"empty_clusters":0,"converged":true,"label_errors":0,"count_errors":0,"numeric_errors":0,"label_hash":"b46d04d1c6daa804","counts":[2,1],"sums":[-2,2],"centroids":[-1,2],"labels":[0,0,1]}
+{"kind":"iteration","index":3,"phase":0,"feedback_due":true,"warmup":false,"status":"passed","validation":"checked","cpu_items":3,"gpu_items":0,"resident_before":0,"resident_after":0,"ownership_changed_points":3,"h2d_point_bytes":0,"h2d_centroid_bytes":0,"d2h_label_bytes":0,"d2h_aggregate_bytes":0,"release_ns":249580517008,"cpu_start_ns":249580666860,"cpu_end_ns":249580690702,"gpu_dispatch_ns":null,"h2d_end_ns":null,"compute_end_ns":null,"gpu_end_ns":null,"barrier_end_ns":249580898570,"end_ns":249580899368,"validation_end_ns":249580903912,"control_ns":0,"workers_used":4,"objective_before_update":2,"objective_after_update":2,"max_centroid_shift":0,"changed_labels":0,"empty_clusters":0,"converged":true,"label_errors":0,"count_errors":0,"numeric_errors":0,"label_hash":"b46d04d1c6daa804","counts":[2,1],"sums":[-2,2],"centroids":[-1,2],"labels":[0,0,1]}
+{"kind":"iteration","index":4,"phase":0,"feedback_due":false,"warmup":false,"status":"passed","validation":"checked","cpu_items":0,"gpu_items":3,"resident_before":0,"resident_after":0,"ownership_changed_points":3,"h2d_point_bytes":0,"h2d_centroid_bytes":16,"d2h_label_bytes":12,"d2h_aggregate_bytes":32,"release_ns":249580998299,"cpu_start_ns":null,"cpu_end_ns":null,"gpu_dispatch_ns":249580998493,"h2d_end_ns":249581585781,"compute_end_ns":249581735879,"gpu_end_ns":249582011526,"barrier_end_ns":249582011649,"end_ns":249582011974,"validation_end_ns":249582012955,"control_ns":0,"workers_used":0,"objective_before_update":2,"objective_after_update":2,"max_centroid_shift":0,"changed_labels":0,"empty_clusters":0,"converged":true,"label_errors":0,"count_errors":0,"numeric_errors":0,"label_hash":"b46d04d1c6daa804","counts":[2,1],"sums":[-2,2],"centroids":[-1,2],"labels":[0,0,1]}
+{"kind":"summary","status":"passed","independent_validation":"passed","validation_ns":11356,"final_validation_ns":71,"iterations":5,"active_ns":9983055,"loop_elapsed_ns":10263099,"control_ns":0,"active_and_control_ns":9983055,"final_objective":2,"stop_reason":"fixed_budget","final_labels":[0,0,1],"final_centroids":[-1,2]}
+<end of output>
+Test time =   0.50 sec
+----------------------------------------------------------
+Test Passed.
+"kmeans_migration" end time: Nov 02 08:58 UTC
+"kmeans_migration" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/9 Testing: kmeans_convergence
+4/9 Test: kmeans_convergence
+Command: "/mnt/c/Users/saivi/Downloads/ATLAS/build/remediation/atlas_kmeans" "/mnt/c/Users/saivi/Downloads/ATLAS/tests/data/kmeans_ties.kmdat" "1" "20" "4" "converge"
+Directory: /mnt/c/Users/saivi/Downloads/ATLAS/build/remediation
+"kmeans_convergence" start time: Nov 02 08:58 UTC
+Output:
+----------------------------------------------------------
+{"kind":"configuration","schema_version":"4.1","validation_mode":"verify","clock":"CLOCK_MONOTONIC","n":3,"d":1,"k":2,"max_iterations":20,"workers_requested":4,"mode":"converge","atol":1e-8,"rtol":1e-10,"shift_tolerance":1e-6,"preparation_start_ns":249655289370,"feedback":false,"feedback_batch":1,"reduction":"atomic","transfer_mode":"diagnostic","initial_centroids":[-2,2]}
+{"kind":"iteration","index":-1,"phase":0,"feedback_due":false,"warmup":true,"status":"passed","validation":"checked","cpu_items":1,"gpu_items":2,"resident_before":3,"resident_after":1,"ownership_changed_points":2,"h2d_point_bytes":16,"h2d_centroid_bytes":16,"d2h_label_bytes":8,"d2h_aggregate_bytes":32,"release_ns":250122591803,"cpu_start_ns":250122630096,"cpu_end_ns":250123055824,"gpu_dispatch_ns":250122618788,"h2d_end_ns":250130961769,"compute_end_ns":250133744181,"gpu_end_ns":250134020418,"barrier_end_ns":250134021079,"end_ns":250134021428,"validation_end_ns":250134024700,"control_ns":0,"workers_used":4,"objective_before_update":4,"objective_after_update":2,"max_centroid_shift":1,"changed_labels":3,"empty_clusters":0,"converged":false,"label_errors":0,"count_errors":0,"numeric_errors":0,"label_hash":"b46d04d1c6daa804","counts":[2,1],"sums":[-2,2],"centroids":[-1,2],"labels":[0,0,1]}
+{"kind":"iteration","index":0,"phase":0,"feedback_due":true,"warmup":false,"status":"passed","validation":"checked","cpu_items":1,"gpu_items":2,"resident_before":3,"resident_after":1,"ownership_changed_points":2,"h2d_point_bytes":16,"h2d_centroid_bytes":16,"d2h_label_bytes":8,"d2h_aggregate_bytes":32,"release_ns":250134138337,"cpu_start_ns":250134282616,"cpu_end_ns":250134297849,"gpu_dispatch_ns":250134173225,"h2d_end_ns":250134704413,"compute_end_ns":250134815418,"gpu_end_ns":250135188643,"barrier_end_ns":250135188942,"end_ns":250135189332,"validation_end_ns":250135190970,"control_ns":0,"workers_used":4,"objective_before_update":4,"objective_after_update":2,"max_centroid_shift":1,"changed_labels":3,"empty_clusters":0,"converged":false,"label_errors":0,"count_errors":0,"numeric_errors":0,"label_hash":"b46d04d1c6daa804","counts":[2,1],"sums":[-2,2],"centroids":[-1,2],"labels":[0,0,1]}
+{"kind":"iteration","index":1,"phase":0,"feedback_due":false,"warmup":false,"status":"passed","validation":"checked","cpu_items":1,"gpu_items":2,"resident_before":1,"resident_after":1,"ownership_changed_points":0,"h2d_point_bytes":0,"h2d_centroid_bytes":16,"d2h_label_bytes":8,"d2h_aggregate_bytes":32,"release_ns":250135260748,"cpu_start_ns":250135341265,"cpu_end_ns":250135354363,"gpu_dispatch_ns":250135296420,"h2d_end_ns":250135749743,"compute_end_ns":250135899341,"gpu_end_ns":250136337839,"barrier_end_ns":250136338342,"end_ns":250136338611,"validation_end_ns":250136340133,"control_ns":0,"workers_used":4,"objective_before_update":2,"objective_after_update":2,"max_centroid_shift":0,"changed_labels":0,"empty_clusters":0,"converged":true,"label_errors":0,"count_errors":0,"numeric_errors":0,"label_hash":"b46d04d1c6daa804","counts":[2,1],"sums":[-2,2],"centroids":[-1,2],"labels":[0,0,1]}
+{"kind":"summary","status":"passed","independent_validation":"passed","validation_ns":3160,"final_validation_ns":113,"iterations":2,"active_ns":2128858,"loop_elapsed_ns":2200274,"control_ns":0,"active_and_control_ns":2128858,"final_objective":2,"stop_reason":"converged","final_labels":[0,0,1],"final_centroids":[-1,2]}
+<end of output>
+Test time =   0.52 sec
+----------------------------------------------------------
+Test Passed.
+"kmeans_convergence" end time: Nov 02 08:58 UTC
+"kmeans_convergence" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/9 Testing: kmeans_validation_modes
+5/9 Test: kmeans_validation_modes
+Command: "/usr/bin/python3" "/mnt/c/Users/saivi/Downloads/ATLAS/tests/native_kmeans.py" "/mnt/c/Users/saivi/Downloads/ATLAS/build/remediation/atlas_kmeans"
+Directory: /mnt/c/Users/saivi/Downloads/ATLAS/build/remediation
+"kmeans_validation_modes" start time: Nov 02 08:58 UTC
+Output:
+----------------------------------------------------------
+Kmeans verification and timing modes match independent trajectories
+<end of output>
+Test time =  18.81 sec
+----------------------------------------------------------
+Test Passed.
+"kmeans_validation_modes" end time: Nov 02 08:59 UTC
+"kmeans_validation_modes" time elapsed: 00:00:18
+----------------------------------------------------------
+
+6/9 Testing: batched_runtime
+6/9 Test: batched_runtime
+Command: "/usr/bin/python3" "/mnt/c/Users/saivi/Downloads/ATLAS/tests/native_runtime.py" "/mnt/c/Users/saivi/Downloads/ATLAS/build/remediation/atlas_kmeans" "/mnt/c/Users/saivi/Downloads/ATLAS/build/remediation/atlas_hotspot"
+Directory: /mnt/c/Users/saivi/Downloads/ATLAS/build/remediation
+"batched_runtime" start time: Nov 02 08:59 UTC
+Output:
+----------------------------------------------------------
+Both native workloads pass batched feedback, phase change and replay
+<end of output>
+Test time =   2.79 sec
+----------------------------------------------------------
+Test Passed.
+"batched_runtime" end time: Nov 02 08:59 UTC
+"batched_runtime" time elapsed: 00:00:02
+----------------------------------------------------------
+
+7/9 Testing: hotspot_verify_migration
+7/9 Test: hotspot_verify_migration
+Command: "/usr/bin/python3" "/mnt/c/Users/saivi/Downloads/ATLAS/tests/native_hotspot.py" "/mnt/c/Users/saivi/Downloads/ATLAS/build/remediation/atlas_hotspot" "/mnt/c/Users/saivi/Downloads/ATLAS/tests/data/hotspot_edge.hsdat" "verify"
+Directory: /mnt/c/Users/saivi/Downloads/ATLAS/build/remediation
+"hotspot_verify_migration" start time: Nov 02 08:59 UTC
+Output:
+----------------------------------------------------------
+HotSpot scripted/feedback outputs match independent Python reference: verify
+<end of output>
+Test time =   3.11 sec
+----------------------------------------------------------
+Test Passed.
+"hotspot_verify_migration" end time: Nov 02 08:59 UTC
+"hotspot_verify_migration" time elapsed: 00:00:03
+----------------------------------------------------------
+
+8/9 Testing: hotspot_deferred_migration
+8/9 Test: hotspot_deferred_migration
+Command: "/usr/bin/python3" "/mnt/c/Users/saivi/Downloads/ATLAS/tests/native_hotspot.py" "/mnt/c/Users/saivi/Downloads/ATLAS/build/remediation/atlas_hotspot" "/mnt/c/Users/saivi/Downloads/ATLAS/tests/data/hotspot_edge.hsdat" "timing"
+Directory: /mnt/c/Users/saivi/Downloads/ATLAS/build/remediation
+"hotspot_deferred_migration" start time: Nov 02 08:59 UTC
+Output:
+----------------------------------------------------------
+HotSpot scripted/feedback outputs match independent Python reference: timing
+<end of output>
+Test time =   3.11 sec
+----------------------------------------------------------
+Test Passed.
+"hotspot_deferred_migration" end time: Nov 02 08:59 UTC
+"hotspot_deferred_migration" time elapsed: 00:00:03
+----------------------------------------------------------
+
+9/9 Testing: frequency_diagnostics
+9/9 Test: frequency_diagnostics
+Command: "/usr/bin/python3" "/mnt/c/Users/saivi/Downloads/ATLAS/tests/native_frequency.py" "/mnt/c/Users/saivi/Downloads/ATLAS/build/remediation/atlas_frequency_probe"
+Directory: /mnt/c/Users/saivi/Downloads/ATLAS/build/remediation
+"frequency_diagnostics" start time: Nov 02 08:59 UTC
+Output:
+----------------------------------------------------------
+Two diagnostics, six sizes/modes, twelve batches match independent Python checksums; invalid inputs rejected.
+<end of output>
+Test time =   3.42 sec
+----------------------------------------------------------
+Test Passed.
+"frequency_diagnostics" end time: Nov 02 08:59 UTC
+"frequency_diagnostics" time elapsed: 00:00:03
+----------------------------------------------------------
+
+End testing: Nov 02 08:59 UTC

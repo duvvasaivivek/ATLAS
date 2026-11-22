@@ -21,6 +21,7 @@ from . import kmeans_reference as kr
 from . import hotspot_reference as hr
 from .kmeans import assess as assess_kmeans
 from .hotspot import assess as assess_hotspot
+from .timing import breakdown
 
 
 def assess(root,case,meta):
@@ -36,7 +37,8 @@ def assess(root,case,meta):
         if result["status"]!="passed":raise ValueError(result["reason"])
         final=dict(label_hash=result["final_label_hash"],centroids=result["final_centroids"])
         migration_bytes=sum(r["h2d_point_bytes"] for r in rows)
-        communication_ns=sum((r["h2d_end_ns"]-r["gpu_dispatch_ns"])+(r["gpu_end_ns"]-r["compute_end_ns"]) for r in rows if r["gpu_items"])
+        communication_ns=(None if case.get("transfer_mode")=="streamed" else
+            sum((r["h2d_end_ns"]-r["gpu_dispatch_ns"])+(r["gpu_end_ns"]-r["compute_end_ns"]) for r in rows if r["gpu_items"]))
     else:
         # Materialize the realized schedule only for the established workload verifier.
         # Coordinator decisions and next-step ownership were independently replayed above.
@@ -56,7 +58,15 @@ def assess(root,case,meta):
     observed=[(f["readings"]["core_mhz"]["value"],f["readings"]["memory_mhz"]["value"]) for f in frames
               if all(f["readings"][key]["status"]=="ok" for key in ("core_mhz","memory_mhz"))]
     ages=[frame["wall_end_us"]-s["timestamp_us"] for frame in frames for domain in ("core","memory") for s in frame["buffer_samples"][domain]]
-    return dict(run_id=case["integration"]["run_id"],workload=case["workload"],dataset=case["dataset"],stage=case["stage"],
+    extra={}
+    if case.get("runtime_version"):
+        parts=[breakdown(row,case["workload"]) for row in rows]
+        extra=dict(timing_components={key:sum(p[key] for p in parts)/1e9 for key in
+                    ("active_ns","shared_communication_ns","parallel_envelope_ns","join_tail_ns","merge_ns")},
+                   phase_decisions=dict(Counter(str(e["input"]["phase"]) for e in record["barriers"] if e["decision"]["allocation"])),
+                   feedback_boundaries=sum(e["input"]["action_boundary"] and not e["input"]["final"] for e in record["barriers"]),
+                   validation_mode=case.get("validation_mode",case["native_mode"]))
+    return dict(**extra,run_id=case["integration"]["run_id"],workload=case["workload"],dataset=case["dataset"],stage=case["stage"],
                 mode=case["integration"]["mode"],status="passed",iterations=len(rows),
                 allocation_decisions=len(allocation),ownership_changes=sum(x!=y for x,y in zip(counts,counts[1:])),
                 frequency_decisions=len(frequency),frequency_updates=frequency[-1]["post_state"]["updates"] if frequency else 0,
@@ -105,11 +115,16 @@ def evaluate(root):
         if case["stage"]!="profile":continue
         k=case["workload"]
         profiles[k]=analyze_profile(root/f"profile-{k}.sqlite",case["steps"],
-                                    "kmeans_assign" if k=="kmeans" else "hotspot_step",
+                                    ("kmeans_assign_reduced" if case.get("reduction")=="hierarchical" else "kmeans_assign") if k=="kmeans" else "hotspot_step",
                                     "kmeans_iteration" if k=="kmeans" else "hotspot_iteration",
                                     "kmeans_cpu_compute" if k=="kmeans" else "hotspot_cpu_compute")
     demonstrated=len(profiles)==2 and all(p["status"]=="demonstrated" for p in profiles.values())
-    return dict(spec_version=SPEC_VERSION,software_gate="passed" if demonstrated else "incomplete_concurrency_evidence",
+    coverage=True
+    if manifest.get("runtime_version"):
+        integrated=[r for r in results if r["stage"]=="integration"]
+        coverage=len(integrated)==6 and all(r["allocation_decisions"]>=2 and r["ownership_changes"]>=1 and all(r["phase_decisions"].get(str(p),0)>0 for p in (0,1))
+                                            for r in integrated)
+    return dict(spec_version=SPEC_VERSION,software_gate="incomplete_adaptation_coverage" if not coverage else "passed" if demonstrated else "incomplete_concurrency_evidence",
                 live_joint_hardware_gate="blocked_phase8_prior_policy_and_measurement_qualification",
                 trials=results,hardware_trials=len(results),iterations=sum(r["iterations"] for r in results),
                 allocation_decisions=sum(r["allocation_decisions"] for r in results),
@@ -118,7 +133,8 @@ def evaluate(root):
                 synthetic_cases=len(synthetic),synthetic_barriers=sum(len(s["records"]) for s in synthetic),
                 synthetic_expected_failures=sum(s["status"]=="expected_failure_restored" for s in synthetic),
                 concurrency=profiles,hardware_setter_calls=0,energy_savings=None,
-                overhead_scope="nonfinal controller compute nests in feedback gaps; final-barrier compute is separate; polling is concurrent, not added to job time",
+                overhead_scope=("batched controller processing can overlap native work; feedback gaps and polling are reported separately, never added twice" if manifest.get("runtime_version") else
+                                "nonfinal controller compute nests in feedback gaps; final-barrier compute is separate; polling is concurrent, not added to job time"),
                 hardware_effect_of_shadow_recommendations="none_applied_no_counterfactual_claim")
 
 
@@ -157,11 +173,16 @@ def run(output,kmeans_binary,hotspot_binary,workers=4):
         def trial(workload,dataset,mode,steps,stage,frequency_policy="paper_additive",native_mode=None):
             meta=datasets[dataset];n=meta["n"] if workload=="kmeans" else meta["rows"]
             i=len(cases);run_id=f"joint-{i:02d}"
-            cfg=Config(run_id,n,3*n//4 if stage=="profile" else n//2,tuple(map(tuple,pairs)),mode,frequency_policy=frequency_policy,
-                       allocation_interval_ns=0 if stage in ("fixture","convergence") else 2_000_000_000,
-                       allocation_iterations=100 if stage=="profile" else 4)
+            cfg=Config(run_id,n,n//2,tuple(map(tuple,pairs)),mode,frequency_policy=frequency_policy,
+                       allocation_policy="robust_proportional_epoch_v1",
+                       allocation_interval_ns=0 if stage in ("fixture","convergence") else 50_000_000,
+                       allocation_iterations=4,cadence_profile="batched_epochs_v1")
             case=dict(workload=workload,dataset=dataset,record=f"trial-{i:02d}.json",field=f"fields/trial-{i:02d}.hstemp" if workload=="hotspot" else None,
-                      workers=1 if stage=="profile" else workers,steps=steps,stage=stage,integration=asdict(cfg),golden=None,
+                      workers=workers,steps=steps,stage=stage,integration=asdict(cfg),golden=None,
+                      runtime_version="runtime-2.0",feedback_batch=1 if stage in ("fixture","convergence") else 16,
+                      phase_at=steps//2 if stage=="integration" else None,phase_workers=1,
+                      **(dict(validation_mode="verify" if stage in ("fixture","convergence") else "timing",
+                              reduction="atomic",transfer_mode="diagnostic") if workload=="kmeans" else {}),
                       native_mode=native_mode or ("fixed" if workload=="kmeans" else "verify" if stage=="fixture" else "timing"))
             if dataset in small:
                 golden=kr.trajectory(*small[dataset][:2],steps,case["native_mode"]) if workload=="kmeans" else hr.trajectory(*small[dataset],steps)
@@ -175,11 +196,11 @@ def run(output,kmeans_binary,hotspot_binary,workers=4):
             for mode in ("allocation_only","allocation_shadow"):
                 trial(workload,f"datasets/{prefix}-small.{suffix}",mode,24,"fixture")
             for mode,policy in (("allocation_only","paper_additive"),("allocation_shadow","paper_additive"),("allocation_shadow","discounted_loss_v1")):
-                trial(workload,f"datasets/{prefix}-large.{suffix}",mode,100 if workload=="kmeans" else 600,"integration",policy)
-            trial(workload,f"datasets/{prefix}-profile.{suffix}","allocation_shadow",6,"profile")
+                trial(workload,f"datasets/{prefix}-large.{suffix}",mode,1000 if workload=="kmeans" else 6000,"integration",policy)
+            trial(workload,f"datasets/{prefix}-profile.{suffix}","allocation_shadow",256,"profile")
         trial("kmeans","datasets/k-small.kmdat","allocation_shadow",24,"convergence",native_mode="converge")
         save_new(root/"synthetic.json",[simulate(case) for case in definitions()])
-        save_new(root/"manifest.json",dict(spec_version=SPEC_VERSION,cases=cases,datasets=datasets,python=sys.version,
+        save_new(root/"manifest.json",dict(spec_version=SPEC_VERSION,runtime_version="runtime-2.0",cases=cases,datasets=datasets,python=sys.version,
                                           binaries={k:dict(path=str(v),sha256=sha(v)) for k,v in bins.items()},hardware_setter_calls=0))
         summary=evaluate(root);save_new(root/"summary.json",summary)
         save_new(root/"checksums.json",{p.relative_to(root).as_posix():sha(p) for p in sorted(root.rglob("*")) if p.is_file()})

@@ -1,5 +1,57 @@
 # Phase 9 integrated runtime contract
 
+## Guarded live extension (2026-11-10)
+
+The separate `live-run` / `live-replay` interface implements guarded joint
+orchestration and the armed native feedback protocol. See the
+[live control contract](live_control.md). Software tests include real native
+workloads with a fake clock backend; physical control remains unqualified.
+This extension leaves the historical shadow matrix and replay contracts below
+unchanged. The `gpu-first` dispatch option is experimental and does not replace
+the existing CPU-first default or satisfy the strict concurrency gate.
+
+## Runtime 2.0 extension (2026-11-02)
+
+The original integration-1.0 coordinator and archive replay remain supported.
+New archives identify `runtime_version=runtime-2.0`. Native schemas are kmeans
+4.1 and HotSpot 6.2. Native feedback holds a partition for a fixed batch;
+each iteration retains its timestamps and observation, while only explicit
+batch boundaries permit actions. Interior observations use their native
+validation-end timestamp and do not ingest later telemetry. Final barriers
+never request further work. Replay checks every realized partition, phase and
+feedback boundary. Batched processing may overlap native computation; controller
+CPU time must not be added to native elapsed time or feedback gaps.
+
+The new integration matrix uses 16-iteration batches, a declared 50 ms
+allocation interval, four workers, 1,000 kmeans iterations or 6,000 HotSpot steps,
+and a halfway change to one CPU worker. This is the named batched-epochs
+extension, not the paper's 40:1 cadence. Coverage requires allocation decisions
+in both phases and at least one actual ownership change in every integration
+trial. Profiles use the requested worker count and adaptive execution;
+the strict all-iteration overlap gate remains unchanged.
+The default integration matrix retains the atomic kmeans kernel and diagnostic
+synchronization. Hierarchical reduction, streamed transfers, and HotSpot overlap
+are explicit alternatives: correctness alone does not promote a performance
+candidate whose measured benefit is inconsistent.
+
+`robust_proportional_epoch_v1` renews the allocation observation budget when a
+declared capacity epoch changes. Existing policies retain their behavior.
+`cost_aware_v1` probes legal endpoint/quarter split candidates, compares measured
+total-work costs, and requires a deadband and estimated migration payback before
+choosing a different measured candidate. It uses a communication/work proxy for
+transition cost, not a physically isolated migration measurement. Short horizons
+can decline exploration. Neither extension guarantees a speedup.
+
+Native processes run in owned Linux process groups. Deadlines and sampler
+errors interrupt stdout waits, and cleanup kills surviving descendants even
+after their group leader exits. NVML polling runs in a spawned process with a
+two-second query deadline and separate read-only NVML session. Cleanup uses
+bounded joins and process termination. New shadow sampling also requires two
+polls whose host wall/monotonic offsets differ by at most 1,000 microseconds;
+this rejects clock movement and does not calibrate or repair driver timestamps.
+
+The original contract below describes the retained runtime 1.0 archives.
+
 Version: `integration-1.0`, 2026-10-31.
 
 ## Execution modes and authority

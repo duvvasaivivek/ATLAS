@@ -42,6 +42,14 @@ target_include_directories(atlas_hotspot PRIVATE ${CMAKE_CUDA_TOOLKIT_INCLUDE_DI
 target_link_libraries(atlas_hotspot PRIVATE OpenMP::OpenMP_CXX Threads::Threads ${CMAKE_DL_LIBS})
 target_compile_options(atlas_hotspot PRIVATE $<$<COMPILE_LANGUAGE:CXX>:-ffp-contract=off> $<$<COMPILE_LANGUAGE:CUDA>:--fmad=false>)
 find_package(Python3 REQUIRED COMPONENTS Interpreter)
+add_test(NAME kmeans_validation_modes COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/tests/native_kmeans.py $<TARGET_FILE:atlas_kmeans>)
+set_tests_properties(kmeans_validation_modes PROPERTIES TIMEOUT 90)
+add_test(NAME batched_runtime COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/tests/native_runtime.py $<TARGET_FILE:atlas_kmeans> $<TARGET_FILE:atlas_hotspot>)
+add_test(NAME dispatch_orders COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/tests/native_dispatch.py $<TARGET_FILE:atlas_kmeans> $<TARGET_FILE:atlas_hotspot>)
+set_tests_properties(dispatch_orders PROPERTIES TIMEOUT 180)
+add_test(NAME guarded_live_protocol COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/tests/native_live.py $<TARGET_FILE:atlas_kmeans> $<TARGET_FILE:atlas_hotspot>)
+set_tests_properties(guarded_live_protocol PROPERTIES TIMEOUT 300)
+set_tests_properties(batched_runtime PROPERTIES TIMEOUT 90)
 add_test(NAME hotspot_verify_migration COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/tests/native_hotspot.py
   $<TARGET_FILE:atlas_hotspot> ${CMAKE_SOURCE_DIR}/tests/data/hotspot_edge.hsdat verify)
 add_test(NAME hotspot_deferred_migration COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/tests/native_hotspot.py

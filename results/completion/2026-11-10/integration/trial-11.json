@@ -1,0 +1,79 @@
+{
+  "argv": [
+    "nsys",
+    "profile",
+    "--trace=cuda,nvtx",
+    "--sample=none",
+    "--cpuctxsw=none",
+    "--export=sqlite",
+    "--output=results/completion/2026-11-10/integration/profile-hotspot",
+    "/mnt/c/Users/saivi/Projects/ATLAS/build/completion/atlas_hotspot",
+    "/mnt/c/Users/saivi/Projects/ATLAS/results/completion/2026-11-10/integration/datasets/h-profile.hsdat",
+    "256",
+    "256",
+    "4",
+    "timing",
+    "/mnt/c/Users/saivi/Projects/ATLAS/results/completion/2026-11-10/integration/fields/trial-11.hstemp",
+    "feedback",
+    "batch=16"
+  ],
+  "barriers": [],
+  "configuration": {
+    "allocation_interval_ns": 50000000,
+    "allocation_iterations": 4,
+    "allocation_policy": "robust_proportional_epoch_v1",
+    "cadence_profile": "batched_epochs_v1",
+    "frequency_guard_ns": 1000000000,
+    "frequency_interval_ns": 200000000,
+    "frequency_policy": "paper_additive",
+    "initial_cpu_items": 256,
+    "mode": "allocation_shadow",
+    "n": 513,
+    "pairs": [
+      [
+        930,
+        8001
+      ],
+      [
+        1665,
+        5501
+      ],
+      [
+        1665,
+        7001
+      ],
+      [
+        1665,
+        8001
+      ],
+      [
+        2385,
+        8001
+      ]
+    ],
+    "run_id": "joint-11",
+    "settle_iterations": 1
+  },
+  "elapsed_ns": 2494722602,
+  "failure": "RuntimeError: TimeoutError: Telemetry query deadline exceeded",
+  "hardware_setter_calls": 0,
+  "lifecycle": [
+    "prepare",
+    "failed",
+    "restore",
+    "stopped"
+  ],
+  "polling": {
+    "error": "TimeoutError: Telemetry query deadline exceeded",
+    "frames": 0,
+    "query_thread_cpu_ns": 0,
+    "query_wall_ns": 0
+  },
+  "restoration": "not_needed_no_settings_changed",
+  "returncode": -9,
+  "status": "failed",
+  "stderr": "",
+  "stdout": "",
+  "timed_out": false,
+  "trailing_frames": []
+}

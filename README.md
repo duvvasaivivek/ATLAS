@@ -2,9 +2,76 @@
 
 ATLAS implements and evaluates the GreenGPU research method in stages. The
 [implementation plan](IMPLEMENTATION_PLAN.md) and [Phase 0 specification](docs/phase0_review.md)
-define the scope. Phases 1–3 add environment discovery, CPU/CUDA correctness,
-measurement infrastructure, and concurrent static partitions with profiler evidence.
-Application workloads and adaptive controllers are later phases.
+define the scope. Kmeans, HotSpot, allocation policies, offline frequency policies,
+and integrated allocation/shadow execution are implemented through Phase 9.
+Live frequency control and physical energy qualification remain capability-gated.
+
+The latest continuation adds a [guarded live runner](docs/live_control.md),
+armed native feedback and replay. Validation passes 172 Python tests, 11 native
+tests and 16 CUDA sanitizer checks across the default and experimental dispatch
+paths. Native live tests use a fake clock actuator; full physical acceptance and
+the strict compute-overlap gate remain incomplete.
+
+## Reproduce and generate the research report
+
+The [November 10 completion review](docs/completion_review.md) records the
+telemetry-startup fix, 163 passing Python tests, nine native tests, eight sanitizer
+checks and a new 400-trial allocation study. The hardware and strict concurrency
+gates remain incomplete; this is a capability-limited research result.
+
+The [reproducibility guide](docs/reproducibility.md) covers fresh installation,
+native builds, testing, static-partition tuning, held-out evaluation and report
+generation. ATLAS uses explicit control policies; no learned model needs training.
+
+```bash
+# From the source root in Linux/WSL, using a fresh build/output path:
+.venv-wsl/bin/python scripts/validate_release.py \
+  --build build/reproduction --output results/reproduction --blocks 10
+```
+
+The workflow produces a standalone HTML report and machine-readable acceptance
+record. Exit code 2 means evidence was generated but full-project gates remain
+incomplete; it must not be interpreted as a completed hardware replication.
+`research-report` can also regenerate the analysis from existing verified archives
+without executing GPU workloads. See the guide for commands and exit codes.
+
+## Runtime and performance remediation (2026-11-02)
+
+The [remediation record](docs/remediation.md) tracks bounded process supervision,
+isolated telemetry, kmeans timing mode, batched feedback, per-epoch allocation,
+hierarchical reduction, optional HotSpot overlap, and controlled evaluation.
+Existing evidence and paper-policy behavior remain available.
+
+The November 2 validation passed 154 Python tests, nine native tests, eight CUDA sanitizer
+checks, and a 440-trial matched evaluation with replay. All six long integration
+trials now change allocation and make decisions in both phases. Strict per-iteration concurrency,
+live clock control, and physical energy qualification remain incomplete or
+blocked. See the remediation record for measured gains, uncertainty, and retained
+regressions; experimental options are not universal performance defaults.
+
+```bash
+# Repository root in Ubuntu/WSL; use fresh result directories.
+source .venv-wsl/bin/activate
+export PYTHONPATH="$PWD/src"
+cmake -S . -B build/remediation -G Ninja -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_CUDA_COMPILER=/usr/local/cuda-13.1/bin/nvcc
+cmake --build build/remediation --parallel 2
+python -m unittest discover -s tests -v
+OMP_NUM_THREADS=4 ctest --test-dir build/remediation --output-on-failure
+python -m greengpu qualification-check --build build/remediation --output results/remediation/new-qualification
+python -m greengpu qualification-replay results/remediation/new-qualification
+python -m greengpu integration-check --kmeans-binary build/remediation/atlas_kmeans \
+  --hotspot-binary build/remediation/atlas_hotspot --output results/remediation/new-integration
+python -m greengpu performance-check --build build/remediation \
+  --baseline-build build/phase8 --blocks 10 --output results/remediation/new-performance
+python -m greengpu performance-replay results/remediation/new-performance
+```
+
+The optional baseline build must be an actual retained earlier build; omit it on
+a fresh checkout. Benchmark results include regressions, matched GPU-only/CPU-only
+baselines and a static split chosen on separate tuning inputs. The primary timing
+is a contiguous workload envelope; complete command time includes final independent
+validation. An incomplete strict concurrency gate still returns exit code 1.
 
 ## Run Phase 1 in Ubuntu / WSL 2
 
@@ -12,7 +79,7 @@ Use the retained environment. The commands below do not require additional Pytho
 packages: discovery and its tests use the standard library.
 
 ```bash
-cd /mnt/c/Users/saivi/Downloads/ATLAS
+cd /mnt/c/Users/saivi/Projects/ATLAS
 source .venv-wsl/bin/activate
 export PYTHONPATH="$PWD/src"
 
@@ -334,15 +401,16 @@ See the [Phase 8 review](docs/phase8_review.md),
 
 The integrated runner applies real allocation decisions to persistent kmeans and
 HotSpot, samples telemetry independently, and evaluates eligible frequency inputs
-in shadow mode. Separate analytical scenarios exercise both control loops. Native
-workload kernels remain unchanged; reuse the Phase 8 build and existing WSL venv.
+in shadow mode. Separate analytical scenarios exercise both control loops. New
+runs require the remediation build described above; historical Phase 9 archives
+remain replayable with their original policy and timing semantics.
 
 ```bash
 export PYTHONPATH="$PWD/src"
 python -m unittest discover -s tests -v
 python -m greengpu integration-check \
-  --kmeans-binary build/phase8/atlas_kmeans \
-  --hotspot-binary build/phase8/atlas_hotspot \
+  --kmeans-binary build/remediation/atlas_kmeans \
+  --hotspot-binary build/remediation/atlas_hotspot \
   --output results/phase9/local-check --workers 4
 python -m greengpu integration-replay results/phase9/local-check
 ```
@@ -356,10 +424,24 @@ details. Integrity failures instead report an explicit replay error.
 
 `--mode live-joint` exits with code 2 before launching work because the hardware
 prerequisites remain unmet. No fallback or clock-setting override is provided.
-The final retained run passed 135 tests and workload/replay checks, observed
+The historical October 31 run passed 135 tests and workload/replay checks, observed
 overlap in 6/6 kmeans and 5/6 HotSpot profile iterations, and rejected hardware
 frequency inputs whose timestamps failed the host/driver mapping.
 
 See [Phase 9 review](docs/phase9_review.md),
 [runtime contract](docs/phase9_spec.md), and
 [final repeat](results/phase9/2026-10-31-final-v3/summary.json).
+
+## Guarded live runner
+
+The new `live-run` command implements barrier-based joint control with device
+identity checks, loaded clock verification, settling guards, independent native
+correctness checks and transactional restoration. `live-replay` verifies the
+retained decisions and results without a GPU. See the
+[provider contract and commands](docs/live_control.md).
+
+Real CPU/CUDA integration tests use an explicitly fake clock actuator. They do
+not qualify physical control or energy savings. The default provider remains
+blocked on this laptop; a separately qualified platform provider is required.
+The optional GPU-first dispatch implementation also leaves the strict
+all-iteration compute-overlap gate incomplete, so CPU-first remains the default.

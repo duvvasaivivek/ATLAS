@@ -1,0 +1,54 @@
+{
+  "dataset": "datasets/k-small.kmdat",
+  "feedback_batch": 1,
+  "field": null,
+  "golden": "golden/joint-00.json",
+  "integration": {
+    "allocation_interval_ns": 0,
+    "allocation_iterations": 4,
+    "allocation_policy": "robust_proportional_epoch_v1",
+    "cadence_profile": "batched_epochs_v1",
+    "frequency_guard_ns": 1000000000,
+    "frequency_interval_ns": 200000000,
+    "frequency_policy": "paper_additive",
+    "initial_cpu_items": 128,
+    "mode": "allocation_only",
+    "n": 257,
+    "pairs": [
+      [
+        930,
+        8001
+      ],
+      [
+        1665,
+        5501
+      ],
+      [
+        1665,
+        7001
+      ],
+      [
+        1665,
+        8001
+      ],
+      [
+        2385,
+        8001
+      ]
+    ],
+    "run_id": "joint-00",
+    "settle_iterations": 1
+  },
+  "native_mode": "fixed",
+  "phase_at": null,
+  "phase_workers": 1,
+  "record": "trial-00.json",
+  "reduction": "hierarchical",
+  "runtime_version": "runtime-2.0",
+  "stage": "fixture",
+  "steps": 24,
+  "transfer_mode": "diagnostic",
+  "validation_mode": "verify",
+  "workers": 4,
+  "workload": "kmeans"
+}

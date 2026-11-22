@@ -1,5 +1,34 @@
 # ATLAS kmeans variant and Phase 4 evidence contract
 
+## Native schema 4.1 (2026-11-02)
+
+Optional arguments after `fixed|converge`: `feedback`, `verify|timing`,
+`batch=N`, `phase=ITER:WORKERS`, `reduced`, and `streamed`. Defaults retain
+per-iteration verification, atomic reduction and diagnostic synchronization.
+The maximum iteration budget is now 100,000, independently bounded by the host
+watchdog. Phase changes may reduce the initial worker count at a fixed iteration.
+
+Timing mode defers the independent CPU Lloyd trajectory until after the
+measured loop and checks final memberships, counts, sums and centers against it.
+Finite-value, membership-range and objective checks still run during execution;
+their time is explicit. Full command duration includes independent validation.
+Verification mode still checks every iteration against the independent reference.
+For deferred final validation of at least 1,024 points, independent assignments
+use the requested CPU worker count; cluster sums and objective still accumulate
+in original point order with long double. The scalar per-iteration oracle is
+unchanged. `final_reference_workers_requested` records this choice. Parallel
+assignment changes neither tie handling nor the reduction order, and is tested
+against the scalar and Python oracles beyond the parallelization threshold.
+`validation_ns`, `final_validation_ns` and `independent_validation` distinguish
+these costs and outcomes. The replay reader accepts schemas 4.0 and 4.1.
+
+`reduced` uses block-local cluster accumulation, block objective reduction, and
+a separate ordered cross-block reduction. `streamed` uses one final stream
+synchronization and reusable pinned staging buffers. Intermediate host stage
+timestamps are null in this mode; no unmeasured stage or CUDA-event time is
+fabricated. Complete GPU branch readiness still includes transfers and staging.
+Both paths use FP64 and the existing tolerances and are evaluated separately.
+
 Specification version 4.0, 2026-10-31. These choices define the implemented
 workload; they do not claim to reconstruct unspecified settings or datasets from
 the historical GreenGPU experiment.

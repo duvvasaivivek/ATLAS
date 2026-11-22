@@ -74,11 +74,11 @@ class CapabilityTests(unittest.TestCase):
             self.assertEqual(data["governors"]["policies"][0]["value"], "performance")
             self.assertFalse(data["governors"]["writes_attempted"])
 
-    @patch("greengpu.capabilities.subprocess.run", side_effect=FileNotFoundError("missing"))
+    @patch("greengpu.capabilities.capture_command", side_effect=FileNotFoundError("missing"))
     def test_missing_command_is_recorded(self, _):
         self.assertEqual(command(["not-installed"])["status"], "not_installed")
 
-    @patch("greengpu.capabilities.subprocess.run", side_effect=subprocess.TimeoutExpired("probe", 1, b"partial"))
+    @patch("greengpu.capabilities.capture_command", side_effect=subprocess.TimeoutExpired("probe", 1, b"partial"))
     def test_timeout_retains_partial_evidence(self, _):
         result = command(["probe"], timeout=1)
         self.assertEqual(result["status"], "timeout")

@@ -1,0 +1,48 @@
+{
+  "config": {
+    "allocation_interval_ns": 50000000,
+    "allocation_iterations": 4,
+    "allocation_policy": "paper_simple",
+    "cadence_profile": "observed_cadence_v1",
+    "frequency_guard_ns": 1000000000,
+    "frequency_interval_ns": 200000000,
+    "frequency_policy": "paper_additive",
+    "initial_cpu_items": 256,
+    "mode": "allocation_shadow",
+    "n": 513,
+    "pairs": [
+      [
+        600,
+        1000
+      ],
+      [
+        1200,
+        3000
+      ]
+    ],
+    "run_id": "native-kmeans",
+    "settle_iterations": 1
+  },
+  "qualification": {
+    "device_timing": "qualified",
+    "device_uuid": "software-test-device",
+    "evidence_id": "native-software-test-not-hardware",
+    "evidence_kind": "software_test",
+    "pci_bus_id": "00000000:01:00.0",
+    "qualified_at_ns": 89577769166,
+    "restoration_probe": "qualified",
+    "telemetry_clock": "qualified",
+    "valid_until_ns": 269577769166,
+    "verified_pairs": [
+      [
+        600,
+        1000
+      ],
+      [
+        1200,
+        3000
+      ]
+    ]
+  },
+  "schema_version": "live-joint-1.0"
+}

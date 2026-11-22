@@ -1,0 +1,9 @@
+include CMakeLists.txt ARCHITECTURE.md IMPLEMENTATION_PLAN.md
+recursive-include native *.cu *.cpp *.hpp
+recursive-include tests *.py *.kmdat *.hsdat README.md
+recursive-include scripts *.py *.sh
+recursive-include docs *.md *.json
+recursive-include references/rodinia *.cu *.cpp *.json *.md LICENSE
+prune results
+prune build
+prune tmp

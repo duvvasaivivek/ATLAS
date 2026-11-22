@@ -22,7 +22,20 @@ def assess(case,metadata,process,golden=None,profiled=False):
         if len(records)<4 or records[0].get("kind")!="configuration" or records[-1].get("kind")!="summary":
             raise ValueError("Missing configuration/iterations/summary")
         cfg=records[0];end=records[-1];rows=records[1:-1]
-        if cfg["schema_version"]!="4.0" or cfg["clock"]!="CLOCK_MONOTONIC":raise ValueError("Unsupported schema/clock")
+        if cfg.get('dispatch_order','cpu_first')!=case.get('dispatch_order','cpu_first'):
+            raise ValueError('Dispatch order changed')
+        if cfg["schema_version"] not in ("4.0","4.1") or cfg["clock"]!="CLOCK_MONOTONIC":raise ValueError("Unsupported schema/clock")
+        if cfg["schema_version"]=="4.1":
+            if cfg["validation_mode"] not in ("verify","timing") or end.get("independent_validation")!="passed":raise ValueError("Unverified final output")
+            if cfg["validation_mode"]!=case.get("validation_mode","verify"):raise ValueError("Validation mode changed")
+            if any(type(end.get(k)) is not int or end[k]<0 for k in ("validation_ns","final_validation_ns")):raise ValueError("Invalid validation timing")
+            if 'final_reference_workers_requested' in end:
+                expected=case['workers_requested'] if cfg['validation_mode']=='timing' and metadata['n']>=1024 else 1
+                if type(end['final_reference_workers_requested']) is not int or end['final_reference_workers_requested']!=expected:
+                    raise ValueError('Final reference worker contract mismatch')
+            if cfg.get("feedback_batch",1)!=case.get("feedback_batch",1):raise ValueError("Feedback batch mismatch")
+            if cfg.get("transfer_mode","diagnostic")!=case.get("transfer_mode","diagnostic") or cfg.get("reduction","atomic")!=case.get("reduction","atomic"):
+                raise ValueError("Kernel/transfer mode changed")
         if any(cfg[k]!=metadata[k] for k in ("n","d","k")) or cfg["initial_centroids"]!=metadata["initial_centroids"]:
             raise ValueError("Input/initialization mismatch")
         if any(cfg[k]!=case[k] for k in ("mode","max_iterations","workers_requested")):
@@ -35,6 +48,8 @@ def assess(case,metadata,process,golden=None,profiled=False):
         measured=[];resident=n;previous_cut=n;last_validation=cfg["preparation_start_ns"];last_quality=None
         for index,r in enumerate(rows):
             warmup=index==0
+            if cfg["schema_version"]=="4.1" and r.get("validation")!=("checked" if warmup or cfg["validation_mode"]=="verify" else "deferred"):
+                raise ValueError("Validation evidence mismatch")
             if r["kind"]!="iteration" or r["index"]!=index-1 or r["warmup"] is not warmup:raise ValueError("Iteration sequence mismatch")
             cut=schedule[0 if warmup or len(schedule)==1 else index-1];gpu=n-cut
             if r["status"]!="passed" or any(r[key]!=0 for key in ("label_errors","count_errors","numeric_errors")):
@@ -49,6 +64,9 @@ def assess(case,metadata,process,golden=None,profiled=False):
                 raise ValueError("Invalid host timing order")
             last_validation=shared[-1]
             for active,keys in ((cut,("cpu_start_ns","cpu_end_ns")),(gpu,("gpu_dispatch_ns","h2d_end_ns","compute_end_ns","gpu_end_ns"))):
+                if keys[0]=="gpu_dispatch_ns" and cfg.get("transfer_mode")=="streamed":
+                    if r["h2d_end_ns"] is not None or r["compute_end_ns"] is not None:raise ValueError("Unmeasured transfer stages must be null")
+                    keys=("gpu_dispatch_ns","gpu_end_ns")
                 stamps=[r[key] for key in keys]
                 if active:
                     if any(type(t) is not int for t in stamps) or stamps!=sorted(stamps) or not shared[0]<=stamps[0]<=stamps[-1]<=shared[1]:
@@ -90,6 +108,8 @@ def assess(case,metadata,process,golden=None,profiled=False):
             if end["stop_reason"]!=reason or (reason=="max_iterations" and len(measured)!=case["max_iterations"]):raise ValueError("Invalid convergence outcome")
         if golden is not None and len(measured)!=len(golden):raise ValueError("Python iteration budget mismatch")
         active=sum(r["end_ns"]-r["release_ns"] for r in measured)
+        if cfg["schema_version"]=="4.1" and end["validation_ns"]!=sum(r["validation_end_ns"]-r["end_ns"] for r in measured):
+            raise ValueError("Validation timing total mismatch")
         loop=measured[-1]["end_ns"]-measured[0]["release_ns"]
         if end["status"]!="passed" or end["iterations"]!=len(measured) or end["active_ns"]!=active or end["loop_elapsed_ns"]!=loop or not close(end["final_objective"],measured[-1]["objective_after_update"]):
             raise ValueError("Summary inconsistent with retained iterations")

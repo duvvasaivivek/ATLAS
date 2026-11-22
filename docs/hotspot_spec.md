@@ -1,5 +1,27 @@
 # HotSpot model, ownership, and measurement contract
 
+## Native schema 6.2 (2026-11-02)
+
+Optional feedback arguments include `batch=N`, `phase=ITER:WORKERS`, and
+`overlap`. The step limit is 100,000, with an independent host watchdog.
+The serial communication path remains the default. In overlap mode, migration
+finishes before CPU interior rows are released; those rows can execute during
+halo exchange. The final CPU boundary row executes only after its halo arrives.
+`compute_release_ns` identifies the serial prefix; `communication_end_ns` can
+overlap compute and must not be added again to total time. State ownership,
+double buffering and reference tolerances are unchanged. Readers retain support
+for schema 6.0 and 6.1 evidence.
+
+CPU profiler ranges now cover nonempty row computations only. OpenMP barrier
+waiting has a separate `hotspot_cpu_wait` annotation and cannot establish
+CPU-compute/GPU-kernel overlap. Thread preemption can still occur inside a range.
+
+Deferred final validation of at least 1,024 cells can parallelize independent
+reference rows using the initial requested worker count. Per-cell scalar flux
+order, long-double state, and the join before each state swap remain unchanged.
+Verification mode uses the scalar reference. `final_reference_workers_requested`
+records the choice; tests compare both with the independent Python field.
+
 Specification 6.0, 2026-10-31. HotSpot is a 2D explicit thermal stencil with a
 fixed power input and evolving temperature field. CPU/GPU work units are complete
 rows; every cell advances exactly one timestep per iteration.

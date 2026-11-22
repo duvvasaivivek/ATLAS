@@ -1,0 +1,70 @@
+{
+  "status": "partial_project_completion",
+  "full_project_complete": false,
+  "implemented": [
+    "guarded live controller",
+    "armed native feedback and device binding",
+    "native correctness and live replay",
+    "settling, drift and failure handling",
+    "experimental GPU-first dispatch; default unchanged"
+  ],
+  "validation": {
+    "python_tests": 172,
+    "native_tests": 11,
+    "cuda_sanitizer_checks": 16,
+    "historical_archives_replayed": 8,
+    "dispatch_profiles_replayed": 12,
+    "installed_package_tests": 172,
+    "default_live_probe": "blocked before workload launch and output creation"
+  },
+  "native_live_software_tests": [
+    {
+      "workload": "kmeans",
+      "status": "incomplete_verification",
+      "evidence_kind": "software_test",
+      "correctness": {
+        "input_sha256": "f0897e0fb9d4dd6509b899baf0d430ee66a5e1baf9ad06384f18307b1c78e309",
+        "iterations": 1200,
+        "native_archive": "native",
+        "status": "passed"
+      },
+      "restoration": "verified",
+      "physical_control_evidence": false,
+      "frequency_changes": 1,
+      "allocation_decisions": 22
+    },
+    {
+      "workload": "hotspot",
+      "status": "passed",
+      "evidence_kind": "software_test",
+      "correctness": {
+        "input_sha256": "dc65ca8ea12e00182eea8ee0a563c6fa42dc6c2150909fb3d256d018640b3a99",
+        "iterations": 1200,
+        "native_archive": "native",
+        "status": "passed"
+      },
+      "restoration": "verified",
+      "physical_control_evidence": false,
+      "frequency_changes": 1,
+      "allocation_decisions": 35
+    }
+  ],
+  "dispatch_strict_gate_passed": false,
+  "blockers": [
+    "Authoritative physical clock-policy readback and validated platform provider",
+    "Independent telemetry, energy and device-timing qualification",
+    "Physical frequency-only and joint-control experiments and fixed-clock baselines",
+    "Strict CPU/GPU compute overlap in every profiled iteration"
+  ],
+  "energy_savings": null,
+  "training": "Explicit control policies; no model weights require training",
+  "package_artifacts": {
+    "build/package-live-release/distributions/atlas_greengpu-0.1.0.tar.gz": "d225952bd3fd39d8de30fb2fe666c3abe07ae2e47706c1fa123b3bb386ca2131",
+    "build/package-live-release/distributions/atlas_greengpu-0.1.0-py3-none-any.whl": "a6ccff60ab01617027505bcad23669b677b4f7fed8315a9d33f2eba57eed13b2"
+  },
+  "current_binary_hashes": {
+    "atlas_kmeans": "6adc20ea9d23a28d774a8b74407fcc8e114672d1e95886fc8c92e8d69451a763",
+    "atlas_hotspot": "782b2e73051c1290ce96c2639332ef08d035e47d3ab9b238493c874aafbc1028"
+  },
+  "note": "Earlier 400-trial study remains historical evidence for its archived build; it was not rerun for this extension."
+}

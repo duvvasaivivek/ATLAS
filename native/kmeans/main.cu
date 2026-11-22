@@ -66,19 +66,52 @@ __global__ void kmeans_assign(const double* points,const double* centers,uint32_
     labels[i]=winner; atomicAdd(counts+winner,1U); atomicAdd(objective,best);
     for(unsigned j=0;j<d;++j) atomicAdd(sums+winner*d+j,points[size_t(i)*d+j]);
 }
+// Block-local accumulation followed by a deterministic cross-block reduction.
+// No point contends on a global objective/count/sum address in this path.
+__global__ void kmeans_assign_reduced(const double* points,const double* centers,uint32_t* labels,
+                                      double* partial,unsigned begin,unsigned n,unsigned k,unsigned d){
+    extern __shared__ double storage[];
+    const unsigned q=k*d+k,tid=threadIdx.x,i=begin+blockIdx.x*blockDim.x+tid;
+    for(unsigned j=tid;j<q;j+=blockDim.x)storage[j]=0;
+    double best=0;unsigned winner=0;
+    __syncthreads();
+    if(i<n){
+        best=INFINITY;
+        for(unsigned c=0;c<k;++c){double distance=0;
+            for(unsigned j=0;j<d;++j){double delta=points[size_t(i)*d+j]-centers[c*d+j];distance+=delta*delta;}
+            if(distance<best){best=distance;winner=c;}}
+        labels[i]=winner;atomicAdd(storage+k*d+winner,1.);
+        for(unsigned j=0;j<d;++j)atomicAdd(storage+winner*d+j,points[size_t(i)*d+j]);
+    }
+    storage[q+tid]=best;__syncthreads();
+    for(unsigned step=128;step;step/=2){if(tid<step)storage[q+tid]+=storage[q+tid+step];__syncthreads();}
+    for(unsigned j=tid;j<q;j+=blockDim.x)partial[size_t(blockIdx.x)*(q+1)+j]=storage[j];
+    if(!tid)partial[size_t(blockIdx.x)*(q+1)+q]=storage[q];
+}
+__global__ void kmeans_finalize(const double* partial,double* sums,uint32_t* counts,double* objective,unsigned blocks,unsigned k,unsigned d){
+    const unsigned j=blockIdx.x*blockDim.x+threadIdx.x,q=k*d+k;
+    if(j>q)return;
+    double total=0;for(unsigned b=0;b<blocks;++b)total+=partial[size_t(b)*(q+1)+j];
+    if(j<k*d)sums[j]=total;else if(j<q)counts[j-k*d]=uint32_t(total);else *objective=total;
+}
 struct Device {
     double *points=nullptr,*centers=nullptr,*sums=nullptr,*objective=nullptr;
     uint32_t *labels=nullptr,*counts=nullptr;
+    double *partial=nullptr,*transfer=nullptr;
+    uint32_t *host_labels=nullptr;
     cudaStream_t stream=nullptr;
     ~Device() {
         if(stream)cudaStreamDestroy(stream);
         if(points)cudaFree(points); if(centers)cudaFree(centers); if(sums)cudaFree(sums);
         if(objective)cudaFree(objective); if(labels)cudaFree(labels); if(counts)cudaFree(counts);
+        if(partial)cudaFree(partial);if(transfer)cudaFreeHost(transfer);if(host_labels)cudaFreeHost(host_labels);
     }
     void allocate(unsigned n,unsigned k,unsigned d) {
         check(cudaMalloc(&points,size_t(n)*d*8));check(cudaMalloc(&centers,k*d*8));check(cudaMalloc(&sums,k*d*8));
         check(cudaMalloc(&objective,8));check(cudaMalloc(&labels,n*4));check(cudaMalloc(&counts,k*4));
         check(cudaStreamCreateWithFlags(&stream,cudaStreamNonBlocking));
+        check(cudaMalloc(&partial,size_t((n+255)/256)*(k*d+k+1)*8));
+        check(cudaMallocHost(&transfer,(2*k*d+k+1)*8));check(cudaMallocHost(&host_labels,n*4));
     }
 };
 struct PinnedPoints {
@@ -88,11 +121,25 @@ struct PinnedPoints {
 
 int main(int argc,char** argv) {
     try {
-        if(argc!=6&&argc!=7)throw std::runtime_error("Usage: atlas_kmeans INPUT.kmdat CPU_COUNTS_COMMA MAX_ITERS WORKERS fixed|converge [feedback]");
-        const bool feedback=argc==7;
-        if(feedback&&std::string(argv[6])!="feedback")throw std::runtime_error("Unknown feedback mode");
+        if(argc<6)throw std::runtime_error("Usage: atlas_kmeans INPUT CPU_COUNTS MAX_ITERS WORKERS fixed|converge [feedback] [verify|timing]");
+        bool feedback=false,timing=false,reduced=false,streamed=false,gpu_first=false,armed=false;
+        unsigned batch=1,phase_at=100001,phase_workers=1;
+        for(int i=6;i<argc;++i){
+            const std::string option=argv[i];
+            if(option=="feedback")feedback=true;
+            else if(option=="timing")timing=true;
+            else if(option=="reduced")reduced=true;
+            else if(option=="streamed")streamed=true;
+            else if(option=="gpu-first")gpu_first=true;
+            else if(option=="armed")armed=true;
+            else if(option.rfind("batch=",0)==0)batch=number(option.substr(6),1,1000);
+            else if(option.rfind("phase=",0)==0){auto colon=option.find(':');if(colon==std::string::npos)throw std::runtime_error("phase=ITER:WORKERS required");
+                phase_at=number(option.substr(6,colon-6),1,100000);phase_workers=number(option.substr(colon+1),1,8);}
+            else if(option!="verify")throw std::runtime_error("Unknown execution option");
+        }
         const int64_t preparation_start=km::now();
-        const unsigned max_iters=number(argv[3],1,100),workers=number(argv[4],1,8);
+        const unsigned max_iters=number(argv[3],1,100000),workers=number(argv[4],1,8);
+        if(phase_workers>workers||(!feedback&&batch!=1))throw std::runtime_error("Invalid phase workers or batch without feedback");
         const std::string mode=argv[5]; if(mode!="fixed"&&mode!="converge")throw std::runtime_error("Unknown execution mode");
         std::ifstream input(argv[1],std::ios::binary);
         char magic[8]; uint32_t n=0,d=0,k=0;
@@ -104,6 +151,8 @@ int main(int argc,char** argv) {
         if(schedule.size()!=1&&schedule.size()!=max_iters)throw std::runtime_error("Schedule must have one count or MAX_ITERS counts");
         if(feedback&&schedule.size()!=1)throw std::runtime_error("Feedback requires one initial CPU count");
         int gpu_count=0;check(cudaGetDeviceCount(&gpu_count));if(gpu_count!=1)throw std::runtime_error("Exactly one GPU required");
+        char pci[32];check(cudaDeviceGetPCIBusId(pci,sizeof(pci),0));
+        if(armed&&!feedback)throw std::runtime_error("Armed execution requires barrier feedback");
         cudaDeviceProp prop{};check(cudaGetDeviceProperties(&prop,0));if(prop.major<6)throw std::runtime_error("FP64 atomics require compute capability >=6.0");
         PinnedPoints points;check(cudaMallocHost(&points.data,size_t(n)*d*8));
         std::vector<double> initial(k*d),centers(k*d),gpu_sums(k*d),sums(k*d);
@@ -122,24 +171,32 @@ int main(int argc,char** argv) {
         int64_t active_ns=0,first_release=0,last_end=0,control_begin=0,total_control_ns=0;
         bool converged=false;
         double final_quality=0;
+        int64_t validation_total=0;
         std::cout<<std::setprecision(17);
-        std::cout<<"{\"kind\":\"configuration\",\"schema_version\":\"4.0\",\"clock\":\"CLOCK_MONOTONIC\",\"n\":"<<n<<",\"d\":"<<d<<",\"k\":"<<k
+        std::cout<<"{\"kind\":\"configuration\",\"schema_version\":\"4.1\",\"validation_mode\":\""<<(timing?"timing":"verify")<<"\",\"clock\":\"CLOCK_MONOTONIC\",\"n\":"<<n<<",\"d\":"<<d<<",\"k\":"<<k
                  <<",\"max_iterations\":"<<max_iters<<",\"workers_requested\":"<<workers<<",\"mode\":\""<<mode<<"\",\"atol\":1e-8,\"rtol\":1e-10,\"shift_tolerance\":1e-6,\"preparation_start_ns\":"<<preparation_start
-                 <<",\"feedback\":"<<(feedback?"true":"false")<<",\"initial_centroids\":";array_json(initial);std::cout<<"}"<<std::endl;
+                 <<",\"pci_bus_id\":\""<<pci<<"\",\"armed\":"<<(armed?"true":"false")
+                 <<",\"dispatch_order\":\""<<(gpu_first?"gpu_first":"cpu_first")<<"\""
+                 <<",\"feedback\":"<<(feedback?"true":"false")<<",\"feedback_batch\":"<<batch
+                 <<",\"reduction\":\""<<(reduced?"hierarchical":"atomic")<<"\",\"transfer_mode\":\""<<(streamed?"streamed":"diagnostic")<<"\",\"initial_centroids\":";array_json(initial);std::cout<<"}"<<std::endl;
+        if(armed){std::string ready;if(!std::getline(std::cin,ready)||ready!="start")throw std::runtime_error("Missing armed start acknowledgement");}
         for(int iteration=-1;iteration<int(max_iters);++iteration) {
             const bool warmup=iteration<0;
+            cpu.workers=!warmup&&unsigned(iteration)>=phase_at?phase_workers:workers;
             int64_t control_ns=0;
             if(feedback&&iteration>0) {
+                if(unsigned(iteration)%batch==0){
                 std::string request;
                 if(!std::getline(std::cin,request))throw std::runtime_error("Feedback input closed before next partition");
                 cpu_items=number(request,0,n);
+                }
                 control_ns=km::now()-control_begin;total_control_ns+=control_ns;
             } else cpu_items=schedule.size()==1?schedule[0]:schedule[warmup?0:iteration];
             const unsigned gpu_items=n-cpu_items,resident_before=resident_begin,old_cut=previous_cut;
             std::fill(labels.begin(),labels.end(),0xffffffffU);
             const int64_t release=km::now(); if(!warmup&&!executed)first_release=release;
             nvtxRangePushA(warmup?"kmeans_warmup":"kmeans_iteration");
-            if(cpu_items)worker.release();
+            if(cpu_items&&(!gpu_first||!gpu_items))worker.release();
             const int64_t gpu_dispatch=km::now();
             int64_t h2d_end=gpu_dispatch,compute_end=gpu_dispatch,gpu_end=gpu_dispatch;
             uint64_t point_bytes=0;
@@ -151,17 +208,32 @@ int main(int argc,char** argv) {
                     check(cudaMemcpyAsync(device.points+size_t(cpu_items)*d,points.data+size_t(cpu_items)*d,point_bytes,cudaMemcpyHostToDevice,device.stream));
                     resident_begin=cpu_items;
                 }
-                check(cudaMemcpyAsync(device.centers,centers.data(),k*d*8,cudaMemcpyHostToDevice,device.stream));
+                std::copy(centers.begin(),centers.end(),device.transfer);
+                check(cudaMemcpyAsync(device.centers,device.transfer,k*d*8,cudaMemcpyHostToDevice,device.stream));
                 check(cudaMemsetAsync(device.sums,0,k*d*8,device.stream));check(cudaMemsetAsync(device.counts,0,k*4,device.stream));
                 check(cudaMemsetAsync(device.objective,0,8,device.stream));check(cudaMemsetAsync(device.labels+cpu_items,0xff,gpu_items*4,device.stream));
-                check(cudaStreamSynchronize(device.stream));h2d_end=km::now();
-                kmeans_assign<<<(gpu_items+255)/256,256,0,device.stream>>>(device.points,device.centers,device.labels,device.sums,device.counts,device.objective,cpu_items,n,k,d);
-                check(cudaGetLastError());check(cudaStreamSynchronize(device.stream));compute_end=km::now();
-                check(cudaMemcpyAsync(labels.data()+cpu_items,device.labels+cpu_items,gpu_items*4,cudaMemcpyDeviceToHost,device.stream));
-                check(cudaMemcpyAsync(gpu_sums.data(),device.sums,k*d*8,cudaMemcpyDeviceToHost,device.stream));
-                check(cudaMemcpyAsync(gpu_counts.data(),device.counts,k*4,cudaMemcpyDeviceToHost,device.stream));
-                check(cudaMemcpyAsync(&gpu_objective,device.objective,8,cudaMemcpyDeviceToHost,device.stream));
-                check(cudaStreamSynchronize(device.stream));gpu_end=km::now();
+                if(!streamed){check(cudaStreamSynchronize(device.stream));h2d_end=km::now();}
+                const unsigned blocks=(gpu_items+255)/256;
+                if(reduced){
+                    kmeans_assign_reduced<<<blocks,256,(k*d+k+256)*8,device.stream>>>(device.points,device.centers,device.labels,device.partial,cpu_items,n,k,d);
+                    check(cudaGetLastError());
+                    kmeans_finalize<<<(k*d+k+1+255)/256,256,0,device.stream>>>(device.partial,device.sums,device.counts,device.objective,blocks,k,d);
+                }else kmeans_assign<<<blocks,256,0,device.stream>>>(device.points,device.centers,device.labels,device.sums,device.counts,device.objective,cpu_items,n,k,d);
+                // Release CPU work immediately after submitting real GPU work.
+                // No sleep, extra arithmetic, or artificial device waiting.
+                if(cpu_items&&gpu_first)worker.release();
+                check(cudaGetLastError());if(!streamed){check(cudaStreamSynchronize(device.stream));compute_end=km::now();}
+                double* host_sums=device.transfer+k*d;
+                auto* host_counts=reinterpret_cast<uint32_t*>(device.transfer+2*k*d);
+                double* host_objective=device.transfer+2*k*d+k;
+                check(cudaMemcpyAsync(device.host_labels+cpu_items,device.labels+cpu_items,gpu_items*4,cudaMemcpyDeviceToHost,device.stream));
+                check(cudaMemcpyAsync(host_sums,device.sums,k*d*8,cudaMemcpyDeviceToHost,device.stream));
+                check(cudaMemcpyAsync(host_counts,device.counts,k*4,cudaMemcpyDeviceToHost,device.stream));
+                check(cudaMemcpyAsync(host_objective,device.objective,8,cudaMemcpyDeviceToHost,device.stream));
+                check(cudaStreamSynchronize(device.stream));
+                std::copy(device.host_labels+cpu_items,device.host_labels+n,labels.begin()+cpu_items);
+                std::copy(host_sums,host_sums+k*d,gpu_sums.begin());std::copy(host_counts,host_counts+k,gpu_counts.begin());gpu_objective=*host_objective;
+                gpu_end=km::now();
             }
             if(cpu_items)worker.wait();
             const int64_t barrier_end=km::now();
@@ -184,42 +256,49 @@ int main(int argc,char** argv) {
             converged=changed==0||shift<=1e-6;
             const int64_t end=km::now();nvtxRangePop();
             // Validation follows the complete iteration; it never drives the backend's state.
-            reference.step(points.data,n,k,d);
+            const bool checked=!timing||warmup;
+            if(checked)reference.step(points.data,n,k,d);
             unsigned label_errors=0,count_errors=0,numeric_errors=0;
             long double quality=0;
             for(unsigned i=0;i<n;++i) {
-                label_errors+=(labels[i]!=reference.labels[i]);
+                if(checked)label_errors+=(labels[i]!=reference.labels[i]);
                 if(labels[i]>=k) {++numeric_errors;continue;}
                 for(unsigned j=0;j<d;++j) {
                     long double delta=points.data[size_t(i)*d+j]-centers[labels[i]*d+j];quality+=delta*delta;
                 }
             }
-            for(unsigned c=0;c<k;++c) count_errors+=(counts[c]!=reference.counts[c]);
+            if(checked)for(unsigned c=0;c<k;++c) count_errors+=(counts[c]!=reference.counts[c]);
             for(unsigned q=0;q<k*d;++q) {
-                numeric_errors+=!km::close(sums[q],reference.sums[q]);
-                numeric_errors+=!km::close(centers[q],reference.centers[q]);
+                numeric_errors+=!std::isfinite(sums[q])||!std::isfinite(centers[q]);
+                if(checked){numeric_errors+=!km::close(sums[q],reference.sums[q]);
+                    numeric_errors+=!km::close(centers[q],reference.centers[q]);}
             }
-            numeric_errors+=!km::close(objective,reference.objective);
+            numeric_errors+=!std::isfinite(objective);
+            if(checked)numeric_errors+=!km::close(objective,reference.objective);
             if(static_cast<double>(quality)>objective&&!km::close(static_cast<double>(quality),objective))++numeric_errors;
             const bool passed=!label_errors&&!count_errors&&!numeric_errors;
             const int64_t validation_end=km::now();
+            if(!warmup)validation_total+=validation_end-end;
             // Include previous-record export, controller/IPC, and partition parsing
             // in the next measured iteration's control interval, outside validation.
             if(feedback&&!warmup)control_begin=validation_end;
-            std::cout<<"{\"kind\":\"iteration\",\"index\":"<<iteration<<",\"warmup\":"<<(warmup?"true":"false")<<",\"status\":\""<<(passed?"passed":"failed")
-                     <<"\",\"cpu_items\":"<<cpu_items<<",\"gpu_items\":"<<gpu_items<<",\"resident_before\":"<<resident_before<<",\"resident_after\":"<<resident_begin
+            const bool final=!warmup&&(iteration+1==int(max_iters)||(mode=="converge"&&converged));
+            const bool due=!warmup&&!final&&(unsigned(iteration+1)%batch==0);
+            std::cout<<"{\"kind\":\"iteration\",\"index\":"<<iteration<<",\"phase\":"<<(!warmup&&unsigned(iteration)>=phase_at?1:0)
+                     <<",\"feedback_due\":"<<(due?"true":"false")<<",\"warmup\":"<<(warmup?"true":"false")<<",\"status\":\""<<(passed?"passed":"failed")
+                     <<"\",\"validation\":\""<<(checked?"checked":"deferred")<<"\",\"cpu_items\":"<<cpu_items<<",\"gpu_items\":"<<gpu_items<<",\"resident_before\":"<<resident_before<<",\"resident_after\":"<<resident_begin
                      <<",\"ownership_changed_points\":"<<(cpu_items>old_cut?cpu_items-old_cut:old_cut-cpu_items)<<",\"h2d_point_bytes\":"<<point_bytes
                      <<",\"h2d_centroid_bytes\":"<<(gpu_items?k*d*8:0)<<",\"d2h_label_bytes\":"<<uint64_t(gpu_items)*4<<",\"d2h_aggregate_bytes\":"<<(gpu_items?k*d*8+k*4+8:0)
                      <<",\"release_ns\":"<<release<<",\"cpu_start_ns\":"<<(cpu_items?std::to_string(cpu.result.start):"null")<<",\"cpu_end_ns\":"<<(cpu_items?std::to_string(cpu.result.end):"null")
-                     <<",\"gpu_dispatch_ns\":"<<(gpu_items?std::to_string(gpu_dispatch):"null")<<",\"h2d_end_ns\":"<<(gpu_items?std::to_string(h2d_end):"null")
-                     <<",\"compute_end_ns\":"<<(gpu_items?std::to_string(compute_end):"null")<<",\"gpu_end_ns\":"<<(gpu_items?std::to_string(gpu_end):"null")
+                     <<",\"gpu_dispatch_ns\":"<<(gpu_items?std::to_string(gpu_dispatch):"null")<<",\"h2d_end_ns\":"<<(gpu_items&&!streamed?std::to_string(h2d_end):"null")
+                     <<",\"compute_end_ns\":"<<(gpu_items&&!streamed?std::to_string(compute_end):"null")<<",\"gpu_end_ns\":"<<(gpu_items?std::to_string(gpu_end):"null")
                      <<",\"barrier_end_ns\":"<<barrier_end<<",\"end_ns\":"<<end<<",\"validation_end_ns\":"<<validation_end
                      <<",\"control_ns\":"<<control_ns<<",\"workers_used\":"<<(cpu_items?cpu.result.workers:0)<<",\"objective_before_update\":"<<objective<<",\"objective_after_update\":"<<static_cast<double>(quality)
                      <<",\"max_centroid_shift\":"<<shift<<",\"changed_labels\":"<<changed<<",\"empty_clusters\":"<<empty<<",\"converged\":"<<(converged?"true":"false")
                      <<",\"label_errors\":"<<label_errors<<",\"count_errors\":"<<count_errors<<",\"numeric_errors\":"<<numeric_errors<<",\"label_hash\":\""<<label_hash(labels)<<"\",\"counts\":";
             array_json(counts);std::cout<<",\"sums\":";array_json(sums);std::cout<<",\"centroids\":";array_json(centers);
             if(n<=513){std::cout<<",\"labels\":";array_json(labels);}
-            std::cout<<"}"<<std::endl;
+            std::cout<<"}\n";if(warmup||due||final)std::cout.flush();
             if(!passed)return 1;
             if(warmup) {
                 centers=initial;reference=km::Reference(n,k,d,initial);resident_begin=n;previous_cut=n;
@@ -229,7 +308,17 @@ int main(int argc,char** argv) {
                 if(mode=="converge"&&converged)break;
             }
         }
-        std::cout<<"{\"kind\":\"summary\",\"status\":\"passed\",\"iterations\":"<<executed<<",\"active_ns\":"<<active_ns<<",\"loop_elapsed_ns\":"<<last_end-first_release
+        const int64_t final_validation_start=km::now();
+        if(timing){
+            for(unsigned i=0;i<executed;++i)reference.step_parallel(points.data,n,k,d,workers);
+            if(labels!=reference.labels||counts!=reference.counts)throw std::runtime_error("Deferred membership/count validation failed");
+            for(unsigned q=0;q<k*d;++q)if(!km::close(centers[q],reference.centers[q])||!km::close(sums[q],reference.sums[q]))
+                throw std::runtime_error("Deferred centroid validation failed");
+        }
+        const int64_t final_validation_ns=km::now()-final_validation_start;
+        std::cout<<"{\"kind\":\"summary\",\"status\":\"passed\",\"independent_validation\":\"passed\",\"validation_ns\":"<<validation_total
+                 <<",\"final_validation_ns\":"<<final_validation_ns<<",\"final_reference_workers_requested\":"<<(timing&&n>=1024?workers:1)
+                 <<",\"iterations\":"<<executed<<",\"active_ns\":"<<active_ns<<",\"loop_elapsed_ns\":"<<last_end-first_release
                  <<",\"control_ns\":"<<total_control_ns<<",\"active_and_control_ns\":"<<active_ns+total_control_ns
                  <<",\"final_objective\":"<<final_quality<<",\"stop_reason\":\""<<(mode=="fixed"?"fixed_budget":converged?"converged":"max_iterations")<<"\",\"final_labels\":";
         array_json(labels);std::cout<<",\"final_centroids\":";array_json(centers);std::cout<<"}"<<std::endl;

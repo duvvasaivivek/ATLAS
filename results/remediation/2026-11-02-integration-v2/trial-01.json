@@ -1,0 +1,1458 @@
+{
+  "argv": [
+    "/mnt/c/Users/saivi/Downloads/ATLAS/build/remediation-final/atlas_kmeans",
+    "/mnt/c/Users/saivi/Downloads/ATLAS/results/remediation/2026-11-02-integration-v2/datasets/k-small.kmdat",
+    "128",
+    "24",
+    "4",
+    "fixed",
+    "feedback",
+    "verify"
+  ],
+  "barriers": [
+    {
+      "controller_ns": 187581,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "a79da741d949014407c9bf1c821036a07a80d0d8dc48f8c3e292b8fb76427d56",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 0,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 128,
+        "partition_epoch": 0,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 53896944460,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 128,
+          "epoch": 0,
+          "iteration": 0,
+          "release_ns": 53895566266,
+          "run_id": "joint-01",
+          "t_cpu": 0.000380464,
+          "t_gpu": 0.001017065,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 111717,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "a79da741d949014407c9bf1c821036a07a80d0d8dc48f8c3e292b8fb76427d56",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 1,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 128,
+        "partition_epoch": 0,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 53897992871,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 128,
+          "epoch": 0,
+          "iteration": 1,
+          "release_ns": 53897238901,
+          "run_id": "joint-01",
+          "t_cpu": 0.000390018,
+          "t_gpu": 0.000490782,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 107739,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "a79da741d949014407c9bf1c821036a07a80d0d8dc48f8c3e292b8fb76427d56",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 2,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 128,
+        "partition_epoch": 0,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 53899199676,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 128,
+          "epoch": 0,
+          "iteration": 2,
+          "release_ns": 53898251058,
+          "run_id": "joint-01",
+          "t_cpu": 0.000254813,
+          "t_gpu": 0.000692206,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 240692,
+      "decision": {
+        "allocation": {
+          "config_hash": "5d525e2ecb61cebd04acad1ce4ce83537e93f9585fcbd4be0d552dad532ba023",
+          "cpu_items": 150,
+          "observation": {
+            "common_origin": true,
+            "cpu_items": 128,
+            "epoch": 0,
+            "iteration": 3,
+            "run_id": "joint-01",
+            "source_iterations": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "t_cpu": 0.0013216270000000001,
+            "t_gpu": 0.0026721369999999998,
+            "valid": true
+          },
+          "policy": "robust_proportional_epoch_v1",
+          "post_state": {
+            "bracket": null,
+            "dwell": 2,
+            "eligible": 1,
+            "epoch": 0,
+            "filter": [
+              0.0026535792109375,
+              0.005323559759689922
+            ],
+            "frozen": null,
+            "last_iteration": 3,
+            "phase_hits": 0,
+            "previous_ratio": 0.4980544747081712,
+            "run_id": "joint-01",
+            "sign": 0,
+            "step": null
+          },
+          "pre_state": {
+            "bracket": null,
+            "dwell": 0,
+            "eligible": 0,
+            "epoch": null,
+            "filter": null,
+            "frozen": null,
+            "last_iteration": -1,
+            "phase_hits": 0,
+            "previous_ratio": null,
+            "run_id": "joint-01",
+            "sign": 0,
+            "step": null
+          },
+          "realized_ratio": 0.5836575875486382,
+          "reason": "robust_adjust",
+          "requested_ratio": 0.5827032444596263,
+          "specification_version": "1.1"
+        },
+        "allocation_reason": "robust_adjust",
+        "capacity_epoch": 0,
+        "config_hash": "a79da741d949014407c9bf1c821036a07a80d0d8dc48f8c3e292b8fb76427d56",
+        "events": [
+          "observe",
+          "decide",
+          "apply_allocation_at_barrier",
+          "settle",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 3,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 150,
+        "partition_epoch": 0,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 53900188229,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 128,
+          "epoch": 0,
+          "iteration": 3,
+          "release_ns": 53899434588,
+          "run_id": "joint-01",
+          "t_cpu": 0.000296332,
+          "t_gpu": 0.000472084,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 101962,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "settling_iteration_excluded",
+        "capacity_epoch": 0,
+        "config_hash": "a79da741d949014407c9bf1c821036a07a80d0d8dc48f8c3e292b8fb76427d56",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 4,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 150,
+        "partition_epoch": 1,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 53901441515,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 150,
+          "epoch": 0,
+          "iteration": 4,
+          "release_ns": 53900536209,
+          "run_id": "joint-01",
+          "t_cpu": 7.7108e-05,
+          "t_gpu": 0.000628031,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 101130,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "a79da741d949014407c9bf1c821036a07a80d0d8dc48f8c3e292b8fb76427d56",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 5,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 150,
+        "partition_epoch": 1,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 53903027079,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 150,
+          "epoch": 0,
+          "iteration": 5,
+          "release_ns": 53901623127,
+          "run_id": "joint-01",
+          "t_cpu": 0.000932051,
+          "t_gpu": 0.001006092,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 154614,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "a79da741d949014407c9bf1c821036a07a80d0d8dc48f8c3e292b8fb76427d56",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 6,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 150,
+        "partition_epoch": 1,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 53903894224,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 150,
+          "epoch": 0,
+          "iteration": 6,
+          "release_ns": 53903194278,
+          "run_id": "joint-01",
+          "t_cpu": 6.4871e-05,
+          "t_gpu": 0.000443822,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 82819,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "a79da741d949014407c9bf1c821036a07a80d0d8dc48f8c3e292b8fb76427d56",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 7,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 150,
+        "partition_epoch": 1,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 53904880542,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 150,
+          "epoch": 0,
+          "iteration": 7,
+          "release_ns": 53904088661,
+          "run_id": "joint-01",
+          "t_cpu": 3.7722e-05,
+          "t_gpu": 0.00058023,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 199956,
+      "decision": {
+        "allocation": {
+          "config_hash": "5d525e2ecb61cebd04acad1ce4ce83537e93f9585fcbd4be0d552dad532ba023",
+          "cpu_items": 150,
+          "observation": {
+            "common_origin": true,
+            "cpu_items": 150,
+            "epoch": 0,
+            "iteration": 8,
+            "run_id": "joint-01",
+            "source_iterations": [
+              5,
+              6,
+              7,
+              8
+            ],
+            "t_cpu": 0.001344764,
+            "t_gpu": 0.002492919,
+            "valid": true
+          },
+          "policy": "robust_proportional_epoch_v1",
+          "post_state": {
+            "bracket": null,
+            "dwell": 1,
+            "eligible": 2,
+            "epoch": 0,
+            "filter": [
+              0.002566191654869792,
+              0.0054895861351880034
+            ],
+            "frozen": null,
+            "last_iteration": 8,
+            "phase_hits": 0,
+            "previous_ratio": 0.5836575875486382,
+            "run_id": "joint-01",
+            "sign": 0,
+            "step": null
+          },
+          "pre_state": {
+            "bracket": null,
+            "dwell": 2,
+            "eligible": 1,
+            "epoch": 0,
+            "filter": [
+              0.0026535792109375,
+              0.005323559759689922
+            ],
+            "frozen": null,
+            "last_iteration": 3,
+            "phase_hits": 0,
+            "previous_ratio": 0.4980544747081712,
+            "run_id": "joint-01",
+            "sign": 0,
+            "step": null
+          },
+          "realized_ratio": 0.5836575875486382,
+          "reason": "hold_dwell",
+          "requested_ratio": 0.5836575875486382,
+          "specification_version": "1.1"
+        },
+        "allocation_reason": "hold_dwell",
+        "capacity_epoch": 0,
+        "config_hash": "a79da741d949014407c9bf1c821036a07a80d0d8dc48f8c3e292b8fb76427d56",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 8,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 150,
+        "partition_epoch": 1,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 53905705992,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 150,
+          "epoch": 0,
+          "iteration": 8,
+          "release_ns": 53905028356,
+          "run_id": "joint-01",
+          "t_cpu": 0.00031012,
+          "t_gpu": 0.000462775,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 87920,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "a79da741d949014407c9bf1c821036a07a80d0d8dc48f8c3e292b8fb76427d56",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 9,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 150,
+        "partition_epoch": 1,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 53906649857,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 150,
+          "epoch": 0,
+          "iteration": 9,
+          "release_ns": 53906020593,
+          "run_id": "joint-01",
+          "t_cpu": 0.000232319,
+          "t_gpu": 0.000425997,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 79707,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "a79da741d949014407c9bf1c821036a07a80d0d8dc48f8c3e292b8fb76427d56",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 10,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 150,
+        "partition_epoch": 1,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 53907335607,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 150,
+          "epoch": 0,
+          "iteration": 10,
+          "release_ns": 53906801758,
+          "run_id": "joint-01",
+          "t_cpu": 0.000174377,
+          "t_gpu": 0.000341876,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 71505,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "a79da741d949014407c9bf1c821036a07a80d0d8dc48f8c3e292b8fb76427d56",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 11,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 150,
+        "partition_epoch": 1,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 53908068805,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 150,
+          "epoch": 0,
+          "iteration": 11,
+          "release_ns": 53907462703,
+          "run_id": "joint-01",
+          "t_cpu": 0.000246291,
+          "t_gpu": 0.00041673,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 210752,
+      "decision": {
+        "allocation": {
+          "config_hash": "5d525e2ecb61cebd04acad1ce4ce83537e93f9585fcbd4be0d552dad532ba023",
+          "cpu_items": 150,
+          "observation": {
+            "common_origin": true,
+            "cpu_items": 150,
+            "epoch": 0,
+            "iteration": 12,
+            "run_id": "joint-01",
+            "source_iterations": [
+              9,
+              10,
+              11,
+              12
+            ],
+            "t_cpu": 0.000763896,
+            "t_gpu": 0.001575338,
+            "valid": true
+          },
+          "policy": "robust_proportional_epoch_v1",
+          "post_state": {
+            "bracket": null,
+            "dwell": 0,
+            "eligible": 3,
+            "epoch": 0,
+            "filter": [
+              0.002251845861152344,
+              0.005063128540643339
+            ],
+            "frozen": null,
+            "last_iteration": 12,
+            "phase_hits": 0,
+            "previous_ratio": 0.5836575875486382,
+            "run_id": "joint-01",
+            "sign": 0,
+            "step": null
+          },
+          "pre_state": {
+            "bracket": null,
+            "dwell": 1,
+            "eligible": 2,
+            "epoch": 0,
+            "filter": [
+              0.002566191654869792,
+              0.0054895861351880034
+            ],
+            "frozen": null,
+            "last_iteration": 8,
+            "phase_hits": 0,
+            "previous_ratio": 0.5836575875486382,
+            "run_id": "joint-01",
+            "sign": 0,
+            "step": null
+          },
+          "realized_ratio": 0.5836575875486382,
+          "reason": "hold_dwell",
+          "requested_ratio": 0.5836575875486382,
+          "specification_version": "1.1"
+        },
+        "allocation_reason": "hold_dwell",
+        "capacity_epoch": 0,
+        "config_hash": "a79da741d949014407c9bf1c821036a07a80d0d8dc48f8c3e292b8fb76427d56",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 12,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 150,
+        "partition_epoch": 1,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 53908907539,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 150,
+          "epoch": 0,
+          "iteration": 12,
+          "release_ns": 53908318148,
+          "run_id": "joint-01",
+          "t_cpu": 0.000110909,
+          "t_gpu": 0.000390735,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 91084,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "a79da741d949014407c9bf1c821036a07a80d0d8dc48f8c3e292b8fb76427d56",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 13,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 150,
+        "partition_epoch": 1,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 53909930355,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 150,
+          "epoch": 0,
+          "iteration": 13,
+          "release_ns": 53909185078,
+          "run_id": "joint-01",
+          "t_cpu": 0.000110706,
+          "t_gpu": 0.000435694,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 98926,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "a79da741d949014407c9bf1c821036a07a80d0d8dc48f8c3e292b8fb76427d56",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 14,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 150,
+        "partition_epoch": 1,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 53911482780,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 150,
+          "epoch": 0,
+          "iteration": 14,
+          "release_ns": 53910401643,
+          "run_id": "joint-01",
+          "t_cpu": 0.00025146,
+          "t_gpu": 0.000787626,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 97815,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "a79da741d949014407c9bf1c821036a07a80d0d8dc48f8c3e292b8fb76427d56",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 15,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 150,
+        "partition_epoch": 1,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 53912573453,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 150,
+          "epoch": 0,
+          "iteration": 15,
+          "release_ns": 53911676890,
+          "run_id": "joint-01",
+          "t_cpu": 0.000158807,
+          "t_gpu": 0.000654259,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 186567,
+      "decision": {
+        "allocation": {
+          "config_hash": "5d525e2ecb61cebd04acad1ce4ce83537e93f9585fcbd4be0d552dad532ba023",
+          "cpu_items": 169,
+          "observation": {
+            "common_origin": true,
+            "cpu_items": 150,
+            "epoch": 0,
+            "iteration": 16,
+            "run_id": "joint-01",
+            "source_iterations": [
+              13,
+              14,
+              15,
+              16
+            ],
+            "t_cpu": 0.000629835,
+            "t_gpu": 0.0027304910000000003,
+            "valid": true
+          },
+          "policy": "robust_proportional_epoch_v1",
+          "post_state": {
+            "bracket": null,
+            "dwell": 2,
+            "eligible": 4,
+            "epoch": 0,
+            "filter": [
+              0.001958663720864258,
+              0.005436916935856337
+            ],
+            "frozen": null,
+            "last_iteration": 16,
+            "phase_hits": 1,
+            "previous_ratio": 0.5836575875486382,
+            "run_id": "joint-01",
+            "sign": 0,
+            "step": null
+          },
+          "pre_state": {
+            "bracket": null,
+            "dwell": 0,
+            "eligible": 3,
+            "epoch": 0,
+            "filter": [
+              0.002251845861152344,
+              0.005063128540643339
+            ],
+            "frozen": null,
+            "last_iteration": 12,
+            "phase_hits": 0,
+            "previous_ratio": 0.5836575875486382,
+            "run_id": "joint-01",
+            "sign": 0,
+            "step": null
+          },
+          "realized_ratio": 0.6575875486381323,
+          "reason": "robust_adjust",
+          "requested_ratio": 0.6594075673839099,
+          "specification_version": "1.1"
+        },
+        "allocation_reason": "robust_adjust",
+        "capacity_epoch": 0,
+        "config_hash": "a79da741d949014407c9bf1c821036a07a80d0d8dc48f8c3e292b8fb76427d56",
+        "events": [
+          "observe",
+          "decide",
+          "apply_allocation_at_barrier",
+          "settle",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 16,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 169,
+        "partition_epoch": 1,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 53913873125,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 150,
+          "epoch": 0,
+          "iteration": 16,
+          "release_ns": 53912767685,
+          "run_id": "joint-01",
+          "t_cpu": 0.000108862,
+          "t_gpu": 0.000852912,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 78199,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "settling_iteration_excluded",
+        "capacity_epoch": 0,
+        "config_hash": "a79da741d949014407c9bf1c821036a07a80d0d8dc48f8c3e292b8fb76427d56",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 17,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 169,
+        "partition_epoch": 2,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 53914867836,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 169,
+          "epoch": 0,
+          "iteration": 17,
+          "release_ns": 53914164431,
+          "run_id": "joint-01",
+          "t_cpu": 0.000237562,
+          "t_gpu": 0.000500272,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 77400,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "a79da741d949014407c9bf1c821036a07a80d0d8dc48f8c3e292b8fb76427d56",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 18,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 169,
+        "partition_epoch": 2,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 53915737063,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 169,
+          "epoch": 0,
+          "iteration": 18,
+          "release_ns": 53915048816,
+          "run_id": "joint-01",
+          "t_cpu": 0.000238749,
+          "t_gpu": 0.000492199,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 77718,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "a79da741d949014407c9bf1c821036a07a80d0d8dc48f8c3e292b8fb76427d56",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 19,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 169,
+        "partition_epoch": 2,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 53916466463,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 169,
+          "epoch": 0,
+          "iteration": 19,
+          "release_ns": 53915910194,
+          "run_id": "joint-01",
+          "t_cpu": 7.4518e-05,
+          "t_gpu": 0.000380076,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 77928,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "a79da741d949014407c9bf1c821036a07a80d0d8dc48f8c3e292b8fb76427d56",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 20,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 169,
+        "partition_epoch": 2,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 53917103407,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 169,
+          "epoch": 0,
+          "iteration": 20,
+          "release_ns": 53916585039,
+          "run_id": "joint-01",
+          "t_cpu": 7.2049e-05,
+          "t_gpu": 0.000334867,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 166757,
+      "decision": {
+        "allocation": {
+          "config_hash": "5d525e2ecb61cebd04acad1ce4ce83537e93f9585fcbd4be0d552dad532ba023",
+          "cpu_items": 195,
+          "observation": {
+            "common_origin": true,
+            "cpu_items": 169,
+            "epoch": 0,
+            "iteration": 21,
+            "run_id": "joint-01",
+            "source_iterations": [
+              18,
+              19,
+              20,
+              21
+            ],
+            "t_cpu": 0.000431821,
+            "t_gpu": 0.001497211,
+            "valid": true
+          },
+          "policy": "robust_proportional_epoch_v1",
+          "post_state": {
+            "bracket": null,
+            "dwell": 2,
+            "eligible": 5,
+            "epoch": 0,
+            "filter": [
+              0.0006566745384615385,
+              0.004372536670454546
+            ],
+            "frozen": null,
+            "last_iteration": 21,
+            "phase_hits": 0,
+            "previous_ratio": 0.6575875486381323,
+            "run_id": "joint-01",
+            "sign": 0,
+            "step": null
+          },
+          "pre_state": {
+            "bracket": null,
+            "dwell": 2,
+            "eligible": 4,
+            "epoch": 0,
+            "filter": [
+              0.001958663720864258,
+              0.005436916935856337
+            ],
+            "frozen": null,
+            "last_iteration": 16,
+            "phase_hits": 1,
+            "previous_ratio": 0.5836575875486382,
+            "run_id": "joint-01",
+            "sign": 0,
+            "step": null
+          },
+          "realized_ratio": 0.7587548638132295,
+          "reason": "reset_phase_and_adjust",
+          "requested_ratio": 0.7575875486381323,
+          "specification_version": "1.1"
+        },
+        "allocation_reason": "reset_phase_and_adjust",
+        "capacity_epoch": 0,
+        "config_hash": "a79da741d949014407c9bf1c821036a07a80d0d8dc48f8c3e292b8fb76427d56",
+        "events": [
+          "observe",
+          "decide",
+          "apply_allocation_at_barrier",
+          "settle",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 21,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 195,
+        "partition_epoch": 2,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 53917720861,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 169,
+          "epoch": 0,
+          "iteration": 21,
+          "release_ns": 53917232689,
+          "run_id": "joint-01",
+          "t_cpu": 4.6505e-05,
+          "t_gpu": 0.000290069,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 105141,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "settling_iteration_excluded",
+        "capacity_epoch": 0,
+        "config_hash": "a79da741d949014407c9bf1c821036a07a80d0d8dc48f8c3e292b8fb76427d56",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "cadence_not_due",
+        "hardware_requested_pair": null,
+        "iteration": 22,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 195,
+        "partition_epoch": 3,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 53918509818,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 195,
+          "epoch": 0,
+          "iteration": 22,
+          "release_ns": 53917930487,
+          "run_id": "joint-01",
+          "t_cpu": 0.000283388,
+          "t_gpu": 0.000334617,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 86382,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "workload_complete",
+        "capacity_epoch": 0,
+        "config_hash": "a79da741d949014407c9bf1c821036a07a80d0d8dc48f8c3e292b8fb76427d56",
+        "events": [
+          "observe",
+          "finalize"
+        ],
+        "frequency": null,
+        "frequency_reason": "workload_complete",
+        "hardware_requested_pair": null,
+        "iteration": 23,
+        "mode": "allocation_shadow",
+        "next_cpu_items": 195,
+        "partition_epoch": 3,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": true,
+        "new_frames": [],
+        "now_ns": 53919331945,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 195,
+          "epoch": 0,
+          "iteration": 23,
+          "release_ns": 53918695861,
+          "run_id": "joint-01",
+          "t_cpu": 6.9892e-05,
+          "t_gpu": 0.000400643,
+          "valid": true
+        },
+        "phase": 0
+      }
+    }
+  ],
+  "configuration": {
+    "allocation_interval_ns": 0,
+    "allocation_iterations": 4,
+    "allocation_policy": "robust_proportional_epoch_v1",
+    "cadence_profile": "batched_epochs_v1",
+    "frequency_guard_ns": 1000000000,
+    "frequency_interval_ns": 200000000,
+    "frequency_policy": "paper_additive",
+    "initial_cpu_items": 128,
+    "mode": "allocation_shadow",
+    "n": 257,
+    "pairs": [
+      [
+        930,
+        8001
+      ],
+      [
+        1665,
+        5501
+      ],
+      [
+        1665,
+        7001
+      ],
+      [
+        1665,
+        8001
+      ],
+      [
+        2385,
+        8001
+      ]
+    ],
+    "run_id": "joint-01",
+    "settle_iterations": 1
+  },
+  "elapsed_ns": 858649815,
+  "failure": null,
+  "hardware_setter_calls": 0,
+  "lifecycle": [
+    "prepare",
+    "warmup",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "finalize",
+    "restore",
+    "complete"
+  ],
+  "polling": {
+    "error": null,
+    "frames": 1,
+    "query_thread_cpu_ns": 1492925,
+    "query_wall_ns": 842837921
+  },
+  "restoration": "not_needed_no_settings_changed",
+  "returncode": 0,
+  "status": "ok",
+  "stderr": "",
+  "stdout": "{\"kind\":\"configuration\",\"schema_version\":\"4.1\",\"validation_mode\":\"verify\",\"clock\":\"CLOCK_MONOTONIC\",\"n\":257,\"d\":3,\"k\":4,\"max_iterations\":24,\"workers_requested\":4,\"mode\":\"fixed\",\"atol\":1e-8,\"rtol\":1e-10,\"shift_tolerance\":1e-6,\"preparation_start_ns\":53536542132,\"feedback\":true,\"feedback_batch\":1,\"reduction\":\"atomic\",\"transfer_mode\":\"diagnostic\",\"initial_centroids\":[36.935923231101071,35.785386401374012,35.621516494035433,-0.7237347106578591,0.33731847412330634,1.4025244849851695,-1.0699933971201383,-0.74175068572924263,1.4425563990379109,35.263191905328377,37.752723282769146,36.778724423719012]}\n{\"kind\":\"iteration\",\"index\":-1,\"phase\":0,\"feedback_due\":false,\"warmup\":true,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":128,\"gpu_items\":129,\"resident_before\":257,\"resident_after\":128,\"ownership_changed_points\":129,\"h2d_point_bytes\":3096,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":516,\"d2h_aggregate_bytes\":120,\"release_ns\":53885679250,\"cpu_start_ns\":53885724253,\"cpu_end_ns\":53886124315,\"gpu_dispatch_ns\":53885708899,\"h2d_end_ns\":53892971725,\"compute_end_ns\":53895310963,\"gpu_end_ns\":53895419699,\"barrier_end_ns\":53895420294,\"end_ns\":53895421351,\"validation_end_ns\":53895438418,\"control_ns\":0,\"workers_used\":4,\"objective_before_update\":55243.326764326688,\"objective_after_update\":22102.624483365114,\"max_centroid_shift\":12.622019529639196,\"changed_labels\":257,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"27922e8f807ff5d4\",\"counts\":[103,110,19,25],\"sums\":[2956.7110911539999,2954.9616014088133,3007.7017114400501,784.63504005756499,825.14110158253493,840.22057326385618,-12.942122613742606,-18.697296288007184,17.340162457603419,885.50965163100045,930.19240973377691,923.84247206701866],\"centroids\":[28.705932923825241,28.688947586493335,29.200987489709224,7.1330458187051367,7.5012827416594083,7.6383688478532381,-0.68116434809171611,-0.98406822568458863,0.91264012934754835,35.420386065240017,37.207696389351078,36.953698882680747],\"labels\":[0,1,0,1,3,0,0,0,1,0,1,2,3,1,1,0,3,0,1,0,0,0,0,0,1,0,3,0,2,1,1,1,0,0,0,2,3,1,1,0,1,1,3,0,0,0,3,0,0,1,0,1,1,0,0,0,1,1,1,0,0,0,2,0,0,1,0,1,1,1,0,1,2,1,1,0,1,3,0,1,1,2,2,1,1,1,1,0,0,0,0,2,1,0,1,1,0,0,1,0,1,2,0,0,0,0,2,3,1,1,0,2,0,0,0,0,1,1,1,0,1,2,3,1,1,1,1,0,1,2,1,2,0,1,0,1,0,0,1,1,1,0,3,1,2,0,1,0,1,0,1,0,1,0,1,1,1,3,0,1,3,0,1,0,1,1,1,1,1,0,1,0,3,1,1,0,1,3,0,0,2,1,1,0,1,0,0,1,1,1,1,1,1,2,3,1,0,1,3,1,0,1,1,0,1,0,1,3,0,3,1,0,0,0,3,0,0,0,0,3,1,1,1,1,3,1,0,0,0,3,1,0,1,0,2,1,1,0,2,0,0,0,1,0,1,0,0,1,1,0,1,3,1,1,3,0,1]}\n{\"kind\":\"iteration\",\"index\":0,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":128,\"gpu_items\":129,\"resident_before\":257,\"resident_after\":128,\"ownership_changed_points\":129,\"h2d_point_bytes\":3096,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":516,\"d2h_aggregate_bytes\":120,\"release_ns\":53895566266,\"cpu_start_ns\":53895934411,\"cpu_end_ns\":53895946730,\"gpu_dispatch_ns\":53895594712,\"h2d_end_ns\":53896228873,\"compute_end_ns\":53896424265,\"gpu_end_ns\":53896583331,\"barrier_end_ns\":53896583502,\"end_ns\":53896583910,\"validation_end_ns\":53896597667,\"control_ns\":0,\"workers_used\":4,\"objective_before_update\":55243.326764326688,\"objective_after_update\":22102.624483365114,\"max_centroid_shift\":12.622019529639196,\"changed_labels\":257,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"27922e8f807ff5d4\",\"counts\":[103,110,19,25],\"sums\":[2956.7110911539999,2954.9616014088133,3007.7017114400501,784.63504005756499,825.14110158253493,840.22057326385618,-12.942122613742606,-18.697296288007184,17.340162457603419,885.50965163100045,930.19240973377714,923.84247206701866],\"centroids\":[28.705932923825241,28.688947586493335,29.200987489709224,7.1330458187051367,7.5012827416594083,7.6383688478532381,-0.68116434809171611,-0.98406822568458863,0.91264012934754835,35.420386065240017,37.207696389351085,36.953698882680747],\"labels\":[0,1,0,1,3,0,0,0,1,0,1,2,3,1,1,0,3,0,1,0,0,0,0,0,1,0,3,0,2,1,1,1,0,0,0,2,3,1,1,0,1,1,3,0,0,0,3,0,0,1,0,1,1,0,0,0,1,1,1,0,0,0,2,0,0,1,0,1,1,1,0,1,2,1,1,0,1,3,0,1,1,2,2,1,1,1,1,0,0,0,0,2,1,0,1,1,0,0,1,0,1,2,0,0,0,0,2,3,1,1,0,2,0,0,0,0,1,1,1,0,1,2,3,1,1,1,1,0,1,2,1,2,0,1,0,1,0,0,1,1,1,0,3,1,2,0,1,0,1,0,1,0,1,0,1,1,1,3,0,1,3,0,1,0,1,1,1,1,1,0,1,0,3,1,1,0,1,3,0,0,2,1,1,0,1,0,0,1,1,1,1,1,1,2,3,1,0,1,3,1,0,1,1,0,1,0,1,3,0,3,1,0,0,0,3,0,0,0,0,3,1,1,1,1,3,1,0,0,0,3,1,0,1,0,2,1,1,0,2,0,0,0,1,0,1,0,0,1,1,0,1,3,1,1,3,0,1]}\n{\"kind\":\"iteration\",\"index\":1,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":128,\"gpu_items\":129,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":516,\"d2h_aggregate_bytes\":120,\"release_ns\":53897238901,\"cpu_start_ns\":53897326692,\"cpu_end_ns\":53897628919,\"gpu_dispatch_ns\":53897270468,\"h2d_end_ns\":53897475083,\"compute_end_ns\":53897562577,\"gpu_end_ns\":53897729683,\"barrier_end_ns\":53897729933,\"end_ns\":53897730704,\"validation_end_ns\":53897745632,\"control_ns\":640918,\"workers_used\":4,\"objective_before_update\":9710.7777641212779,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":8.4381018072341956,\"changed_labels\":85,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509459,1564.2629044494852,1582.0438538317298,767.09271014168473,783.60355805663767,809.88171753348183,4.6002073021377488,22.840247237890061,47.679018187977789,2312.1758287340544,2320.891106693105,2349.5003296753389],\"centroids\":[23.906951782046029,24.441607882023206,24.719435216120779,11.985823595963824,12.243805594634964,12.654401836460654,0.070772420032888445,0.3513884190444625,0.73352335673811986,36.127747323969601,36.263923542079766,36.71094265117717],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":2,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":128,\"gpu_items\":129,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":516,\"d2h_aggregate_bytes\":120,\"release_ns\":53898251058,\"cpu_start_ns\":53898295942,\"cpu_end_ns\":53898505871,\"gpu_dispatch_ns\":53898275733,\"h2d_end_ns\":53898695420,\"compute_end_ns\":53898790240,\"gpu_end_ns\":53898943264,\"barrier_end_ns\":53898943735,\"end_ns\":53898944263,\"validation_end_ns\":53898958732,\"control_ns\":505181,\"workers_used\":4,\"objective_before_update\":992.43386145727902,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":2.7755575615628914e-17,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509459,1564.2629044494852,1582.0438538317298,767.09271014168473,783.60355805663767,809.88171753348183,4.6002073021377505,22.840247237890061,47.679018187977789,2312.1758287340544,2320.891106693105,2349.5003296753389],\"centroids\":[23.906951782046029,24.441607882023206,24.719435216120779,11.985823595963824,12.243805594634964,12.654401836460654,0.070772420032888472,0.3513884190444625,0.73352335673811986,36.127747323969601,36.263923542079766,36.71094265117717],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":3,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":128,\"gpu_items\":129,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":516,\"d2h_aggregate_bytes\":120,\"release_ns\":53899434588,\"cpu_start_ns\":53899504550,\"cpu_end_ns\":53899730920,\"gpu_dispatch_ns\":53899460032,\"h2d_end_ns\":53899660043,\"compute_end_ns\":53899744181,\"gpu_end_ns\":53899906672,\"barrier_end_ns\":53899906903,\"end_ns\":53899907561,\"validation_end_ns\":53899921388,\"control_ns\":475513,\"workers_used\":4,\"objective_before_update\":992.43386145727902,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":0,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509459,1564.2629044494852,1582.0438538317298,767.09271014168473,783.60355805663767,809.88171753348183,4.6002073021377505,22.840247237890061,47.679018187977789,2312.1758287340544,2320.891106693105,2349.5003296753389],\"centroids\":[23.906951782046029,24.441607882023206,24.719435216120779,11.985823595963824,12.243805594634964,12.654401836460654,0.070772420032888472,0.3513884190444625,0.73352335673811986,36.127747323969601,36.263923542079766,36.71094265117717],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":4,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":150,\"gpu_items\":107,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":22,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":428,\"d2h_aggregate_bytes\":120,\"release_ns\":53900536209,\"cpu_start_ns\":53900603852,\"cpu_end_ns\":53900613317,\"gpu_dispatch_ns\":53900557794,\"h2d_end_ns\":53900870732,\"compute_end_ns\":53900933142,\"gpu_end_ns\":53901164240,\"barrier_end_ns\":53901203558,\"end_ns\":53901204209,\"validation_end_ns\":53901217862,\"control_ns\":614591,\"workers_used\":4,\"objective_before_update\":992.43386145727936,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":1.0048591735576161e-14,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509463,1564.2629044494852,1582.0438538317298,767.09271014168462,783.60355805663767,809.88171753348195,4.6002073021377523,22.840247237890068,47.679018187977789,2312.175828734054,2320.891106693105,2349.5003296753384],\"centroids\":[23.906951782046036,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634964,12.654401836460655,0.0707724200328885,0.35138841904446261,0.73352335673811986,36.127747323969594,36.263923542079766,36.710942651177163],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":5,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":150,\"gpu_items\":107,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":428,\"d2h_aggregate_bytes\":120,\"release_ns\":53901623127,\"cpu_start_ns\":53901830824,\"cpu_end_ns\":53902555178,\"gpu_dispatch_ns\":53901675838,\"h2d_end_ns\":53902388527,\"compute_end_ns\":53902488903,\"gpu_end_ns\":53902629219,\"barrier_end_ns\":53902629795,\"end_ns\":53902630842,\"validation_end_ns\":53902650669,\"control_ns\":404809,\"workers_used\":4,\"objective_before_update\":992.43386145727936,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":7.1054273576010019e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509461,1564.2629044494852,1582.0438538317298,767.09271014168462,783.60355805663755,809.88171753348183,4.6002073021377488,22.840247237890068,47.679018187977775,2312.1758287340535,2320.891106693105,2349.5003296753384],\"centroids\":[23.906951782046033,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634962,12.654401836460654,0.070772420032888445,0.35138841904446261,0.73352335673811964,36.127747323969587,36.263923542079766,36.710942651177163],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":6,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":150,\"gpu_items\":107,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":428,\"d2h_aggregate_bytes\":120,\"release_ns\":53903194278,\"cpu_start_ns\":53903246479,\"cpu_end_ns\":53903259149,\"gpu_dispatch_ns\":53903219893,\"h2d_end_ns\":53903425899,\"compute_end_ns\":53903509094,\"gpu_end_ns\":53903638100,\"barrier_end_ns\":53903638290,\"end_ns\":53903638789,\"validation_end_ns\":53903651518,\"control_ns\":543361,\"workers_used\":4,\"objective_before_update\":992.43386145727914,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":3.5527136788005009e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509463,1564.2629044494852,1582.0438538317298,767.09271014168473,783.60355805663767,809.88171753348183,4.6002073021377488,22.840247237890061,47.679018187977782,2312.1758287340535,2320.891106693105,2349.5003296753384],\"centroids\":[23.906951782046036,24.441607882023206,24.719435216120779,11.985823595963824,12.243805594634964,12.654401836460654,0.070772420032888445,0.3513884190444625,0.73352335673811975,36.127747323969587,36.263923542079766,36.710942651177163],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":7,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":150,\"gpu_items\":107,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":428,\"d2h_aggregate_bytes\":120,\"release_ns\":53904088661,\"cpu_start_ns\":53904118243,\"cpu_end_ns\":53904126383,\"gpu_dispatch_ns\":53904099835,\"h2d_end_ns\":53904444646,\"compute_end_ns\":53904525300,\"gpu_end_ns\":53904668891,\"barrier_end_ns\":53904669174,\"end_ns\":53904669617,\"validation_end_ns\":53904681820,\"control_ns\":436654,\"workers_used\":4,\"objective_before_update\":992.43386145727925,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":7.1054273576010019e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509461,1564.2629044494852,1582.0438538317298,767.09271014168485,783.60355805663767,809.88171753348195,4.6002073021377505,22.840247237890061,47.679018187977789,2312.175828734054,2320.891106693105,2349.5003296753384],\"centroids\":[23.906951782046033,24.441607882023206,24.719435216120779,11.985823595963826,12.243805594634964,12.654401836460655,0.070772420032888472,0.3513884190444625,0.73352335673811986,36.127747323969594,36.263923542079766,36.710942651177163],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":8,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":150,\"gpu_items\":107,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":428,\"d2h_aggregate_bytes\":120,\"release_ns\":53905028356,\"cpu_start_ns\":53905132941,\"cpu_end_ns\":53905338476,\"gpu_dispatch_ns\":53905058238,\"h2d_end_ns\":53905244040,\"compute_end_ns\":53905347542,\"gpu_end_ns\":53905491131,\"barrier_end_ns\":53905491324,\"end_ns\":53905491756,\"validation_end_ns\":53905503824,\"control_ns\":346263,\"workers_used\":4,\"objective_before_update\":992.43386145727936,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":3.5527136788005009e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509463,1564.2629044494852,1582.0438538317298,767.09271014168462,783.60355805663767,809.88171753348195,4.6002073021377523,22.840247237890068,47.679018187977789,2312.175828734054,2320.891106693105,2349.5003296753384],\"centroids\":[23.906951782046036,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634964,12.654401836460655,0.0707724200328885,0.35138841904446261,0.73352335673811986,36.127747323969594,36.263923542079766,36.710942651177163],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":9,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":150,\"gpu_items\":107,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":428,\"d2h_aggregate_bytes\":120,\"release_ns\":53906020593,\"cpu_start_ns\":53906072656,\"cpu_end_ns\":53906252912,\"gpu_dispatch_ns\":53906043960,\"h2d_end_ns\":53906231578,\"compute_end_ns\":53906322665,\"gpu_end_ns\":53906446590,\"barrier_end_ns\":53906446792,\"end_ns\":53906447148,\"validation_end_ns\":53906458659,\"control_ns\":516481,\"workers_used\":4,\"objective_before_update\":992.43386145727936,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":7.1054273576010019e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509461,1564.2629044494852,1582.0438538317298,767.09271014168462,783.60355805663755,809.88171753348183,4.6002073021377488,22.840247237890068,47.679018187977775,2312.1758287340535,2320.891106693105,2349.5003296753384],\"centroids\":[23.906951782046033,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634962,12.654401836460654,0.070772420032888445,0.35138841904446261,0.73352335673811964,36.127747323969587,36.263923542079766,36.710942651177163],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":10,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":150,\"gpu_items\":107,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":428,\"d2h_aggregate_bytes\":120,\"release_ns\":53906801758,\"cpu_start_ns\":53906851725,\"cpu_end_ns\":53906976135,\"gpu_dispatch_ns\":53906830529,\"h2d_end_ns\":53906937366,\"compute_end_ns\":53907017024,\"gpu_end_ns\":53907143634,\"barrier_end_ns\":53907143803,\"end_ns\":53907144246,\"validation_end_ns\":53907155073,\"control_ns\":342842,\"workers_used\":4,\"objective_before_update\":992.43386145727914,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":3.5527136788005009e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509463,1564.2629044494852,1582.0438538317298,767.09271014168473,783.60355805663767,809.88171753348183,4.6002073021377488,22.840247237890061,47.679018187977782,2312.1758287340535,2320.891106693105,2349.5003296753384],\"centroids\":[23.906951782046036,24.441607882023206,24.719435216120779,11.985823595963824,12.243805594634964,12.654401836460654,0.070772420032888445,0.3513884190444625,0.73352335673811975,36.127747323969587,36.263923542079766,36.710942651177163],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":11,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":150,\"gpu_items\":107,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":428,\"d2h_aggregate_bytes\":120,\"release_ns\":53907462703,\"cpu_start_ns\":53907510165,\"cpu_end_ns\":53907708994,\"gpu_dispatch_ns\":53907483033,\"h2d_end_ns\":53907644995,\"compute_end_ns\":53907732793,\"gpu_end_ns\":53907879433,\"barrier_end_ns\":53907879557,\"end_ns\":53907879957,\"validation_end_ns\":53907890756,\"control_ns\":307344,\"workers_used\":4,\"objective_before_update\":992.43386145727925,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":7.1054273576010019e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509461,1564.2629044494852,1582.0438538317298,767.09271014168485,783.60355805663767,809.88171753348195,4.6002073021377505,22.840247237890061,47.679018187977789,2312.175828734054,2320.891106693105,2349.5003296753384],\"centroids\":[23.906951782046033,24.441607882023206,24.719435216120779,11.985823595963826,12.243805594634964,12.654401836460655,0.070772420032888472,0.3513884190444625,0.73352335673811986,36.127747323969594,36.263923542079766,36.710942651177163],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":12,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":150,\"gpu_items\":107,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":428,\"d2h_aggregate_bytes\":120,\"release_ns\":53908318148,\"cpu_start_ns\":53908393079,\"cpu_end_ns\":53908429057,\"gpu_dispatch_ns\":53908354436,\"h2d_end_ns\":53908509454,\"compute_end_ns\":53908587744,\"gpu_end_ns\":53908708883,\"barrier_end_ns\":53908709134,\"end_ns\":53908709548,\"validation_end_ns\":53908721408,\"control_ns\":426907,\"workers_used\":4,\"objective_before_update\":992.43386145727936,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":3.5527136788005009e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509463,1564.2629044494852,1582.0438538317298,767.09271014168462,783.60355805663767,809.88171753348195,4.6002073021377523,22.840247237890068,47.679018187977789,2312.175828734054,2320.891106693105,2349.5003296753384],\"centroids\":[23.906951782046036,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634964,12.654401836460655,0.0707724200328885,0.35138841904446261,0.73352335673811986,36.127747323969594,36.263923542079766,36.710942651177163],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":13,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":150,\"gpu_items\":107,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":428,\"d2h_aggregate_bytes\":120,\"release_ns\":53909185078,\"cpu_start_ns\":53909257619,\"cpu_end_ns\":53909295784,\"gpu_dispatch_ns\":53909235883,\"h2d_end_ns\":53909448781,\"compute_end_ns\":53909513975,\"gpu_end_ns\":53909620772,\"barrier_end_ns\":53909621081,\"end_ns\":53909621929,\"validation_end_ns\":53909638149,\"control_ns\":463261,\"workers_used\":4,\"objective_before_update\":992.43386145727936,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":7.1054273576010019e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509461,1564.2629044494852,1582.0438538317298,767.09271014168462,783.60355805663755,809.88171753348183,4.6002073021377488,22.840247237890068,47.679018187977775,2312.1758287340535,2320.891106693105,2349.5003296753384],\"centroids\":[23.906951782046033,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634962,12.654401836460654,0.070772420032888445,0.35138841904446261,0.73352335673811964,36.127747323969587,36.263923542079766,36.710942651177163],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":14,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":150,\"gpu_items\":107,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":428,\"d2h_aggregate_bytes\":120,\"release_ns\":53910401643,\"cpu_start_ns\":53910627964,\"cpu_end_ns\":53910653103,\"gpu_dispatch_ns\":53910646614,\"h2d_end_ns\":53910926057,\"compute_end_ns\":53911026181,\"gpu_end_ns\":53911189269,\"barrier_end_ns\":53911189778,\"end_ns\":53911190322,\"validation_end_ns\":53911201850,\"control_ns\":762296,\"workers_used\":4,\"objective_before_update\":992.43386145727914,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":3.5527136788005009e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509463,1564.2629044494852,1582.0438538317298,767.09271014168473,783.60355805663767,809.88171753348183,4.6002073021377488,22.840247237890061,47.679018187977782,2312.1758287340535,2320.891106693105,2349.5003296753384],\"centroids\":[23.906951782046036,24.441607882023206,24.719435216120779,11.985823595963824,12.243805594634964,12.654401836460654,0.070772420032888445,0.3513884190444625,0.73352335673811975,36.127747323969587,36.263923542079766,36.710942651177163],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":15,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":150,\"gpu_items\":107,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":428,\"d2h_aggregate_bytes\":120,\"release_ns\":53911676890,\"cpu_start_ns\":53911827234,\"cpu_end_ns\":53911835697,\"gpu_dispatch_ns\":53911812388,\"h2d_end_ns\":53912162633,\"compute_end_ns\":53912227237,\"gpu_end_ns\":53912331149,\"barrier_end_ns\":53912331365,\"end_ns\":53912331841,\"validation_end_ns\":53912342277,\"control_ns\":474627,\"workers_used\":4,\"objective_before_update\":992.43386145727925,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":7.1054273576010019e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509461,1564.2629044494852,1582.0438538317298,767.09271014168485,783.60355805663767,809.88171753348195,4.6002073021377505,22.840247237890061,47.679018187977789,2312.175828734054,2320.891106693105,2349.5003296753384],\"centroids\":[23.906951782046033,24.441607882023206,24.719435216120779,11.985823595963826,12.243805594634964,12.654401836460655,0.070772420032888472,0.3513884190444625,0.73352335673811986,36.127747323969594,36.263923542079766,36.710942651177163],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":16,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":150,\"gpu_items\":107,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":428,\"d2h_aggregate_bytes\":120,\"release_ns\":53912767685,\"cpu_start_ns\":53912831892,\"cpu_end_ns\":53912876547,\"gpu_dispatch_ns\":53912787848,\"h2d_end_ns\":53912966050,\"compute_end_ns\":53913266684,\"gpu_end_ns\":53913620597,\"barrier_end_ns\":53913621048,\"end_ns\":53913621722,\"validation_end_ns\":53913636026,\"control_ns\":425171,\"workers_used\":4,\"objective_before_update\":992.43386145727936,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":3.5527136788005009e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509463,1564.2629044494852,1582.0438538317298,767.09271014168462,783.60355805663767,809.88171753348195,4.6002073021377523,22.840247237890068,47.679018187977789,2312.175828734054,2320.891106693105,2349.5003296753384],\"centroids\":[23.906951782046036,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634964,12.654401836460655,0.0707724200328885,0.35138841904446261,0.73352335673811986,36.127747323969594,36.263923542079766,36.710942651177163],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":17,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":169,\"gpu_items\":88,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":19,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":352,\"d2h_aggregate_bytes\":120,\"release_ns\":53914164431,\"cpu_start_ns\":53914250044,\"cpu_end_ns\":53914401993,\"gpu_dispatch_ns\":53914185166,\"h2d_end_ns\":53914355926,\"compute_end_ns\":53914549929,\"gpu_end_ns\":53914664703,\"barrier_end_ns\":53914664893,\"end_ns\":53914665274,\"validation_end_ns\":53914675647,\"control_ns\":528184,\"workers_used\":4,\"objective_before_update\":992.43386145727925,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":1.0048591735576161e-14,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509463,1564.2629044494852,1582.0438538317298,767.09271014168462,783.60355805663767,809.88171753348183,4.600207302137747,22.840247237890061,47.679018187977789,2312.1758287340544,2320.891106693105,2349.5003296753389],\"centroids\":[23.906951782046036,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634964,12.654401836460654,0.070772420032888417,0.3513884190444625,0.73352335673811986,36.127747323969601,36.263923542079766,36.71094265117717],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":18,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":169,\"gpu_items\":88,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":352,\"d2h_aggregate_bytes\":120,\"release_ns\":53915048816,\"cpu_start_ns\":53915145977,\"cpu_end_ns\":53915287565,\"gpu_dispatch_ns\":53915068340,\"h2d_end_ns\":53915251924,\"compute_end_ns\":53915419234,\"gpu_end_ns\":53915541015,\"barrier_end_ns\":53915541242,\"end_ns\":53915541623,\"validation_end_ns\":53915551433,\"control_ns\":372940,\"workers_used\":4,\"objective_before_update\":992.43386145727936,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":3.5527136788005009e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509461,1564.2629044494852,1582.0438538317298,767.09271014168473,783.60355805663767,809.88171753348183,4.600207302137747,22.840247237890061,47.679018187977789,2312.1758287340544,2320.891106693105,2349.5003296753389],\"centroids\":[23.906951782046033,24.441607882023206,24.719435216120779,11.985823595963824,12.243805594634964,12.654401836460654,0.070772420032888417,0.3513884190444625,0.73352335673811986,36.127747323969601,36.263923542079766,36.71094265117717],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":19,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":169,\"gpu_items\":88,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":352,\"d2h_aggregate_bytes\":120,\"release_ns\":53915910194,\"cpu_start_ns\":53915947591,\"cpu_end_ns\":53915984712,\"gpu_dispatch_ns\":53915930287,\"h2d_end_ns\":53916121542,\"compute_end_ns\":53916180088,\"gpu_end_ns\":53916290270,\"barrier_end_ns\":53916290427,\"end_ns\":53916290818,\"validation_end_ns\":53916301403,\"control_ns\":358544,\"workers_used\":4,\"objective_before_update\":992.43386145727891,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":3.5527136788005009e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509463,1564.2629044494852,1582.0438538317298,767.09271014168462,783.60355805663767,809.88171753348183,4.6002073021377488,22.840247237890061,47.679018187977789,2312.1758287340544,2320.891106693105,2349.5003296753389],\"centroids\":[23.906951782046036,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634964,12.654401836460654,0.070772420032888445,0.3513884190444625,0.73352335673811986,36.127747323969601,36.263923542079766,36.71094265117717],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":20,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":169,\"gpu_items\":88,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":352,\"d2h_aggregate_bytes\":120,\"release_ns\":53916585039,\"cpu_start_ns\":53916620247,\"cpu_end_ns\":53916657088,\"gpu_dispatch_ns\":53916602337,\"h2d_end_ns\":53916752127,\"compute_end_ns\":53916820502,\"gpu_end_ns\":53916919906,\"barrier_end_ns\":53916920093,\"end_ns\":53916920440,\"validation_end_ns\":53916930795,\"control_ns\":283383,\"workers_used\":4,\"objective_before_update\":992.43386145727891,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":0,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509463,1564.2629044494852,1582.0438538317298,767.09271014168462,783.60355805663767,809.88171753348183,4.6002073021377488,22.840247237890061,47.679018187977789,2312.1758287340544,2320.891106693105,2349.5003296753389],\"centroids\":[23.906951782046036,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634964,12.654401836460654,0.070772420032888445,0.3513884190444625,0.73352335673811986,36.127747323969601,36.263923542079766,36.71094265117717],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":21,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":169,\"gpu_items\":88,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":352,\"d2h_aggregate_bytes\":120,\"release_ns\":53917232689,\"cpu_start_ns\":53917270689,\"cpu_end_ns\":53917279194,\"gpu_dispatch_ns\":53917256402,\"h2d_end_ns\":53917343084,\"compute_end_ns\":53917411351,\"gpu_end_ns\":53917522758,\"barrier_end_ns\":53917522949,\"end_ns\":53917523355,\"validation_end_ns\":53917535841,\"control_ns\":301678,\"workers_used\":4,\"objective_before_update\":992.43386145727925,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":2.7755575615628914e-17,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509463,1564.2629044494852,1582.0438538317298,767.09271014168462,783.60355805663767,809.88171753348183,4.600207302137747,22.840247237890061,47.679018187977789,2312.1758287340544,2320.891106693105,2349.5003296753389],\"centroids\":[23.906951782046036,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634964,12.654401836460654,0.070772420032888417,0.3513884190444625,0.73352335673811986,36.127747323969601,36.263923542079766,36.71094265117717],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":22,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":195,\"gpu_items\":62,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":26,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":248,\"d2h_aggregate_bytes\":120,\"release_ns\":53917930487,\"cpu_start_ns\":53917963322,\"cpu_end_ns\":53918213875,\"gpu_dispatch_ns\":53917948404,\"h2d_end_ns\":53918076444,\"compute_end_ns\":53918154287,\"gpu_end_ns\":53918265104,\"barrier_end_ns\":53918265268,\"end_ns\":53918265661,\"validation_end_ns\":53918278376,\"control_ns\":394524,\"workers_used\":4,\"objective_before_update\":992.43386145727936,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":7.1054273576010019e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509461,1564.2629044494854,1582.0438538317298,767.09271014168462,783.60355805663767,809.88171753348195,4.6002073021377488,22.840247237890065,47.679018187977789,2312.175828734054,2320.891106693105,2349.5003296753389],\"centroids\":[23.906951782046033,24.441607882023209,24.719435216120779,11.985823595963822,12.243805594634964,12.654401836460655,0.070772420032888445,0.35138841904446255,0.73352335673811986,36.127747323969594,36.263923542079766,36.71094265117717],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":23,\"phase\":0,\"feedback_due\":false,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":195,\"gpu_items\":62,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":248,\"d2h_aggregate_bytes\":120,\"release_ns\":53918695861,\"cpu_start_ns\":53918757321,\"cpu_end_ns\":53918765753,\"gpu_dispatch_ns\":53918739205,\"h2d_end_ns\":53918929760,\"compute_end_ns\":53918996167,\"gpu_end_ns\":53919096504,\"barrier_end_ns\":53919096814,\"end_ns\":53919097954,\"validation_end_ns\":53919112177,\"control_ns\":417188,\"workers_used\":4,\"objective_before_update\":992.43386145727914,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":1.7763568394002505e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509461,1564.2629044494854,1582.0438538317298,767.09271014168473,783.60355805663767,809.88171753348195,4.6002073021377488,22.840247237890061,47.679018187977789,2312.175828734054,2320.891106693105,2349.5003296753389],\"centroids\":[23.906951782046033,24.441607882023209,24.719435216120779,11.985823595963824,12.243805594634964,12.654401836460655,0.070772420032888445,0.3513884190444625,0.73352335673811986,36.127747323969594,36.263923542079766,36.71094265117717],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"summary\",\"status\":\"passed\",\"independent_validation\":\"passed\",\"validation_ns\":305493,\"final_validation_ns\":74,\"final_reference_workers_requested\":1,\"iterations\":24,\"active_ns\":12890030,\"loop_elapsed_ns\":23531688,\"control_ns\":10342660,\"active_and_control_ns\":23232690,\"final_objective\":992.43386145727914,\"stop_reason\":\"fixed_budget\",\"final_labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1],\"final_centroids\":[23.906951782046033,24.441607882023209,24.719435216120779,11.985823595963824,12.243805594634964,12.654401836460655,0.070772420032888445,0.3513884190444625,0.73352335673811986,36.127747323969594,36.263923542079766,36.71094265117717]}\n",
+  "timed_out": false,
+  "trailing_frames": [
+    {
+      "acquisition_end_ns": 54375145606,
+      "acquisition_start_ns": 54367768283,
+      "buffer_samples": {
+        "core": [],
+        "memory": []
+      },
+      "errors": [
+        {
+          "domain": "core",
+          "error": "Not Found"
+        },
+        {
+          "domain": "memory",
+          "error": "Not Found"
+        }
+      ],
+      "frame_id": 0,
+      "poll_cpu_ns": 1492925,
+      "readings": {
+        "clock_event_reasons": {
+          "acquisition_end_ns": 54375142147,
+          "acquisition_start_ns": 54374362576,
+          "status": "ok",
+          "value": 36
+        },
+        "core_mhz": {
+          "acquisition_end_ns": 54371159989,
+          "acquisition_start_ns": 54369864645,
+          "status": "ok",
+          "value": 1605
+        },
+        "energy_mj": {
+          "acquisition_end_ns": 54374359308,
+          "acquisition_start_ns": 54373354437,
+          "status": "ok",
+          "value": 1968306587
+        },
+        "memory_mhz": {
+          "acquisition_end_ns": 54372212463,
+          "acquisition_start_ns": 54371166308,
+          "status": "ok",
+          "value": 7000
+        },
+        "power_mw": {
+          "acquisition_end_ns": 54373349692,
+          "acquisition_start_ns": 54372853432,
+          "status": "ok",
+          "value": 12542
+        },
+        "temperature_c": {
+          "acquisition_end_ns": 54372848189,
+          "acquisition_start_ns": 54372219873,
+          "status": "ok",
+          "value": 61
+        }
+      },
+      "wall_end_us": 1793612379405626,
+      "wall_us": 1793612379398248
+    }
+  ]
+}

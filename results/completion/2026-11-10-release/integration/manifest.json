@@ -1,0 +1,981 @@
+{
+  "binaries": {
+    "hotspot": {
+      "path": "/mnt/c/Users/saivi/Projects/ATLAS/build/release-validation/atlas_hotspot",
+      "sha256": "7b67aaa6a7ab90201e2648a3fa5eb0bf3922a087ba9311bebb827d476bdf57d8"
+    },
+    "kmeans": {
+      "path": "/mnt/c/Users/saivi/Projects/ATLAS/build/release-validation/atlas_kmeans",
+      "sha256": "2df731f60d96e85903ab7214229383d69420dacc7a36b83fdcfadf41b78297ee"
+    }
+  },
+  "cases": [
+    {
+      "dataset": "datasets/k-small.kmdat",
+      "feedback_batch": 1,
+      "field": null,
+      "golden": "golden/joint-00.json",
+      "integration": {
+        "allocation_interval_ns": 0,
+        "allocation_iterations": 4,
+        "allocation_policy": "robust_proportional_epoch_v1",
+        "cadence_profile": "batched_epochs_v1",
+        "frequency_guard_ns": 1000000000,
+        "frequency_interval_ns": 200000000,
+        "frequency_policy": "paper_additive",
+        "initial_cpu_items": 128,
+        "mode": "allocation_only",
+        "n": 257,
+        "pairs": [
+          [
+            930,
+            8001
+          ],
+          [
+            1665,
+            5501
+          ],
+          [
+            1665,
+            7001
+          ],
+          [
+            1665,
+            8001
+          ],
+          [
+            2385,
+            8001
+          ]
+        ],
+        "run_id": "joint-00",
+        "settle_iterations": 1
+      },
+      "native_mode": "fixed",
+      "phase_at": null,
+      "phase_workers": 1,
+      "record": "trial-00.json",
+      "reduction": "atomic",
+      "runtime_version": "runtime-2.0",
+      "stage": "fixture",
+      "steps": 24,
+      "transfer_mode": "diagnostic",
+      "validation_mode": "verify",
+      "workers": 4,
+      "workload": "kmeans"
+    },
+    {
+      "dataset": "datasets/k-small.kmdat",
+      "feedback_batch": 1,
+      "field": null,
+      "golden": "golden/joint-01.json",
+      "integration": {
+        "allocation_interval_ns": 0,
+        "allocation_iterations": 4,
+        "allocation_policy": "robust_proportional_epoch_v1",
+        "cadence_profile": "batched_epochs_v1",
+        "frequency_guard_ns": 1000000000,
+        "frequency_interval_ns": 200000000,
+        "frequency_policy": "paper_additive",
+        "initial_cpu_items": 128,
+        "mode": "allocation_shadow",
+        "n": 257,
+        "pairs": [
+          [
+            930,
+            8001
+          ],
+          [
+            1665,
+            5501
+          ],
+          [
+            1665,
+            7001
+          ],
+          [
+            1665,
+            8001
+          ],
+          [
+            2385,
+            8001
+          ]
+        ],
+        "run_id": "joint-01",
+        "settle_iterations": 1
+      },
+      "native_mode": "fixed",
+      "phase_at": null,
+      "phase_workers": 1,
+      "record": "trial-01.json",
+      "reduction": "atomic",
+      "runtime_version": "runtime-2.0",
+      "stage": "fixture",
+      "steps": 24,
+      "transfer_mode": "diagnostic",
+      "validation_mode": "verify",
+      "workers": 4,
+      "workload": "kmeans"
+    },
+    {
+      "dataset": "datasets/k-large.kmdat",
+      "feedback_batch": 16,
+      "field": null,
+      "golden": null,
+      "integration": {
+        "allocation_interval_ns": 50000000,
+        "allocation_iterations": 4,
+        "allocation_policy": "robust_proportional_epoch_v1",
+        "cadence_profile": "batched_epochs_v1",
+        "frequency_guard_ns": 1000000000,
+        "frequency_interval_ns": 200000000,
+        "frequency_policy": "paper_additive",
+        "initial_cpu_items": 32769,
+        "mode": "allocation_only",
+        "n": 65539,
+        "pairs": [
+          [
+            930,
+            8001
+          ],
+          [
+            1665,
+            5501
+          ],
+          [
+            1665,
+            7001
+          ],
+          [
+            1665,
+            8001
+          ],
+          [
+            2385,
+            8001
+          ]
+        ],
+        "run_id": "joint-02",
+        "settle_iterations": 1
+      },
+      "native_mode": "fixed",
+      "phase_at": 500,
+      "phase_workers": 1,
+      "record": "trial-02.json",
+      "reduction": "atomic",
+      "runtime_version": "runtime-2.0",
+      "stage": "integration",
+      "steps": 1000,
+      "transfer_mode": "diagnostic",
+      "validation_mode": "timing",
+      "workers": 4,
+      "workload": "kmeans"
+    },
+    {
+      "dataset": "datasets/k-large.kmdat",
+      "feedback_batch": 16,
+      "field": null,
+      "golden": null,
+      "integration": {
+        "allocation_interval_ns": 50000000,
+        "allocation_iterations": 4,
+        "allocation_policy": "robust_proportional_epoch_v1",
+        "cadence_profile": "batched_epochs_v1",
+        "frequency_guard_ns": 1000000000,
+        "frequency_interval_ns": 200000000,
+        "frequency_policy": "paper_additive",
+        "initial_cpu_items": 32769,
+        "mode": "allocation_shadow",
+        "n": 65539,
+        "pairs": [
+          [
+            930,
+            8001
+          ],
+          [
+            1665,
+            5501
+          ],
+          [
+            1665,
+            7001
+          ],
+          [
+            1665,
+            8001
+          ],
+          [
+            2385,
+            8001
+          ]
+        ],
+        "run_id": "joint-03",
+        "settle_iterations": 1
+      },
+      "native_mode": "fixed",
+      "phase_at": 500,
+      "phase_workers": 1,
+      "record": "trial-03.json",
+      "reduction": "atomic",
+      "runtime_version": "runtime-2.0",
+      "stage": "integration",
+      "steps": 1000,
+      "transfer_mode": "diagnostic",
+      "validation_mode": "timing",
+      "workers": 4,
+      "workload": "kmeans"
+    },
+    {
+      "dataset": "datasets/k-large.kmdat",
+      "feedback_batch": 16,
+      "field": null,
+      "golden": null,
+      "integration": {
+        "allocation_interval_ns": 50000000,
+        "allocation_iterations": 4,
+        "allocation_policy": "robust_proportional_epoch_v1",
+        "cadence_profile": "batched_epochs_v1",
+        "frequency_guard_ns": 1000000000,
+        "frequency_interval_ns": 200000000,
+        "frequency_policy": "discounted_loss_v1",
+        "initial_cpu_items": 32769,
+        "mode": "allocation_shadow",
+        "n": 65539,
+        "pairs": [
+          [
+            930,
+            8001
+          ],
+          [
+            1665,
+            5501
+          ],
+          [
+            1665,
+            7001
+          ],
+          [
+            1665,
+            8001
+          ],
+          [
+            2385,
+            8001
+          ]
+        ],
+        "run_id": "joint-04",
+        "settle_iterations": 1
+      },
+      "native_mode": "fixed",
+      "phase_at": 500,
+      "phase_workers": 1,
+      "record": "trial-04.json",
+      "reduction": "atomic",
+      "runtime_version": "runtime-2.0",
+      "stage": "integration",
+      "steps": 1000,
+      "transfer_mode": "diagnostic",
+      "validation_mode": "timing",
+      "workers": 4,
+      "workload": "kmeans"
+    },
+    {
+      "dataset": "datasets/k-profile.kmdat",
+      "feedback_batch": 16,
+      "field": null,
+      "golden": null,
+      "integration": {
+        "allocation_interval_ns": 50000000,
+        "allocation_iterations": 4,
+        "allocation_policy": "robust_proportional_epoch_v1",
+        "cadence_profile": "batched_epochs_v1",
+        "frequency_guard_ns": 1000000000,
+        "frequency_interval_ns": 200000000,
+        "frequency_policy": "paper_additive",
+        "initial_cpu_items": 16385,
+        "mode": "allocation_shadow",
+        "n": 32771,
+        "pairs": [
+          [
+            930,
+            8001
+          ],
+          [
+            1665,
+            5501
+          ],
+          [
+            1665,
+            7001
+          ],
+          [
+            1665,
+            8001
+          ],
+          [
+            2385,
+            8001
+          ]
+        ],
+        "run_id": "joint-05",
+        "settle_iterations": 1
+      },
+      "native_mode": "fixed",
+      "phase_at": null,
+      "phase_workers": 1,
+      "record": "trial-05.json",
+      "reduction": "atomic",
+      "runtime_version": "runtime-2.0",
+      "stage": "profile",
+      "steps": 256,
+      "transfer_mode": "diagnostic",
+      "validation_mode": "timing",
+      "workers": 4,
+      "workload": "kmeans"
+    },
+    {
+      "dataset": "datasets/h-small.hsdat",
+      "feedback_batch": 1,
+      "field": "fields/trial-06.hstemp",
+      "golden": "golden/joint-06.json",
+      "integration": {
+        "allocation_interval_ns": 0,
+        "allocation_iterations": 4,
+        "allocation_policy": "robust_proportional_epoch_v1",
+        "cadence_profile": "batched_epochs_v1",
+        "frequency_guard_ns": 1000000000,
+        "frequency_interval_ns": 200000000,
+        "frequency_policy": "paper_additive",
+        "initial_cpu_items": 9,
+        "mode": "allocation_only",
+        "n": 19,
+        "pairs": [
+          [
+            930,
+            8001
+          ],
+          [
+            1665,
+            5501
+          ],
+          [
+            1665,
+            7001
+          ],
+          [
+            1665,
+            8001
+          ],
+          [
+            2385,
+            8001
+          ]
+        ],
+        "run_id": "joint-06",
+        "settle_iterations": 1
+      },
+      "native_mode": "verify",
+      "phase_at": null,
+      "phase_workers": 1,
+      "record": "trial-06.json",
+      "runtime_version": "runtime-2.0",
+      "stage": "fixture",
+      "steps": 24,
+      "workers": 4,
+      "workload": "hotspot"
+    },
+    {
+      "dataset": "datasets/h-small.hsdat",
+      "feedback_batch": 1,
+      "field": "fields/trial-07.hstemp",
+      "golden": "golden/joint-07.json",
+      "integration": {
+        "allocation_interval_ns": 0,
+        "allocation_iterations": 4,
+        "allocation_policy": "robust_proportional_epoch_v1",
+        "cadence_profile": "batched_epochs_v1",
+        "frequency_guard_ns": 1000000000,
+        "frequency_interval_ns": 200000000,
+        "frequency_policy": "paper_additive",
+        "initial_cpu_items": 9,
+        "mode": "allocation_shadow",
+        "n": 19,
+        "pairs": [
+          [
+            930,
+            8001
+          ],
+          [
+            1665,
+            5501
+          ],
+          [
+            1665,
+            7001
+          ],
+          [
+            1665,
+            8001
+          ],
+          [
+            2385,
+            8001
+          ]
+        ],
+        "run_id": "joint-07",
+        "settle_iterations": 1
+      },
+      "native_mode": "verify",
+      "phase_at": null,
+      "phase_workers": 1,
+      "record": "trial-07.json",
+      "runtime_version": "runtime-2.0",
+      "stage": "fixture",
+      "steps": 24,
+      "workers": 4,
+      "workload": "hotspot"
+    },
+    {
+      "dataset": "datasets/h-large.hsdat",
+      "feedback_batch": 16,
+      "field": "fields/trial-08.hstemp",
+      "golden": null,
+      "integration": {
+        "allocation_interval_ns": 50000000,
+        "allocation_iterations": 4,
+        "allocation_policy": "robust_proportional_epoch_v1",
+        "cadence_profile": "batched_epochs_v1",
+        "frequency_guard_ns": 1000000000,
+        "frequency_interval_ns": 200000000,
+        "frequency_policy": "paper_additive",
+        "initial_cpu_items": 128,
+        "mode": "allocation_only",
+        "n": 257,
+        "pairs": [
+          [
+            930,
+            8001
+          ],
+          [
+            1665,
+            5501
+          ],
+          [
+            1665,
+            7001
+          ],
+          [
+            1665,
+            8001
+          ],
+          [
+            2385,
+            8001
+          ]
+        ],
+        "run_id": "joint-08",
+        "settle_iterations": 1
+      },
+      "native_mode": "timing",
+      "phase_at": 3000,
+      "phase_workers": 1,
+      "record": "trial-08.json",
+      "runtime_version": "runtime-2.0",
+      "stage": "integration",
+      "steps": 6000,
+      "workers": 4,
+      "workload": "hotspot"
+    },
+    {
+      "dataset": "datasets/h-large.hsdat",
+      "feedback_batch": 16,
+      "field": "fields/trial-09.hstemp",
+      "golden": null,
+      "integration": {
+        "allocation_interval_ns": 50000000,
+        "allocation_iterations": 4,
+        "allocation_policy": "robust_proportional_epoch_v1",
+        "cadence_profile": "batched_epochs_v1",
+        "frequency_guard_ns": 1000000000,
+        "frequency_interval_ns": 200000000,
+        "frequency_policy": "paper_additive",
+        "initial_cpu_items": 128,
+        "mode": "allocation_shadow",
+        "n": 257,
+        "pairs": [
+          [
+            930,
+            8001
+          ],
+          [
+            1665,
+            5501
+          ],
+          [
+            1665,
+            7001
+          ],
+          [
+            1665,
+            8001
+          ],
+          [
+            2385,
+            8001
+          ]
+        ],
+        "run_id": "joint-09",
+        "settle_iterations": 1
+      },
+      "native_mode": "timing",
+      "phase_at": 3000,
+      "phase_workers": 1,
+      "record": "trial-09.json",
+      "runtime_version": "runtime-2.0",
+      "stage": "integration",
+      "steps": 6000,
+      "workers": 4,
+      "workload": "hotspot"
+    },
+    {
+      "dataset": "datasets/h-large.hsdat",
+      "feedback_batch": 16,
+      "field": "fields/trial-10.hstemp",
+      "golden": null,
+      "integration": {
+        "allocation_interval_ns": 50000000,
+        "allocation_iterations": 4,
+        "allocation_policy": "robust_proportional_epoch_v1",
+        "cadence_profile": "batched_epochs_v1",
+        "frequency_guard_ns": 1000000000,
+        "frequency_interval_ns": 200000000,
+        "frequency_policy": "discounted_loss_v1",
+        "initial_cpu_items": 128,
+        "mode": "allocation_shadow",
+        "n": 257,
+        "pairs": [
+          [
+            930,
+            8001
+          ],
+          [
+            1665,
+            5501
+          ],
+          [
+            1665,
+            7001
+          ],
+          [
+            1665,
+            8001
+          ],
+          [
+            2385,
+            8001
+          ]
+        ],
+        "run_id": "joint-10",
+        "settle_iterations": 1
+      },
+      "native_mode": "timing",
+      "phase_at": 3000,
+      "phase_workers": 1,
+      "record": "trial-10.json",
+      "runtime_version": "runtime-2.0",
+      "stage": "integration",
+      "steps": 6000,
+      "workers": 4,
+      "workload": "hotspot"
+    },
+    {
+      "dataset": "datasets/h-profile.hsdat",
+      "feedback_batch": 16,
+      "field": "fields/trial-11.hstemp",
+      "golden": null,
+      "integration": {
+        "allocation_interval_ns": 50000000,
+        "allocation_iterations": 4,
+        "allocation_policy": "robust_proportional_epoch_v1",
+        "cadence_profile": "batched_epochs_v1",
+        "frequency_guard_ns": 1000000000,
+        "frequency_interval_ns": 200000000,
+        "frequency_policy": "paper_additive",
+        "initial_cpu_items": 256,
+        "mode": "allocation_shadow",
+        "n": 513,
+        "pairs": [
+          [
+            930,
+            8001
+          ],
+          [
+            1665,
+            5501
+          ],
+          [
+            1665,
+            7001
+          ],
+          [
+            1665,
+            8001
+          ],
+          [
+            2385,
+            8001
+          ]
+        ],
+        "run_id": "joint-11",
+        "settle_iterations": 1
+      },
+      "native_mode": "timing",
+      "phase_at": null,
+      "phase_workers": 1,
+      "record": "trial-11.json",
+      "runtime_version": "runtime-2.0",
+      "stage": "profile",
+      "steps": 256,
+      "workers": 4,
+      "workload": "hotspot"
+    },
+    {
+      "dataset": "datasets/k-small.kmdat",
+      "feedback_batch": 1,
+      "field": null,
+      "golden": "golden/joint-12.json",
+      "integration": {
+        "allocation_interval_ns": 0,
+        "allocation_iterations": 4,
+        "allocation_policy": "robust_proportional_epoch_v1",
+        "cadence_profile": "batched_epochs_v1",
+        "frequency_guard_ns": 1000000000,
+        "frequency_interval_ns": 200000000,
+        "frequency_policy": "paper_additive",
+        "initial_cpu_items": 128,
+        "mode": "allocation_shadow",
+        "n": 257,
+        "pairs": [
+          [
+            930,
+            8001
+          ],
+          [
+            1665,
+            5501
+          ],
+          [
+            1665,
+            7001
+          ],
+          [
+            1665,
+            8001
+          ],
+          [
+            2385,
+            8001
+          ]
+        ],
+        "run_id": "joint-12",
+        "settle_iterations": 1
+      },
+      "native_mode": "converge",
+      "phase_at": null,
+      "phase_workers": 1,
+      "record": "trial-12.json",
+      "reduction": "atomic",
+      "runtime_version": "runtime-2.0",
+      "stage": "convergence",
+      "steps": 24,
+      "transfer_mode": "diagnostic",
+      "validation_mode": "verify",
+      "workers": 4,
+      "workload": "kmeans"
+    }
+  ],
+  "datasets": {
+    "datasets/h-large.hsdat": {
+      "cols": 259,
+      "model": {
+        "ambient": 80.0,
+        "cap": 1.6826164686086868e-06,
+        "dt": 1.4583333333333335e-07,
+        "limited": false,
+        "nominal_dt": 1.4583333333333335e-07,
+        "rx": 9.922779922779922,
+        "ry": 10.077821011673151,
+        "rz": 1300.05859375,
+        "stability_sum": 0.0347359375
+      },
+      "provenance": {
+        "generator": "atlas_thermal_v1",
+        "kind": "random",
+        "seed": 9012,
+        "source": "locally generated; not historical paper data"
+      },
+      "rows": 257,
+      "sha256": "b4aef814bc9bb9dd3fbca91876e414744cbabb154560b7420e278cfed04213c4"
+    },
+    "datasets/h-profile.hsdat": {
+      "cols": 515,
+      "model": {
+        "ambient": 80.0,
+        "cap": 4.2392929464978517e-07,
+        "dt": 1.4583333333333335e-07,
+        "limited": false,
+        "nominal_dt": 1.4583333333333335e-07,
+        "rx": 9.96116504854369,
+        "ry": 10.038986354775826,
+        "rz": 5160.05859375,
+        "stability_sum": 0.13766927083333338
+      },
+      "provenance": {
+        "generator": "atlas_thermal_v1",
+        "kind": "random",
+        "seed": 9013,
+        "source": "locally generated; not historical paper data"
+      },
+      "rows": 513,
+      "sha256": "6ac4e6ce80e7780e6ee8d70cc53d641a0f5d6c72e79bf0afbd21710258b97574"
+    },
+    "datasets/h-small.hsdat": {
+      "cols": 23,
+      "model": {
+        "ambient": 80.0,
+        "cap": 0.00025629290617848975,
+        "dt": 1.4583333333333335e-07,
+        "limited": false,
+        "nominal_dt": 1.4583333333333335e-07,
+        "rx": 8.26086956521739,
+        "ry": 12.105263157894736,
+        "rz": 8.53515625,
+        "stability_sum": 0.0002984375
+      },
+      "provenance": {
+        "generator": "atlas_thermal_v1",
+        "kind": "random",
+        "seed": 9011,
+        "source": "locally generated; not historical paper data"
+      },
+      "rows": 19,
+      "sha256": "fee620181d2237b2fec57f338b75f3ee28829f6792acd01d764a1d0d1a1a9a89"
+    },
+    "datasets/k-large.kmdat": {
+      "d": 8,
+      "initial_centroids": [
+        0.7556697529346312,
+        1.7845800494110209,
+        1.3867921107216317,
+        -0.31179301928237013,
+        2.8088629765776725,
+        -0.14196471928502108,
+        0.34241544430138093,
+        3.1709371530237305,
+        46.754421890011464,
+        46.70015927370804,
+        48.95611636914868,
+        48.35969184918906,
+        50.601107110181594,
+        49.221947988016964,
+        47.93853877592898,
+        50.280276232162066,
+        37.63442482150472,
+        35.77417717571121,
+        36.98998977780032,
+        36.69542022657885,
+        38.928290559835844,
+        36.56387174335194,
+        38.986126666552614,
+        39.92423354542431,
+        -0.6476244566807625,
+        1.3564514676034383,
+        0.6167286746954902,
+        1.6805465614122128,
+        3.0081052955207603,
+        2.5752543018726146,
+        3.439700997357203,
+        1.7626234598085793,
+        58.84396625182417,
+        61.98174356761632,
+        61.28917587043509,
+        60.28166433514986,
+        61.309990142512525,
+        59.90885356569943,
+        62.996206392013676,
+        63.69281428541004,
+        49.47090248556513,
+        46.89850369099326,
+        50.53280422883415,
+        50.71374321858951,
+        50.02217816695684,
+        48.391178497247786,
+        48.46439814543879,
+        49.81666573552037,
+        13.953012888638781,
+        11.87211631313342,
+        14.016941370482423,
+        14.711257373398112,
+        13.320994446384713,
+        12.879618214463067,
+        15.053876421436069,
+        13.070832015486102,
+        0.22767850961959013,
+        2.2557226858440496,
+        0.9717272224931913,
+        0.5879011422697946,
+        3.190364574211463,
+        2.380590870507727,
+        0.795265600538853,
+        2.6498831377266154
+      ],
+      "k": 8,
+      "n": 65539,
+      "provenance": {
+        "generator": "clustered_uniform_v1",
+        "initial_indices": [
+          49351,
+          62689,
+          46394,
+          9253,
+          20790,
+          65538,
+          64549,
+          44567
+        ],
+        "initialization": "seeded_Forgy",
+        "license": "project-generated fixture",
+        "seed": 9002,
+        "source": "generated locally by ATLAS"
+      },
+      "sha256": "a7fce7072600b0c3c3a0a1c08f548bde1254dbcfe76c47c52a13444faeee1b9e"
+    },
+    "datasets/k-profile.kmdat": {
+      "d": 8,
+      "initial_centroids": [
+        12.846157650398155,
+        12.672599506980717,
+        13.850714457157498,
+        14.55272471344929,
+        11.56825933941084,
+        14.52648632161578,
+        15.425110551970153,
+        15.120820614883781,
+        71.54432611870098,
+        71.58689454220719,
+        73.12132717164663,
+        73.60861937603659,
+        71.58410206336167,
+        72.7929201926978,
+        72.15108757090174,
+        72.1506505063972,
+        72.17920869824722,
+        72.47230501944328,
+        73.39104400584299,
+        74.1937541040525,
+        73.34229169048429,
+        75.17254654777824,
+        73.73140719060022,
+        72.90453158993654,
+        37.98678657145084,
+        34.450499323259045,
+        36.76127536187968,
+        38.32544853963309,
+        35.314341604541724,
+        39.29508293837168,
+        37.28112345822237,
+        38.879342990559024,
+        83.83239011727137,
+        83.28247855710786,
+        83.9462901764962,
+        85.32966056236002,
+        84.19162638307421,
+        84.92451798930067,
+        85.30541630411899,
+        86.01034245429818,
+        10.265389362898485,
+        12.39357922822698,
+        13.438634988318222,
+        14.49978232448466,
+        13.676412094906734,
+        12.032668700686164,
+        12.06093566705782,
+        14.77042678679782,
+        -1.640481596051096,
+        0.3241344316216452,
+        -0.4356867533921861,
+        -0.18201048017310217,
+        0.7894931568248171,
+        0.8733479279549332,
+        0.19619357112217894,
+        3.3104915002210125,
+        49.813854605589036,
+        47.599405516414315,
+        49.17223300772197,
+        47.258132515870116,
+        50.10520987862784,
+        51.15185395407805,
+        51.302247996172404,
+        49.20715151960371
+      ],
+      "k": 8,
+      "n": 32771,
+      "provenance": {
+        "generator": "clustered_uniform_v1",
+        "initial_indices": [
+          3412,
+          9475,
+          5021,
+          4487,
+          10390,
+          27049,
+          26641,
+          21609
+        ],
+        "initialization": "seeded_Forgy",
+        "license": "project-generated fixture",
+        "seed": 9003,
+        "source": "generated locally by ATLAS"
+      },
+      "sha256": "c95930d48ff870c43bba7ee9b35a39ee23b90de0789ec8e942c6a2b95f5ca0f8"
+    },
+    "datasets/k-small.kmdat": {
+      "d": 3,
+      "initial_centroids": [
+        36.93592323110107,
+        35.78538640137401,
+        35.62151649403543,
+        -0.7237347106578591,
+        0.33731847412330634,
+        1.4025244849851695,
+        -1.0699933971201383,
+        -0.7417506857292426,
+        1.4425563990379109,
+        35.26319190532838,
+        37.752723282769146,
+        36.77872442371901
+      ],
+      "k": 4,
+      "n": 257,
+      "provenance": {
+        "generator": "clustered_uniform_v1",
+        "initial_indices": [
+          21,
+          165,
+          28,
+          42
+        ],
+        "initialization": "seeded_Forgy",
+        "license": "project-generated fixture",
+        "seed": 9001,
+        "source": "generated locally by ATLAS"
+      },
+      "sha256": "12bb6fee7b7fedbac9462e4cdc328511a75ce5be38cb6975e2deb765b719ddcc"
+    }
+  },
+  "hardware_setter_calls": 0,
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "runtime_version": "runtime-2.0",
+  "spec_version": "integration-1.0"
+}

@@ -2,7 +2,15 @@
 
 Specification version: 1.0
 
-Updated: 2026-10-31
+Updated: 2026-11-10
+
+The [completion review](docs/completion_review.md) records bounded telemetry
+initialization, release/report tooling and fresh validation. The existing hardware
+and strict concurrency gates remain in force.
+
+Runtime remediation adds a shared Linux process supervisor, spawned read-only
+telemetry, explicit timing modes, batched feedback and separate policy extensions.
+See [the implementation and verification record](docs/remediation.md).
 
 Status: Phases 0, 1, 3, and 6 workload validation complete; Phase 2 measurement infrastructure implemented. Kmeans, HotSpot, and Tier 1 workload allocation have independent correctness checks and exploratory timing evaluation. HotSpot includes real evolving-state migration and halo exchange. GPU energy, device-event timing, and fixed-capacity hardware qualification remain blocked, including the full Phase 4/5 research gates. Tier 2 policies are implemented and validated offline in Phase 7; Phase 8 adds tested transaction infrastructure and real loaded diagnostics, but live actuation is blocked by unavailable prior-policy readback.
 
@@ -53,11 +61,12 @@ CPU and GPU completion times include their branch-specific transfer and dispatch
   choices; `discounted_loss_v1` is a separately defined extension. Pure transitions
   are in `frequency.py`; `frequency_scenarios.py` declares synthetic assumptions;
   `frequency_trace.py` captures and joins read-only NVML samples;
-  `frequency_experiment.py` archives and replays decisions. No actuator is present.
+  `frequency_experiment.py` archives and replays decisions. This offline module
+  never actuates; the separately gated Phase 8 transaction engine owns actuation.
 - **Telemetry and energy:** timestamped observations with physical domain, metric semantics, units, and quality information.
 - **Actuation:** Phase 8 implements transaction ownership, durable requests, restoration/failure handling, and generic sweep/Tier 2-only orchestration. The default NVML adapter blocks without authoritative prior-policy capture. Its hardware gate remains blocked on WSL; see [Phase 8 review](docs/phase8_review.md). Real CUDA diagnostic workloads characterize loaded telemetry without changing clocks.
-- **Runtime:** Phase 9 implements the pure coordinator in `integration.py`, independent sampling/native feedback in `integration_runner.py`, analytical scenarios in `integration_scenarios.py`, and retained hardware validation/replay in `phase9.py`. Real execution applies allocations and shadows frequency decisions. Live joint mode is explicitly gated.
-- **Analysis:** baselines, uncertainty, adaptation cost, and plots regenerated from retained records.
+- **Runtime:** Phase 9 implements the pure coordinator in `integration.py`, independent sampling/native feedback in `integration_runner.py`, analytical scenarios in `integration_scenarios.py`, and retained hardware validation/replay in `phase9.py`. Real shadow execution applies allocations. The separate `live.py` / `live_native.py` runner adds guarded physical-control orchestration through a qualified platform provider, armed device-checked native feedback and replay. Its default provider remains blocked; real native integration tests use a fake actuator. See [live control](docs/live_control.md).
+- **Analysis:** `performance.py` freezes separate tuning choices and evaluates randomized matched blocks. `research_report.py` verifies and replays performance, integration and qualification archives before producing standalone HTML and JSON, including full-command uncertainty and explicit incomplete acceptance gates. `scripts/validate_release.py` orchestrates a fresh build and validation run with bounded stage commands and retained logs. See [reproducibility](docs/reproducibility.md).
 
 Planned files and their staged creation are listed in the implementation plan. Do not create placeholders that imply an unfinished module is operational.
 
@@ -90,4 +99,7 @@ Phase 5 separates pure allocation state transitions from native dispatch. One Py
 
 HotSpot now partitions contiguous rows with persistent previous/next buffers on both processors. The owner alone has authoritative evolving temperatures; boundary movement transfers current state, then refreshes the two halo rows. Immutable power can be cached. Verification snapshots are separate from simulation buffers, and timing loops defer full-field checks until the end. CPU/GPU compute follows a measured shared communication prefix. See the [HotSpot contract](docs/hotspot_spec.md) and [Phase 6 review](docs/phase6_review.md).
 
-The next implementation is Phase 7's offline Tier 2 frequency policy, equations, and diagnostic replay. Live clock changes belong to Phase 8 after actuation/restoration qualification. Energy and device-event timings remain invalid until separately qualified; automatic clock policy is not a fixed-capacity guarantee.
+The remaining hardware prerequisites are authoritative policy readback/restoration,
+stable telemetry timing and qualified energy domains. Controlled allocation-only
+evaluation can proceed independently. Automatic clocks do not establish fixed
+capacity, and no software optimization establishes a physical energy saving.

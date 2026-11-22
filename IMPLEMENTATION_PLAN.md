@@ -1,6 +1,18 @@
 # ATLAS GreenGPU: Phased Implementation Plan
 
-Date: 2026-10-31
+Date: 2026-11-10
+
+The latest continuation implements the separate [guarded live runner](docs/live_control.md),
+armed native feedback, device checks, restoration and replay. It passes software
+tests with a fake actuator and real CPU/CUDA work. A qualified physical provider,
+physical experiments and the strict all-iteration concurrency gate remain
+outstanding; implementing this runner does not mark those research gates complete.
+
+November remediation adds bounded supervision, deferred kmeans validation,
+batched feedback, explicit phase budgets, hierarchical reductions, optional
+HotSpot overlap, and matched performance evaluation. See the implementation and
+validation record in [runtime remediation](docs/remediation.md). This extends the
+phase contracts without changing the semantics of archived paper-policy runs.
 
 Status: Phases 0, 1, 3, and 6 workload validation complete. Phase 9 allocation/shadow integration is implemented; its strict concurrency gate remains incomplete and live joint control remains blocked. See [Phase 9 review](docs/phase9_review.md). Phase 8 actuation infrastructure is implemented, with the hardware gate blocked by unavailable prior-policy readback; see [Phase 8 review](docs/phase8_review.md). Phase 7 offline frequency policy validation is complete; see [Phase 7 review](docs/phase7_review.md). Phase 4 kmeans and Phase 5 allocation implementations are complete, with correctness and exploratory timing evidence. Phase 6 adds validated thermal-state migration and allocation trials on HotSpot. Phase 2 physical GPU energy and device-event timing qualification remain blocked; automatic clock policy does not establish fixed capacity. The full Phase 4/5 research exit gates remain incomplete. See the [Phase 0 review](docs/phase0_review.md), [Phase 1 review](docs/phase1_review.md), [Phase 2 review](docs/phase2_review.md), [Phase 3 review](docs/phase3_review.md), [Phase 4 review](docs/phase4_review.md), [Phase 5 review](docs/phase5_review.md), and [Phase 6 review](docs/phase6_review.md).
 
@@ -358,6 +370,12 @@ exit-gate results.
 
 ## 14. Phase 10 - Run the controlled evaluation
 
+**Status:** Allocation-only matched evaluation and independent static-partition
+tuning are implemented in `performance.py`, including retained failures and
+negative outcomes. Full-command and workload comparisons can be regenerated with
+`research-report`. Frequency-only, fixed-clock and complete-framework energy
+comparisons remain blocked; this is not full Phase 10 acceptance.
+
 **Depends on:** Phase 9 for complete-framework claims; allocation-only studies may proceed after Phase 6.
 
 **Goal:** Determine which parts help, under what conditions, and at what cost.
@@ -406,6 +424,12 @@ For dynamic energy, define and measure the idle reference under matching setting
 **Exit gate:** Every primary configuration has valid correctness and measurement evidence, or a documented capability limitation. A positive saving claim requires uncertainty and measurement quality sufficient to support its sign; an inconclusive or negative result is reported as such.
 
 ## 15. Phase 11 - Package the reproducible research result
+
+**Status:** A validation entry point, source-package manifest, reproducibility
+guide, and verified HTML/JSON research-report generator are implemented.
+Fresh-environment validation and the final acceptance record accompany the release
+work. Full hardware reproduction remains contingent on the earlier open gates;
+report generation does not mark them complete.
 
 **Depends on:** Phase 10.
 

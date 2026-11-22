@@ -1,0 +1,98 @@
+{
+  "actuation_gate": "blocked",
+  "clock_mapping": {
+    "future_samples": 58,
+    "host_wall_monotonic_offset_span_us": 595274.0,
+    "live_qualified": false,
+    "maximum_age_us": 108215,
+    "minimum_age_us": -494780,
+    "offset_fitted": false,
+    "samples": 74,
+    "status": "rejected_future_driver_time"
+  },
+  "cpu_interfaces": {
+    "governors": {
+      "policies": [],
+      "status": "not_exposed",
+      "writes_attempted": false
+    },
+    "package_energy": {
+      "reason": "Only Linux powercap interfaces checked; absence is not a claim about Windows sensors",
+      "status": "not_exposed",
+      "zones": []
+    },
+    "whole_system_energy": {
+      "reason": "No external meter adapter configured",
+      "status": "not_configured"
+    }
+  },
+  "device_timing_qualification": "requires_external_validation",
+  "energy_qualification": "requires_external_validation",
+  "live_joint_ready": false,
+  "next_requirements": [
+    "authoritative restorable prior clock policy",
+    "qualified host/driver sample timing",
+    "independently qualified energy domain before savings claims"
+  ],
+  "prior_policy": {
+    "application_core": {
+      "acquisition_end_ns": 120960248468,
+      "acquisition_start_ns": 120959894940,
+      "error": "Not Supported",
+      "error_code": 3,
+      "status": "unavailable",
+      "value": null
+    },
+    "application_memory": {
+      "acquisition_end_ns": 120960274908,
+      "acquisition_start_ns": 120960253091,
+      "error": "Not Supported",
+      "error_code": 3,
+      "status": "unavailable",
+      "value": null
+    },
+    "application_permission": {
+      "acquisition_end_ns": 120960326973,
+      "acquisition_start_ns": 120960313614,
+      "error": "Not Supported",
+      "error_code": 3,
+      "status": "unavailable",
+      "value": null
+    },
+    "default_application_core": {
+      "acquisition_end_ns": 120960304006,
+      "acquisition_start_ns": 120960276602,
+      "error": "Not Supported",
+      "error_code": 3,
+      "status": "unavailable",
+      "value": null
+    },
+    "default_application_memory": {
+      "acquisition_end_ns": 120960311396,
+      "acquisition_start_ns": 120960305373,
+      "error": "Not Supported",
+      "error_code": 3,
+      "status": "unavailable",
+      "value": null
+    },
+    "device_uuid": "GPU-d61f5e2c-c351-778f-1199-ff836cc40632",
+    "observed_core": {
+      "acquisition_end_ns": 120958558668,
+      "acquisition_start_ns": 120953928817,
+      "status": "ok",
+      "value": 1605
+    },
+    "observed_memory": {
+      "acquisition_end_ns": 120959887834,
+      "acquisition_start_ns": 120958567629,
+      "status": "ok",
+      "value": 7000
+    },
+    "policy": null,
+    "policy_source": "unavailable",
+    "reason": "locked_clock_policy_getters_not_exposed",
+    "restorable": false
+  },
+  "settings_changed": false,
+  "wall_energy": "unavailable_no_external_meter"
+}
