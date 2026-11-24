@@ -1,0 +1,141 @@
+{
+  "error": "RuntimeError: performance failed with exit code 1; see /mnt/c/Users/saivi/Projects/ATLAS/results/reproduction-20261124-042036/performance.txt",
+  "stages": [
+    {
+      "argv": [
+        "/mnt/c/Users/saivi/Projects/ATLAS/.venv-wsl-local/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "elapsed_s": 26.077539531000014,
+      "log": "unit-tests.txt",
+      "returncode": 0,
+      "stage": "unit-tests"
+    },
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        ".",
+        "-B",
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/reproduction-20261124-042036",
+        "-G",
+        "Ninja",
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DCMAKE_CUDA_COMPILER=/usr/local/cuda-13.1/bin/nvcc",
+        "-DPython3_EXECUTABLE=/mnt/c/Users/saivi/Projects/ATLAS/.venv-wsl-local/bin/python"
+      ],
+      "elapsed_s": 29.04692432400003,
+      "log": "configure.txt",
+      "returncode": 0,
+      "stage": "configure"
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/reproduction-20261124-042036",
+        "--parallel",
+        "2"
+      ],
+      "elapsed_s": 19.98078655400002,
+      "log": "build.txt",
+      "returncode": 0,
+      "stage": "build"
+    },
+    {
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/reproduction-20261124-042036",
+        "--output-on-failure"
+      ],
+      "elapsed_s": 41.10918218500001,
+      "log": "native-tests.txt",
+      "returncode": 0,
+      "stage": "native-tests"
+    },
+    {
+      "argv": [
+        "/mnt/c/Users/saivi/Projects/ATLAS/.venv-wsl-local/bin/python",
+        "tests/native_sanitizers.py",
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/reproduction-20261124-042036",
+        "/mnt/c/Users/saivi/Projects/ATLAS/results/reproduction-20261124-042036/sanitizers"
+      ],
+      "elapsed_s": 16.142271202000018,
+      "log": "sanitizers.txt",
+      "returncode": 0,
+      "stage": "sanitizers"
+    },
+    {
+      "argv": [
+        "/mnt/c/Users/saivi/Projects/ATLAS/.venv-wsl-local/bin/python",
+        "-m",
+        "greengpu",
+        "frequency-check",
+        "--output",
+        "/mnt/c/Users/saivi/Projects/ATLAS/results/reproduction-20261124-042036/frequency"
+      ],
+      "elapsed_s": 7.657064043999981,
+      "log": "offline-frequency.txt",
+      "returncode": 0,
+      "stage": "offline-frequency"
+    },
+    {
+      "argv": [
+        "/mnt/c/Users/saivi/Projects/ATLAS/.venv-wsl-local/bin/python",
+        "-m",
+        "greengpu",
+        "qualification-check",
+        "--build",
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/reproduction-20261124-042036",
+        "--output",
+        "/mnt/c/Users/saivi/Projects/ATLAS/results/reproduction-20261124-042036/qualification"
+      ],
+      "elapsed_s": 150.51178931599992,
+      "log": "qualification.txt",
+      "returncode": 0,
+      "stage": "qualification"
+    },
+    {
+      "argv": [
+        "/mnt/c/Users/saivi/Projects/ATLAS/.venv-wsl-local/bin/python",
+        "-m",
+        "greengpu",
+        "integration-check",
+        "--kmeans-binary",
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/reproduction-20261124-042036/atlas_kmeans",
+        "--hotspot-binary",
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/reproduction-20261124-042036/atlas_hotspot",
+        "--output",
+        "/mnt/c/Users/saivi/Projects/ATLAS/results/reproduction-20261124-042036/integration"
+      ],
+      "elapsed_s": 149.263602151,
+      "log": "integration.txt",
+      "returncode": 1,
+      "stage": "integration"
+    },
+    {
+      "argv": [
+        "/mnt/c/Users/saivi/Projects/ATLAS/.venv-wsl-local/bin/python",
+        "-m",
+        "greengpu",
+        "performance-check",
+        "--build",
+        "/mnt/c/Users/saivi/Projects/ATLAS/build/reproduction-20261124-042036",
+        "--blocks",
+        "10",
+        "--output",
+        "/mnt/c/Users/saivi/Projects/ATLAS/results/reproduction-20261124-042036/performance"
+      ],
+      "elapsed_s": 12.617546037000011,
+      "log": "performance.txt",
+      "returncode": 1,
+      "stage": "performance"
+    }
+  ]
+}

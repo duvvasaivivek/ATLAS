@@ -1,0 +1,51 @@
+{
+  "dataset": "datasets/h-large.hsdat",
+  "feedback_batch": 16,
+  "field": "fields/trial-10.hstemp",
+  "golden": null,
+  "integration": {
+    "allocation_interval_ns": 50000000,
+    "allocation_iterations": 4,
+    "allocation_policy": "robust_proportional_epoch_v1",
+    "cadence_profile": "batched_epochs_v1",
+    "frequency_guard_ns": 1000000000,
+    "frequency_interval_ns": 200000000,
+    "frequency_policy": "discounted_loss_v1",
+    "initial_cpu_items": 128,
+    "mode": "allocation_shadow",
+    "n": 257,
+    "pairs": [
+      [
+        930,
+        8001
+      ],
+      [
+        1665,
+        5501
+      ],
+      [
+        1665,
+        7001
+      ],
+      [
+        1665,
+        8001
+      ],
+      [
+        2385,
+        8001
+      ]
+    ],
+    "run_id": "joint-10",
+    "settle_iterations": 1
+  },
+  "native_mode": "timing",
+  "phase_at": 3000,
+  "phase_workers": 1,
+  "record": "trial-10.json",
+  "runtime_version": "runtime-2.0",
+  "stage": "integration",
+  "steps": 6000,
+  "workers": 4,
+  "workload": "hotspot"
+}

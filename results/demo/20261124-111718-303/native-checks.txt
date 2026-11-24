@@ -1,0 +1,8 @@
+﻿ATLAS demo | 2026-11-24T11:17:18.3212096+05:30
+wsl.exe --cd "C:\Users\saivi\Projects\ATLAS" --exec env OMP_NUM_THREADS=4 python3 scripts/demo_workload.py --build "build/reproduction-20261124-042036" --size 2000 --output "results/demo/20261124-111718-303"
+
+{"status": "passed", "modes": [{"mode": "CPU only", "workload_ms": 13.242884, "min_ms": 11.731997, "max_ms": 33.836787, "command_ms": 470.065645}, {"mode": "GPU only", "workload_ms": 11.493306, "min_ms": 11.423005, "max_ms": 14.369891, "command_ms": 453.168043}, {"mode": "ATLAS sharing", "workload_ms": 15.845196, "min_ms": 14.226949, "max_ms": 23.754075, "command_ms": 550.588853}], "elapsed_s": 7.134758467999745}
+
+
+Exit code: 0
+Saved: C:\Users\saivi\Projects\ATLAS\results\demo\20261124-111718-303\native-checks.txt

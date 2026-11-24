@@ -6,6 +6,44 @@ define the scope. Kmeans, HotSpot, allocation policies, offline frequency polici
 and integrated allocation/shadow execution are implemented through Phase 9.
 Live frequency control and physical energy qualification remain capability-gated.
 
+## Windows demo launcher
+
+Double-click **`demo.bat`** to open the minimal desktop UI, similar to SafeSliceSQL.
+The UI needs Windows PowerShell and an existing CUDA build in WSL; Windows Python
+and extra UI packages are not required.
+
+- **Start live demo:** start fresh computation on real CPU/CUDA
+  hardware. The live dashboard shows the current execution mode, native group
+  centers, actual CPU work-share trace and validated trial times while the job
+  runs. Preview centers remain provisional until correctness validation passes.
+  An offline-capable final visual presentation shows the groups, the same
+  task's measured times, and ATLAS's recorded work-allocation changes. All modes
+  must pass independent native validation and produce matching answers.
+- **Watch saved demo:** open a checksum-verified presentation without WSL
+  or GPU execution. Recorded measurements are explicitly labelled and dated.
+- **Check setup:** the complete native correctness suite.
+- **Full report:** the newest generated `report.html` under `results`.
+- **Open results:** demo logs, or the results folder before the first run.
+
+Select a build and Small (2,000), Medium (16,000), or Large (64,000) locations.
+Each comparison uses identical input, 32 grouping rounds, four CPU workers and
+three shuffled repetitions per mode. Workload and full-command times are both
+retained, including live-observation overhead. Screen refreshes can skip fast
+rounds; artificial delays are not added. Each native trial has a 90-second deadline; failures are retained and
+are not silently retried. This illustrates scaling on one host, not distributed
+execution. A short demo does not establish a general speedup or energy saving.
+
+Each run saves raw trials, input, summary, checksums and a self-contained
+`demo.html` under `results/demo/<timestamp>/`. Share that HTML for a portable
+presentation, or keep the whole folder for verifiable evidence. The launcher
+adds `native-checks.txt`. For a fresh checkout, follow the WSL setup and build
+instructions below first.
+
+For a two-minute presentation: show the ungrouped dots, click **Show the groups**,
+compare the three timing bars, then explain the recorded CPU work-share trace.
+The page includes a plain-language speaking script and the method's limits.
+The example groups nearby locations; it does not optimize delivery routes.
+
 The latest continuation adds a [guarded live runner](docs/live_control.md),
 armed native feedback and replay. Validation passes 172 Python tests, 11 native
 tests and 16 CUDA sanitizer checks across the default and experimental dispatch

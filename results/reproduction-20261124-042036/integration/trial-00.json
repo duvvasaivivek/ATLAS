@@ -1,0 +1,1638 @@
+{
+  "argv": [
+    "/mnt/c/Users/saivi/Projects/ATLAS/build/reproduction-20261124-042036/atlas_kmeans",
+    "/mnt/c/Users/saivi/Projects/ATLAS/results/reproduction-20261124-042036/integration/datasets/k-small.kmdat",
+    "128",
+    "24",
+    "4",
+    "fixed",
+    "feedback",
+    "verify"
+  ],
+  "barriers": [
+    {
+      "controller_ns": 243651,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "8a1fe436af8e7095108d75b90481590aed8f2d439ab91d0004b3ae39a1a8d8c4",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "disabled_allocation_only",
+        "hardware_requested_pair": null,
+        "iteration": 0,
+        "mode": "allocation_only",
+        "next_cpu_items": 128,
+        "partition_epoch": 0,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [
+          {
+            "acquisition_end_ns": 652445690897,
+            "acquisition_start_ns": 652431035262,
+            "buffer_samples": {
+              "core": [],
+              "memory": []
+            },
+            "errors": [
+              {
+                "domain": "core",
+                "error": "Not Found"
+              },
+              {
+                "domain": "memory",
+                "error": "Not Found"
+              }
+            ],
+            "frame_id": 0,
+            "poll_cpu_ns": 3247366,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 652445678347,
+                "acquisition_start_ns": 652441691583,
+                "status": "ok",
+                "value": 36
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 652436209735,
+                "acquisition_start_ns": 652434699425,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 652441685956,
+                "acquisition_start_ns": 652440868678,
+                "status": "ok",
+                "value": 75009764
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 652436943544,
+                "acquisition_start_ns": 652436218279,
+                "status": "ok",
+                "value": 7000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 652440860340,
+                "acquisition_start_ns": 652438121332,
+                "status": "ok",
+                "value": 13778
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 652438114720,
+                "acquisition_start_ns": 652436948678,
+                "status": "ok",
+                "value": 74
+              }
+            },
+            "wall_end_us": 1795494410587669,
+            "wall_us": 1795494410573012
+          },
+          {
+            "acquisition_end_ns": 652536054978,
+            "acquisition_start_ns": 652531332409,
+            "buffer_samples": {
+              "core": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1795494410895002
+                }
+              ],
+              "memory": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1795494410895002
+                }
+              ]
+            },
+            "errors": [],
+            "frame_id": 1,
+            "poll_cpu_ns": 1084549,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 652536049937,
+                "acquisition_start_ns": 652535398838,
+                "status": "ok",
+                "value": 36
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 652533264244,
+                "acquisition_start_ns": 652532127719,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 652535390581,
+                "acquisition_start_ns": 652534385295,
+                "status": "ok",
+                "value": 75018860
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 652534084975,
+                "acquisition_start_ns": 652533274731,
+                "status": "ok",
+                "value": 7000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 652534383415,
+                "acquisition_start_ns": 652534185733,
+                "status": "ok",
+                "value": 13735
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 652534183797,
+                "acquisition_start_ns": 652534088954,
+                "status": "ok",
+                "value": 74
+              }
+            },
+            "wall_end_us": 1795494410678032,
+            "wall_us": 1795494410673309
+          },
+          {
+            "acquisition_end_ns": 652636318258,
+            "acquisition_start_ns": 652631316298,
+            "buffer_samples": {
+              "core": [],
+              "memory": []
+            },
+            "errors": [
+              {
+                "domain": "core",
+                "error": "Not Found"
+              },
+              {
+                "domain": "memory",
+                "error": "Not Found"
+              }
+            ],
+            "frame_id": 2,
+            "poll_cpu_ns": 760595,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 652636313983,
+                "acquisition_start_ns": 652635471373,
+                "status": "ok",
+                "value": 36
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 652633429470,
+                "acquisition_start_ns": 652632190790,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 652635465136,
+                "acquisition_start_ns": 652634531232,
+                "status": "ok",
+                "value": 75025979
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 652634181726,
+                "acquisition_start_ns": 652633435724,
+                "status": "ok",
+                "value": 7000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 652634527348,
+                "acquisition_start_ns": 652634319219,
+                "status": "ok",
+                "value": 13770
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 652634314718,
+                "acquisition_start_ns": 652634186950,
+                "status": "ok",
+                "value": 74
+              }
+            },
+            "wall_end_us": 1795494410778295,
+            "wall_us": 1795494410773293
+          },
+          {
+            "acquisition_end_ns": 652736771266,
+            "acquisition_start_ns": 652731491718,
+            "buffer_samples": {
+              "core": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1795494411103715
+                }
+              ],
+              "memory": [
+                {
+                  "percent": 0,
+                  "timestamp_us": 1795494411103715
+                }
+              ]
+            },
+            "errors": [],
+            "frame_id": 3,
+            "poll_cpu_ns": 967983,
+            "readings": {
+              "clock_event_reasons": {
+                "acquisition_end_ns": 652736766758,
+                "acquisition_start_ns": 652736069046,
+                "status": "ok",
+                "value": 36
+              },
+              "core_mhz": {
+                "acquisition_end_ns": 652733589564,
+                "acquisition_start_ns": 652732787426,
+                "status": "ok",
+                "value": 1605
+              },
+              "energy_mj": {
+                "acquisition_end_ns": 652736061406,
+                "acquisition_start_ns": 652734975903,
+                "status": "ok",
+                "value": 75035048
+              },
+              "memory_mhz": {
+                "acquisition_end_ns": 652734480174,
+                "acquisition_start_ns": 652733595480,
+                "status": "ok",
+                "value": 7000
+              },
+              "power_mw": {
+                "acquisition_end_ns": 652734970558,
+                "acquisition_start_ns": 652734643980,
+                "status": "ok",
+                "value": 14002
+              },
+              "temperature_c": {
+                "acquisition_end_ns": 652734638723,
+                "acquisition_start_ns": 652734495056,
+                "status": "ok",
+                "value": 74
+              }
+            },
+            "wall_end_us": 1795494410878749,
+            "wall_us": 1795494410873469
+          }
+        ],
+        "now_ns": 652750027420,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 128,
+          "epoch": 0,
+          "iteration": 0,
+          "release_ns": 652749405113,
+          "run_id": "joint-00",
+          "t_cpu": 5.3003e-05,
+          "t_gpu": 0.000403334,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 89791,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "8a1fe436af8e7095108d75b90481590aed8f2d439ab91d0004b3ae39a1a8d8c4",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "disabled_allocation_only",
+        "hardware_requested_pair": null,
+        "iteration": 1,
+        "mode": "allocation_only",
+        "next_cpu_items": 128,
+        "partition_epoch": 0,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 652750896340,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 128,
+          "epoch": 0,
+          "iteration": 1,
+          "release_ns": 652750327691,
+          "run_id": "joint-00",
+          "t_cpu": 4.409e-05,
+          "t_gpu": 0.000371762,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 77809,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "8a1fe436af8e7095108d75b90481590aed8f2d439ab91d0004b3ae39a1a8d8c4",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "disabled_allocation_only",
+        "hardware_requested_pair": null,
+        "iteration": 2,
+        "mode": "allocation_only",
+        "next_cpu_items": 128,
+        "partition_epoch": 0,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 652751580542,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 128,
+          "epoch": 0,
+          "iteration": 2,
+          "release_ns": 652751030160,
+          "run_id": "joint-00",
+          "t_cpu": 3.934e-05,
+          "t_gpu": 0.000362975,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 217288,
+      "decision": {
+        "allocation": {
+          "config_hash": "5d525e2ecb61cebd04acad1ce4ce83537e93f9585fcbd4be0d552dad532ba023",
+          "cpu_items": 154,
+          "observation": {
+            "common_origin": true,
+            "cpu_items": 128,
+            "epoch": 0,
+            "iteration": 3,
+            "run_id": "joint-00",
+            "source_iterations": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "t_cpu": 0.000189875,
+            "t_gpu": 0.00140508,
+            "valid": true
+          },
+          "policy": "robust_proportional_epoch_v1",
+          "post_state": {
+            "bracket": null,
+            "dwell": 2,
+            "eligible": 1,
+            "epoch": 0,
+            "filter": [
+              0.0003812333984375,
+              0.002799267906976744
+            ],
+            "frozen": null,
+            "last_iteration": 3,
+            "phase_hits": 0,
+            "previous_ratio": 0.4980544747081712,
+            "run_id": "joint-00",
+            "sign": 0,
+            "step": null
+          },
+          "pre_state": {
+            "bracket": null,
+            "dwell": 0,
+            "eligible": 0,
+            "epoch": null,
+            "filter": null,
+            "frozen": null,
+            "last_iteration": -1,
+            "phase_hits": 0,
+            "previous_ratio": null,
+            "run_id": "joint-00",
+            "sign": 0,
+            "step": null
+          },
+          "realized_ratio": 0.5992217898832685,
+          "reason": "robust_adjust",
+          "requested_ratio": 0.5980544747081712,
+          "specification_version": "1.1"
+        },
+        "allocation_reason": "robust_adjust",
+        "capacity_epoch": 0,
+        "config_hash": "8a1fe436af8e7095108d75b90481590aed8f2d439ab91d0004b3ae39a1a8d8c4",
+        "events": [
+          "observe",
+          "decide",
+          "apply_allocation_at_barrier",
+          "settle",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "disabled_allocation_only",
+        "hardware_requested_pair": null,
+        "iteration": 3,
+        "mode": "allocation_only",
+        "next_cpu_items": 154,
+        "partition_epoch": 0,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 652752308952,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 128,
+          "epoch": 0,
+          "iteration": 3,
+          "release_ns": 652751710151,
+          "run_id": "joint-00",
+          "t_cpu": 5.3442e-05,
+          "t_gpu": 0.000267009,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 92652,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "settling_iteration_excluded",
+        "capacity_epoch": 0,
+        "config_hash": "8a1fe436af8e7095108d75b90481590aed8f2d439ab91d0004b3ae39a1a8d8c4",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "disabled_allocation_only",
+        "hardware_requested_pair": null,
+        "iteration": 4,
+        "mode": "allocation_only",
+        "next_cpu_items": 154,
+        "partition_epoch": 1,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 652753099684,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 154,
+          "epoch": 0,
+          "iteration": 4,
+          "release_ns": 652752598613,
+          "run_id": "joint-00",
+          "t_cpu": 5.1514e-05,
+          "t_gpu": 0.000261106,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 73038,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "8a1fe436af8e7095108d75b90481590aed8f2d439ab91d0004b3ae39a1a8d8c4",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "disabled_allocation_only",
+        "hardware_requested_pair": null,
+        "iteration": 5,
+        "mode": "allocation_only",
+        "next_cpu_items": 154,
+        "partition_epoch": 1,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 652753698833,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 154,
+          "epoch": 0,
+          "iteration": 5,
+          "release_ns": 652753246465,
+          "run_id": "joint-00",
+          "t_cpu": 7.8914e-05,
+          "t_gpu": 0.000280718,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 62216,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "8a1fe436af8e7095108d75b90481590aed8f2d439ab91d0004b3ae39a1a8d8c4",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "disabled_allocation_only",
+        "hardware_requested_pair": null,
+        "iteration": 6,
+        "mode": "allocation_only",
+        "next_cpu_items": 154,
+        "partition_epoch": 1,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 652754257746,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 154,
+          "epoch": 0,
+          "iteration": 6,
+          "release_ns": 652753820866,
+          "run_id": "joint-00",
+          "t_cpu": 6.8094e-05,
+          "t_gpu": 0.000265713,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 63575,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "8a1fe436af8e7095108d75b90481590aed8f2d439ab91d0004b3ae39a1a8d8c4",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "disabled_allocation_only",
+        "hardware_requested_pair": null,
+        "iteration": 7,
+        "mode": "allocation_only",
+        "next_cpu_items": 154,
+        "partition_epoch": 1,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 652754762350,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 154,
+          "epoch": 0,
+          "iteration": 7,
+          "release_ns": 652754364776,
+          "run_id": "joint-00",
+          "t_cpu": 7.2098e-05,
+          "t_gpu": 0.000221577,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 197242,
+      "decision": {
+        "allocation": {
+          "config_hash": "5d525e2ecb61cebd04acad1ce4ce83537e93f9585fcbd4be0d552dad532ba023",
+          "cpu_items": 154,
+          "observation": {
+            "common_origin": true,
+            "cpu_items": 154,
+            "epoch": 0,
+            "iteration": 8,
+            "run_id": "joint-00",
+            "source_iterations": [
+              5,
+              6,
+              7,
+              8
+            ],
+            "t_cpu": 0.000283534,
+            "t_gpu": 0.001042324,
+            "valid": true
+          },
+          "policy": "robust_proportional_epoch_v1",
+          "post_state": {
+            "bracket": null,
+            "dwell": 1,
+            "eligible": 2,
+            "epoch": 0,
+            "filter": [
+              0.00040421764298396914,
+              0.0027496384739218783
+            ],
+            "frozen": null,
+            "last_iteration": 8,
+            "phase_hits": 0,
+            "previous_ratio": 0.5992217898832685,
+            "run_id": "joint-00",
+            "sign": 0,
+            "step": null
+          },
+          "pre_state": {
+            "bracket": null,
+            "dwell": 2,
+            "eligible": 1,
+            "epoch": 0,
+            "filter": [
+              0.0003812333984375,
+              0.002799267906976744
+            ],
+            "frozen": null,
+            "last_iteration": 3,
+            "phase_hits": 0,
+            "previous_ratio": 0.4980544747081712,
+            "run_id": "joint-00",
+            "sign": 0,
+            "step": null
+          },
+          "realized_ratio": 0.5992217898832685,
+          "reason": "hold_dwell",
+          "requested_ratio": 0.5992217898832685,
+          "specification_version": "1.1"
+        },
+        "allocation_reason": "hold_dwell",
+        "capacity_epoch": 0,
+        "config_hash": "8a1fe436af8e7095108d75b90481590aed8f2d439ab91d0004b3ae39a1a8d8c4",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "disabled_allocation_only",
+        "hardware_requested_pair": null,
+        "iteration": 8,
+        "mode": "allocation_only",
+        "next_cpu_items": 154,
+        "partition_epoch": 1,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 652755336056,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 154,
+          "epoch": 0,
+          "iteration": 8,
+          "release_ns": 652754869773,
+          "run_id": "joint-00",
+          "t_cpu": 6.4428e-05,
+          "t_gpu": 0.000274316,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 65397,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "8a1fe436af8e7095108d75b90481590aed8f2d439ab91d0004b3ae39a1a8d8c4",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "disabled_allocation_only",
+        "hardware_requested_pair": null,
+        "iteration": 9,
+        "mode": "allocation_only",
+        "next_cpu_items": 154,
+        "partition_epoch": 1,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 652756023718,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 154,
+          "epoch": 0,
+          "iteration": 9,
+          "release_ns": 652755585287,
+          "run_id": "joint-00",
+          "t_cpu": 6.7833e-05,
+          "t_gpu": 0.000249976,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 76137,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "8a1fe436af8e7095108d75b90481590aed8f2d439ab91d0004b3ae39a1a8d8c4",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "disabled_allocation_only",
+        "hardware_requested_pair": null,
+        "iteration": 10,
+        "mode": "allocation_only",
+        "next_cpu_items": 154,
+        "partition_epoch": 1,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 652756511996,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 154,
+          "epoch": 0,
+          "iteration": 10,
+          "release_ns": 652756134851,
+          "run_id": "joint-00",
+          "t_cpu": 4.405e-05,
+          "t_gpu": 0.000192293,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 80320,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "8a1fe436af8e7095108d75b90481590aed8f2d439ab91d0004b3ae39a1a8d8c4",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "disabled_allocation_only",
+        "hardware_requested_pair": null,
+        "iteration": 11,
+        "mode": "allocation_only",
+        "next_cpu_items": 154,
+        "partition_epoch": 1,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 652757055424,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 154,
+          "epoch": 0,
+          "iteration": 11,
+          "release_ns": 652756631642,
+          "run_id": "joint-00",
+          "t_cpu": 6.4575e-05,
+          "t_gpu": 0.000246802,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 166493,
+      "decision": {
+        "allocation": {
+          "config_hash": "5d525e2ecb61cebd04acad1ce4ce83537e93f9585fcbd4be0d552dad532ba023",
+          "cpu_items": 154,
+          "observation": {
+            "common_origin": true,
+            "cpu_items": 154,
+            "epoch": 0,
+            "iteration": 12,
+            "run_id": "joint-00",
+            "source_iterations": [
+              9,
+              10,
+              11,
+              12
+            ],
+            "t_cpu": 0.000248358,
+            "t_gpu": 0.0009150530000000001,
+            "valid": true
+          },
+          "policy": "robust_proportional_epoch_v1",
+          "post_state": {
+            "bracket": null,
+            "dwell": 0,
+            "eligible": 3,
+            "epoch": 0,
+            "filter": [
+              0.00040678012509511973,
+              0.0026330264792278164
+            ],
+            "frozen": null,
+            "last_iteration": 12,
+            "phase_hits": 0,
+            "previous_ratio": 0.5992217898832685,
+            "run_id": "joint-00",
+            "sign": 0,
+            "step": null
+          },
+          "pre_state": {
+            "bracket": null,
+            "dwell": 1,
+            "eligible": 2,
+            "epoch": 0,
+            "filter": [
+              0.00040421764298396914,
+              0.0027496384739218783
+            ],
+            "frozen": null,
+            "last_iteration": 8,
+            "phase_hits": 0,
+            "previous_ratio": 0.5992217898832685,
+            "run_id": "joint-00",
+            "sign": 0,
+            "step": null
+          },
+          "realized_ratio": 0.5992217898832685,
+          "reason": "hold_dwell",
+          "requested_ratio": 0.5992217898832685,
+          "specification_version": "1.1"
+        },
+        "allocation_reason": "hold_dwell",
+        "capacity_epoch": 0,
+        "config_hash": "8a1fe436af8e7095108d75b90481590aed8f2d439ab91d0004b3ae39a1a8d8c4",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "disabled_allocation_only",
+        "hardware_requested_pair": null,
+        "iteration": 12,
+        "mode": "allocation_only",
+        "next_cpu_items": 154,
+        "partition_epoch": 1,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 652757579704,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 154,
+          "epoch": 0,
+          "iteration": 12,
+          "release_ns": 652757180602,
+          "run_id": "joint-00",
+          "t_cpu": 7.19e-05,
+          "t_gpu": 0.000225982,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 76248,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "8a1fe436af8e7095108d75b90481590aed8f2d439ab91d0004b3ae39a1a8d8c4",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "disabled_allocation_only",
+        "hardware_requested_pair": null,
+        "iteration": 13,
+        "mode": "allocation_only",
+        "next_cpu_items": 154,
+        "partition_epoch": 1,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 652758316097,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 154,
+          "epoch": 0,
+          "iteration": 13,
+          "release_ns": 652757806426,
+          "run_id": "joint-00",
+          "t_cpu": 0.000150439,
+          "t_gpu": 0.000315743,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 70778,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "8a1fe436af8e7095108d75b90481590aed8f2d439ab91d0004b3ae39a1a8d8c4",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "disabled_allocation_only",
+        "hardware_requested_pair": null,
+        "iteration": 14,
+        "mode": "allocation_only",
+        "next_cpu_items": 154,
+        "partition_epoch": 1,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 652758856676,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 154,
+          "epoch": 0,
+          "iteration": 14,
+          "release_ns": 652758435325,
+          "run_id": "joint-00",
+          "t_cpu": 3.845e-05,
+          "t_gpu": 0.000249088,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 78738,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "8a1fe436af8e7095108d75b90481590aed8f2d439ab91d0004b3ae39a1a8d8c4",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "disabled_allocation_only",
+        "hardware_requested_pair": null,
+        "iteration": 15,
+        "mode": "allocation_only",
+        "next_cpu_items": 154,
+        "partition_epoch": 1,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 652759424325,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 154,
+          "epoch": 0,
+          "iteration": 15,
+          "release_ns": 652758972299,
+          "run_id": "joint-00",
+          "t_cpu": 7.1344e-05,
+          "t_gpu": 0.000258665,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 175781,
+      "decision": {
+        "allocation": {
+          "config_hash": "5d525e2ecb61cebd04acad1ce4ce83537e93f9585fcbd4be0d552dad532ba023",
+          "cpu_items": 180,
+          "observation": {
+            "common_origin": true,
+            "cpu_items": 154,
+            "epoch": 0,
+            "iteration": 16,
+            "run_id": "joint-00",
+            "source_iterations": [
+              13,
+              14,
+              15,
+              16
+            ],
+            "t_cpu": 0.000349584,
+            "t_gpu": 0.00107477,
+            "valid": true
+          },
+          "policy": "robust_proportional_epoch_v1",
+          "post_state": {
+            "bracket": null,
+            "dwell": 2,
+            "eligible": 4,
+            "epoch": 0,
+            "filter": [
+              0.00045093426265250863,
+              0.0026451967768965903
+            ],
+            "frozen": null,
+            "last_iteration": 16,
+            "phase_hits": 0,
+            "previous_ratio": 0.5992217898832685,
+            "run_id": "joint-00",
+            "sign": 0,
+            "step": null
+          },
+          "pre_state": {
+            "bracket": null,
+            "dwell": 0,
+            "eligible": 3,
+            "epoch": 0,
+            "filter": [
+              0.00040678012509511973,
+              0.0026330264792278164
+            ],
+            "frozen": null,
+            "last_iteration": 12,
+            "phase_hits": 0,
+            "previous_ratio": 0.5992217898832685,
+            "run_id": "joint-00",
+            "sign": 0,
+            "step": null
+          },
+          "realized_ratio": 0.7003891050583657,
+          "reason": "robust_adjust",
+          "requested_ratio": 0.6992217898832684,
+          "specification_version": "1.1"
+        },
+        "allocation_reason": "robust_adjust",
+        "capacity_epoch": 0,
+        "config_hash": "8a1fe436af8e7095108d75b90481590aed8f2d439ab91d0004b3ae39a1a8d8c4",
+        "events": [
+          "observe",
+          "decide",
+          "apply_allocation_at_barrier",
+          "settle",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "disabled_allocation_only",
+        "hardware_requested_pair": null,
+        "iteration": 16,
+        "mode": "allocation_only",
+        "next_cpu_items": 180,
+        "partition_epoch": 1,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 652759994882,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 154,
+          "epoch": 0,
+          "iteration": 16,
+          "release_ns": 652759550821,
+          "run_id": "joint-00",
+          "t_cpu": 8.9351e-05,
+          "t_gpu": 0.000251274,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 86487,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "settling_iteration_excluded",
+        "capacity_epoch": 0,
+        "config_hash": "8a1fe436af8e7095108d75b90481590aed8f2d439ab91d0004b3ae39a1a8d8c4",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "disabled_allocation_only",
+        "hardware_requested_pair": null,
+        "iteration": 17,
+        "mode": "allocation_only",
+        "next_cpu_items": 180,
+        "partition_epoch": 2,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 652761177660,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 180,
+          "epoch": 0,
+          "iteration": 17,
+          "release_ns": 652760225990,
+          "run_id": "joint-00",
+          "t_cpu": 0.000635293,
+          "t_gpu": 0.000254117,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 84044,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "8a1fe436af8e7095108d75b90481590aed8f2d439ab91d0004b3ae39a1a8d8c4",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "disabled_allocation_only",
+        "hardware_requested_pair": null,
+        "iteration": 18,
+        "mode": "allocation_only",
+        "next_cpu_items": 180,
+        "partition_epoch": 2,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 652761839342,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 180,
+          "epoch": 0,
+          "iteration": 18,
+          "release_ns": 652761344658,
+          "run_id": "joint-00",
+          "t_cpu": 6.9433e-05,
+          "t_gpu": 0.000278447,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 174336,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "8a1fe436af8e7095108d75b90481590aed8f2d439ab91d0004b3ae39a1a8d8c4",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "disabled_allocation_only",
+        "hardware_requested_pair": null,
+        "iteration": 19,
+        "mode": "allocation_only",
+        "next_cpu_items": 180,
+        "partition_epoch": 2,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 652762422106,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 180,
+          "epoch": 0,
+          "iteration": 19,
+          "release_ns": 652761999054,
+          "run_id": "joint-00",
+          "t_cpu": 6.8298e-05,
+          "t_gpu": 0.000229026,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 67259,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "8a1fe436af8e7095108d75b90481590aed8f2d439ab91d0004b3ae39a1a8d8c4",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "disabled_allocation_only",
+        "hardware_requested_pair": null,
+        "iteration": 20,
+        "mode": "allocation_only",
+        "next_cpu_items": 180,
+        "partition_epoch": 2,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 652763182981,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 180,
+          "epoch": 0,
+          "iteration": 20,
+          "release_ns": 652762668247,
+          "run_id": "joint-00",
+          "t_cpu": 5.7154e-05,
+          "t_gpu": 0.000322064,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 182731,
+      "decision": {
+        "allocation": {
+          "config_hash": "5d525e2ecb61cebd04acad1ce4ce83537e93f9585fcbd4be0d552dad532ba023",
+          "cpu_items": 180,
+          "observation": {
+            "common_origin": true,
+            "cpu_items": 180,
+            "epoch": 0,
+            "iteration": 21,
+            "run_id": "joint-00",
+            "source_iterations": [
+              18,
+              19,
+              20,
+              21
+            ],
+            "t_cpu": 0.000231104,
+            "t_gpu": 0.0011019530000000001,
+            "valid": true
+          },
+          "policy": "robust_proportional_epoch_v1",
+          "post_state": {
+            "bracket": null,
+            "dwell": 1,
+            "eligible": 5,
+            "epoch": 0,
+            "filter": [
+              0.00042069198587827035,
+              0.002903384339165949
+            ],
+            "frozen": null,
+            "last_iteration": 21,
+            "phase_hits": 0,
+            "previous_ratio": 0.7003891050583657,
+            "run_id": "joint-00",
+            "sign": 0,
+            "step": null
+          },
+          "pre_state": {
+            "bracket": null,
+            "dwell": 2,
+            "eligible": 4,
+            "epoch": 0,
+            "filter": [
+              0.00045093426265250863,
+              0.0026451967768965903
+            ],
+            "frozen": null,
+            "last_iteration": 16,
+            "phase_hits": 0,
+            "previous_ratio": 0.5992217898832685,
+            "run_id": "joint-00",
+            "sign": 0,
+            "step": null
+          },
+          "realized_ratio": 0.7003891050583657,
+          "reason": "hold_dwell",
+          "requested_ratio": 0.7003891050583657,
+          "specification_version": "1.1"
+        },
+        "allocation_reason": "hold_dwell",
+        "capacity_epoch": 0,
+        "config_hash": "8a1fe436af8e7095108d75b90481590aed8f2d439ab91d0004b3ae39a1a8d8c4",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "disabled_allocation_only",
+        "hardware_requested_pair": null,
+        "iteration": 21,
+        "mode": "allocation_only",
+        "next_cpu_items": 180,
+        "partition_epoch": 2,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 652763782706,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 180,
+          "epoch": 0,
+          "iteration": 21,
+          "release_ns": 652763328107,
+          "run_id": "joint-00",
+          "t_cpu": 3.6219e-05,
+          "t_gpu": 0.000272416,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 70745,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "collect_epoch",
+        "capacity_epoch": 0,
+        "config_hash": "8a1fe436af8e7095108d75b90481590aed8f2d439ab91d0004b3ae39a1a8d8c4",
+        "events": [
+          "observe",
+          "decide",
+          "execute"
+        ],
+        "frequency": null,
+        "frequency_reason": "disabled_allocation_only",
+        "hardware_requested_pair": null,
+        "iteration": 22,
+        "mode": "allocation_only",
+        "next_cpu_items": 180,
+        "partition_epoch": 2,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": false,
+        "new_frames": [],
+        "now_ns": 652764552378,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 180,
+          "epoch": 0,
+          "iteration": 22,
+          "release_ns": 652764075904,
+          "run_id": "joint-00",
+          "t_cpu": 8.544e-05,
+          "t_gpu": 0.000240767,
+          "valid": true
+        },
+        "phase": 0
+      }
+    },
+    {
+      "controller_ns": 86461,
+      "decision": {
+        "allocation": null,
+        "allocation_reason": "workload_complete",
+        "capacity_epoch": 0,
+        "config_hash": "8a1fe436af8e7095108d75b90481590aed8f2d439ab91d0004b3ae39a1a8d8c4",
+        "events": [
+          "observe",
+          "finalize"
+        ],
+        "frequency": null,
+        "frequency_reason": "workload_complete",
+        "hardware_requested_pair": null,
+        "iteration": 23,
+        "mode": "allocation_only",
+        "next_cpu_items": 180,
+        "partition_epoch": 2,
+        "spec_version": "integration-1.0",
+        "synthetic_applied_pair": null
+      },
+      "input": {
+        "action_boundary": true,
+        "final": true,
+        "new_frames": [],
+        "now_ns": 652765147542,
+        "observation": {
+          "common_origin": true,
+          "cpu_items": 180,
+          "epoch": 0,
+          "iteration": 23,
+          "release_ns": 652764671338,
+          "run_id": "joint-00",
+          "t_cpu": 8.7031e-05,
+          "t_gpu": 0.000276655,
+          "valid": true
+        },
+        "phase": 0
+      }
+    }
+  ],
+  "configuration": {
+    "allocation_interval_ns": 0,
+    "allocation_iterations": 4,
+    "allocation_policy": "robust_proportional_epoch_v1",
+    "cadence_profile": "batched_epochs_v1",
+    "frequency_guard_ns": 1000000000,
+    "frequency_interval_ns": 200000000,
+    "frequency_policy": "paper_additive",
+    "initial_cpu_items": 128,
+    "mode": "allocation_only",
+    "n": 257,
+    "pairs": [
+      [
+        930,
+        8001
+      ],
+      [
+        1665,
+        5501
+      ],
+      [
+        1665,
+        7001
+      ],
+      [
+        1665,
+        8001
+      ],
+      [
+        2385,
+        8001
+      ]
+    ],
+    "run_id": "joint-00",
+    "settle_iterations": 1
+  },
+  "elapsed_ns": 1576568510,
+  "failure": null,
+  "hardware_setter_calls": 0,
+  "lifecycle": [
+    "prepare",
+    "warmup",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "execute",
+    "observe",
+    "finalize",
+    "restore",
+    "complete"
+  ],
+  "polling": {
+    "error": null,
+    "frames": 4,
+    "query_thread_cpu_ns": 6060493,
+    "query_wall_ns": 31587218
+  },
+  "restoration": "not_needed_no_settings_changed",
+  "returncode": 0,
+  "status": "ok",
+  "stderr": "",
+  "stdout": "{\"kind\":\"configuration\",\"schema_version\":\"4.1\",\"validation_mode\":\"verify\",\"clock\":\"CLOCK_MONOTONIC\",\"n\":257,\"d\":3,\"k\":4,\"max_iterations\":24,\"workers_requested\":4,\"mode\":\"fixed\",\"atol\":1e-8,\"rtol\":1e-10,\"shift_tolerance\":1e-6,\"preparation_start_ns\":652465538952,\"pci_bus_id\":\"0000:01:00.0\",\"armed\":false,\"dispatch_order\":\"cpu_first\",\"feedback\":true,\"feedback_batch\":1,\"reduction\":\"atomic\",\"transfer_mode\":\"diagnostic\",\"initial_centroids\":[36.935923231101071,35.785386401374012,35.621516494035433,-0.7237347106578591,0.33731847412330634,1.4025244849851695,-1.0699933971201383,-0.74175068572924263,1.4425563990379109,35.263191905328377,37.752723282769146,36.778724423719012]}\n{\"kind\":\"iteration\",\"index\":-1,\"phase\":0,\"feedback_due\":false,\"warmup\":true,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":128,\"gpu_items\":129,\"resident_before\":257,\"resident_after\":128,\"ownership_changed_points\":129,\"h2d_point_bytes\":3096,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":516,\"d2h_aggregate_bytes\":120,\"release_ns\":652737100833,\"cpu_start_ns\":652737146337,\"cpu_end_ns\":652737391546,\"gpu_dispatch_ns\":652737125962,\"h2d_end_ns\":652746651387,\"compute_end_ns\":652749125322,\"gpu_end_ns\":652749273187,\"barrier_end_ns\":652749273646,\"end_ns\":652749274492,\"validation_end_ns\":652749288222,\"control_ns\":0,\"workers_used\":4,\"objective_before_update\":55243.326764326688,\"objective_after_update\":22102.624483365114,\"max_centroid_shift\":12.622019529639196,\"changed_labels\":257,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"27922e8f807ff5d4\",\"counts\":[103,110,19,25],\"sums\":[2956.7110911539999,2954.9616014088133,3007.7017114400501,784.63504005756499,825.14110158253493,840.22057326385618,-12.942122613742606,-18.697296288007184,17.340162457603419,885.50965163100045,930.19240973377691,923.84247206701866],\"centroids\":[28.705932923825241,28.688947586493335,29.200987489709224,7.1330458187051367,7.5012827416594083,7.6383688478532381,-0.68116434809171611,-0.98406822568458863,0.91264012934754835,35.420386065240017,37.207696389351078,36.953698882680747],\"labels\":[0,1,0,1,3,0,0,0,1,0,1,2,3,1,1,0,3,0,1,0,0,0,0,0,1,0,3,0,2,1,1,1,0,0,0,2,3,1,1,0,1,1,3,0,0,0,3,0,0,1,0,1,1,0,0,0,1,1,1,0,0,0,2,0,0,1,0,1,1,1,0,1,2,1,1,0,1,3,0,1,1,2,2,1,1,1,1,0,0,0,0,2,1,0,1,1,0,0,1,0,1,2,0,0,0,0,2,3,1,1,0,2,0,0,0,0,1,1,1,0,1,2,3,1,1,1,1,0,1,2,1,2,0,1,0,1,0,0,1,1,1,0,3,1,2,0,1,0,1,0,1,0,1,0,1,1,1,3,0,1,3,0,1,0,1,1,1,1,1,0,1,0,3,1,1,0,1,3,0,0,2,1,1,0,1,0,0,1,1,1,1,1,1,2,3,1,0,1,3,1,0,1,1,0,1,0,1,3,0,3,1,0,0,0,3,0,0,0,0,3,1,1,1,1,3,1,0,0,0,3,1,0,1,0,2,1,1,0,2,0,0,0,1,0,1,0,0,1,1,0,1,3,1,1,3,0,1]}\n{\"kind\":\"iteration\",\"index\":0,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":128,\"gpu_items\":129,\"resident_before\":257,\"resident_after\":128,\"ownership_changed_points\":129,\"h2d_point_bytes\":3096,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":516,\"d2h_aggregate_bytes\":120,\"release_ns\":652749405113,\"cpu_start_ns\":652749447434,\"cpu_end_ns\":652749458116,\"gpu_dispatch_ns\":652749428931,\"h2d_end_ns\":652749619334,\"compute_end_ns\":652749677419,\"gpu_end_ns\":652749808447,\"barrier_end_ns\":652749808612,\"end_ns\":652749809031,\"validation_end_ns\":652749820434,\"control_ns\":0,\"workers_used\":4,\"objective_before_update\":55243.326764326688,\"objective_after_update\":22102.624483365114,\"max_centroid_shift\":12.622019529639198,\"changed_labels\":257,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"27922e8f807ff5d4\",\"counts\":[103,110,19,25],\"sums\":[2956.7110911539999,2954.9616014088133,3007.7017114400496,784.63504005756511,825.14110158253493,840.22057326385618,-12.942122613742606,-18.697296288007184,17.340162457603419,885.50965163100045,930.19240973377714,923.84247206701866],\"centroids\":[28.705932923825241,28.688947586493335,29.20098748970922,7.1330458187051375,7.5012827416594083,7.6383688478532381,-0.68116434809171611,-0.98406822568458863,0.91264012934754835,35.420386065240017,37.207696389351085,36.953698882680747],\"labels\":[0,1,0,1,3,0,0,0,1,0,1,2,3,1,1,0,3,0,1,0,0,0,0,0,1,0,3,0,2,1,1,1,0,0,0,2,3,1,1,0,1,1,3,0,0,0,3,0,0,1,0,1,1,0,0,0,1,1,1,0,0,0,2,0,0,1,0,1,1,1,0,1,2,1,1,0,1,3,0,1,1,2,2,1,1,1,1,0,0,0,0,2,1,0,1,1,0,0,1,0,1,2,0,0,0,0,2,3,1,1,0,2,0,0,0,0,1,1,1,0,1,2,3,1,1,1,1,0,1,2,1,2,0,1,0,1,0,0,1,1,1,0,3,1,2,0,1,0,1,0,1,0,1,0,1,1,1,3,0,1,3,0,1,0,1,1,1,1,1,0,1,0,3,1,1,0,1,3,0,0,2,1,1,0,1,0,0,1,1,1,1,1,1,2,3,1,0,1,3,1,0,1,1,0,1,0,1,3,0,3,1,0,0,0,3,0,0,0,0,3,1,1,1,1,3,1,0,0,0,3,1,0,1,0,2,1,1,0,2,0,0,0,1,0,1,0,0,1,1,0,1,3,1,1,3,0,1]}\n{\"kind\":\"iteration\",\"index\":1,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":128,\"gpu_items\":129,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":516,\"d2h_aggregate_bytes\":120,\"release_ns\":652750327691,\"cpu_start_ns\":652750363410,\"cpu_end_ns\":652750371781,\"gpu_dispatch_ns\":652750346283,\"h2d_end_ns\":652750502855,\"compute_end_ns\":652750591854,\"gpu_end_ns\":652750699453,\"barrier_end_ns\":652750699621,\"end_ns\":652750700223,\"validation_end_ns\":652750710569,\"control_ns\":506978,\"workers_used\":4,\"objective_before_update\":9710.7777641212724,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":8.4381018072341956,\"changed_labels\":85,\"empty_clusters\":0,\"converged\":false,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509459,1564.2629044494852,1582.0438538317298,767.09271014168473,783.60355805663767,809.88171753348183,4.6002073021377488,22.840247237890061,47.679018187977789,2312.1758287340544,2320.891106693105,2349.5003296753389],\"centroids\":[23.906951782046029,24.441607882023206,24.719435216120779,11.985823595963824,12.243805594634964,12.654401836460654,0.070772420032888445,0.3513884190444625,0.73352335673811986,36.127747323969601,36.263923542079766,36.71094265117717],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":2,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":128,\"gpu_items\":129,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":516,\"d2h_aggregate_bytes\":120,\"release_ns\":652751030160,\"cpu_start_ns\":652751061809,\"cpu_end_ns\":652751069500,\"gpu_dispatch_ns\":652751047011,\"h2d_end_ns\":652751199960,\"compute_end_ns\":652751285069,\"gpu_end_ns\":652751393135,\"barrier_end_ns\":652751393269,\"end_ns\":652751393745,\"validation_end_ns\":652751404535,\"control_ns\":319477,\"workers_used\":4,\"objective_before_update\":992.43386145727902,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":3.5527136788005009e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509461,1564.2629044494852,1582.0438538317298,767.09271014168485,783.60355805663767,809.88171753348183,4.6002073021377505,22.840247237890065,47.679018187977789,2312.1758287340544,2320.891106693105,2349.5003296753389],\"centroids\":[23.906951782046033,24.441607882023206,24.719435216120779,11.985823595963826,12.243805594634964,12.654401836460654,0.070772420032888472,0.35138841904446255,0.73352335673811986,36.127747323969601,36.263923542079766,36.71094265117717],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":3,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":128,\"gpu_items\":129,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":516,\"d2h_aggregate_bytes\":120,\"release_ns\":652751710151,\"cpu_start_ns\":652751756619,\"cpu_end_ns\":652751763593,\"gpu_dispatch_ns\":652751728289,\"h2d_end_ns\":652751838559,\"compute_end_ns\":652751898760,\"gpu_end_ns\":652751977160,\"barrier_end_ns\":652751977450,\"end_ns\":652751978257,\"validation_end_ns\":652751992054,\"control_ns\":305438,\"workers_used\":4,\"objective_before_update\":992.43386145727902,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":0,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509461,1564.2629044494852,1582.0438538317298,767.09271014168485,783.60355805663767,809.88171753348183,4.6002073021377505,22.840247237890065,47.679018187977789,2312.1758287340544,2320.891106693105,2349.5003296753389],\"centroids\":[23.906951782046033,24.441607882023206,24.719435216120779,11.985823595963826,12.243805594634964,12.654401836460654,0.070772420032888472,0.35138841904446255,0.73352335673811986,36.127747323969601,36.263923542079766,36.71094265117717],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":4,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":154,\"gpu_items\":103,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":26,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":412,\"d2h_aggregate_bytes\":120,\"release_ns\":652752598613,\"cpu_start_ns\":652752643561,\"cpu_end_ns\":652752650127,\"gpu_dispatch_ns\":652752637181,\"h2d_end_ns\":652752743612,\"compute_end_ns\":652752791002,\"gpu_end_ns\":652752859719,\"barrier_end_ns\":652752860019,\"end_ns\":652752860828,\"validation_end_ns\":652752874122,\"control_ns\":606145,\"workers_used\":4,\"objective_before_update\":992.43386145727936,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":1.0048591735576161e-14,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509459,1564.2629044494852,1582.0438538317298,767.09271014168462,783.60355805663755,809.88171753348183,4.6002073021377523,22.840247237890061,47.679018187977789,2312.175828734054,2320.891106693105,2349.5003296753384],\"centroids\":[23.906951782046029,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634962,12.654401836460654,0.0707724200328885,0.3513884190444625,0.73352335673811986,36.127747323969594,36.263923542079766,36.710942651177163],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":5,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":154,\"gpu_items\":103,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":412,\"d2h_aggregate_bytes\":120,\"release_ns\":652753246465,\"cpu_start_ns\":652753291475,\"cpu_end_ns\":652753325379,\"gpu_dispatch_ns\":652753267220,\"h2d_end_ns\":652753375869,\"compute_end_ns\":652753441956,\"gpu_end_ns\":652753527183,\"barrier_end_ns\":652753527293,\"end_ns\":652753527664,\"validation_end_ns\":652753536625,\"control_ns\":372142,\"workers_used\":4,\"objective_before_update\":992.43386145727936,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":3.5527136788005009e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509461,1564.2629044494852,1582.0438538317298,767.09271014168462,783.60355805663755,809.88171753348183,4.6002073021377488,22.840247237890068,47.679018187977789,2312.175828734054,2320.891106693105,2349.5003296753384],\"centroids\":[23.906951782046033,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634962,12.654401836460654,0.070772420032888445,0.35138841904446261,0.73352335673811986,36.127747323969594,36.263923542079766,36.710942651177163],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":6,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":154,\"gpu_items\":103,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":412,\"d2h_aggregate_bytes\":120,\"release_ns\":652753820866,\"cpu_start_ns\":652753874626,\"cpu_end_ns\":652753888960,\"gpu_dispatch_ns\":652753846229,\"h2d_end_ns\":652753929813,\"compute_end_ns\":652754002314,\"gpu_end_ns\":652754086579,\"barrier_end_ns\":652754086739,\"end_ns\":652754087243,\"validation_end_ns\":652754098693,\"control_ns\":283925,\"workers_used\":4,\"objective_before_update\":992.43386145727936,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":7.1054273576010019e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509461,1564.2629044494854,1582.0438538317298,767.09271014168462,783.60355805663755,809.88171753348183,4.600207302137747,22.840247237890061,47.679018187977789,2312.175828734054,2320.891106693105,2349.5003296753389],\"centroids\":[23.906951782046033,24.441607882023209,24.719435216120779,11.985823595963822,12.243805594634962,12.654401836460654,0.070772420032888417,0.3513884190444625,0.73352335673811986,36.127747323969594,36.263923542079766,36.71094265117717],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":7,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":154,\"gpu_items\":103,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":412,\"d2h_aggregate_bytes\":120,\"release_ns\":652754364776,\"cpu_start_ns\":652754420259,\"cpu_end_ns\":652754436874,\"gpu_dispatch_ns\":652754384853,\"h2d_end_ns\":652754472217,\"compute_end_ns\":652754530296,\"gpu_end_ns\":652754586353,\"barrier_end_ns\":652754586514,\"end_ns\":652754587036,\"validation_end_ns\":652754597781,\"control_ns\":265879,\"workers_used\":4,\"objective_before_update\":992.43386145727914,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":1.0048591735576161e-14,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509461,1564.2629044494852,1582.0438538317298,767.09271014168462,783.60355805663767,809.88171753348183,4.6002073021377523,22.840247237890061,47.679018187977789,2312.1758287340544,2320.891106693105,2349.5003296753384],\"centroids\":[23.906951782046033,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634964,12.654401836460654,0.0707724200328885,0.3513884190444625,0.73352335673811986,36.127747323969601,36.263923542079766,36.710942651177163],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":8,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":154,\"gpu_items\":103,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":412,\"d2h_aggregate_bytes\":120,\"release_ns\":652754869773,\"cpu_start_ns\":652754908295,\"cpu_end_ns\":652754934201,\"gpu_dispatch_ns\":652754886835,\"h2d_end_ns\":652755034271,\"compute_end_ns\":652755089303,\"gpu_end_ns\":652755144089,\"barrier_end_ns\":652755144219,\"end_ns\":652755144636,\"validation_end_ns\":652755154168,\"control_ns\":271667,\"workers_used\":4,\"objective_before_update\":992.43386145727925,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":7.1054273576010019e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509459,1564.2629044494852,1582.0438538317298,767.09271014168462,783.60355805663755,809.88171753348183,4.6002073021377523,22.840247237890061,47.679018187977789,2312.175828734054,2320.891106693105,2349.5003296753384],\"centroids\":[23.906951782046029,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634962,12.654401836460654,0.0707724200328885,0.3513884190444625,0.73352335673811986,36.127747323969594,36.263923542079766,36.710942651177163],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":9,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":154,\"gpu_items\":103,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":412,\"d2h_aggregate_bytes\":120,\"release_ns\":652755585287,\"cpu_start_ns\":652755625667,\"cpu_end_ns\":652755653120,\"gpu_dispatch_ns\":652755602506,\"h2d_end_ns\":652755677733,\"compute_end_ns\":652755743182,\"gpu_end_ns\":652755835263,\"barrier_end_ns\":652755835448,\"end_ns\":652755835877,\"validation_end_ns\":652755845299,\"control_ns\":431002,\"workers_used\":4,\"objective_before_update\":992.43386145727936,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":3.5527136788005009e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509461,1564.2629044494852,1582.0438538317298,767.09271014168462,783.60355805663755,809.88171753348183,4.6002073021377488,22.840247237890068,47.679018187977789,2312.175828734054,2320.891106693105,2349.5003296753384],\"centroids\":[23.906951782046033,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634962,12.654401836460654,0.070772420032888445,0.35138841904446261,0.73352335673811986,36.127747323969594,36.263923542079766,36.710942651177163],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":10,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":154,\"gpu_items\":103,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":412,\"d2h_aggregate_bytes\":120,\"release_ns\":652756134851,\"cpu_start_ns\":652756172768,\"cpu_end_ns\":652756178901,\"gpu_dispatch_ns\":652756153558,\"h2d_end_ns\":652756228114,\"compute_end_ns\":652756275013,\"gpu_end_ns\":652756327144,\"barrier_end_ns\":652756327256,\"end_ns\":652756327715,\"validation_end_ns\":652756337707,\"control_ns\":289373,\"workers_used\":4,\"objective_before_update\":992.43386145727936,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":7.1054273576010019e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509461,1564.2629044494854,1582.0438538317298,767.09271014168462,783.60355805663755,809.88171753348183,4.600207302137747,22.840247237890061,47.679018187977789,2312.175828734054,2320.891106693105,2349.5003296753389],\"centroids\":[23.906951782046033,24.441607882023209,24.719435216120779,11.985823595963822,12.243805594634962,12.654401836460654,0.070772420032888417,0.3513884190444625,0.73352335673811986,36.127747323969594,36.263923542079766,36.71094265117717],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":11,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":154,\"gpu_items\":103,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":412,\"d2h_aggregate_bytes\":120,\"release_ns\":652756631642,\"cpu_start_ns\":652756663072,\"cpu_end_ns\":652756696217,\"gpu_dispatch_ns\":652756646443,\"h2d_end_ns\":652756739555,\"compute_end_ns\":652756810050,\"gpu_end_ns\":652756878444,\"barrier_end_ns\":652756878577,\"end_ns\":652756879048,\"validation_end_ns\":652756887373,\"control_ns\":293825,\"workers_used\":4,\"objective_before_update\":992.43386145727914,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":1.0048591735576161e-14,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509461,1564.2629044494852,1582.0438538317298,767.09271014168462,783.60355805663767,809.88171753348183,4.6002073021377523,22.840247237890061,47.679018187977789,2312.1758287340544,2320.891106693105,2349.5003296753384],\"centroids\":[23.906951782046033,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634964,12.654401836460654,0.0707724200328885,0.3513884190444625,0.73352335673811986,36.127747323969601,36.263923542079766,36.710942651177163],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":12,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":154,\"gpu_items\":103,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":412,\"d2h_aggregate_bytes\":120,\"release_ns\":652757180602,\"cpu_start_ns\":652757218531,\"cpu_end_ns\":652757252502,\"gpu_dispatch_ns\":652757197553,\"h2d_end_ns\":652757301740,\"compute_end_ns\":652757355219,\"gpu_end_ns\":652757406584,\"barrier_end_ns\":652757406706,\"end_ns\":652757407158,\"validation_end_ns\":652757416867,\"control_ns\":293053,\"workers_used\":4,\"objective_before_update\":992.43386145727925,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":7.1054273576010019e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509459,1564.2629044494852,1582.0438538317298,767.09271014168462,783.60355805663755,809.88171753348183,4.6002073021377523,22.840247237890061,47.679018187977789,2312.175828734054,2320.891106693105,2349.5003296753384],\"centroids\":[23.906951782046029,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634962,12.654401836460654,0.0707724200328885,0.3513884190444625,0.73352335673811986,36.127747323969594,36.263923542079766,36.710942651177163],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":13,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":154,\"gpu_items\":103,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":412,\"d2h_aggregate_bytes\":120,\"release_ns\":652757806426,\"cpu_start_ns\":652757917343,\"cpu_end_ns\":652757956865,\"gpu_dispatch_ns\":652757891364,\"h2d_end_ns\":652758004497,\"compute_end_ns\":652758059837,\"gpu_end_ns\":652758122169,\"barrier_end_ns\":652758122335,\"end_ns\":652758122848,\"validation_end_ns\":652758133119,\"control_ns\":389213,\"workers_used\":4,\"objective_before_update\":992.43386145727936,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":3.5527136788005009e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509461,1564.2629044494852,1582.0438538317298,767.09271014168462,783.60355805663755,809.88171753348183,4.6002073021377488,22.840247237890068,47.679018187977789,2312.175828734054,2320.891106693105,2349.5003296753384],\"centroids\":[23.906951782046033,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634962,12.654401836460654,0.070772420032888445,0.35138841904446261,0.73352335673811986,36.127747323969594,36.263923542079766,36.710942651177163],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":14,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":154,\"gpu_items\":103,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":412,\"d2h_aggregate_bytes\":120,\"release_ns\":652758435325,\"cpu_start_ns\":652758465625,\"cpu_end_ns\":652758473775,\"gpu_dispatch_ns\":652758452919,\"h2d_end_ns\":652758522351,\"compute_end_ns\":652758590855,\"gpu_end_ns\":652758684413,\"barrier_end_ns\":652758684558,\"end_ns\":652758684949,\"validation_end_ns\":652758694538,\"control_ns\":302041,\"workers_used\":4,\"objective_before_update\":992.43386145727936,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":7.1054273576010019e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509461,1564.2629044494854,1582.0438538317298,767.09271014168462,783.60355805663755,809.88171753348183,4.600207302137747,22.840247237890061,47.679018187977789,2312.175828734054,2320.891106693105,2349.5003296753389],\"centroids\":[23.906951782046033,24.441607882023209,24.719435216120779,11.985823595963822,12.243805594634962,12.654401836460654,0.070772420032888417,0.3513884190444625,0.73352335673811986,36.127747323969594,36.263923542079766,36.71094265117717],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":15,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":154,\"gpu_items\":103,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":412,\"d2h_aggregate_bytes\":120,\"release_ns\":652758972299,\"cpu_start_ns\":652759020952,\"cpu_end_ns\":652759043643,\"gpu_dispatch_ns\":652758991526,\"h2d_end_ns\":652759095351,\"compute_end_ns\":652759155187,\"gpu_end_ns\":652759230964,\"barrier_end_ns\":652759231081,\"end_ns\":652759231500,\"validation_end_ns\":652759240802,\"control_ns\":277571,\"workers_used\":4,\"objective_before_update\":992.43386145727914,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":1.0048591735576161e-14,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509461,1564.2629044494852,1582.0438538317298,767.09271014168462,783.60355805663767,809.88171753348183,4.6002073021377523,22.840247237890061,47.679018187977789,2312.1758287340544,2320.891106693105,2349.5003296753384],\"centroids\":[23.906951782046033,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634964,12.654401836460654,0.0707724200328885,0.3513884190444625,0.73352335673811986,36.127747323969601,36.263923542079766,36.710942651177163],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":16,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":154,\"gpu_items\":103,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":412,\"d2h_aggregate_bytes\":120,\"release_ns\":652759550821,\"cpu_start_ns\":652759610295,\"cpu_end_ns\":652759640172,\"gpu_dispatch_ns\":652759575250,\"h2d_end_ns\":652759682590,\"compute_end_ns\":652759735444,\"gpu_end_ns\":652759802095,\"barrier_end_ns\":652759802243,\"end_ns\":652759802665,\"validation_end_ns\":652759812184,\"control_ns\":309819,\"workers_used\":4,\"objective_before_update\":992.43386145727925,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":7.1054273576010019e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509459,1564.2629044494852,1582.0438538317298,767.09271014168462,783.60355805663755,809.88171753348183,4.6002073021377523,22.840247237890061,47.679018187977789,2312.175828734054,2320.891106693105,2349.5003296753384],\"centroids\":[23.906951782046029,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634962,12.654401836460654,0.0707724200328885,0.3513884190444625,0.73352335673811986,36.127747323969594,36.263923542079766,36.710942651177163],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":17,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":180,\"gpu_items\":77,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":26,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":308,\"d2h_aggregate_bytes\":120,\"release_ns\":652760225990,\"cpu_start_ns\":652760304257,\"cpu_end_ns\":652760861283,\"gpu_dispatch_ns\":652760252545,\"h2d_end_ns\":652760339177,\"compute_end_ns\":652760419997,\"gpu_end_ns\":652760480107,\"barrier_end_ns\":652760917670,\"end_ns\":652760918558,\"validation_end_ns\":652760929077,\"control_ns\":413570,\"workers_used\":4,\"objective_before_update\":992.43386145727925,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":7.1054273576010019e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509463,1564.2629044494852,1582.0438538317298,767.09271014168462,783.60355805663767,809.88171753348183,4.6002073021377488,22.840247237890065,47.679018187977789,2312.175828734054,2320.891106693105,2349.5003296753389],\"centroids\":[23.906951782046036,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634964,12.654401836460654,0.070772420032888445,0.35138841904446255,0.73352335673811986,36.127747323969594,36.263923542079766,36.71094265117717],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":18,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":180,\"gpu_items\":77,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":308,\"d2h_aggregate_bytes\":120,\"release_ns\":652761344658,\"cpu_start_ns\":652761397329,\"cpu_end_ns\":652761414091,\"gpu_dispatch_ns\":652761359793,\"h2d_end_ns\":652761460594,\"compute_end_ns\":652761529743,\"gpu_end_ns\":652761623105,\"barrier_end_ns\":652761623240,\"end_ns\":652761623810,\"validation_end_ns\":652761633496,\"control_ns\":415478,\"workers_used\":4,\"objective_before_update\":992.43386145727936,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":5.0242958677880805e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509461,1564.2629044494852,1582.0438538317296,767.09271014168462,783.60355805663755,809.88171753348183,4.6002073021377488,22.840247237890061,47.679018187977789,2312.175828734054,2320.891106693105,2349.5003296753389],\"centroids\":[23.906951782046033,24.441607882023206,24.719435216120775,11.985823595963822,12.243805594634962,12.654401836460654,0.070772420032888445,0.3513884190444625,0.73352335673811986,36.127747323969594,36.263923542079766,36.71094265117717],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":19,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":180,\"gpu_items\":77,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":308,\"d2h_aggregate_bytes\":120,\"release_ns\":652761999054,\"cpu_start_ns\":652762050049,\"cpu_end_ns\":652762067352,\"gpu_dispatch_ns\":652762015143,\"h2d_end_ns\":652762113182,\"compute_end_ns\":652762164676,\"gpu_end_ns\":652762228080,\"barrier_end_ns\":652762228257,\"end_ns\":652762228895,\"validation_end_ns\":652762238553,\"control_ns\":365199,\"workers_used\":4,\"objective_before_update\":992.43386145727936,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":5.0242958677880805e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509463,1564.2629044494852,1582.0438538317298,767.09271014168462,783.60355805663767,809.88171753348183,4.6002073021377488,22.840247237890065,47.679018187977789,2312.175828734054,2320.891106693105,2349.5003296753389],\"centroids\":[23.906951782046036,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634964,12.654401836460654,0.070772420032888445,0.35138841904446255,0.73352335673811986,36.127747323969594,36.263923542079766,36.71094265117717],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":20,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":180,\"gpu_items\":77,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":308,\"d2h_aggregate_bytes\":120,\"release_ns\":652762668247,\"cpu_start_ns\":652762718567,\"cpu_end_ns\":652762725401,\"gpu_dispatch_ns\":652762708718,\"h2d_end_ns\":652762855100,\"compute_end_ns\":652762906511,\"gpu_end_ns\":652762990311,\"barrier_end_ns\":652762990473,\"end_ns\":652762990835,\"validation_end_ns\":652763000250,\"control_ns\":428916,\"workers_used\":4,\"objective_before_update\":992.43386145727936,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":0,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509463,1564.2629044494852,1582.0438538317298,767.09271014168462,783.60355805663767,809.88171753348183,4.6002073021377488,22.840247237890065,47.679018187977789,2312.175828734054,2320.891106693105,2349.5003296753389],\"centroids\":[23.906951782046036,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634964,12.654401836460654,0.070772420032888445,0.35138841904446255,0.73352335673811986,36.127747323969594,36.263923542079766,36.71094265117717],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":21,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":180,\"gpu_items\":77,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":308,\"d2h_aggregate_bytes\":120,\"release_ns\":652763328107,\"cpu_start_ns\":652763357420,\"cpu_end_ns\":652763364326,\"gpu_dispatch_ns\":652763346776,\"h2d_end_ns\":652763440766,\"compute_end_ns\":652763514935,\"gpu_end_ns\":652763600523,\"barrier_end_ns\":652763600735,\"end_ns\":652763601096,\"validation_end_ns\":652763610835,\"control_ns\":327573,\"workers_used\":4,\"objective_before_update\":992.43386145727936,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":0,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509463,1564.2629044494852,1582.0438538317298,767.09271014168462,783.60355805663767,809.88171753348183,4.6002073021377488,22.840247237890065,47.679018187977789,2312.175828734054,2320.891106693105,2349.5003296753389],\"centroids\":[23.906951782046036,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634964,12.654401836460654,0.070772420032888445,0.35138841904446255,0.73352335673811986,36.127747323969594,36.263923542079766,36.71094265117717],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":22,\"phase\":0,\"feedback_due\":true,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":180,\"gpu_items\":77,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":308,\"d2h_aggregate_bytes\":120,\"release_ns\":652764075904,\"cpu_start_ns\":652764130218,\"cpu_end_ns\":652764161344,\"gpu_dispatch_ns\":652764095335,\"h2d_end_ns\":652764186116,\"compute_end_ns\":652764231553,\"gpu_end_ns\":652764316671,\"barrier_end_ns\":652764316836,\"end_ns\":652764317281,\"validation_end_ns\":652764326460,\"control_ns\":464241,\"workers_used\":4,\"objective_before_update\":992.43386145727936,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":5.0242958677880805e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509461,1564.2629044494852,1582.0438538317296,767.09271014168462,783.60355805663755,809.88171753348183,4.6002073021377488,22.840247237890061,47.679018187977789,2312.175828734054,2320.891106693105,2349.5003296753389],\"centroids\":[23.906951782046033,24.441607882023206,24.719435216120775,11.985823595963822,12.243805594634962,12.654401836460654,0.070772420032888445,0.3513884190444625,0.73352335673811986,36.127747323969594,36.263923542079766,36.71094265117717],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"iteration\",\"index\":23,\"phase\":0,\"feedback_due\":false,\"warmup\":false,\"status\":\"passed\",\"validation\":\"checked\",\"cpu_items\":180,\"gpu_items\":77,\"resident_before\":128,\"resident_after\":128,\"ownership_changed_points\":0,\"h2d_point_bytes\":0,\"h2d_centroid_bytes\":96,\"d2h_label_bytes\":308,\"d2h_aggregate_bytes\":120,\"release_ns\":652764671338,\"cpu_start_ns\":652764724972,\"cpu_end_ns\":652764758369,\"gpu_dispatch_ns\":652764691648,\"h2d_end_ns\":652764803894,\"compute_end_ns\":652764854347,\"gpu_end_ns\":652764947993,\"barrier_end_ns\":652764948137,\"end_ns\":652764948546,\"validation_end_ns\":652764957781,\"control_ns\":344683,\"workers_used\":4,\"objective_before_update\":992.43386145727936,\"objective_after_update\":992.43386145727914,\"max_centroid_shift\":5.0242958677880805e-15,\"changed_labels\":0,\"empty_clusters\":0,\"converged\":true,\"label_errors\":0,\"count_errors\":0,\"numeric_errors\":0,\"label_hash\":\"bdeb1cc7d73d3f57\",\"counts\":[64,64,65,64],\"sums\":[1530.0449140509463,1564.2629044494852,1582.0438538317298,767.09271014168462,783.60355805663767,809.88171753348183,4.6002073021377488,22.840247237890065,47.679018187977789,2312.175828734054,2320.891106693105,2349.5003296753389],\"centroids\":[23.906951782046036,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634964,12.654401836460654,0.070772420032888445,0.35138841904446255,0.73352335673811986,36.127747323969594,36.263923542079766,36.71094265117717],\"labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1]}\n{\"kind\":\"summary\",\"status\":\"passed\",\"independent_validation\":\"passed\",\"validation_ns\":243878,\"final_validation_ns\":60,\"final_reference_workers_requested\":1,\"iterations\":24,\"active_ns\":7025285,\"loop_elapsed_ns\":15543433,\"control_ns\":8277208,\"active_and_control_ns\":15302493,\"final_objective\":992.43386145727914,\"stop_reason\":\"fixed_budget\",\"final_labels\":[3,1,0,1,3,0,0,0,1,3,2,2,3,1,1,3,3,3,2,0,0,3,3,0,2,0,3,3,2,1,1,2,0,0,3,2,3,2,1,3,1,1,3,0,0,0,3,0,3,1,3,1,1,0,0,3,1,1,1,0,0,3,2,3,0,1,0,1,2,1,0,2,2,2,1,3,1,3,3,1,2,2,2,1,1,1,1,0,0,3,3,2,2,3,2,1,0,3,2,3,1,2,0,3,0,0,2,3,1,2,0,2,0,0,0,3,1,2,2,0,1,2,3,2,2,1,1,0,1,2,1,2,3,2,0,2,0,0,1,2,1,3,3,2,2,3,1,0,1,3,1,3,2,0,2,2,2,3,0,1,3,0,2,0,1,2,1,2,1,0,2,0,3,2,2,0,1,3,3,0,2,1,2,0,1,0,0,2,1,2,1,2,2,2,3,1,3,1,3,1,0,2,1,0,2,0,2,3,0,3,1,0,3,3,3,0,3,0,0,3,2,2,1,1,3,1,0,3,0,3,2,3,2,3,2,1,2,0,2,3,0,3,1,0,1,0,3,1,2,0,1,3,1,2,3,0,1],\"final_centroids\":[23.906951782046036,24.441607882023206,24.719435216120779,11.985823595963822,12.243805594634964,12.654401836460654,0.070772420032888445,0.35138841904446255,0.73352335673811986,36.127747323969594,36.263923542079766,36.71094265117717]}\n",
+  "timed_out": false,
+  "trailing_frames": []
+}

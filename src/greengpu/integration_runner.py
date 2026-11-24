@@ -1,5 +1,6 @@
 """Persistent native feedback with independent telemetry; no clock setter imports."""
 from dataclasses import asdict
+from copy import deepcopy
 import json
 import os
 from pathlib import Path
@@ -78,7 +79,7 @@ class TelemetryPump:
             raise RuntimeError("Telemetry thread failed to stop")
 
 
-def execute(binary,dataset,field,case,backend,prefix=(),timeout=120):
+def execute(binary,dataset,field,case,backend,prefix=(),timeout=120,on_iteration=None):
     cfg=Config(**case["integration"]);engine=Coordinator(cfg);lifecycle=Lifecycle()
     if case["workload"]=="kmeans":
         args=[str(cfg.initial_cpu_items),str(case["steps"]),str(case["workers"]),case["native_mode"],"feedback"]
@@ -125,6 +126,7 @@ def execute(binary,dataset,field,case,backend,prefix=(),timeout=120):
                 else:
                     if boundary:process.stdin.write(str(decision["next_cpu_items"])+"\n");process.stdin.flush()
                     lifecycle.move("execute")
+                if on_iteration is not None:on_iteration(deepcopy(row))
             returncode=process.wait(timeout=5)
             if returncode or expired.is_set() or lifecycle.state!="finalize":raise RuntimeError("Incomplete/failed native workload")
         except BaseException as error:

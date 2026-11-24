@@ -1,0 +1,35 @@
+﻿ATLAS demo | 2026-11-24T11:21:38.2879777+05:30
+wsl.exe --cd "C:\Users\saivi\Projects\ATLAS" --exec env OMP_NUM_THREADS=4 ctest --test-dir "build/reproduction-20261124-042036" --output-on-failure --no-tests=error
+
+Internal ctest changing into directory: /mnt/c/Users/saivi/Projects/ATLAS/build/reproduction-20261124-042036
+Test project /mnt/c/Users/saivi/Projects/ATLAS/build/reproduction-20261124-042036
+      Start  1: cpu_cuda_correctness
+ 1/11 Test  #1: cpu_cuda_correctness .............   Passed    1.37 sec
+      Start  2: static_split_partial_block
+ 2/11 Test  #2: static_split_partial_block .......   Passed    0.60 sec
+      Start  3: kmeans_migration
+ 3/11 Test  #3: kmeans_migration .................   Passed    1.75 sec
+      Start  4: kmeans_convergence
+ 4/11 Test  #4: kmeans_convergence ...............   Passed    1.08 sec
+      Start  5: kmeans_validation_modes
+ 5/11 Test  #5: kmeans_validation_modes ..........   Passed   18.45 sec
+      Start  6: batched_runtime
+ 6/11 Test  #6: batched_runtime ..................   Passed    2.06 sec
+      Start  7: dispatch_orders
+ 7/11 Test  #7: dispatch_orders ..................   Passed    2.66 sec
+      Start  8: guarded_live_protocol
+ 8/11 Test  #8: guarded_live_protocol ............   Passed    6.16 sec
+      Start  9: hotspot_verify_migration
+ 9/11 Test  #9: hotspot_verify_migration .........   Passed    4.84 sec
+      Start 10: hotspot_deferred_migration
+10/11 Test #10: hotspot_deferred_migration .......   Passed    2.93 sec
+      Start 11: frequency_diagnostics
+11/11 Test #11: frequency_diagnostics ............   Passed    2.18 sec
+
+100% tests passed, 0 tests failed out of 11
+
+Total Test time (real) =  44.57 sec
+
+
+Exit code: 0
+Saved: C:\Users\saivi\Projects\ATLAS\results\demo\20261124-112138-264\native-checks.txt

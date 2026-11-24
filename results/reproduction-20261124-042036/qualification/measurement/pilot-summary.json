@@ -1,0 +1,91 @@
+{
+  "block": "pilot",
+  "boundary_overhead_s": 0.037053096,
+  "boundary_uncertainty_ns": 1016874,
+  "config_hash": "844dcdd54ed010cc321e278f81844cf6ee677c4b2fe38a6e78213b9457ef82dc",
+  "counter_energy": {
+    "domain": "gpu_board",
+    "end_ns": 499811353540,
+    "joules": 22.543000000005122,
+    "method": "counter_delta",
+    "qualification": "same NVML session; no externally guaranteed reset exclusion",
+    "start_ns": 499597529400,
+    "status": "ok"
+  },
+  "counter_power_crosscheck": {
+    "reason": "Requires both sensor methods and a sufficiently long interval",
+    "status": "unresolved"
+  },
+  "d2h_and_sync_s": 0.000258863,
+  "duration_s": 0.21382414,
+  "energy": {
+    "domain": "gpu_board",
+    "end_ns": 499811353540,
+    "joules": null,
+    "reason": "counter_power_crosscheck_unresolved",
+    "start_ns": 499597529400,
+    "status": "invalid"
+  },
+  "energy_claim_eligible": false,
+  "energy_claim_reason": "Calibration fixture only; sensor accuracy and competing-process attribution not externally established",
+  "gpu_event_quality": {
+    "allowance_s": 0.0027633174400000004,
+    "host_enclosing_compute_s": 0.176331744,
+    "note": "A synchronized device event span should fit within its enclosing host interval; agreement is not clock calibration",
+    "status": "consistent"
+  },
+  "gpu_event_reported_s": 0.175929,
+  "gpu_event_s": 0.175929,
+  "h2d_s": 0.000180437,
+  "lifecycle_s": 3.289398424,
+  "max_poll_gap_s": 0.108765197,
+  "monitored": true,
+  "native_duration_s": 0.176771044,
+  "power_change_intervals_s": [
+    0.106571882,
+    0.098552094,
+    0.096310688,
+    0.100242603,
+    0.099733719,
+    0.100186683,
+    0.10421555,
+    0.09708075,
+    0.099277529,
+    0.099641414,
+    0.099980491,
+    0.108765197,
+    0.096943328,
+    0.096721779,
+    0.099418823,
+    0.099996097,
+    0.099816836,
+    0.100591144,
+    0.103684235,
+    0.097703961,
+    0.099156207,
+    0.100511457,
+    0.100467684
+  ],
+  "preparation_s": 0.376111165,
+  "query_cpu_s": 0.023710962,
+  "query_wall_s": 0.199852739,
+  "reasons": [
+    "energy_unavailable: counter_power_crosscheck_unresolved"
+  ],
+  "recovery": "not_needed_no_hardware_settings_changed",
+  "sampled_power_energy": {
+    "domain": "gpu_board",
+    "end_ns": 499811353540,
+    "joules": 3.1193339632695456,
+    "method": "trapezoid",
+    "qualification": "sensor-reported estimate; averaging and acquisition uncertainty retained",
+    "segments": 3,
+    "start_ns": 499597529400,
+    "status": "ok"
+  },
+  "sensor_cadence_note": "Observed change spacing is not a guaranteed sensor update period; repeated readings are not automatically stale",
+  "status": "ok",
+  "telemetry_samples": 25,
+  "trial_id": "pilot",
+  "warmup_s": 0.001975747
+}
