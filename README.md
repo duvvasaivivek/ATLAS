@@ -6,6 +6,184 @@ define the scope. Kmeans, HotSpot, allocation policies, offline frequency polici
 and integrated allocation/shadow execution are implemented through Phase 9.
 Live frequency control and physical energy qualification remain capability-gated.
 
+## Start here: teammates running the demo
+
+The demo groups synthetic delivery locations and compares the same task on the
+CPU alone, GPU alone, and ATLAS sharing work between them. It checks that all
+three approaches produce matching answers and displays fresh measurements.
+No dataset download, model training, API key, or cloud service is needed.
+
+**Live execution requires an NVIDIA CUDA-capable GPU.** The tested setup is
+Windows with Ubuntu in WSL 2, CUDA Toolkit 13.1 and an RTX 4050. Use a GPU
+supported by your installed CUDA Toolkit. Machines without a compatible GPU can
+open a teammate's exported `demo.html` in a browser, but cannot run this live demo.
+
+### 1. Install the prerequisites once
+
+On Windows, install Git and an NVIDIA Windows driver compatible with your CUDA
+Toolkit. Install Ubuntu 24.04 in WSL 2 if you do not already have it. Run this
+in **PowerShell as Administrator**, then restart if requested and finish Ubuntu's
+first-launch username/password setup:
+
+```powershell
+wsl --install -d Ubuntu-24.04
+```
+
+See [Microsoft's WSL installation guide](https://learn.microsoft.com/en-us/windows/wsl/install)
+if installation needs additional steps. In normal **PowerShell**, check the
+distribution name and select the one you will use for ATLAS:
+
+```powershell
+wsl --list --verbose
+wsl --set-default Ubuntu-24.04
+```
+
+Substitute your actual distribution name if different; its version must be `2`.
+The desktop launcher always uses your **default WSL distribution**, so install
+the following tools in that same distribution.
+
+In **Ubuntu / WSL**, install the build tools and Python:
+
+```bash
+sudo apt update
+sudo apt install -y build-essential cmake ninja-build python3 python3-venv
+python3 --version
+cmake --version
+```
+
+Python must be **3.12 or newer** and CMake **3.24 or newer**. Ubuntu 24.04 provides
+suitable versions. Install **CUDA Toolkit 13.1 inside WSL** using the
+[CUDA 13.1 download instructions](https://developer.nvidia.com/cuda-13-1-0-download-archive)
+and [NVIDIA's WSL guide](https://docs.nvidia.com/cuda/wsl-user-guide/).
+Choose the WSL toolkit instructions; do not install a Linux NVIDIA display
+driver inside WSL. The Windows driver supplies GPU access.
+
+Check from **Ubuntu / WSL** before continuing:
+
+```bash
+nvidia-smi
+/usr/local/cuda-13.1/bin/nvcc --version
+```
+
+Both commands must succeed. Windows CUDA installation alone does not supply the
+Linux compiler required here. The live demo does not require Nsight Systems,
+NVML Python packages, or plotting packages; full research validation has additional
+requirements in the [reproducibility guide](docs/reproducibility.md).
+
+### 2. Get the code on Windows
+
+For a **first checkout**, run in normal **PowerShell**:
+
+```powershell
+New-Item -ItemType Directory -Force "$HOME\Projects" | Out-Null
+Set-Location "$HOME\Projects"
+git clone https://github.com/duvvasaivivek/ATLAS.git
+Set-Location ATLAS
+```
+
+If the repository is private, your GitHub account needs access. If you already
+have a checkout, open **PowerShell in that ATLAS folder** and update it instead:
+
+```powershell
+git pull --ff-only
+```
+
+Keep any local edits safe before updating. If Git refuses the pull, resolve the
+reported local changes or branch divergence before proceeding.
+
+### 3. Build and check in WSL
+
+From **PowerShell in the ATLAS folder**, enter Ubuntu at the same directory:
+
+```powershell
+wsl --cd .
+```
+
+The prompt should now be a Linux prompt such as `name@machine:/mnt/c/.../ATLAS$`.
+Run the following **inside WSL**, from the repository root:
+
+```bash
+cmake -S . -B build/demo -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_CUDA_COMPILER=/usr/local/cuda-13.1/bin/nvcc -DPython3_EXECUTABLE="$(command -v python3)"
+cmake --build build/demo --parallel 2
+PYTHONPATH=src python3 -m unittest discover -s tests -v
+OMP_NUM_THREADS=4 ctest --test-dir build/demo --output-on-failure --no-tests=error
+```
+
+Continue only when the build and both test suites pass. Native tests need the
+GPU and may take a few minutes. The source-tree demo and these tests need no
+virtual environment or `pip install`; the launcher calls WSL's `python3` directly.
+Build products are local and must be created on each teammate's machine.
+
+If CUDA is installed elsewhere, replace the compiler path with the output of
+`command -v nvcc`. CMake selects the local GPU architecture by default. After
+changing CUDA compiler, GPU architecture, or moving the checkout, use a **new
+build directory**, such as `build/demo-v2`, instead of reusing an old CMake cache.
+
+### 4. Open and present the demo
+
+Return to **PowerShell**:
+
+```bash
+exit
+```
+
+Then launch from **PowerShell in the ATLAS folder**, or double-click `demo.bat`
+in File Explorer:
+
+```powershell
+.\demo.bat
+```
+
+1. Select **build/demo** under **Demo engine**.
+2. Click **Check setup** and confirm the native checks pass.
+3. Choose **Medium: 16,000 stops**, then click **Start live demo**.
+4. Show the moving group centers and CPU work-share line in **Watch it work**.
+5. When finished, compare the three measured times and the validated answers in
+   the generated browser presentation. Say which approach won this run.
+6. Repeat with **Large: 64,000 stops** to show how the workload size affects the
+   comparison. Sharing work can add overhead and is not guaranteed to win.
+
+Each click starts new computation. Results are saved in
+`results/demo/<timestamp>/`. Use **Open results** to inspect them. The generated
+`demo.html` can be shared and opened offline; keep the whole run folder for raw
+trials and checksum verification. **Watch saved demo** requires an existing demo
+run; **Full report** requires a separately generated research report. Neither is
+required to run the live demo.
+
+For the presentation, explain: "ATLAS decides how to split work between the main
+processor and graphics processor while checking that the answer stays correct."
+This is a research prototype: the demo measures task time, and energy savings
+and full hardware acceptance remain unproven.
+
+### After the next pull
+
+Close the demo, run `git pull --ff-only` in PowerShell from the checkout, then
+repeat **step 3** to rebuild and run the checks. Reopen `demo.bat` for a fresh
+comparison. Do not copy another machine's build directory or virtual environment.
+
+### Common setup problems
+
+- **PowerShell says "Missing expression after unary operator '--'":** Bash
+  commands were pasted into PowerShell. Enter WSL first. Bash `source`, `export`,
+  and `\` line continuation belong in WSL. The quick-start commands above use
+  single lines to avoid continuation mistakes.
+- **`python` not found or an activated environment points to another folder:**
+  use `python3` for the demo setup. Do not reuse a copied virtual environment.
+  Research packaging instructions below require a newly created local environment.
+- **`nvidia-smi` fails in WSL:** check the Windows NVIDIA driver and WSL 2 setup
+  using the NVIDIA guide above before attempting the build.
+- **`nvcc` not found:** install the Linux/WSL CUDA Toolkit and check its actual
+  compiler path; the Windows compiler cannot build these Linux binaries.
+- **No demo engine appears:** finish building in this checkout. The launcher
+  looks directly under `build/<name>/` for `atlas_kmeans` and `CTestTestfile.cmake`.
+  Close and reopen the launcher after building.
+- **Terminal tests pass but the launcher fails:** check `wsl --list --verbose`
+  in PowerShell. The default distribution must contain the same Python, CMake,
+  CUDA tools and GPU access used to build the project.
+- **A live run fails:** inspect **Details** and the fresh run folder for
+  `failure.json` and raw trial records. Preserve that evidence before starting a
+  new run; a failed run is not a successful timing comparison.
+
 ## Windows demo launcher
 
 Double-click **`demo.bat`** to open the minimal desktop UI, similar to SafeSliceSQL.
@@ -63,6 +241,8 @@ generation. ATLAS uses explicit control policies; no learned model needs trainin
 
 ```bash
 # From the source root in Linux/WSL, using a fresh build/output path:
+python3 -m venv .venv-wsl
+.venv-wsl/bin/python -m pip install .
 .venv-wsl/bin/python scripts/validate_release.py \
   --build build/reproduction --output results/reproduction --blocks 10
 ```
@@ -117,7 +297,7 @@ Use the retained environment. The commands below do not require additional Pytho
 packages: discovery and its tests use the standard library.
 
 ```bash
-cd /mnt/c/Users/saivi/Projects/ATLAS
+# Open WSL from your own checkout, as described in the teammate setup above.
 source .venv-wsl/bin/activate
 export PYTHONPATH="$PWD/src"
 
