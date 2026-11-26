@@ -183,6 +183,7 @@ def run(build, output, size, repeats=3, input_csv=None, monitor_machine=False, r
     final = None
     samples = []
     steps = []
+    performance_traces = {name: [] for name, _, _ in modes}
 
     def publish(sample):
         samples.append(sample)
@@ -204,16 +205,26 @@ def run(build, output, size, repeats=3, input_csv=None, monitor_machine=False, r
                 progress(f'Round {block + 1}/{repeats}: {name} | {size:,} locations, {rounds} grouping rounds')
                 live = {'phase': 'starting', 'mode': name, 'block': block + 1, 'run_id': run_id,
                         'size': size, 'points': [points[i] for i in sample], 'trace': [],
+                        'performance_traces': {mode: list(entries) for mode, entries in performance_traces.items()},
                         'centroids': centers, 'completed': list(trials), 'labels': None,
                         'input_kind': origin['kind'], 'rounds': rounds}
                 write(output / 'live.json', live)
                 last_update = 0
+                mode_perf = []
                 def observe(row):
                     nonlocal last_update
                     live['phase'] = 'computing'
                     live['round'] = row['index'] + 1
                     live['assignment'] = step_evidence(row, {}, size)
                     live['trace'].append({'round': row['index'] + 1, 'cpu_percent': 100 * row['cpu_items'] / size})
+                    release_ns = row.get('release_ns')
+                    end_ns = row.get('end_ns')
+                    if release_ns is not None and end_ns is not None:
+                        step_ms = (end_ns - release_ns) / 1e6
+                        if step_ms >= 0:
+                            mode_perf.append({'round': row['index'] + 1, 'step_ms': step_ms})
+                            performance_traces[name] = list(mode_perf)
+                            live['performance_traces'] = {mode: list(entries) for mode, entries in performance_traces.items()}
                     values = row['centroids']
                     live['centroids'] = list(zip(values[::2], values[1::2]))
                     now = time.monotonic()
@@ -256,6 +267,12 @@ def run(build, output, size, repeats=3, input_csv=None, monitor_machine=False, r
                 elif labels != reference[0] or not all(kr.close(a, b) for a, b in zip(centroids, reference[1])):
                     raise ValueError('CPU/GPU grouping outputs differ; no comparison published.')
                 iterations = [row for row in rows if row.get('kind') == 'iteration' and not row['warmup']]
+                performance_traces[name] = [
+                    {'round': row['index'] + 1, 'step_ms': (row['end_ns'] - row['release_ns']) / 1e6}
+                    for row in iterations
+                    if row.get('release_ns') is not None and row.get('end_ns') is not None
+                    and row['end_ns'] >= row['release_ns']
+                ]
                 barriers = result.get('barriers', [])
                 configuration = next((row for row in rows if row.get('kind') == 'configuration'), {})
                 steps.append({'trial': run_id, 'mode': name, 'linux_pid': pid,
@@ -265,7 +282,8 @@ def run(build, output, size, repeats=3, input_csv=None, monitor_machine=False, r
                 trials.append({'mode': name, 'block': block, 'record': run_id + '.json',
                                'workload_ms': summary['loop_elapsed_ns'] / 1e6,
                                'command_ms': result['elapsed_ns'] / 1e6})
-                live.update(phase='validated', labels=[labels[i] for i in sample], completed=list(trials))
+                live.update(phase='validated', labels=[labels[i] for i in sample], completed=list(trials),
+                            performance_traces={mode: list(entries) for mode, entries in performance_traces.items()})
                 write(output / 'live.json', live)
                 if name == 'ATLAS sharing' and trace is None:
                     trace = [{'round': row['index'] + 1, 'cpu_percent': 100 * row['cpu_items'] / size} for row in iterations]
@@ -305,7 +323,9 @@ def run(build, output, size, repeats=3, input_csv=None, monitor_machine=False, r
                   'scope': 'Illustrative single-host comparison, automatic clocks, 4 CPU workers, including live-observation overhead. Not a statistical performance qualification or delivery-route optimizer.',
                   'energy_savings': None}
         write(output / 'summary.json', result)
-        live.update(phase='complete', completed=list(trials))
+        live.update(phase='complete', completed=list(trials),
+                    trace=trace if trace is not None else live.get('trace', []),
+                    performance_traces={mode: list(entries) for mode, entries in performance_traces.items()})
         write(output / 'live.json', live)
         (output / 'demo.html').write_text(presentation(result), encoding='utf-8')
         inventory = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in output.iterdir() if p.is_file() and p.name not in ('progress.json', 'live.json', 'checksums.json', 'machine-live.json', 'stop.request')}

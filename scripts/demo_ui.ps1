@@ -12,8 +12,8 @@ $script:lastLog = $null
 
 $form = New-Object System.Windows.Forms.Form
 $form.Text = 'ATLAS | GreenGPU Demo'
-$form.ClientSize = New-Object System.Drawing.Size(860, 800)
-$form.MinimumSize = New-Object System.Drawing.Size(876, 839)
+$form.ClientSize = New-Object System.Drawing.Size(1160, 800)
+$form.MinimumSize = New-Object System.Drawing.Size(960, 760)
 $form.StartPosition = 'CenterScreen'
 $form.BackColor = [System.Drawing.Color]::FromArgb(245, 247, 250)
 $form.Font = New-Object System.Drawing.Font('Segoe UI', 10)
@@ -37,22 +37,23 @@ function Button($text, $x, $width) {
     return $control
 }
 
-$title = Label 'ATLAS / GreenGPU' 24 20 800 38
+$title = Label 'ATLAS / GreenGPU' 24 20 1100 38
 $title.Font = New-Object System.Drawing.Font('Segoe UI', 22, [System.Drawing.FontStyle]::Bold)
-$subtitle = Label 'Watch your computer group nearby delivery stops and compare ways to do the job.' 26 65 800 26
-$note = Label 'Experimental project | We measure speed; energy savings have not been proven.' 26 96 800 24
+$subtitle = Label 'Watch your computer group nearby delivery stops and compare ways to do the job.' 26 65 1100 26
+$note = Label 'Experimental project | We measure speed; energy savings have not been proven.' 26 96 1100 24
 $note.ForeColor = [System.Drawing.Color]::FromArgb(115, 78, 20)
 $buildLabel = Label 'Demo engine' 26 137 110 26
 $build = New-Object System.Windows.Forms.ComboBox
 $build.Location = New-Object System.Drawing.Point(140, 133)
-$build.Size = New-Object System.Drawing.Size(400, 30)
+$build.Size = New-Object System.Drawing.Size(700, 30)
 $build.DropDownStyle = 'DropDownList'
 $build.Anchor = 'Top, Left, Right'
 $form.Controls.Add($build)
 $scale = New-Object System.Windows.Forms.ComboBox
-$scale.Location = New-Object System.Drawing.Point(555, 133)
+$scale.Location = New-Object System.Drawing.Point(855, 133)
 $scale.Size = New-Object System.Drawing.Size(279, 30)
 $scale.DropDownStyle = 'DropDownList'
+$scale.Anchor = 'Top, Right'
 $scale.Items.AddRange(@('Small: 2,000 stops', 'Medium: 16,000 stops', 'Large: 64,000 stops'))
 $scale.SelectedIndex = 1
 $form.Controls.Add($scale)
@@ -63,8 +64,9 @@ $checks = Button 'Check setup' 298 168
 $report = Button 'See the result' 478 172
 $report.Enabled = $false
 $results = Button 'Open results' 662 172
-$recorded = Button 'Watch saved demo' 555 279
-$recorded.Location = New-Object System.Drawing.Point(555, 231)
+$recorded = Button 'Watch saved demo' 855 279
+$recorded.Location = New-Object System.Drawing.Point(855, 231)
+$recorded.Anchor = 'Top, Right'
 $file = Button 'Use my CSV' 26 140
 $file.Top = 231
 $stop = Button 'Stop' 174 85
@@ -75,18 +77,18 @@ $monitor.Text = 'Show machine readings'
 $monitor.Checked = $true
 $monitor.SetBounds(272, 229, 270, 23)
 $form.Controls.Add($monitor)
-$description = Label 'Input: generated sample locations' 272 255 275 23
-$status = Label 'Ready. Each way of doing the job is tried three times for a fairer comparison.' 26 278 808 26
+$description = Label 'Input: generated sample locations' 272 255 560 23
+$status = Label 'Ready. Each way of doing the job is tried three times for a fairer comparison.' 26 278 1108 26
 $status.Anchor = 'Top, Left, Right'
 $status.Font = New-Object System.Drawing.Font('Segoe UI', 10, [System.Drawing.FontStyle]::Bold)
 $progress = New-Object System.Windows.Forms.ProgressBar
 $progress.Location = New-Object System.Drawing.Point(26, 311)
-$progress.Size = New-Object System.Drawing.Size(808, 6)
+$progress.Size = New-Object System.Drawing.Size(1108, 6)
 $progress.Anchor = 'Top, Left, Right'
 $form.Controls.Add($progress)
 $log = New-Object System.Windows.Forms.TextBox
 $log.Location = New-Object System.Drawing.Point(26, 331)
-$log.Size = New-Object System.Drawing.Size(808, 235)
+$log.Size = New-Object System.Drawing.Size(1108, 235)
 $log.Anchor = 'Top, Bottom, Left, Right'
 $log.Multiline = $true
 $log.ReadOnly = $true
@@ -95,12 +97,12 @@ $log.WordWrap = $false
 $log.Font = New-Object System.Drawing.Font('Consolas', 9)
 $log.BackColor = [System.Drawing.Color]::White
 $form.Controls.Add($log)
-$footer = Label 'The green line shows the share of rows assigned to the main processor. See Machine readings for usage.' 26 756 808 26
+$footer = Label 'Allocation graph (green) shows CPU row share. Performance comparison shows real step time: CPU ONLY (blue), GPU ONLY (orange), ATLAS (green).' 26 756 1108 26
 $footer.Anchor = 'Bottom, Left, Right'
 $footer.ForeColor = [System.Drawing.Color]::DimGray
 
 $views = New-Object System.Windows.Forms.TabControl
-$views.SetBounds(26, 331, 808, 409)
+$views.SetBounds(26, 331, 1108, 409)
 $views.Anchor = 'Top, Bottom, Left, Right'
 $liveTab = New-Object System.Windows.Forms.TabPage('Watch it work')
 $machineTab = New-Object System.Windows.Forms.TabPage('Machine readings')
@@ -121,9 +123,29 @@ $form.Controls.Add($views)
 $form.Controls.Remove($log)
 $log.Dock = 'Fill'
 $logTab.Controls.Add($log)
-function Live-Chart($title, $x, $axisX, $axisY) {
+$liveLayout = New-Object System.Windows.Forms.TableLayoutPanel
+$liveLayout.Dock = 'Fill'
+$liveLayout.ColumnCount = 1
+$liveLayout.RowCount = 2
+[void]$liveLayout.ColumnStyles.Add((New-Object System.Windows.Forms.ColumnStyle([System.Windows.Forms.SizeType]::Percent, 100)))
+[void]$liveLayout.RowStyles.Add((New-Object System.Windows.Forms.RowStyle([System.Windows.Forms.SizeType]::Percent, 100)))
+[void]$liveLayout.RowStyles.Add((New-Object System.Windows.Forms.RowStyle([System.Windows.Forms.SizeType]::Absolute, 118)))
+$liveTab.Controls.Add($liveLayout)
+
+$chartRow = New-Object System.Windows.Forms.TableLayoutPanel
+$chartRow.Dock = 'Fill'
+$chartRow.ColumnCount = 3
+$chartRow.RowCount = 1
+[void]$chartRow.ColumnStyles.Add((New-Object System.Windows.Forms.ColumnStyle([System.Windows.Forms.SizeType]::Percent, 33.33)))
+[void]$chartRow.ColumnStyles.Add((New-Object System.Windows.Forms.ColumnStyle([System.Windows.Forms.SizeType]::Percent, 33.33)))
+[void]$chartRow.ColumnStyles.Add((New-Object System.Windows.Forms.ColumnStyle([System.Windows.Forms.SizeType]::Percent, 33.34)))
+[void]$chartRow.RowStyles.Add((New-Object System.Windows.Forms.RowStyle([System.Windows.Forms.SizeType]::Percent, 100)))
+$liveLayout.Controls.Add($chartRow, 0, 0)
+
+function Live-Chart($title, $column, $axisX, $axisY) {
     $c = New-Object System.Windows.Forms.DataVisualization.Charting.Chart
-    $c.SetBounds($x, 0, 395, 250)
+    $c.Dock = 'Fill'
+    $c.Margin = New-Object System.Windows.Forms.Padding(4)
     $a = New-Object System.Windows.Forms.DataVisualization.Charting.ChartArea
     $a.AxisX.Title = $axisX
     $a.AxisY.Title = $axisY
@@ -131,24 +153,41 @@ function Live-Chart($title, $x, $axisX, $axisY) {
     $a.AxisY.MajorGrid.LineColor = [System.Drawing.Color]::Gainsboro
     [void]$c.ChartAreas.Add($a)
     [void]$c.Titles.Add($title)
-    $liveTab.Controls.Add($c)
+    $chartRow.Controls.Add($c, $column, 0)
     return $c
 }
 $liveMap = Live-Chart 'Locations ready to group' 0 'X coordinate' 'Y coordinate'
-$liveTrace = Live-Chart 'Rows assigned to each processor' 400 'Grouping step' 'Rows assigned to main processor (%)'
+$liveTrace = Live-Chart 'CPU workload allocation (%)' 1 'Grouping step' 'CPU row share (%)'
 $liveTrace.ChartAreas[0].AxisY.Minimum = 0
 $liveTrace.ChartAreas[0].AxisY.Maximum = 100
 $liveTrace.ChartAreas[0].AxisX.Minimum = 1
 $liveTrace.ChartAreas[0].AxisX.Maximum = 32
+$livePerf = Live-Chart 'Performance comparison (ms / iteration)' 2 'Grouping iteration' 'Execution time (ms)'
+$livePerf.ChartAreas[0].AxisX.Minimum = 1
+$livePerf.ChartAreas[0].AxisX.Maximum = 32
+$livePerf.ChartAreas[0].AxisX.IsStartedFromZero = $false
+$livePerf.ChartAreas[0].AxisX.MajorGrid.Enabled = $true
+$livePerf.ChartAreas[0].AxisX.MajorGrid.LineColor = [System.Drawing.Color]::FromArgb(240, 240, 240)
+$livePerf.ChartAreas[0].AxisY.Minimum = 0
+$livePerf.ChartAreas[0].AxisY.Maximum = 1
+$livePerf.ChartAreas[0].AxisY.IsStartedFromZero = $true
+$livePerf.ChartAreas[0].AxisY.LabelStyle.Format = '0.###'
+$perfLegend = New-Object System.Windows.Forms.DataVisualization.Charting.Legend('Modes')
+$perfLegend.Docking = 'Top'
+$perfLegend.Alignment = 'Center'
+$perfLegend.IsDockedInsideChartArea = $false
+$perfLegend.Font = New-Object System.Drawing.Font('Segoe UI', 8.5)
+[void]$livePerf.Legends.Add($perfLegend)
 $liveInfo = New-Object System.Windows.Forms.TextBox
-$liveInfo.SetBounds(10, 255, 775, 113)
+$liveInfo.Dock = 'Fill'
+$liveInfo.Margin = New-Object System.Windows.Forms.Padding(4)
 $liveInfo.Multiline = $true
 $liveInfo.ScrollBars = 'Vertical'
 $liveInfo.ReadOnly = $true
 $liveInfo.BackColor = [System.Drawing.Color]::White
 $liveInfo.Font = New-Object System.Drawing.Font('Consolas', 9)
-$liveInfo.Text = "Click Start live demo to try this on your computer now.`r`nWe try the main processor, the graphics processor, then both together.`r`nThe groups shown while working are checked before we accept the answer."
-$liveTab.Controls.Add($liveInfo)
+$liveInfo.Text = "Click Start live demo to try this on your computer now.`r`nWe try CPU ONLY (main processor), GPU ONLY (graphics processor), and ATLAS (CPU + GPU together).`r`nThe groups shown while working are checked before we accept the answer."
+$liveLayout.Controls.Add($liveInfo, 0, 1)
 $script:liveUpdates = 0
 
 function Reading-Text($value, $unit) {
@@ -183,9 +222,9 @@ function Show-Machine($folder) {
 
 function Friendly-Mode($name) {
     switch ($name) {
-        'CPU only' { return 'Main processor alone' }
-        'GPU only' { return 'Graphics processor alone' }
-        'ATLAS sharing' { return 'Both working together' }
+        'CPU only' { return 'CPU ONLY (Main processor)' }
+        'GPU only' { return 'GPU ONLY (Graphics processor)' }
+        'ATLAS sharing' { return 'ATLAS (CPU + GPU)' }
         default { return $name }
     }
 }
@@ -199,7 +238,7 @@ function Show-Live($folder) {
     $script:liveStamp = $stamp
     $script:liveUpdates++
     if ($d.phase -eq 'failed') {
-        $liveMap.Series.Clear(); $liveTrace.Series.Clear()
+        $liveMap.Series.Clear(); $liveTrace.Series.Clear(); $livePerf.Series.Clear()
         $liveInfo.Text = 'RUN FAILED. No successful comparison published.' + "`r`n" + $d.error
         return
     }
@@ -228,12 +267,51 @@ function Show-Live($folder) {
         default { $d.phase }
     }
     $liveMap.Titles[0].Text = "$(Friendly-Mode $d.mode): $phaseText"
+    $maxRounds = [Math]::Max(2, [int]$d.rounds)
     $liveTrace.Series.Clear()
-    $liveTrace.ChartAreas[0].AxisX.Maximum = [int]$d.rounds
+    $liveTrace.ChartAreas[0].AxisX.Maximum = $maxRounds
     $shares = New-Object System.Windows.Forms.DataVisualization.Charting.Series('CPU share')
     $shares.ChartType = 'StepLine'; $shares.BorderWidth = 3; $shares.Color = [System.Drawing.Color]::SeaGreen
     foreach ($r in $d.trace) { [void]$shares.Points.AddXY([int]$r.round, [double]$r.cpu_percent) }
     [void]$liveTrace.Series.Add($shares)
+
+    $livePerf.Series.Clear()
+    $livePerf.ChartAreas[0].AxisX.Maximum = $maxRounds
+    $perfSpecs = @(
+        @{ Key = 'CPU only'; Label = 'CPU ONLY'; Color = [System.Drawing.Color]::RoyalBlue },
+        @{ Key = 'GPU only'; Label = 'GPU ONLY'; Color = [System.Drawing.Color]::DarkOrange },
+        @{ Key = 'ATLAS sharing'; Label = 'ATLAS (CPU + GPU)'; Color = [System.Drawing.Color]::SeaGreen }
+    )
+    $hasPerfPoints = $false
+    foreach ($spec in $perfSpecs) {
+        $series = New-Object System.Windows.Forms.DataVisualization.Charting.Series($spec.Label)
+        $series.ChartType = 'Line'
+        $series.BorderWidth = 2
+        $series.Color = $spec.Color
+        $series.Legend = 'Modes'
+        $series.IsVisibleInLegend = $true
+        $entries = $null
+        if ($null -ne $d.performance_traces) {
+            $prop = $d.performance_traces.PSObject.Properties[$spec.Key]
+            if ($null -ne $prop) { $entries = $prop.Value }
+        }
+        foreach ($pt in $entries) {
+            if ($null -ne $pt.round -and $null -ne $pt.step_ms) {
+                [void]$series.Points.AddXY([int]$pt.round, [double]$pt.step_ms)
+            }
+        }
+        if ($series.Points.Count -eq 1) {
+            $series.MarkerStyle = 'Circle'; $series.MarkerSize = 6
+        } elseif ($series.Points.Count -le 64) {
+            $series.MarkerStyle = 'Circle'; $series.MarkerSize = 4
+        } else {
+            $series.MarkerStyle = 'None'
+        }
+        if ($series.Points.Count -gt 0) { $hasPerfPoints = $true }
+        [void]$livePerf.Series.Add($series)
+    }
+    $livePerf.ChartAreas[0].AxisY.Maximum = if ($hasPerfPoints) { [Double]::NaN } else { 1 }
+
     $state = if ($d.phase -in @('validated', 'complete')) { 'Answer checked' } else { 'Working - answer will be checked' }
     $liveInfo.Text = "$state | Try $($d.block) of 3 | Step $($d.round) of $($d.rounds)`r`n"
     if ($d.assignment) {
@@ -301,7 +379,7 @@ function Start-Demo([bool]$FullSuite) {
         if (-not $FullSuite) {
             $script:resultFolder = $null
             $views.SelectedTab = $liveTab
-            $liveMap.Series.Clear(); $liveTrace.Series.Clear()
+            $liveMap.Series.Clear(); $liveTrace.Series.Clear(); $livePerf.Series.Clear()
             $liveInfo.Text = 'Getting your computer ready. The live results will appear here...'
             $machineText.Text = if ($monitor.Checked) { 'Waiting for readings from this run.' } else { 'Machine readings are off for this run.' }
         } else { $views.SelectedTab = $logTab }

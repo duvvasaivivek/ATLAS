@@ -100,6 +100,45 @@ class DemoWorkloadTests(unittest.TestCase):
                 demo.run(self.build, self.output, 2000, input_csv=dataset)
             execute.assert_not_called()
 
+    def test_live_performance_traces_use_real_timestamps_without_inventing_missing_modes(self):
+        def timed_record(step_ns):
+            rows = [{
+                'kind': 'iteration', 'warmup': False, 'index': i, 'cpu_items': 2,
+                'centroids': list(range(8)), 'release_ns': 1_000_000 * (i + 1),
+                'end_ns': 1_000_000 * (i + 1) + step_ns * (i + 1)
+            } for i in range(32)]
+            rows.append({'kind': 'summary', 'status': 'passed', 'independent_validation': 'passed',
+                         'iterations': 32, 'final_labels': [0, 1, 2, 3], 'final_centroids': list(range(8)),
+                         'loop_elapsed_ns': 1000000})
+            return {'status': 'ok', 'stderr': '', 'stdout': '\n'.join(json.dumps(row) for row in rows), 'elapsed_ns': 2000000}
+
+        records = [timed_record(500_000), timed_record(200_000), timed_record(300_000)]
+        snapshots = []
+        def streaming_execute(*args, on_iteration, **kwargs):
+            res = records.pop(0)
+            for row in map(json.loads, res['stdout'].splitlines()):
+                if row['kind'] == 'iteration':
+                    on_iteration(row)
+            snapshots.append(json.loads((self.output / 'live.json').read_text()))
+            return res
+
+        with patch.object(demo, 'execute', side_effect=streaming_execute), patch.object(demo, 'replay_decisions'):
+            demo.run(self.build, self.output, 4, repeats=1)
+
+        # First snapshot only has the first executed mode; unexecuted modes remain empty.
+        first_perf = snapshots[0]['performance_traces']
+        non_empty_first = [mode for mode, pts in first_perf.items() if pts]
+        self.assertEqual(len(non_empty_first), 1)
+        self.assertEqual(len(first_perf[non_empty_first[0]]), 32)
+        self.assertAlmostEqual(first_perf[non_empty_first[0]][0]['step_ms'], 0.5)
+
+        # Final snapshot has real measured durations for all three modes without fake data.
+        final_live = json.loads((self.output / 'live.json').read_text())
+        self.assertEqual(final_live['phase'], 'complete')
+        for mode in ('CPU only', 'GPU only', 'ATLAS sharing'):
+            self.assertEqual(len(final_live['performance_traces'][mode]), 32)
+        self.assertEqual(final_live['trace'][0]['cpu_percent'], 50)
+
 
 if __name__ == '__main__':
     unittest.main()
