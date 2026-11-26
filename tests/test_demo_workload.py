@@ -82,6 +82,24 @@ class DemoWorkloadTests(unittest.TestCase):
         self.assertEqual(observed[0]['trace'][-1]['cpu_percent'], 50)
         self.assertEqual(json.loads((self.output / 'live.json').read_text())['phase'], 'complete')
 
+    def test_import_preserves_row_identity_in_export(self):
+        dataset = self.root / 'my locations.csv'
+        dataset.write_text('id,x,y\na,100,200\nb,3,4\nc,-5,6\nd,7,8\n')
+        with patch.object(demo, 'execute', return_value=record()), patch.object(demo, 'replay_decisions'):
+            result = demo.run(self.build, self.output, 2000, repeats=1, input_csv=dataset)
+        self.assertEqual(result['size'], 4)
+        self.assertEqual(result['input']['sha256'], demo.hashlib.sha256(dataset.read_bytes()).hexdigest())
+        self.assertIn('1,a,100.0,200.0,1', (self.output / 'groups.csv').read_text())
+        self.assertEqual(result['step_trials'][0]['steps'][0]['gpu_items'], 2)
+
+    def test_invalid_coordinates_are_rejected_before_running(self):
+        dataset = self.root / 'invalid.csv'
+        dataset.write_text('id,x,y\na,nan,200\n')
+        with patch.object(demo, 'execute') as execute:
+            with self.assertRaisesRegex(ValueError, 'CSV line 2'):
+                demo.run(self.build, self.output, 2000, input_csv=dataset)
+            execute.assert_not_called()
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -60,12 +60,22 @@ $quick = Button 'Start live demo' 26 260
 $quick.BackColor = [System.Drawing.Color]::FromArgb(20, 112, 83)
 $quick.ForeColor = [System.Drawing.Color]::White
 $checks = Button 'Check setup' 298 168
-$report = Button 'Full report' 478 172
+$report = Button 'See the result' 478 172
+$report.Enabled = $false
 $results = Button 'Open results' 662 172
 $recorded = Button 'Watch saved demo' 555 279
 $recorded.Location = New-Object System.Drawing.Point(555, 231)
-$description = Label 'Choose how many stops to group, then click Start live demo. Watch the work happen below.' 26 231 510 42
-$description.Anchor = 'Top, Left, Right'
+$file = Button 'Use my CSV' 26 140
+$file.Top = 231
+$stop = Button 'Stop' 174 85
+$stop.Top = 231
+$stop.Enabled = $false
+$monitor = New-Object System.Windows.Forms.CheckBox
+$monitor.Text = 'Show machine readings'
+$monitor.Checked = $true
+$monitor.SetBounds(272, 229, 270, 23)
+$form.Controls.Add($monitor)
+$description = Label 'Input: generated sample locations' 272 255 275 23
 $status = Label 'Ready. Each way of doing the job is tried three times for a fairer comparison.' 26 278 808 26
 $status.Anchor = 'Top, Left, Right'
 $status.Font = New-Object System.Drawing.Font('Segoe UI', 10, [System.Drawing.FontStyle]::Bold)
@@ -85,7 +95,7 @@ $log.WordWrap = $false
 $log.Font = New-Object System.Drawing.Font('Consolas', 9)
 $log.BackColor = [System.Drawing.Color]::White
 $form.Controls.Add($log)
-$footer = Label 'The green line shows the main processor''s share; graphics handles the rest. Display updates also take time.' 26 756 808 26
+$footer = Label 'The green line shows the share of rows assigned to the main processor. See Machine readings for usage.' 26 756 808 26
 $footer.Anchor = 'Bottom, Left, Right'
 $footer.ForeColor = [System.Drawing.Color]::DimGray
 
@@ -93,8 +103,20 @@ $views = New-Object System.Windows.Forms.TabControl
 $views.SetBounds(26, 331, 808, 409)
 $views.Anchor = 'Top, Bottom, Left, Right'
 $liveTab = New-Object System.Windows.Forms.TabPage('Watch it work')
-$logTab = New-Object System.Windows.Forms.TabPage('Details')
-$views.TabPages.AddRange(@($liveTab, $logTab))
+$machineTab = New-Object System.Windows.Forms.TabPage('Machine readings')
+$machineText = New-Object System.Windows.Forms.TextBox
+$machineText.Multiline = $true
+$machineText.ReadOnly = $true
+$machineText.ScrollBars = 'Vertical'
+$machineText.Dock = 'Fill'
+$machineText.Text = 'Start a task with Show machine readings selected.'
+$machineTab.Controls.Add($machineText)
+$longRun = New-Object System.Windows.Forms.CheckBox
+$longRun.Text = 'Watch longer (512 real steps per try)'
+$longRun.Dock = 'Top'
+$machineTab.Controls.Add($longRun)
+$logTab = New-Object System.Windows.Forms.TabPage('Technical details')
+$views.TabPages.AddRange(@($liveTab, $machineTab, $logTab))
 $form.Controls.Add($views)
 $form.Controls.Remove($log)
 $log.Dock = 'Fill'
@@ -112,8 +134,8 @@ function Live-Chart($title, $x, $axisX, $axisY) {
     $liveTab.Controls.Add($c)
     return $c
 }
-$liveMap = Live-Chart 'Delivery stops: ready to start' 0 'Across the example area' 'Up the example area'
-$liveTrace = Live-Chart 'How the work is shared' 400 'Grouping step' 'Main processor''s share (%)'
+$liveMap = Live-Chart 'Locations ready to group' 0 'X coordinate' 'Y coordinate'
+$liveTrace = Live-Chart 'Rows assigned to each processor' 400 'Grouping step' 'Rows assigned to main processor (%)'
 $liveTrace.ChartAreas[0].AxisY.Minimum = 0
 $liveTrace.ChartAreas[0].AxisY.Maximum = 100
 $liveTrace.ChartAreas[0].AxisX.Minimum = 1
@@ -121,12 +143,43 @@ $liveTrace.ChartAreas[0].AxisX.Maximum = 32
 $liveInfo = New-Object System.Windows.Forms.TextBox
 $liveInfo.SetBounds(10, 255, 775, 113)
 $liveInfo.Multiline = $true
+$liveInfo.ScrollBars = 'Vertical'
 $liveInfo.ReadOnly = $true
 $liveInfo.BackColor = [System.Drawing.Color]::White
 $liveInfo.Font = New-Object System.Drawing.Font('Consolas', 9)
 $liveInfo.Text = "Click Start live demo to try this on your computer now.`r`nWe try the main processor, the graphics processor, then both together.`r`nThe groups shown while working are checked before we accept the answer."
 $liveTab.Controls.Add($liveInfo)
 $script:liveUpdates = 0
+
+function Reading-Text($value, $unit) {
+    if ($null -eq $value) { return 'Unavailable' }
+    return ('{0:N2} {1}' -f $value, $unit)
+}
+
+function Show-Machine($folder) {
+    $path = Join-Path $folder 'machine-live.json'
+    if (-not (Test-Path -LiteralPath $path)) { return }
+    $d = Get-Content -LiteralPath $path -Raw | ConvertFrom-Json
+    $stamp = [DateTimeOffset]::FromUnixTimeMilliseconds([long]([decimal]$d.utc_ns / 1000000))
+    $age = ([DateTimeOffset]::UtcNow - $stamp).TotalSeconds
+    $label = if ($script:job.HasExited) { 'Last recorded reading' } elseif ($age -gt 3) { 'Waiting for a fresh reading. Last sample' } else { 'Latest reading' }
+    $lines = @("$label at $($stamp.ToLocalTime().ToString('HH:mm:ss'))",
+        "CPU busy in Linux: $(Reading-Text $d.linux_cpu_percent '%')",
+        "ATLAS worker CPU: $(Reading-Text $d.native_cpu_percent_one_core '% of one core')",
+        "ATLAS worker memory: $(if ($null -ne $d.native_memory_bytes) { Reading-Text ($d.native_memory_bytes / 1MB) 'MiB' } else { 'Unavailable' })")
+    if ($d.trial) { $lines += "Try $($d.trial), Linux process $($d.linux_pid)" }
+    else { $lines += 'Sample taken between trials.' }
+    if ($d.gpu_note) { $lines += $d.gpu_note }
+    foreach ($gpu in $d.gpus) {
+        $lines += '', "$($gpu.name) (whole device, including other applications)",
+            "Device busy: $(Reading-Text $gpu.'utilization.gpu' '%')",
+            "Graphics memory: $(Reading-Text $gpu.'memory.used' 'MiB')",
+            "Temperature: $(Reading-Text $gpu.'temperature.gpu' 'C')",
+            "Graphics clock: $(Reading-Text $gpu.'clocks.current.graphics' 'MHz')",
+            "Reported power: $(Reading-Text $gpu.'power.draw' 'W')"
+    }
+    $machineText.Text = ($lines -join "`r`n")
+}
 
 function Friendly-Mode($name) {
     switch ($name) {
@@ -176,12 +229,16 @@ function Show-Live($folder) {
     }
     $liveMap.Titles[0].Text = "$(Friendly-Mode $d.mode): $phaseText"
     $liveTrace.Series.Clear()
+    $liveTrace.ChartAreas[0].AxisX.Maximum = [int]$d.rounds
     $shares = New-Object System.Windows.Forms.DataVisualization.Charting.Series('CPU share')
     $shares.ChartType = 'StepLine'; $shares.BorderWidth = 3; $shares.Color = [System.Drawing.Color]::SeaGreen
     foreach ($r in $d.trace) { [void]$shares.Points.AddXY([int]$r.round, [double]$r.cpu_percent) }
     [void]$liveTrace.Series.Add($shares)
     $state = if ($d.phase -in @('validated', 'complete')) { 'Answer checked' } else { 'Working - answer will be checked' }
-    $liveInfo.Text = "$state | Try $($d.block) of 3 | Step $($d.round) of 32`r`n"
+    $liveInfo.Text = "$state | Try $($d.block) of 3 | Step $($d.round) of $($d.rounds)`r`n"
+    if ($d.assignment) {
+        $liveInfo.AppendText(("Rows handled: main processor {0:N0}, graphics processor {1:N0}.`r`n" -f $d.assignment.cpu_items, $d.assignment.gpu_items))
+    }
     foreach ($name in @('CPU only', 'GPU only', 'ATLAS sharing')) {
         $rows = @($d.completed | Where-Object mode -eq $name)
         if ($rows.Count) {
@@ -232,15 +289,21 @@ function Start-Demo([bool]$FullSuite) {
             $n = @(2000, 16000, 64000)[$scale.SelectedIndex]
             $relative = 'results/demo/' + (Split-Path -Leaf $folder)
             $arguments = $prefix + 'python3 scripts/demo_workload.py --build "' + $chosen + '" --size ' + $n + ' --output "' + $relative + '"'
+            if ($monitor.Checked) { $arguments += ' --monitor' }
+            if ($longRun.Checked) { $arguments += ' --steps 512' }
+            if ($script:inputCsv) { $arguments += ' --windows-input "' + $script:inputCsv + '"' }
         }
         $script:runFolder = $folder
         $script:liveStamp = $null
         $script:liveUpdates = 0
+        $script:stopRequested = $false
         $script:fullSuite = $FullSuite
         if (-not $FullSuite) {
+            $script:resultFolder = $null
             $views.SelectedTab = $liveTab
             $liveMap.Series.Clear(); $liveTrace.Series.Clear()
             $liveInfo.Text = 'Getting your computer ready. The live results will appear here...'
+            $machineText.Text = if ($monitor.Checked) { 'Waiting for readings from this run.' } else { 'Machine readings are off for this run.' }
         } else { $views.SelectedTab = $logTab }
         $script:lastLog = Join-Path $folder 'native-checks.txt'
         $command = 'wsl.exe ' + $arguments
@@ -265,6 +328,11 @@ function Start-Demo([bool]$FullSuite) {
         $build.Enabled = $false
         $scale.Enabled = $false
         $recorded.Enabled = $false
+        $file.Enabled = $false
+        $monitor.Enabled = $false
+        $longRun.Enabled = $false
+        $stop.Enabled = -not $FullSuite
+        $report.Enabled = $false
         $progress.Style = 'Marquee'
         $status.Text = 'Your computer is working on the example now...'
         $status.ForeColor = [System.Drawing.Color]::FromArgb(20, 112, 83)
@@ -280,12 +348,17 @@ function Start-Demo([bool]$FullSuite) {
 $timer.Add_Tick({
     if ($script:job -and -not $script:fullSuite) {
         try {
+            if ($script:stopRequested -and (Test-Path -LiteralPath $script:runFolder)) {
+                [System.IO.File]::WriteAllText((Join-Path $script:runFolder 'stop.request'), '')
+            }
             $progressFile = Join-Path $script:runFolder 'progress.json'
             if (Test-Path -LiteralPath $progressFile) {
                 $message = (Get-Content -LiteralPath $progressFile -Raw | ConvertFrom-Json).message
                 $status.Text = $message.Replace('CPU only', 'Main processor').Replace('GPU only', 'Graphics processor').Replace('ATLAS sharing', 'Both together').Replace('grouping rounds', 'grouping steps')
             }
             Show-Live $script:runFolder
+            if ($monitor.Checked) { Show-Machine $script:runFolder }
+            if ($script:stopRequested -and -not $script:job.HasExited) { $status.Text = 'Stopping the task...' }
         } catch { } # Progress may be replaced atomically between polling and reading.
     }
     if (-not $script:job -or -not $script:job.HasExited) { return }
@@ -303,12 +376,15 @@ $timer.Add_Tick({
             if ($script:fullSuite) { $status.Text = 'Setup checks passed. The computer completed the test jobs correctly.' }
             else {
                 Show-Live $script:runFolder
-                Open-RecordedDemo $script:runFolder
-                $status.Text = 'Finished! All three ways gave the same answer. See which was fastest.'
+                if ($SmokeTest) { Open-RecordedDemo $script:runFolder }
+                $script:resultFolder = $script:runFolder
+                $report.Enabled = $true
+                $status.Text = 'All answers matched. Select See the result to inspect any step or row.'
             }
         } else {
-            $liveInfo.Text = 'RUN FAILED. See Logs and explanation; no successful comparison published.'
-            $status.Text = 'FAILED | See the output below and the saved log.'
+            $liveInfo.Text = if ($script:stopRequested) { 'Run stopped. Partial records are in Open results.' } else { 'The task could not finish. See Technical details for the reason.' }
+            $status.Text = $liveInfo.Text
+            $views.SelectedTab = $logTab
             $status.ForeColor = [System.Drawing.Color]::Firebrick
         }
     } catch {
@@ -322,12 +398,37 @@ $timer.Add_Tick({
         $quick.Enabled = $true
         $checks.Enabled = $true
         $build.Enabled = $true
-        $scale.Enabled = $true
+        $scale.Enabled = -not $script:inputCsv
         $recorded.Enabled = $true
+        $file.Enabled = $true
+        $monitor.Enabled = $true
+        $longRun.Enabled = $true
+        $stop.Enabled = $false
+        $report.Enabled = [bool]$script:resultFolder
     }
 })
 $quick.Add_Click({ Start-Demo $false })
 $checks.Add_Click({ Start-Demo $true })
+$stop.Add_Click({ $script:stopRequested = $true; $stop.Enabled = $false })
+$file.Add_Click({
+    if ($script:inputCsv) {
+        $script:inputCsv = $null
+        $description.Text = 'Input: generated sample locations'
+        $file.Text = 'Use my CSV'
+        $scale.Enabled = $true
+        return
+    }
+    $dialog = New-Object System.Windows.Forms.OpenFileDialog
+    try {
+        $dialog.Filter = 'CSV files (*.csv)|*.csv'
+        if ($dialog.ShowDialog($form) -eq [System.Windows.Forms.DialogResult]::OK) {
+            $script:inputCsv = $dialog.FileName
+            $description.Text = 'Input: ' + $dialog.SafeFileName
+            $file.Text = 'Use sample data'
+            $scale.Enabled = $false
+        }
+    } finally { $dialog.Dispose() }
+})
 $recorded.Add_Click({
     try {
         $latest = Get-ChildItem -LiteralPath (Join-Path $root 'results/demo') -Filter demo.html -Recurse -File -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending | Select-Object -First 1
@@ -339,11 +440,8 @@ $recorded.Add_Click({
 })
 $report.Add_Click({
     try {
-        $latest = Get-ChildItem -LiteralPath (Join-Path $root 'results') -Filter report.html -File -Recurse -ErrorAction SilentlyContinue |
-            Sort-Object LastWriteTime -Descending | Select-Object -First 1
-        if (-not $latest) { throw 'No report found. Generate one with scripts/validate_release.py in WSL; see README.md.' }
-        Start-Process -FilePath $latest.FullName
-    } catch { $log.Text = $_.Exception.Message }
+        Open-RecordedDemo $script:resultFolder
+    } catch { $log.Text = $_.Exception.Message; $views.SelectedTab = $logTab }
 })
 $results.Add_Click({
     try {
@@ -356,7 +454,8 @@ $form.Add_FormClosing({
     param($sender, $eventArgs)
     if ($script:job) {
         $eventArgs.Cancel = $true
-        $status.Text = 'Checks are still running. Close the window after they finish.'
+        if (-not $script:fullSuite) { $script:stopRequested = $true; $stop.Enabled = $false }
+        $status.Text = 'Waiting for the current task to finish or stop.'
     }
 })
 

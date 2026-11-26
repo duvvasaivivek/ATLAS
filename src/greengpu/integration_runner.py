@@ -79,7 +79,7 @@ class TelemetryPump:
             raise RuntimeError("Telemetry thread failed to stop")
 
 
-def execute(binary,dataset,field,case,backend,prefix=(),timeout=120,on_iteration=None):
+def execute(binary,dataset,field,case,backend,prefix=(),timeout=120,on_iteration=None,on_process=None,cancelled=None):
     cfg=Config(**case["integration"]);engine=Coordinator(cfg);lifecycle=Lifecycle()
     if case["workload"]=="kmeans":
         args=[str(cfg.initial_cpu_items),str(case["steps"]),str(case["workers"]),case["native_mode"],"feedback"]
@@ -102,8 +102,11 @@ def execute(binary,dataset,field,case,backend,prefix=(),timeout=120,on_iteration
     with tempfile.TemporaryFile(mode="w+t") as stderr:
         try:
             pump.start()
-            supervisor=Supervisor(argv,stderr,timeout,failure=lambda:pump.error)
+            supervisor=Supervisor(argv,stderr,timeout,failure=lambda:pump.error or (
+                "Stopped by user" if cancelled is not None and cancelled() else None))
             process=supervisor.process;expired=supervisor.expired
+            if on_process is not None:
+                on_process(process.pid)
             for line in supervisor.lines():
                 lines.append(line)
                 if not line.startswith("{"):continue

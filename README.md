@@ -96,7 +96,7 @@ reported local changes or branch divergence before proceeding.
 From **PowerShell in the ATLAS folder**, enter Ubuntu at the same directory:
 
 ```powershell
-wsl --cd .
+wsl
 ```
 
 The prompt should now be a Linux prompt such as `name@machine:/mnt/c/.../ATLAS$`.
@@ -137,9 +137,10 @@ in File Explorer:
 1. Select **build/demo** under **Demo engine**.
 2. Click **Check setup** and confirm the native checks pass.
 3. Choose **Medium: 16,000 stops**, then click **Start live demo**.
-4. Show the moving group centers and CPU work-share line in **Watch it work**.
-5. When finished, compare the three measured times and the validated answers in
-   the generated browser presentation. Say which approach won this run.
+4. In **Watch it work**, look at the grouping and the count of rows assigned
+   to each processor. Open **Machine readings** to see what the machine reports.
+5. Select **See the result** when the answers match. Compare measured times,
+   then choose a try, step and row under **Where did a row go?**
 6. Repeat with **Large: 64,000 stops** to show how the workload size affects the
    comparison. Sharing work can add overhead and is not guaranteed to win.
 
@@ -147,8 +148,45 @@ Each click starts new computation. Results are saved in
 `results/demo/<timestamp>/`. Use **Open results** to inspect them. The generated
 `demo.html` can be shared and opened offline; keep the whole run folder for raw
 trials and checksum verification. **Watch saved demo** requires an existing demo
-run; **Full report** requires a separately generated research report. Neither is
-required to run the live demo.
+run. Use the research workflow below to generate the full research report.
+
+### Use your own locations
+
+Select **Use my CSV** and choose a UTF-8 file with the header `id,x,y`.
+For example:
+
+```csv
+id,x,y
+A,18,20
+B,78,22
+C,25,76
+D,79,78
+```
+
+Use unique IDs, at least four distinct locations, at most 64,000 rows, and
+at most 8 MiB. Choose coordinates in a consistent planar unit, such as meters.
+The program groups them by straight-line distance. The result folder contains
+`groups.csv` with row numbers and group assignments. Share the report and data
+only with recipients allowed to see the locations. Exported IDs starting with
+`=`, `+`, `-`, or `@` are prefixed with an apostrophe for spreadsheet safety.
+Git ignores new local runs in `results/demo/`.
+
+### Read the measurements
+
+- **Rows assigned** describes the work split, independent of hardware utilization.
+- **Machine readings** show sampled Linux CPU counters and whole-device GPU
+  measurements from `nvidia-smi`. The native worker's CPU usage is relative to one
+  CPU core and can exceed 100%. A short trial can finish before it is sampled.
+  Select **Watch longer** in **Machine readings** before starting to run 512
+  actual grouping steps per try. Unsupported measurements are marked unavailable.
+- **See the result** shows recorded per-step assignments, elapsed times and
+  allocation decisions. Graphics dispatch to returned results includes more
+  than kernel execution. The detailed record also contains transfer byte counts.
+- **Open results** provides the raw trial JSON, timestamped machine samples
+  (`machine.jsonl` when collected), CSV and checksums. **Stop** requests
+  cancellation and retains available records. Turn off **Show machine readings**
+  to compare timing without machine polling. Display updates still add overhead.
+  For matched research baselines and profiling, use the research workflow below.
 
 For the presentation, explain: "ATLAS decides how to split work between the main
 processor and graphics processor while checking that the answer stays correct."
@@ -180,7 +218,7 @@ comparison. Do not copy another machine's build directory or virtual environment
 - **Terminal tests pass but the launcher fails:** check `wsl --list --verbose`
   in PowerShell. The default distribution must contain the same Python, CMake,
   CUDA tools and GPU access used to build the project.
-- **A live run fails:** inspect **Details** and the fresh run folder for
+- **A live run fails:** inspect **Technical details** and the fresh run folder for
   `failure.json` and raw trial records. Preserve that evidence before starting a
   new run; a failed run is not a successful timing comparison.
 
@@ -200,11 +238,11 @@ and extra UI packages are not required.
 - **Watch saved demo:** open a checksum-verified presentation without WSL
   or GPU execution. Recorded measurements are explicitly labelled and dated.
 - **Check setup:** the complete native correctness suite.
-- **Full report:** the newest generated `report.html` under `results`.
+- **See the result:** open the current completed run and inspect its work by step.
 - **Open results:** demo logs, or the results folder before the first run.
 
 Select a build and Small (2,000), Medium (16,000), or Large (64,000) locations.
-Each comparison uses identical input, 32 grouping rounds, four CPU workers and
+Each comparison uses identical input, 32 grouping rounds by default, four CPU workers and
 three shuffled repetitions per mode. Workload and full-command times are both
 retained, including live-observation overhead. Screen refreshes can skip fast
 rounds; artificial delays are not added. Each native trial has a 90-second deadline; failures are retained and
