@@ -231,7 +231,11 @@ and extra UI packages are not required.
 - **Start live demo:** start fresh computation on real CPU/CUDA
   hardware. The live dashboard shows the current execution mode, native group
   centers, actual CPU work-share trace and validated trial times while the job
-  runs. Preview centers remain provisional until correctness validation passes.
+  runs. **Why this split?** shows the current explanation and retains ATLAS
+  decisions that occurred between screen refreshes. Select a decision to see the
+  timing window, the reason for a change or hold, and the next CPU/GPU assignment.
+  At completion the dashboard shows the lowest median grouping and whole-command
+  times separately. Preview centers remain provisional until correctness validation passes.
   An offline-capable final visual presentation shows the groups, the same
   task's measured times, and ATLAS's recorded work-allocation changes. All modes
   must pass independent native validation and produce matching answers.

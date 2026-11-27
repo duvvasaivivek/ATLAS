@@ -148,6 +148,8 @@ def step_evidence(row, barrier, size):
     cpu = row['cpu_items']
     decision = barrier.get('decision', {})
     observation = barrier.get('input', {}).get('observation', {})
+    allocation = decision.get('allocation') or {}
+    window = allocation.get('observation', {})
     return dict(step=row['index'] + 1, release_monotonic_ns=row.get('release_ns'),
                 cpu_items=cpu, gpu_items=row.get('gpu_items', size - cpu),
                 cpu_work_ms=duration('cpu_start_ns', 'cpu_end_ns'),
@@ -161,5 +163,51 @@ def step_evidence(row, barrier, size):
                 moved_items=row.get('ownership_changed_points'),
                 decision=decision.get('allocation_reason'),
                 next_cpu_items=decision.get('next_cpu_items'),
+                 next_gpu_items=size - decision['next_cpu_items'] if decision.get('next_cpu_items') is not None else None,
+                 policy=allocation.get('policy'),
+                 decision_steps=[i + 1 for i in window.get('source_iterations', [])],
+                 decision_cpu_ms=window['t_cpu'] * 1000 if window.get('t_cpu') is not None else None,
+                 decision_gpu_ms=window['t_gpu'] * 1000 if window.get('t_gpu') is not None else None,
+                 requested_cpu_ratio=allocation.get('requested_ratio'),
                 cpu_completion_ms=observation.get('t_cpu', None) * 1000 if observation.get('t_cpu') is not None else None,
                 gpu_completion_ms=observation.get('t_gpu', None) * 1000 if observation.get('t_gpu') is not None else None)
+
+
+def explain_step(mode, step):
+    if mode in ('CPU only', 'GPU only'):
+        processor = 'CPU' if mode == 'CPU only' else 'GPU'
+        return f'{processor}-only baseline. The {processor} gets every row for every step.'
+    reason = step['decision']
+    if reason == 'workload_complete':
+        return 'Final grouping step. There is no next split for this trial.'
+    if reason in ('collect_epoch', 'collect_native_batch', 'settling_iteration_excluded'):
+        return 'Keeping the current split while ATLAS collects timings for the next eligible decision.'
+    cpu, gpu = step['cpu_items'], step['gpu_items']
+    next_cpu, next_gpu = step['next_cpu_items'], step['next_gpu_items']
+    if next_cpu is None:
+        return 'No controller decision was recorded for this step.'
+    delta = next_cpu - cpu
+    if delta:
+        count = abs(delta)
+        headline = f'ATLAS shifts {count:,} {"row" if count == 1 else "rows"} to the {"CPU" if delta > 0 else "GPU"}.'
+    else:
+        headline = 'ATLAS keeps the current split.'
+    split = f'CPU / GPU rows: {cpu:,} / {gpu:,} now and {next_cpu:,} / {next_gpu:,} next.'
+    steps = step['decision_steps']
+    cpu_ms, gpu_ms = step['decision_cpu_ms'], step['decision_gpu_ms']
+    timing = ''
+    if steps and cpu_ms is not None and gpu_ms is not None:
+        timing = (f'Completion-time totals from steps {", ".join(map(str, steps))}: '
+                  f'CPU {cpu_ms:.3f} ms, GPU {gpu_ms:.3f} ms.')
+    target = step['requested_cpu_ratio']
+    requested = f'Target CPU share {target:.2%}. Applied share {next_cpu / (cpu + gpu):.2%}.' if target is not None else ''
+    why = {
+        'proportional_adjust': 'The proportional policy gives fewer rows to the processor that took longer to finish its share.',
+        'hold_equal_time': 'The measured completion times were equal.',
+        'hold_quantized': 'The calculated target rounded to the same allowed row split.',
+        'hold_invalid_observation': 'The timing evidence did not pass the controller checks.',
+        'budget_exhausted': 'The allocation policy reached its decision limit.',
+        'needs_interior_probe': 'The policy needs a timing sample with work on both processors.',
+        'unsupported_partition': 'The workload has no eligible split across both processors.',
+    }.get(reason, f'Recorded controller reason: {reason}.')
+    return ' '.join(filter(None, (headline, split, timing, why, requested)))

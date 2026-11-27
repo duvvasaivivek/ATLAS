@@ -129,7 +129,7 @@ $liveLayout.ColumnCount = 1
 $liveLayout.RowCount = 2
 [void]$liveLayout.ColumnStyles.Add((New-Object System.Windows.Forms.ColumnStyle([System.Windows.Forms.SizeType]::Percent, 100)))
 [void]$liveLayout.RowStyles.Add((New-Object System.Windows.Forms.RowStyle([System.Windows.Forms.SizeType]::Percent, 100)))
-[void]$liveLayout.RowStyles.Add((New-Object System.Windows.Forms.RowStyle([System.Windows.Forms.SizeType]::Absolute, 118)))
+[void]$liveLayout.RowStyles.Add((New-Object System.Windows.Forms.RowStyle([System.Windows.Forms.SizeType]::Absolute, 164)))
 $liveTab.Controls.Add($liveLayout)
 
 $chartRow = New-Object System.Windows.Forms.TableLayoutPanel
@@ -178,6 +178,13 @@ $perfLegend.Alignment = 'Center'
 $perfLegend.IsDockedInsideChartArea = $false
 $perfLegend.Font = New-Object System.Drawing.Font('Segoe UI', 8.5)
 [void]$livePerf.Legends.Add($perfLegend)
+$detailsRow = New-Object System.Windows.Forms.TableLayoutPanel
+$detailsRow.Dock = 'Fill'
+$detailsRow.ColumnCount = 2
+$detailsRow.RowCount = 1
+[void]$detailsRow.ColumnStyles.Add((New-Object System.Windows.Forms.ColumnStyle([System.Windows.Forms.SizeType]::Percent, 40)))
+[void]$detailsRow.ColumnStyles.Add((New-Object System.Windows.Forms.ColumnStyle([System.Windows.Forms.SizeType]::Percent, 60)))
+$liveLayout.Controls.Add($detailsRow, 0, 1)
 $liveInfo = New-Object System.Windows.Forms.TextBox
 $liveInfo.Dock = 'Fill'
 $liveInfo.Margin = New-Object System.Windows.Forms.Padding(4)
@@ -185,10 +192,63 @@ $liveInfo.Multiline = $true
 $liveInfo.ScrollBars = 'Vertical'
 $liveInfo.ReadOnly = $true
 $liveInfo.BackColor = [System.Drawing.Color]::White
-$liveInfo.Font = New-Object System.Drawing.Font('Consolas', 9)
-$liveInfo.Text = "Click Start live demo to try this on your computer now.`r`nWe try CPU ONLY (main processor), GPU ONLY (graphics processor), and ATLAS (CPU + GPU together).`r`nThe groups shown while working are checked before we accept the answer."
-$liveLayout.Controls.Add($liveInfo, 0, 1)
+$liveInfo.AccessibleName = 'Trial progress and timing comparison'
+$liveInfo.Text = "Start a live demo to compare CPU-only, GPU-only and ATLAS on the same locations.`r`nThe groups shown while working are provisional until the answer is checked."
+$detailsRow.Controls.Add($liveInfo, 0, 0)
+
+$explanationPanel = New-Object System.Windows.Forms.TableLayoutPanel
+$explanationPanel.Dock = 'Fill'
+$explanationPanel.ColumnCount = 1
+$explanationPanel.RowCount = 3
+[void]$explanationPanel.RowStyles.Add((New-Object System.Windows.Forms.RowStyle([System.Windows.Forms.SizeType]::Absolute, 24)))
+[void]$explanationPanel.RowStyles.Add((New-Object System.Windows.Forms.RowStyle([System.Windows.Forms.SizeType]::Absolute, 34)))
+[void]$explanationPanel.RowStyles.Add((New-Object System.Windows.Forms.RowStyle([System.Windows.Forms.SizeType]::Percent, 100)))
+$detailsRow.Controls.Add($explanationPanel, 1, 0)
+$explanationTitle = New-Object System.Windows.Forms.Label
+$explanationTitle.Text = 'Why this split?'
+$explanationTitle.Dock = 'Fill'
+$explanationTitle.Font = New-Object System.Drawing.Font('Segoe UI', 10, [System.Drawing.FontStyle]::Bold)
+$explanationPanel.Controls.Add($explanationTitle, 0, 0)
+$decisionPicker = New-Object System.Windows.Forms.ComboBox
+$decisionPicker.Dock = 'Fill'
+$decisionPicker.DropDownStyle = 'DropDownList'
+$decisionPicker.AccessibleName = 'ATLAS allocation decision history'
+[void]$decisionPicker.Items.Add('Follow the live run')
+$decisionPicker.SelectedIndex = 0
+$explanationPanel.Controls.Add($decisionPicker, 0, 1)
+$explanationText = New-Object System.Windows.Forms.TextBox
+$explanationText.Dock = 'Fill'
+$explanationText.Multiline = $true
+$explanationText.ReadOnly = $true
+$explanationText.ScrollBars = 'Vertical'
+$explanationText.BackColor = [System.Drawing.Color]::White
+$explanationText.AccessibleName = 'Allocation explanation'
+$explanationText.Text = 'During each ATLAS trial, this panel shows the timing evidence behind changes to the CPU/GPU split.'
+$explanationPanel.Controls.Add($explanationText, 0, 2)
 $script:liveUpdates = 0
+$script:decisionHistory = @()
+$script:currentExplanation = $explanationText.Text
+
+function Show-Explanation {
+    $index = $decisionPicker.SelectedIndex - 1
+    $text = $script:currentExplanation
+    if ($index -ge 0 -and $index -lt $script:decisionHistory.Count) {
+        $entry = $script:decisionHistory[$index]
+        $text = "ATLAS try $($entry.block) | After step $($entry.step)`r`n$($entry.explanation)"
+    }
+    if ($explanationText.Text -ne $text) { $explanationText.Text = $text }
+}
+$decisionPicker.Add_SelectedIndexChanged({ Show-Explanation })
+
+function Read-Snapshot($path) {
+    $share = [System.IO.FileShare]::ReadWrite -bor [System.IO.FileShare]::Delete
+    $stream = [System.IO.File]::Open($path, [System.IO.FileMode]::Open, [System.IO.FileAccess]::Read, $share)
+    try {
+        $reader = New-Object System.IO.StreamReader($stream)
+        try { $json = $reader.ReadToEnd() } finally { $reader.Dispose() }
+    } finally { $stream.Dispose() }
+    return ConvertFrom-Json -InputObject $json
+}
 
 function Reading-Text($value, $unit) {
     if ($null -eq $value) { return 'Unavailable' }
@@ -198,7 +258,7 @@ function Reading-Text($value, $unit) {
 function Show-Machine($folder) {
     $path = Join-Path $folder 'machine-live.json'
     if (-not (Test-Path -LiteralPath $path)) { return }
-    $d = Get-Content -LiteralPath $path -Raw | ConvertFrom-Json
+    $d = Read-Snapshot $path
     $stamp = [DateTimeOffset]::FromUnixTimeMilliseconds([long]([decimal]$d.utc_ns / 1000000))
     $age = ([DateTimeOffset]::UtcNow - $stamp).TotalSeconds
     $label = if ($script:job.HasExited) { 'Last recorded reading' } elseif ($age -gt 3) { 'Waiting for a fresh reading. Last sample' } else { 'Latest reading' }
@@ -234,14 +294,40 @@ function Show-Live($folder) {
     if (-not (Test-Path -LiteralPath $path)) { return }
     $stamp = (Get-Item -LiteralPath $path).LastWriteTimeUtc.Ticks
     if ($script:liveStamp -eq $stamp) { return }
-    $d = Get-Content -LiteralPath $path -Raw | ConvertFrom-Json
-    $script:liveStamp = $stamp
-    $script:liveUpdates++
+    $d = Read-Snapshot $path
     if ($d.phase -eq 'failed') {
         $liveMap.Series.Clear(); $liveTrace.Series.Clear(); $livePerf.Series.Clear()
         $liveInfo.Text = 'RUN FAILED. No successful comparison published.' + "`r`n" + $d.error
+        $script:currentExplanation = 'The run ended before the full comparison was validated.'
+        Show-Explanation
+        $script:liveStamp = $stamp
         return
     }
+    $history = @($d.decision_history | Where-Object { $null -ne $_ })
+    for ($i = $script:decisionHistory.Count; $i -lt $history.Count; $i++) {
+        [void]$decisionPicker.Items.Add(('ATLAS try {0} | After step {1}' -f $history[$i].block, $history[$i].step))
+    }
+    $script:decisionHistory = $history
+    $script:currentExplanation = if ($d.phase -eq 'complete') {
+        'Choose an ATLAS decision above to inspect the measured timings and the next split.'
+    } elseif ($d.phase -eq 'starting' -and $d.mode -eq 'ATLAS sharing') {
+        'ATLAS starts by splitting the rows as evenly as possible. It measures how long each processor takes to finish its share before deciding whether to rebalance.'
+    } elseif ($d.mode -in @('CPU only', 'GPU only') -and -not $d.assignment) {
+        "$(Friendly-Mode $d.mode) is a fixed baseline. One processor gets every row."
+    } elseif ($d.assignment.explanation) {
+        $d.assignment.explanation
+    } else {
+        'Waiting for the first grouping step.'
+    }
+    if ($history.Count) {
+        $latest = $history[-1]
+        if ($d.phase -ne 'complete' -and $latest.trial -eq $d.run_id -and $latest.step -eq $d.round) {
+            $script:currentExplanation = "ATLAS try $($latest.block) | After step $($latest.step)`r`n$($latest.explanation)"
+        } else {
+            $script:currentExplanation += "`r`n`r`nLatest ATLAS decision | Try $($latest.block), after step $($latest.step)`r`n$($latest.explanation)"
+        }
+    }
+    Show-Explanation
     $liveMap.Series.Clear()
     $colors = @('SteelBlue', 'DarkOrange', 'SeaGreen', 'MediumPurple')
     for ($group = 0; $group -lt 4; $group++) {
@@ -266,9 +352,10 @@ function Show-Live($folder) {
         'complete' { 'finished' }
         default { $d.phase }
     }
-    $liveMap.Titles[0].Text = "$(Friendly-Mode $d.mode): $phaseText"
+    $liveMap.Titles[0].Text = if ($d.phase -eq 'complete') { 'Validated groups' } else { "$(Friendly-Mode $d.mode): $phaseText" }
     $maxRounds = [Math]::Max(2, [int]$d.rounds)
     $liveTrace.Series.Clear()
+    $liveTrace.Titles[0].Text = if ($d.phase -eq 'complete') { 'CPU row share | first ATLAS try' } else { 'CPU workload allocation (%)' }
     $liveTrace.ChartAreas[0].AxisX.Maximum = $maxRounds
     $shares = New-Object System.Windows.Forms.DataVisualization.Charting.Series('CPU share')
     $shares.ChartType = 'StepLine'; $shares.BorderWidth = 3; $shares.Color = [System.Drawing.Color]::SeaGreen
@@ -312,18 +399,25 @@ function Show-Live($folder) {
     }
     $livePerf.ChartAreas[0].AxisY.Maximum = if ($hasPerfPoints) { [Double]::NaN } else { 1 }
 
-    $state = if ($d.phase -in @('validated', 'complete')) { 'Answer checked' } else { 'Working - answer will be checked' }
-    $liveInfo.Text = "$state | Try $($d.block) of 3 | Step $($d.round) of $($d.rounds)`r`n"
-    if ($d.assignment) {
-        $liveInfo.AppendText(("Rows handled: main processor {0:N0}, graphics processor {1:N0}.`r`n" -f $d.assignment.cpu_items, $d.assignment.gpu_items))
-    }
-    foreach ($name in @('CPU only', 'GPU only', 'ATLAS sharing')) {
-        $rows = @($d.completed | Where-Object mode -eq $name)
-        if ($rows.Count) {
-            $latest = $rows[-1]
-            $liveInfo.AppendText(('{0}: {1}/3 checked; grouping {2:N2} ms, whole task {3:N2} ms' -f (Friendly-Mode $name), $rows.Count, $latest.workload_ms, $latest.command_ms) + "`r`n")
+    if ($d.phase -eq 'complete') {
+        $liveInfo.Text = ($d.comparison -join "`r`n")
+    } else {
+        $state = if ($d.phase -eq 'validated') { 'Answer checked' } elseif ($d.phase -eq 'starting') { 'Getting ready' } else { 'Working' }
+        $lines = @("$state | Try $($d.block) of $($d.repeats) | Step $([int]$d.round) of $($d.rounds)")
+        if ($d.assignment) {
+            $lines += 'This step assigned {0:N0} rows to CPU and {1:N0} to GPU.' -f $d.assignment.cpu_items, $d.assignment.gpu_items
         }
+        foreach ($name in @('CPU only', 'GPU only', 'ATLAS sharing')) {
+            $rows = @($d.completed | Where-Object mode -eq $name)
+            if ($rows.Count) {
+                $latest = $rows[-1]
+                $lines += '{0} | {1}/{2} checked. Last grouping time {3:N2} ms.' -f $name, $rows.Count, $d.repeats, $latest.workload_ms
+            }
+        }
+        $liveInfo.Text = ($lines -join "`r`n")
     }
+    $script:liveStamp = $stamp
+    $script:liveUpdates++
 }
 
 $builds = @(Get-ChildItem -LiteralPath (Join-Path $root 'build') -Directory -ErrorAction SilentlyContinue |
@@ -381,6 +475,11 @@ function Start-Demo([bool]$FullSuite) {
             $views.SelectedTab = $liveTab
             $liveMap.Series.Clear(); $liveTrace.Series.Clear(); $livePerf.Series.Clear()
             $liveInfo.Text = 'Getting your computer ready. The live results will appear here...'
+            $script:decisionHistory = @()
+            $script:currentExplanation = 'Waiting for the first trial.'
+            while ($decisionPicker.Items.Count -gt 1) { $decisionPicker.Items.RemoveAt($decisionPicker.Items.Count - 1) }
+            $decisionPicker.SelectedIndex = 0
+            Show-Explanation
             $machineText.Text = if ($monitor.Checked) { 'Waiting for readings from this run.' } else { 'Machine readings are off for this run.' }
         } else { $views.SelectedTab = $logTab }
         $script:lastLog = Join-Path $folder 'native-checks.txt'
@@ -431,7 +530,7 @@ $timer.Add_Tick({
             }
             $progressFile = Join-Path $script:runFolder 'progress.json'
             if (Test-Path -LiteralPath $progressFile) {
-                $message = (Get-Content -LiteralPath $progressFile -Raw | ConvertFrom-Json).message
+                $message = (Read-Snapshot $progressFile).message
                 $status.Text = $message.Replace('CPU only', 'Main processor').Replace('GPU only', 'Graphics processor').Replace('ATLAS sharing', 'Both together').Replace('grouping rounds', 'grouping steps')
             }
             Show-Live $script:runFolder
@@ -549,6 +648,12 @@ if ($SmokeTest) {
     Write-Output $log.Text
     Write-Output "Live dashboard updates: $script:liveUpdates"
     if ($script:lastExit -eq 0 -and $script:liveUpdates -lt 1) { throw 'No live computation snapshots reached the dashboard.' }
+    if ($script:lastExit -eq 0) {
+        if ($decisionPicker.Items.Count -lt 2) { throw 'No ATLAS allocation decisions reached the dashboard.' }
+        if ($liveInfo.Text -notmatch 'Lowest median whole-command time') { throw 'Final timing comparison is missing.' }
+        $decisionPicker.SelectedIndex = 1
+        if ($explanationText.Text -notmatch 'After step') { throw 'Allocation decision history could not be inspected.' }
+    }
     $timer.Dispose()
     $form.Dispose()
     exit $script:lastExit

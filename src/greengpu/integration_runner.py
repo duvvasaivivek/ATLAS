@@ -79,7 +79,7 @@ class TelemetryPump:
             raise RuntimeError("Telemetry thread failed to stop")
 
 
-def execute(binary,dataset,field,case,backend,prefix=(),timeout=120,on_iteration=None,on_process=None,cancelled=None):
+def execute(binary,dataset,field,case,backend,prefix=(),timeout=120,on_iteration=None,on_process=None,cancelled=None,*,on_feedback=None):
     cfg=Config(**case["integration"]);engine=Coordinator(cfg);lifecycle=Lifecycle()
     if case["workload"]=="kmeans":
         args=[str(cfg.initial_cpu_items),str(case["steps"]),str(case["workers"]),case["native_mode"],"feedback"]
@@ -130,6 +130,8 @@ def execute(binary,dataset,field,case,backend,prefix=(),timeout=120,on_iteration
                     if boundary:process.stdin.write(str(decision["next_cpu_items"])+"\n");process.stdin.flush()
                     lifecycle.move("execute")
                 if on_iteration is not None:on_iteration(deepcopy(row))
+                if on_feedback is not None:
+                    on_feedback(deepcopy(row), deepcopy(barriers[-1]))
             returncode=process.wait(timeout=5)
             if returncode or expired.is_set() or lifecycle.state!="finalize":raise RuntimeError("Incomplete/failed native workload")
         except BaseException as error:

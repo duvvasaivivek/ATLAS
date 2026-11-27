@@ -20,19 +20,42 @@ sys.path.insert(0, str(ROOT / 'src'))
 from greengpu import kmeans_reference as kr
 from greengpu.integration import Config
 from greengpu.integration_runner import execute, replay_decisions
-from greengpu.demo_evidence import Monitor, import_points, step_evidence
+from greengpu.demo_evidence import Monitor, explain_step, import_points, step_evidence
 
 
 def write(path, data):
     temporary = path.with_suffix('.tmp')
     temporary.write_text(json.dumps(data, allow_nan=False), encoding='utf-8')
-    temporary.replace(path)
+    try:
+        # A Windows reader or scanner can briefly hold a live snapshot on a WSL mount.
+        if path.name in ('live.json', 'progress.json', 'machine-live.json'):
+            for delay in (.01, .02, .04):
+                try:
+                    temporary.replace(path)
+                    return
+                except PermissionError:
+                    time.sleep(delay)
+        temporary.replace(path)
+    finally:
+        temporary.unlink(missing_ok=True)
+
+
+def explain_comparison(modes, repeats):
+    def leader(metric):
+        best = min(row[metric] for row in modes)
+        labels = ' and '.join(row['mode'] for row in modes if row[metric] == best)
+        return f'{labels} at {best:.2f} ms'
+
+    return [f'Lowest median grouping time: {leader("workload_ms")}.',
+            f'Lowest median whole-command time: {leader("command_ms")}.',
+            f'Medians use {repeats} {"try" if repeats == 1 else "tries"} per mode. Whole-command time includes startup, warmup and final validation.',
+            'All trials passed correctness checks and produced matching groups.']
 
 
 def presentation(data):
     """Portable presentation: real measured results, embedded sample, no server."""
     payload = json.dumps(data, allow_nan=False).replace('<', '\\u003c')
-    fastest = min(data['modes'], key=lambda row: row['workload_ms'])
+    comparison = ''.join(f'<p>{html.escape(line)}</p>' for line in explain_comparison(data['modes'], data['repeats'])[:3])
     rows = ''.join(f'<tr><th>{html.escape(row["mode"])}</th><td>{row["workload_ms"]:.2f}</td>'
                    f'<td>{row["min_ms"]:.2f}–{row["max_ms"]:.2f}</td><td>{row["command_ms"]:.2f}</td></tr>' for row in data['modes'])
     template = '''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -47,7 +70,7 @@ def presentation(data):
 <div class="legend" id="legend"></div><small id="sample"></small><p><small>Coordinates are synthetic east–west / north–south units. This groups locations; it does not plan vehicle routes.</small></p></section>
 <section class="panel"><h2>2 / Compare the same job three ways</h2><p>CPU only, GPU only, then ATLAS adjusting the share. Identical input and 32 rounds in every trial.</p>
 <svg id="times" viewBox="0 0 500 300" role="img" aria-label="Median measured workload time by execution mode"></svg>
-<p class="callout"><strong>Fastest in this demonstration: __FASTEST__.</strong><br>Sharing is useful only when the saved work outweighs coordination and transfer costs.</p><small>Median of three shuffled repetitions. Lower time is better. Bars show workload time, excluding startup, warmup and final independent validation.</small></section>
+<div class="callout">__COMPARISON__</div><small>Bars show grouping time, measured inside the workload loop. Lower time is better.</small></section>
 <section class="panel"><h2>3 / What did ATLAS actually change?</h2><svg id="trace" viewBox="0 0 500 230" role="img" aria-label="Actual CPU workload share over grouping rounds"></svg>
 <p><strong id="changes"></strong> allocation changes in the first ATLAS trial. The GPU gets the remaining share: 30% CPU means 70% GPU.</p><small>These are recorded decisions, not a live animation or proof of compute overlap. Allocation timing is measured; CPU/GPU capacity is not assumed constant.</small></section>
 <section class="panel"><h2>4 / Did the answer stay correct?</h2><div class="metric">Same groups. All modes.</div><p>Every trial passed a native independent reference check. Final memberships and group centers match across all execution modes and repetitions. Controller decisions were replayed.</p>
@@ -62,7 +85,7 @@ def presentation(data):
 <p id="origin"></p><label>Try <select id="trial"></select></label>
 <label>Step <select id="step"></select></label>
 <label>Input row <input id="row" type="number" min="1" value="1"></label>
-<p id="placement" aria-live="polite"></p><p id="decision"></p><p id="timing"></p><p id="transfers"></p>
+<p id="placement" aria-live="polite"></p><h3>Why this split?</h3><p id="decision"></p><small>Controller completion times run from the start of each step to the finish of each processor's assigned share.</small><p id="timing"></p><p id="transfers"></p>
 <details><summary>Technical details</summary><pre id="technical"></pre></details>
 <p>Input row numbers match the exported <a href="groups.csv">groups.csv</a> when opened from the run folder.</p>
 </section>
@@ -82,16 +105,6 @@ const fill = (select, labels) => select.replaceChildren(...labels.map((label, i)
 const fmt = (v, unit) => v == null ? 'Unavailable' : v.toFixed(2) + ' ' + unit;
 const trial = get('trial'), step = get('step'), row = get('row');
 const modes = {'CPU only':'Main processor alone', 'GPU only':'Graphics processor alone', 'ATLAS sharing':'Both working together'};
-const reasons = {
-  collect_epoch:'Collecting timings before the next decision.',
-  collect_native_batch:'Collecting timings before the next decision.',
-  hold_static:'This comparison uses a fixed assignment.',
-  hold_equal_time:'Both shares finished in the same measured time.',
-  hold_quantized:'The nearest allowed split stayed the same.',
-  hold_invalid_observation:'The controller held the split because the timing was unusable.',
-  proportional_adjust:'ATLAS used both completion times to calculate the next split.',
-  workload_complete:'This was the last step.'
-};
 get('origin').textContent = d.synthetic ? 'Input: generated sample locations (repeatable seed 1729).' : 'Input: imported CSV, ' + d.input.name;
 row.max = d.size;
 fill(trial, d.step_trials.map(t => modes[t.mode] + ' · ' + t.trial));
@@ -102,8 +115,7 @@ function inspect() {
   const cpu = s.cpu_items ? 'main processor handled rows 1–' + s.cpu_items : 'main processor handled no rows';
   const gpu = s.gpu_items ? 'graphics processor handled rows ' + (s.cpu_items + 1) + '–' + d.size : 'graphics processor handled no rows';
   get('placement').textContent = (valid ? 'Row ' + r + ' went to the ' + (r <= s.cpu_items ? 'main processor. ' : 'graphics processor. ') : 'Choose a row from 1 to ' + d.size + '. ') + 'This step: ' + cpu + '; ' + gpu + '.';
-  const next = s.decision === 'workload_complete' || s.next_cpu_items == null ? '' : ' Next step: ' + s.next_cpu_items + ' rows assigned to the main processor.';
-  get('decision').textContent = (reasons[s.decision] || (s.decision ? 'See the recorded decision below.' : 'Decision unavailable.')) + next;
+  get('decision').textContent = s.explanation;
   const start = t.steps[0].release_monotonic_ns;
   const offset = start == null || s.release_monotonic_ns == null ? null : (s.release_monotonic_ns - start) / 1e6;
   get('timing').textContent = 'Started ' + fmt(offset, 'ms') + ' after the first step · Step duration: ' + fmt(s.step_ms, 'ms') + ' · Main processor work: ' + fmt(s.cpu_work_ms, 'ms') + ' · Graphics dispatch to returned results: ' + fmt(s.gpu_host_ms, 'ms') + ' · Combine results: ' + fmt(s.merge_ms, 'ms');
@@ -112,7 +124,12 @@ function inspect() {
   get('transfers').textContent = 'Sent to the graphics processor: ' + fmt(upload, 'bytes') + ' · Returned from the graphics processor: ' + fmt(download, 'bytes');
   get('technical').textContent = JSON.stringify({linux_pid:t.linux_pid, pci_bus_id:t.pci_bus_id, ...s}, null, 2);
 }
-trial.onchange = () => { fill(step, d.step_trials[Number(trial.value)].steps.map(s => s.step)); inspect(); };
+trial.onchange = () => {
+  const t = d.step_trials[Number(trial.value)];
+  fill(step, t.steps.map(s => t.mode === 'ATLAS sharing' && s.policy ? s.step + ' · Allocation decision' : s.step));
+  if (t.mode === 'ATLAS sharing') step.value = Math.max(0, t.steps.findIndex(s => s.policy));
+  inspect();
+};
 step.onchange = row.oninput = inspect;
 trial.value = Math.max(0, d.step_trials.findIndex(t => t.mode === 'ATLAS sharing'));
 trial.onchange();
@@ -149,7 +166,7 @@ let grouped=false;
     ).replace('(r.round-1)/31', '(r.round-1)/Math.max(1,d.iterations-1)').replace(
         'Grouping round 1 → 32', f"Grouping step 1 to {data['iterations']}"
     ).replace('</script></html>', inspector + '</script></html>')
-    return template.replace('__ROWS__', rows).replace('__FASTEST__', html.escape(fastest['mode'])).replace(
+    return template.replace('__ROWS__', rows).replace('__COMPARISON__', comparison).replace(
         '__DATE__', time.strftime('%Y-%m-%d %H:%M UTC', time.gmtime())).replace('__DATA__', payload)
 
 
@@ -183,6 +200,7 @@ def run(build, output, size, repeats=3, input_csv=None, monitor_machine=False, r
     final = None
     samples = []
     steps = []
+    decision_history = []
     performance_traces = {name: [] for name, _, _ in modes}
 
     def publish(sample):
@@ -207,15 +225,21 @@ def run(build, output, size, repeats=3, input_csv=None, monitor_machine=False, r
                         'size': size, 'points': [points[i] for i in sample], 'trace': [],
                         'performance_traces': {mode: list(entries) for mode, entries in performance_traces.items()},
                         'centroids': centers, 'completed': list(trials), 'labels': None,
-                        'input_kind': origin['kind'], 'rounds': rounds}
+                        'input_kind': origin['kind'], 'rounds': rounds, 'repeats': repeats,
+                        'decision_history': decision_history}
                 write(output / 'live.json', live)
                 last_update = 0
                 mode_perf = []
-                def observe(row):
+                def observe(row, barrier):
                     nonlocal last_update
                     live['phase'] = 'computing'
                     live['round'] = row['index'] + 1
-                    live['assignment'] = step_evidence(row, {}, size)
+                    assignment = step_evidence(row, barrier, size)
+                    assignment['explanation'] = explain_step(name, assignment)
+                    live['assignment'] = assignment
+                    if name == 'ATLAS sharing' and assignment['policy'] is not None:
+                        decision_history.append({'trial': run_id, 'block': block + 1, 'step': assignment['step'],
+                                                 'explanation': assignment['explanation']})
                     live['trace'].append({'round': row['index'] + 1, 'cpu_percent': 100 * row['cpu_items'] / size})
                     release_ns = row.get('release_ns')
                     end_ns = row.get('end_ns')
@@ -245,7 +269,7 @@ def run(build, output, size, repeats=3, input_csv=None, monitor_machine=False, r
                         monitor.target = (run_id, native_pid)
 
                 try:
-                    result = execute(binary, dataset, None, case, None, timeout=90, on_iteration=observe,
+                    result = execute(binary, dataset, None, case, None, timeout=90, on_feedback=observe,
                                      on_process=started, cancelled=cancel_file.exists)
                 finally:
                     if monitor:
@@ -275,10 +299,13 @@ def run(build, output, size, repeats=3, input_csv=None, monitor_machine=False, r
                 ]
                 barriers = result.get('barriers', [])
                 configuration = next((row for row in rows if row.get('kind') == 'configuration'), {})
+                evidence = [step_evidence(row, barriers[i] if i < len(barriers) else {}, size)
+                            for i, row in enumerate(iterations)]
+                for step in evidence:
+                    step['explanation'] = explain_step(name, step)
                 steps.append({'trial': run_id, 'mode': name, 'linux_pid': pid,
                               'pci_bus_id': configuration.get('pci_bus_id'),
-                              'steps': [step_evidence(row, barriers[i] if i < len(barriers) else {}, size)
-                                        for i, row in enumerate(iterations)]})
+                              'steps': evidence})
                 trials.append({'mode': name, 'block': block, 'record': run_id + '.json',
                                'workload_ms': summary['loop_elapsed_ns'] / 1e6,
                                'command_ms': result['elapsed_ns'] / 1e6})
@@ -308,7 +335,7 @@ def run(build, output, size, repeats=3, input_csv=None, monitor_machine=False, r
                               'command_ms': statistics.median(r['command_ms'] for r in rows)})
         result = {'status': 'passed', 'size': size, 'repeats': repeats, 'iterations': rounds,
                   'synthetic': input_csv is None, 'seed': origin.get('seed'), 'points': [points[i] for i in sample], **final,
-                  'evidence_version': 1, 'input': origin, 'step_trials': steps,
+                  'evidence_version': 2, 'input': origin, 'step_trials': steps,
                   'machine_samples': samples, 'monitoring': monitor_machine,
                   'monitoring_error': monitor.error if monitor else None,
                   'machine': {'system': platform.release(), 'cpu': cpu_name(),
@@ -323,13 +350,13 @@ def run(build, output, size, repeats=3, input_csv=None, monitor_machine=False, r
                   'scope': 'Illustrative single-host comparison, automatic clocks, 4 CPU workers, including live-observation overhead. Not a statistical performance qualification or delivery-route optimizer.',
                   'energy_savings': None}
         write(output / 'summary.json', result)
-        live.update(phase='complete', completed=list(trials),
-                    trace=trace if trace is not None else live.get('trace', []),
-                    performance_traces={mode: list(entries) for mode, entries in performance_traces.items()})
-        write(output / 'live.json', live)
         (output / 'demo.html').write_text(presentation(result), encoding='utf-8')
         inventory = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in output.iterdir() if p.is_file() and p.name not in ('progress.json', 'live.json', 'checksums.json', 'machine-live.json', 'stop.request')}
         write(output / 'checksums.json', inventory)
+        live.update(phase='complete', completed=list(trials), trace=trace, labels=final['labels'],
+                    centroids=final['centroids'], comparison=explain_comparison(summaries, repeats),
+                    performance_traces={mode: list(entries) for mode, entries in performance_traces.items()})
+        write(output / 'live.json', live)
         progress('Completed. All grouping results match; comparison ready.')
         return result
     except Exception as error:

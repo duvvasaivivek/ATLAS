@@ -65,11 +65,11 @@ class DemoWorkloadTests(unittest.TestCase):
 
     def test_live_snapshots_arrive_before_trial_validation(self):
         observed = []
-        def streaming_execute(*args, on_iteration, **kwargs):
+        def streaming_execute(*args, on_feedback, **kwargs):
             result = record()
             for row in map(json.loads, result['stdout'].splitlines()):
                 if row['kind'] == 'iteration':
-                    on_iteration(row)
+                    on_feedback(row, {})
             snapshot = json.loads((self.output / 'live.json').read_text())
             observed.append(snapshot)
             return result
@@ -81,6 +81,48 @@ class DemoWorkloadTests(unittest.TestCase):
         self.assertTrue(all(len(s['trace']) == 32 for s in observed))
         self.assertEqual(observed[0]['trace'][-1]['cpu_percent'], 50)
         self.assertEqual(json.loads((self.output / 'live.json').read_text())['phase'], 'complete')
+
+    def test_decision_window_and_history_survive_skipped_snapshots(self):
+        observed = []
+
+        def streaming_execute(*args, on_feedback, **kwargs):
+            result = record()
+            sharing = args[3]['integration']['allocation_policy'] == 'paper_proportional'
+            barriers = []
+            for row in map(json.loads, result['stdout'].splitlines()):
+                if row['kind'] != 'iteration':
+                    continue
+                barrier = {}
+                if sharing and row['index'] in (3, 7):
+                    reason = 'proportional_adjust' if row['index'] == 3 else 'hold_quantized'
+                    barrier = {'input': {'observation': {'t_cpu': .0001, 't_gpu': .0009}},
+                               'decision': {'allocation_reason': reason,
+                                            'next_cpu_items': 1 if row['index'] == 3 else 2,
+                                            'allocation': {'policy': 'paper_proportional',
+                                                           'observation': {'t_cpu': .004, 't_gpu': .002,
+                                                                           'source_iterations': [0, 1, 2, 3]}}}}
+                barriers.append(barrier)
+                on_feedback(row, barrier)
+            result['barriers'] = barriers
+            observed.append(json.loads((self.output / 'live.json').read_text()))
+            return result
+
+        with patch.object(demo, 'execute', side_effect=streaming_execute), patch.object(demo, 'replay_decisions'), \
+             patch.object(demo.time, 'monotonic', return_value=1):
+            result = demo.run(self.build, self.output, 4, repeats=1)
+        snapshot = next(value for value in observed if value['mode'] == 'ATLAS sharing')
+        self.assertEqual(snapshot['round'], 32)
+        self.assertEqual([item['step'] for item in snapshot['decision_history']], [4, 8])
+        explanation = snapshot['decision_history'][0]['explanation']
+        self.assertIn('shifts 1 row to the GPU', explanation)
+        self.assertIn('CPU 4.000 ms, GPU 2.000 ms', explanation)
+        self.assertIn('rounded to the same', snapshot['decision_history'][1]['explanation'])
+        step = next(t for t in result['step_trials'] if t['mode'] == 'ATLAS sharing')['steps'][3]
+        self.assertEqual(step['cpu_completion_ms'], .1)
+        self.assertEqual(step['explanation'], explanation)
+        final_live = json.loads((self.output / 'live.json').read_text())
+        self.assertEqual(final_live['decision_history'], snapshot['decision_history'])
+        self.assertIn('Lowest median whole-command time:', final_live['comparison'][1])
 
     def test_import_preserves_row_identity_in_export(self):
         dataset = self.root / 'my locations.csv'
@@ -114,11 +156,11 @@ class DemoWorkloadTests(unittest.TestCase):
 
         records = [timed_record(500_000), timed_record(200_000), timed_record(300_000)]
         snapshots = []
-        def streaming_execute(*args, on_iteration, **kwargs):
+        def streaming_execute(*args, on_feedback, **kwargs):
             res = records.pop(0)
             for row in map(json.loads, res['stdout'].splitlines()):
                 if row['kind'] == 'iteration':
-                    on_iteration(row)
+                    on_feedback(row, {})
             snapshots.append(json.loads((self.output / 'live.json').read_text()))
             return res
 
